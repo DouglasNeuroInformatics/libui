@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Label } from './Label';
 
-describe('Label ', () => {
+describe('Label', () => {
   it('should render', async () => {
     render(<Label>My Label</Label>);
     expect(screen.getByText('My Label')).toBeInTheDocument();
