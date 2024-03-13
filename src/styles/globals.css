@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: theme(colors.slate.100);
+    --foreground: theme(colors.slate.900);
+
+    --muted: theme(colors.slate.200);
+    --muted-foreground: theme(colors.slate.700);
+
+    --accent: theme(colors.slate.200);
+    --accent-foreground: theme(colors.slate.700);
+
+    --popover: theme(colors.white);
+    --popover-foreground: theme(colors.slate.900);
+
+    --border: theme(colors.slate.300);
+    --input: theme(colors.slate.300);
+
+    --card: theme(colors.white);
+    --card-foreground: theme(colors.slate.900);
+
+    --primary: theme(colors.slate.800);
+    --primary-foreground: theme(colors.slate.100);
+
+    --secondary: theme(colors.slate.50);
+    --secondary-foreground: theme(colors.slate.900);
+
+    --destructive: theme(colors.red.600);
+    --destructive-foreground: theme(colors.white);
+
+    --ring: theme(colors.sky.500);
+
+    --radius: 0.5rem;
+  }
+
+  [data-mode='dark'] {
+    --background: theme(colors.slate.900);
+    --foreground: theme(colors.slate.100);
+
+    --muted: theme(colors.slate.800);
+    --muted-foreground: theme(colors.slate.300);
+
+    --accent: theme(colors.slate.800);
+    --accent-foreground: theme(colors.slate.300);
+
+    --popover: theme(colors.slate.800);
+    --popover-foreground: theme(colors.slate.100);
+
+    --border: theme(colors.slate.700);
+    --input: theme(colors.slate.700);
+
+    --card: theme(colors.slate.800);
+    --card-foreground: theme(colors.slate.100);
+
+    --primary: theme(colors.sky.700);
+    --primary-foreground: theme(colors.slate.100);
+
+    --secondary: theme(colors.slate.800);
+    --secondary-foreground: theme(colors.slate.100);
+
+    --ring: theme(colors.slate.800);
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+}

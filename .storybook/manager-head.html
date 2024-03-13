@@ -1,0 +1,22 @@
+<script>
+  window.addEventListener('load', () => {
+    const logo = document.querySelector('.sidebar-header img');
+    logo.insertAdjacentText('afterend', 'CoreUI');
+  });
+</script>
+<style>
+  .sidebar-header a[title='CoreUI'] {
+    align-items: center;
+    display: flex !important;
+    font-weight: 600;
+    gap: 0.5rem;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+  }
+
+  .sidebar-header img {
+    filter: contrast(75%) brightness(125%);
+    height: 2.5rem;
+    width: auto;
+  }
+</style>
