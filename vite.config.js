@@ -7,7 +7,7 @@ import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
 
-export default defineConfig(() => ({
+export default defineConfig({
   css: {
     postcss: {
       plugins: [autoprefixer, tailwindcss]
@@ -35,4 +35,4 @@ export default defineConfig(() => ({
     setupFiles: [path.resolve(import.meta.dirname, 'src/testing/setup-tests.ts')],
     watch: false
   }
-}));
+});
