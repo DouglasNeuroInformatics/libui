@@ -27,6 +27,7 @@ export const Default: Story = {
       </>
     ),
     collapsible: true,
+    id: 'accordion',
     type: 'single'
   }
 };
