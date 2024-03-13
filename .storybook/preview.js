@@ -1,6 +1,6 @@
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
-// import i18n from '../src/i18n';
+import i18n from '../src/i18n';
 
 import '../src/styles/globals.css';
 
@@ -30,8 +30,8 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
-    }
-    // i18n
+    },
+    i18n
   }
 };
 

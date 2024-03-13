@@ -1,9 +1,3 @@
-import path from 'node:path';
-
-import autoprefixer from 'autoprefixer';
-import tailwindcss from 'tailwindcss';
-import { mergeConfig } from 'vite';
-
 /** @type {import('@storybook/react-vite').StorybookConfig} */
 const config = {
   addons: [
@@ -13,6 +7,9 @@ const config = {
     '@storybook/addon-themes',
     'storybook-react-i18next'
   ],
+  core: {
+    disableTelemetry: true
+  },
   docs: {
     autodocs: 'tag'
   },
@@ -20,22 +17,7 @@ const config = {
     name: '@storybook/react-vite',
     options: {}
   },
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  viteFinal(config) {
-    return mergeConfig(config, {
-      css: {
-        postcss: {
-          plugins: [autoprefixer(), tailwindcss()]
-        }
-      },
-      resolve: {
-        alias: {
-          // eslint-disable-next-line no-undef
-          '@': path.resolve(__dirname, '..', 'src')
-        }
-      }
-    });
-  }
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)']
 };
 
 export default config;

@@ -5,7 +5,7 @@ import { Button } from './Button';
 
 type Story = StoryObj<typeof Button>;
 
-export default { component: Button } satisfies Meta<typeof Button>;
+export default { component: Button, tags: ['autodocs'] } satisfies Meta<typeof Button>;
 
 export const Primary: Story = {
   args: {
