@@ -42,7 +42,15 @@ export const ArrowToggle = React.forwardRef<HTMLButtonElement, ArrowToggleProps>
   }, [position, rotation, isToggled]);
 
   return (
-    <Button className={cn('h-6 w-6', className)} ref={ref} size="icon" type="button" variant={variant} {...props}>
+    <Button
+      className={cn('h-6 w-6', className)}
+      data-testid="arrow-toggle"
+      ref={ref}
+      size="icon"
+      type="button"
+      variant={variant}
+      {...props}
+    >
       <ChevronUpIcon
         className="transform-gpu transition-transform"
         data-testid="arrow-up-icon"
