@@ -9,6 +9,14 @@
     "email": "support@douglasneuroinformatics.ca"
   },
   "license": "LGPL-3.0",
+  "homepage": "https://github.com/DouglasNeuroInformatics/libui/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DouglasNeuroInformatics/libui/.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DouglasNeuroInformatics/libui/issues"
+  },
   "keywords": [
     "React",
     "TailwindCSS"
