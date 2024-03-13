@@ -18,21 +18,5 @@ export default defineConfig(() => ({
     alias: {
       '@': path.resolve(import.meta.dirname, 'src')
     }
-  },
-  test: {
-    coverage: {
-      exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx'],
-      include: ['src/**/*'],
-      provider: 'v8',
-      thresholds: {
-        branches: 100,
-        functions: 100,
-        lines: 100,
-        statements: 100
-      }
-    },
-    environment: 'happy-dom',
-    setupFiles: [path.resolve(import.meta.dirname, 'src/testing/setup-tests.ts')],
-    watch: false
   }
 }));
