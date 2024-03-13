@@ -9,8 +9,19 @@ export default {
     ['@semantic-release/commit-analyzer', { preset }],
     ['@semantic-release/release-notes-generator', { preset }],
     '@semantic-release/changelog',
-    '@semantic-release/npm',
-    '@semantic-release/github',
+    [
+      '@semantic-release/npm',
+      {
+        npmPublish: true,
+        tarballDir: 'dist'
+      }
+    ],
+    [
+      '@semantic-release/github',
+      {
+        assets: 'dist/*.tgz'
+      }
+    ],
     [
       '@semantic-release/git',
       {
