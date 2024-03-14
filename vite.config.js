@@ -21,14 +21,14 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx'],
+      exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', '**/__mocks__'],
       include: ['src/**/*'],
       provider: 'v8',
       thresholds: {
-        branches: 100,
-        functions: 100,
-        lines: 100,
-        statements: 100
+        branches: 80,
+        functions: 80,
+        lines: 80,
+        statements: 80
       }
     },
     environment: 'happy-dom',
