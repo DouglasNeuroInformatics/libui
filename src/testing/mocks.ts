@@ -6,12 +6,12 @@ import { vi } from 'vitest';
  * @example
  * mockMatchMedia(false)
  */
-export const mockMatchMedia = (matches: boolean): void => {
+export const mockMatchMedia = (matches: ((query: string) => boolean) | boolean): void => {
   vi.spyOn(window, 'matchMedia').mockImplementation((query) => ({
     addEventListener: vi.fn(),
     addListener: vi.fn(),
     dispatchEvent: vi.fn(),
-    matches,
+    matches: typeof matches === 'boolean' ? matches : matches(query),
     media: query,
     onchange: null,
     removeEventListener: vi.fn(),
