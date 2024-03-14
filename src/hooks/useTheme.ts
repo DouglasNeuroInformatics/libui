@@ -1,11 +1,22 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { isBrowser } from '@/utils';
+
 type Theme = 'dark' | 'light';
 
 type UpdateTheme = (theme: Theme) => void;
 
+/** @private */
+const DEFAULT_THEME: Theme = 'light';
+
+/** @private */
 const THEME_ATTRIBUTE = 'data-mode';
+
+/** @private */
 const THEME_KEY = 'theme';
+
+/** @private */
+const SYS_DARK_MEDIA_QUERY = '(prefers-color-scheme: dark)';
 
 /**
  * Returns the current theme and a function to update the current theme
@@ -16,15 +27,15 @@ const THEME_KEY = 'theme';
 function useTheme(): readonly [Theme, UpdateTheme] {
   // Initial theme value is based on the value saved in local storage or the system theme
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') {
-      return 'light';
+    if (!isBrowser()) {
+      return DEFAULT_THEME;
     }
     const savedTheme = window.localStorage.getItem(THEME_KEY);
     let initialTheme: Theme;
     if (savedTheme === 'dark' || savedTheme === 'light') {
       initialTheme = savedTheme;
     } else {
-      initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      initialTheme = window.matchMedia(SYS_DARK_MEDIA_QUERY).matches ? 'dark' : 'light';
     }
     document.documentElement.setAttribute(THEME_ATTRIBUTE, initialTheme);
     return initialTheme;
@@ -61,4 +72,4 @@ function useTheme(): readonly [Theme, UpdateTheme] {
   return [theme, updateTheme] as const;
 }
 
-export { type Theme, useTheme };
+export { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_ATTRIBUTE, THEME_KEY, type Theme, useTheme };

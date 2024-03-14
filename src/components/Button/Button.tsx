@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Slot } from '@radix-ui/react-slot';
+import { Slot, Slottable } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
@@ -48,14 +48,14 @@ export type ButtonProps = Simplify<
 >;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { asChild = false, children, className, label, size = 'md', variant = 'primary', ...props },
+  { asChild, children, className, label, size = 'md', variant = 'primary', ...props },
   ref
 ) {
   const Comp = asChild ? Slot : 'button';
   return (
     <Comp className={cn(buttonVariants({ className, size, variant }))} ref={ref} {...props}>
       {label}
-      {children}
+      <Slottable>{children}</Slottable>
     </Comp>
   );
 });

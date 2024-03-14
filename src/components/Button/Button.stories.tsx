@@ -5,7 +5,14 @@ import { Button } from './Button';
 
 type Story = StoryObj<typeof Button>;
 
-export default { component: Button } satisfies Meta<typeof Button>;
+export default {
+  args: {
+    asChild: false,
+    size: 'md'
+  },
+  component: Button,
+  tags: ['autodocs']
+} satisfies Meta<typeof Button>;
 
 export const Primary: Story = {
   args: {
@@ -40,5 +47,12 @@ export const Icon: Story = {
     children: <DownloadIcon />,
     size: 'icon',
     variant: 'outline'
+  }
+};
+
+export const AsChild: Story = {
+  args: {
+    asChild: true,
+    children: <a href="https://google.com">My Link</a>
   }
 };

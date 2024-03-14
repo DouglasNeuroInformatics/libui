@@ -24,13 +24,13 @@ export default create({
   brandImage: logo,
   brandTarget: '_self',
 
-  brandTitle: 'CoreUI',
-  brandUrl: 'https://github.com/DouglasNeuroInformatics/core-ui',
+  brandTitle: 'libui',
+  brandUrl: 'https://github.com/DouglasNeuroInformatics/libui',
   buttonBg: colors.sky['700'],
 
   buttonBorder: colors.sky['500'],
   colorPrimary: colors.slate['800'],
-  colorSecondary: colors.slate['500'],
+  colorSecondary: colors.slate['400'],
   fontBase: defaultTheme.fontFamily.sans.join(','),
 
   fontCode: defaultTheme.fontFamily.mono.join(', '),

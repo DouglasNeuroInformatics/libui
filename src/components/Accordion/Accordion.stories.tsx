@@ -4,7 +4,7 @@ import { Accordion } from './Accordion';
 
 type Story = StoryObj<typeof Accordion>;
 
-export default { component: Accordion } as Meta<typeof Accordion>;
+export default { component: Accordion, tags: ['autodocs'] } as Meta<typeof Accordion>;
 
 export const Default: Story = {
   args: {
@@ -27,6 +27,7 @@ export const Default: Story = {
       </>
     ),
     collapsible: true,
+    id: 'accordion',
     type: 'single'
   }
 };
