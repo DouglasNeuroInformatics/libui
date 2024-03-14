@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
+import { isBrowser } from '@/utils';
+
 import { useEventCallback } from './useEventCallback';
 import { useEventListener } from './useEventListener';
 
@@ -26,8 +28,6 @@ type UseSessionStorageOptions<T> = {
   /** A function to serialize the value before storing it. */
   serializer?: (value: T) => string;
 };
-
-const IS_SERVER = typeof window === 'undefined';
 
 /**
  * Custom hook that uses session storage to persist state across page reloads.
@@ -92,7 +92,7 @@ export function useSessionStorage<T>(
     const initialValueToUse = initialValue instanceof Function ? initialValue() : initialValue;
 
     // Prevent build error "window is undefined" but keep keep working
-    if (IS_SERVER) {
+    if (!isBrowser()) {
       return initialValueToUse;
     }
 
@@ -117,7 +117,7 @@ export function useSessionStorage<T>(
   // ... persists the new value to sessionStorage.
   const setValue: Dispatch<SetStateAction<T>> = useEventCallback((value) => {
     // Prevent build error "window is undefined" but keeps working
-    if (IS_SERVER) {
+    if (!isBrowser()) {
       console.warn(`Tried setting sessionStorage key “${key}” even though environment is not a client`);
     }
 
