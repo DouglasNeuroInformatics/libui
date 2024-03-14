@@ -94,14 +94,8 @@ export function useSessionStorage<T>(
     if (!isBrowser()) {
       return initialValueToUse;
     }
-
-    try {
-      const raw = window.sessionStorage.getItem(key);
-      return raw ? deserializer(raw) : initialValueToUse;
-    } catch (error) {
-      console.warn(`Error reading sessionStorage key “${key}”:`, error);
-      return initialValueToUse;
-    }
+    const raw = window.sessionStorage.getItem(key);
+    return raw ? deserializer(raw) : initialValueToUse;
   }, [initialValue, key, deserializer]);
 
   const [storedValue, setStoredValue] = useState(() => {
