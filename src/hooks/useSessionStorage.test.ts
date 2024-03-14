@@ -2,10 +2,13 @@ import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { mockStorage } from '@/testing/mocks';
+import { isBrowser } from '@/utils';
 
 import { useSessionStorage } from './useSessionStorage';
 
 mockStorage('sessionStorage');
+
+vi.mock('@/utils', () => ({ isBrowser: vi.fn(() => true) }));
 
 describe('useSessionStorage()', () => {
   beforeEach(() => {
@@ -13,7 +16,13 @@ describe('useSessionStorage()', () => {
   });
 
   afterEach(() => {
-    vi.clearAllMocks();
+    vi.restoreAllMocks();
+  });
+
+  it('should return the initial state if running on the server', () => {
+    vi.mocked(isBrowser).mockReturnValue(false);
+    const { result } = renderHook(() => useSessionStorage('key', 'value'));
+    expect(result.current[0]).toBe('value');
   });
 
   it('should return the initial state if using a string', () => {
