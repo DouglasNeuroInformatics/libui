@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mockMatchMedia, mockStorage } from '@/testing/mocks';
 import { isBrowser } from '@/utils';
 
-import { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_KEY, useTheme } from './useTheme';
+import { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_ATTRIBUTE, THEME_KEY, useTheme } from './useTheme';
 
 mockStorage('localStorage');
 
@@ -60,5 +60,13 @@ describe('useTheme', () => {
       result.current[1]('dark');
     });
     expect(window.localStorage.getItem(THEME_KEY)).toBe('dark');
+  });
+  it('should print to stderr if there is an unexpected theme mutation', async () => {
+    renderHook(() => useTheme());
+    vi.spyOn(console, 'error');
+    await act(async () => {
+      document.documentElement.setAttribute(THEME_ATTRIBUTE, 'INVALID_THEME');
+    });
+    expect(console.error).toHaveBeenLastCalledWith(expect.stringContaining('INVALID_THEME'));
   });
 });
