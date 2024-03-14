@@ -25,6 +25,7 @@
     "verbatimModuleSyntax": true
   },
   "include": [
+    "__mocks__/**/*",
     ".storybook/*.js",
     "eslint.config.js",
     "prettier.config.js",

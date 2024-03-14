@@ -1,0 +1,82 @@
+{
+  "days": {
+    "monday": {
+      "en": "Monday",
+      "fr": "Lundi"
+    },
+    "tuesday": {
+      "en": "Tuesday",
+      "fr": "Mardi"
+    },
+    "wednesday": {
+      "en": "Wednesday",
+      "fr": "Mercredi"
+    },
+    "thursday": {
+      "en": "Thursday",
+      "fr": "Jeudi"
+    },
+    "friday": {
+      "en": "Friday",
+      "fr": "Vendredi"
+    },
+    "saturday": {
+      "en": "Saturday",
+      "fr": "Samedi"
+    },
+    "sunday": {
+      "en": "Sunday",
+      "fr": "Dimanche"
+    }
+  },
+  "months": {
+    "january": {
+      "en": "January",
+      "fr": "Janvier"
+    },
+    "february": {
+      "en": "February",
+      "fr": "Février"
+    },
+    "march": {
+      "en": "March",
+      "fr": "Mars"
+    },
+    "april": {
+      "en": "April",
+      "fr": "Avril"
+    },
+    "may": {
+      "en": "May",
+      "fr": "Mai"
+    },
+    "june": {
+      "en": "June",
+      "fr": "Juin"
+    },
+    "july": {
+      "en": "July",
+      "fr": "Juillet"
+    },
+    "august": {
+      "en": "August",
+      "fr": "Août"
+    },
+    "september": {
+      "en": "September",
+      "fr": "Septembre"
+    },
+    "october": {
+      "en": "October",
+      "fr": "Octobre"
+    },
+    "november": {
+      "en": "November",
+      "fr": "Novembre"
+    },
+    "december": {
+      "en": "December",
+      "fr": "Décembre"
+    }
+  }
+}
