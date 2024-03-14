@@ -8,6 +8,9 @@ import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  build: {
+    target: 'es2022'
+  },
   css: {
     postcss: {
       plugins: [autoprefixer, tailwindcss]
