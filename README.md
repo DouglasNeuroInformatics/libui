@@ -24,6 +24,7 @@
 
 ![license](https://img.shields.io/github/license/DouglasNeuroInformatics/libui)
 ![version](https://img.shields.io/github/package-json/v/DouglasNeuroInformatics/libui)
+[![codecov](https://codecov.io/gh/DouglasNeuroInformatics/libui/graph/badge.svg?token=t9PkBDS01T)](https://codecov.io/gh/DouglasNeuroInformatics/libui)
 
 </div>
 <hr />
