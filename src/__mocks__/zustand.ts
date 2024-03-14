@@ -1,50 +1,48 @@
 import { act } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 import * as zustand from 'zustand';
+import type { StateCreator, StoreApi, UseBoundStore } from 'zustand';
 
-const { create: actualCreate, createStore: actualCreateStore } = await vi.importActual<typeof zustand>('zustand');
+const { create: zCreate, createStore: zCreateStore } = await vi.importActual<typeof zustand>('zustand');
 
 // a variable to hold reset functions for all stores declared in the app
-export const storeResetFns = new Set<() => void>();
+const STORE_RESET_FUNCTIONS = new Set<() => void>();
 
-const createUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
-  const store = actualCreate(stateCreator);
+function createUncurried<T>(stateCreator: StateCreator<T>): UseBoundStore<StoreApi<T>> {
+  const store = zCreate(stateCreator);
   const initialState = store.getInitialState();
-  storeResetFns.add(() => {
+  STORE_RESET_FUNCTIONS.add(() => {
     store.setState(initialState, true);
   });
   return store;
-};
+}
 
-// when creating a store, we get its initial state, create a reset function and add it in the set
-export const create = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand create mock');
-
-  // to support curried version of create
-  return typeof stateCreator === 'function' ? createUncurried(stateCreator) : createUncurried;
-}) as typeof zustand.create;
-
-const createStoreUncurried = <T>(stateCreator: zustand.StateCreator<T>) => {
-  const store = actualCreateStore(stateCreator);
+function createStoreUncurried<T>(stateCreator: StateCreator<T>): StoreApi<T> {
+  const store = zCreateStore(stateCreator);
   const initialState = store.getInitialState();
-  storeResetFns.add(() => {
+  STORE_RESET_FUNCTIONS.add(() => {
     store.setState(initialState, true);
   });
   return store;
-};
+}
 
-// when creating a store, we get its initial state, create a reset function and add it in the set
-export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) => {
-  console.log('zustand createStore mock');
+export function create<T>(stateCreator: StateCreator<T>): UseBoundStore<StoreApi<T>> {
+  if (typeof stateCreator === 'function') {
+    return createUncurried(stateCreator);
+  }
+  return createUncurried as any;
+}
 
-  // to support curried version of createStore
-  return typeof stateCreator === 'function' ? createStoreUncurried(stateCreator) : createStoreUncurried;
-}) as typeof zustand.createStore;
+export function createStore<T>(stateCreator: StateCreator<T>): StoreApi<T> {
+  if (typeof stateCreator === 'function') {
+    return createStoreUncurried(stateCreator);
+  }
+  return createStoreUncurried as any;
+}
 
-// reset all stores after each test run
 afterEach(() => {
   act(() => {
-    storeResetFns.forEach((resetFn) => {
+    STORE_RESET_FUNCTIONS.forEach((resetFn) => {
       resetFn();
     });
   });
