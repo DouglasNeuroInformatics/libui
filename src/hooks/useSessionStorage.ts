@@ -55,7 +55,6 @@ export function useSessionStorage<T>(
       if (options.serializer) {
         return options.serializer(value);
       }
-
       return JSON.stringify(value);
     },
     [options]
@@ -76,9 +75,9 @@ export function useSessionStorage<T>(
       let parsed: unknown;
       try {
         parsed = JSON.parse(value);
-      } catch (error) {
-        console.error('Error parsing JSON:', error);
-        return defaultValue; // Return initialValue if parsing fails
+      } catch (err) {
+        console.error(`Error parsing JSON: ${(err as Error).message}`);
+        return defaultValue;
       }
 
       return parsed as T;
