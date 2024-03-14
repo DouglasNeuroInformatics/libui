@@ -1,94 +1,70 @@
 import { type i18n as I18n, createInstance } from 'i18next';
+import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';
+import type { EmptyObject, ValueOf } from 'type-fest';
 
-const defaultNS = 'translations';
+import libui from './translations/libui.json';
 
-const resources = {
-  en: {
-    translations: {
-      'datetime.days': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      'datetime.months': [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-      ],
-      'form.append': 'Append',
-      'form.errors.required': 'This field is required',
-      'form.errors.unknown': 'Unknown error',
-      'form.radio.labels.false': 'False',
-      'form.radio.labels.true': 'True',
-      'form.remove': 'Remove',
-      'form.reset': 'Clear',
-      'form.submit': 'Submit',
-      'notifications.types.error': 'Error',
-      'notifications.types.info': 'Info',
-      'notifications.types.success': 'Success',
-      'notifications.types.warning': 'Warning',
-      'searchBar.placeholder': 'Search...',
-      'table.pagination.info': 'Showing {{first}} to {{last}} of {{total}} results',
-      'table.pagination.next': 'Next',
-      'table.pagination.previous': 'Previous'
-    }
-  },
-  fr: {
-    translations: {
-      'datetime.days': ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-      'datetime.months': [
-        'Janvier',
-        'Février',
-        'Mars',
-        'Avril',
-        'Mai',
-        'Juin',
-        'Juillet',
-        'Août',
-        'Septembre',
-        'Octobre',
-        'Novembre',
-        'Décembre'
-      ],
-      'form.append': 'Ajouter',
-      'form.errors.required': 'Ce champ est obligatoire',
-      'form.errors.unknown': 'Erreur inconnue',
-      'form.radio.labels.false': 'Faux',
-      'form.radio.labels.true': 'Vrai',
-      'form.remove': 'Supprimer',
-      'form.reset': 'Réinitialiser',
-      'form.submit': 'Soumettre',
-      'notifications.types.error': 'Erreur',
-      'notifications.types.info': 'Attention',
-      'notifications.types.success': 'Succès',
-      'notifications.types.warning': 'Avertissement',
-      'searchBar.placeholder': 'Rechercher...',
-      'table.pagination.info': 'Affichage de {{first}} à {{last}} sur {{total}} résultats',
-      'table.pagination.next': 'Suivante',
-      'table.pagination.previous': 'Précédente'
+const defaultNS = 'libui' as const;
+const supportedLngs = ['en', 'fr'] as const;
+
+type DefaultNS = typeof defaultNS;
+type Language = (typeof supportedLngs)[number];
+
+type TranslationsDef = Record<string, Record<string, unknown>>;
+
+type TranslatedResource<T = EmptyObject> = {
+  [K in keyof T]: T[K] extends Record<string, unknown>
+    ? T[K] extends Record<Language, unknown>
+      ? ValueOf<T[K]>
+      : TranslatedResource<T[K]>
+    : T[K];
+};
+
+function transformTranslations<T extends Record<string, any>>(translations: T, locale: string) {
+  const isPlainObject = Object.getPrototypeOf(translations) === Object.prototype;
+  if (!isPlainObject) {
+    throw new Error('Invalid format of translations: must be plain object');
+  }
+  const result: Record<string, unknown> = {};
+  for (const key in translations) {
+    const value = translations[key];
+    if (Object.hasOwn(value, locale)) {
+      result[key] = value[locale as keyof typeof value];
+    } else {
+      result[key] = transformTranslations(value, locale);
     }
   }
-} as const;
+  return result;
+}
+
+function createResourcesForLanguage<T extends TranslationsDef>(translations: T, locale: Language) {
+  return mapValues(translations, (value) => transformTranslations(value, locale));
+}
+
+function createResources<T extends TranslationsDef>(translations: T) {
+  return {
+    en: createResourcesForLanguage(translations, 'en'),
+    fr: createResourcesForLanguage(translations, 'fr')
+  } as TranslatedResource<T>;
+}
+
+const resources = createResources({ libui });
 
 const i18n = createInstance({
   defaultNS,
-  fallbackLng: 'en',
+  fallbackLng: 'en' satisfies Language,
   interpolation: {
     escapeValue: false
   },
+  lng: 'en' satisfies Language,
   resources,
   returnObjects: true,
-  supportedLngs: ['en', 'fr']
+  supportedLngs
 }) as I18n;
 
-void i18n.use(initReactI18next).init();
-
-export { defaultNS, resources };
+await i18n.use(initReactI18next).init();
 
 export default i18n;
+
+export type { DefaultNS, Language, TranslatedResource };
