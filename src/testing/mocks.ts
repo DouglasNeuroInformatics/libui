@@ -2,22 +2,21 @@ import { vi } from 'vitest';
 
 /**
  * Mocks the matchMedia API
- * @param {boolean} matches - True for dark, false for light
+ * @param {boolean} matches - whether the media query matches
  * @example
  * mockMatchMedia(false)
  */
 export const mockMatchMedia = (matches: boolean): void => {
-  Object.defineProperty(window, 'matchMedia', {
-    value: vi.fn().mockImplementation((query) => ({
-      addEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
-      matches,
-      media: query,
-      onchange: null,
-      removeEventListener: vi.fn()
-    })),
-    writable: true
-  });
+  vi.spyOn(window, 'matchMedia').mockImplementation((query) => ({
+    addEventListener: vi.fn(),
+    addListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+    matches,
+    media: query,
+    onchange: null,
+    removeEventListener: vi.fn(),
+    removeListener: vi.fn()
+  }));
 };
 
 /**
