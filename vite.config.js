@@ -22,7 +22,6 @@ export default defineConfig({
   test: {
     coverage: {
       exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', '**/__mocks__'],
-      include: ['src/**/*'],
       provider: 'v8',
       thresholds: {
         branches: 80,
@@ -32,7 +31,8 @@ export default defineConfig({
       }
     },
     environment: 'happy-dom',
-    setupFiles: [path.resolve(import.meta.dirname, 'src/testing/setup-tests.ts')],
+    root: path.resolve(import.meta.dirname, 'src'),
+    setupFiles: ['./testing/setup-tests.ts'],
     watch: false
   }
 });

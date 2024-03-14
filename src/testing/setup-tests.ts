@@ -1,7 +1,9 @@
 import { cleanup } from '@testing-library/react';
-import { afterEach } from 'vitest';
+import { afterEach, vi } from 'vitest';
 
 import '@testing-library/jest-dom/vitest';
+
+vi.mock('zustand');
 
 // Since we're not using vitest globals, we need to explicitly call cleanup()
 // for testing-library. See:
