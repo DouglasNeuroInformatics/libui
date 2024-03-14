@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { isBrowser } from '@/utils';
+
 type Theme = 'dark' | 'light';
 
 type UpdateTheme = (theme: Theme) => void;
@@ -16,7 +18,7 @@ const THEME_KEY = 'theme';
 function useTheme(): readonly [Theme, UpdateTheme] {
   // Initial theme value is based on the value saved in local storage or the system theme
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') {
+    if (!isBrowser()) {
       return 'light';
     }
     const savedTheme = window.localStorage.getItem(THEME_KEY);

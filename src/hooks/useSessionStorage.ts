@@ -1,5 +1,7 @@
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react';
 
+import { isBrowser } from '@/utils';
+
 import { useEventCallback } from './useEventCallback';
 import { useEventListener } from './useEventListener';
 
@@ -26,7 +28,7 @@ export function useSessionStorage<T>(key: string, initialValue: T): [T, SetValue
   // parse stored json or return initialValue
   const readValue = useCallback((): T => {
     // Prevent build error "window is undefined" but keep keep working
-    if (typeof window === 'undefined') {
+    if (!isBrowser()) {
       return initialValue;
     }
 
@@ -47,7 +49,7 @@ export function useSessionStorage<T>(key: string, initialValue: T): [T, SetValue
   // ... persists the new value to sessionStorage.
   const setValue: SetValue<T> = useEventCallback((value) => {
     // Prevent build error "window is undefined" but keeps working
-    if (typeof window == 'undefined') {
+    if (!isBrowser()) {
       console.warn(`Tried setting sessionStorage key “${key}” even though environment is not a client`);
     }
 
