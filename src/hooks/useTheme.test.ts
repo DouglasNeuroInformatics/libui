@@ -47,7 +47,7 @@ describe('useTheme', () => {
   it('should change the theme when updated', async () => {
     window.localStorage.setItem(THEME_KEY, 'light');
     const { result } = renderHook(() => useTheme());
-    await act(() => {
+    await act(async () => {
       result.current[1]('dark');
     });
     expect(result.current[0]).toBe('dark');
@@ -56,7 +56,7 @@ describe('useTheme', () => {
   it('should save the theme to localStorage', async () => {
     window.localStorage.setItem(THEME_KEY, 'light');
     const { result } = renderHook(() => useTheme());
-    await act(() => {
+    await act(async () => {
       result.current[1]('dark');
     });
     expect(window.localStorage.getItem(THEME_KEY)).toBe('dark');
