@@ -21,7 +21,7 @@ export default defineConfig({
   },
   test: {
     coverage: {
-      exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', '**/__mocks__'],
+      exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', '__mocks__/*', 'testing/*'],
       provider: 'v8',
       thresholds: {
         branches: 80,
