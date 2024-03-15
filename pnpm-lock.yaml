@@ -133,10 +133,10 @@ devDependencies:
   '@storybook/addon-links':
     specifier: ^8.0.0
     version: 8.0.0(react@18.2.0)
-  '@storybook/addon-themes':
-    specifier: ^8.0.0
-    version: 8.0.0
   '@storybook/blocks':
+    specifier: ^8.0.0
+    version: 8.0.0(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
+  '@storybook/components':
     specifier: ^8.0.0
     version: 8.0.0(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
   '@storybook/icons':
@@ -3788,13 +3788,6 @@ packages:
       { integrity: sha512-8/rs+4UYSQNE2J2CgeeAMJuz7UmJRN4T2Id4oESv7nfM+aUXXF1cOBw1EnofBie2ukVad9lATlsPaNx6ldoWsg== }
     dependencies:
       '@storybook/global': 5.0.0
-      ts-dedent: 2.2.0
-    dev: true
-
-  /@storybook/addon-themes@8.0.0:
-    resolution:
-      { integrity: sha512-JmiDg1lzmO2cW2WchpP8mKIQpO6DI2Gif6AyDQdA9sCn5aWc41899gOEQSP5zubMt4gcIAq40kaooE0GOiXD/g== }
-    dependencies:
       ts-dedent: 2.2.0
     dev: true
 
