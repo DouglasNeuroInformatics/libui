@@ -11,9 +11,9 @@ export type FieldContainerProps = {
 
 export const FieldContainer = ({ children, description, error }: FieldContainerProps) => {
   return (
-    <div className="space-y-1 border">
+    <div className="space-y-2">
       <div className="flex w-full">
-        <div className="flex flex-grow flex-col">{children}</div>
+        <div className="flex flex-grow flex-col space-y-2">{children}</div>
         {description && <FieldDescription>{description}</FieldDescription>}
       </div>
       {error && <ErrorMessage>{error}</ErrorMessage>}
