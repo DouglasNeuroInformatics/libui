@@ -11,7 +11,7 @@ export default { component: BinaryField } as Meta<typeof BinaryField>;
 export const Radio: Story = {
   decorators: [
     (Story) => {
-      const [value, setValue] = useState<boolean | undefined>(false);
+      const [value, setValue] = useState<boolean | undefined>();
       return (
         <Story
           args={{
