@@ -24,8 +24,8 @@ const ExampleToolbar = React.memo(function ExampleToolbar() {
       }}
     >
       {match(theme)
-        .with('dark', () => <SunIcon />)
-        .with('light', () => <MoonIcon />)
+        .with('dark', () => <SunIcon height={14} width={14} />)
+        .with('light', () => <MoonIcon height={14} width={14} />)
         .exhaustive()}
     </IconButton>
   );
