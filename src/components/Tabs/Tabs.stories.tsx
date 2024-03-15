@@ -8,7 +8,7 @@ import { Tabs } from './Tabs';
 
 type Story = StoryObj<typeof Tabs>;
 
-export default { component: Tabs } as Meta<typeof Tabs>;
+export default { component: Tabs, tags: ['autodocs'] } as Meta<typeof Tabs>;
 
 export const Default: Story = {
   args: {

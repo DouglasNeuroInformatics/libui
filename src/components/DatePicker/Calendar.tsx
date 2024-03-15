@@ -46,7 +46,7 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
           <div style={{ gridColumn: `span ${firstDay} / span ${firstDay}` }} />
           {days.map((day) => (
             <button
-              className="flex h-8 w-8 items-center justify-center rounded-md hover:bg-muted"
+              className="dark:hover:bg-extra-muted flex h-8 w-8 items-center justify-center rounded-md hover:bg-slate-200 dark:hover:bg-slate-700"
               key={day}
               tabIndex={-1}
               type="button"

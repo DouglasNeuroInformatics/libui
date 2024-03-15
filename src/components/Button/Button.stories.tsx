@@ -1,5 +1,5 @@
-import { DownloadIcon } from '@radix-ui/react-icons';
 import type { Meta, StoryObj } from '@storybook/react';
+import { DownloadIcon } from 'lucide-react';
 
 import { Button } from './Button';
 
@@ -11,6 +11,9 @@ export default {
     size: 'md'
   },
   component: Button,
+  parameters: {
+    layout: 'centered'
+  },
   tags: ['autodocs']
 } satisfies Meta<typeof Button>;
 

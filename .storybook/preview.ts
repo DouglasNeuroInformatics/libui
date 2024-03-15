@@ -1,21 +1,11 @@
-import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import type { Preview } from '@storybook/react';
 
 import i18n from '../src/i18n';
+import theme from './theme';
 
 import '../src/styles/globals.css';
 
-/** @type {import('@storybook/react').Preview} */
-const preview = {
-  decorators: [
-    withThemeByDataAttribute({
-      attributeName: 'data-mode',
-      defaultTheme: 'light',
-      themes: {
-        dark: 'dark',
-        light: 'light'
-      }
-    })
-  ],
+const preview: Preview = {
   globals: {
     locale: 'en',
     locales: {
@@ -30,6 +20,10 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    docs: {
+      theme,
+      toc: true
     },
     i18n
   }

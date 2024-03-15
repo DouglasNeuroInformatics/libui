@@ -1,25 +1,38 @@
-import * as React from 'react';
+import React from 'react';
 
-import * as PopoverPrimitive from '@radix-ui/react-popover';
+import { Content, Portal } from '@radix-ui/react-popover';
 
 import { cn } from '@/utils';
 
-export const PopoverContent = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
->(function PopoverContent({ align = 'center', className, sideOffset = 4, ...props }, ref) {
-  return (
-    <PopoverPrimitive.Portal>
-      <PopoverPrimitive.Content
-        align={align}
-        className={cn(
-          'z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
-          className
-        )}
-        ref={ref}
-        sideOffset={sideOffset}
-        {...props}
-      />
-    </PopoverPrimitive.Portal>
-  );
-});
+export type PopoverContentProps = {
+  /** The preferred alignment against the anchor, which may change when collisions occur. */
+  align?: 'center' | 'end' | 'start';
+  /** The content to display when the user opens the popover */
+  children: React.ReactNode;
+  /** Additional CSS classes to add to the component, potentially overriding default styling */
+  className?: string;
+  /** The distance in pixels from the viewport edges where collision detection should occur */
+  collisionPadding?: number;
+  /** The distance in pixels from the anchor */
+  sideOffset?: number;
+};
+
+export const PopoverContent = React.forwardRef<React.ElementRef<typeof Content>, PopoverContentProps>(
+  function PopoverContent({ align = 'center', className, collisionPadding = 0, sideOffset = 4, ...props }, ref) {
+    return (
+      <Portal>
+        <Content
+          align={align}
+          className={cn(
+            'z-50 w-72 rounded-md border bg-popover px-3 py-1.5 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+            className
+          )}
+          collisionPadding={collisionPadding}
+          ref={ref}
+          sideOffset={sideOffset}
+          {...props}
+        />
+      </Portal>
+    );
+  }
+);

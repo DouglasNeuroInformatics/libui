@@ -4,7 +4,7 @@ import { Separator } from './Separator';
 
 type Story = StoryObj<typeof Separator>;
 
-export default { component: Separator } as Meta<typeof Separator>;
+export default { component: Separator, tags: ['autodocs'] } as Meta<typeof Separator>;
 
 export const Default: Story = {
   decorators: [

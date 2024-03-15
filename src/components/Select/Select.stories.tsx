@@ -4,7 +4,7 @@ import { Select } from './Select';
 
 type Story = StoryObj<typeof Select>;
 
-export default { component: Select } as Meta<typeof Select>;
+export default { component: Select, tags: ['autodocs'] } as Meta<typeof Select>;
 
 export const Default: Story = {
   args: {

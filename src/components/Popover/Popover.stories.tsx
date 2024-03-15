@@ -1,4 +1,7 @@
+import React from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
+import { CircleHelpIcon } from 'lucide-react';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -7,16 +10,22 @@ import { Popover } from './Popover';
 
 type Story = StoryObj<typeof Popover>;
 
-export default { component: Popover } as Meta<typeof Popover>;
+export default {
+  component: Popover,
+  parameters: {
+    layout: 'centered'
+  },
+  tags: ['autodocs']
+} as Meta<typeof Popover>;
 
-export const Default: Story = {
+export const Form: Story = {
   args: {
     children: (
-      <>
+      <React.Fragment>
         <Popover.Trigger asChild>
           <Button variant="outline">Open popover</Button>
         </Popover.Trigger>
-        <Popover.Content className="w-80">
+        <Popover.Content className="w-80 p-4">
           <div className="grid gap-4">
             <div className="space-y-2">
               <h4 className="font-medium leading-none">Dimensions</h4>
@@ -42,7 +51,22 @@ export const Default: Story = {
             </div>
           </div>
         </Popover.Content>
-      </>
+      </React.Fragment>
+    )
+  }
+};
+
+export const Icon: Story = {
+  args: {
+    children: (
+      <React.Fragment>
+        <Popover.Trigger asChild>
+          <Button size="icon" variant="ghost">
+            <CircleHelpIcon />
+          </Button>
+        </Popover.Trigger>
+        <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
+      </React.Fragment>
     )
   }
 };
