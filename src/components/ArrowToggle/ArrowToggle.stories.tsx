@@ -6,7 +6,7 @@ import { ArrowToggle } from './ArrowToggle';
 
 type Story = StoryObj<typeof ArrowToggle>;
 
-export default { component: ArrowToggle, tags: ['autodocs'] } as Meta<typeof ArrowToggle>;
+export default { component: ArrowToggle } as Meta<typeof ArrowToggle>;
 
 export const UpToDown: Story = {
   decorators: [

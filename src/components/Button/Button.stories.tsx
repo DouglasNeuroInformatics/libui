@@ -10,8 +10,7 @@ export default {
     asChild: false,
     size: 'md'
   },
-  component: Button,
-  tags: ['autodocs']
+  component: Button
 } satisfies Meta<typeof Button>;
 
 export const Primary: Story = {

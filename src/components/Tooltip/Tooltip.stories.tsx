@@ -11,8 +11,7 @@ export default {
   component: Tooltip,
   parameters: {
     layout: 'centered'
-  },
-  tags: ['autodocs']
+  }
 } as Meta<typeof Tooltip>;
 
 export const Outline: Story = {

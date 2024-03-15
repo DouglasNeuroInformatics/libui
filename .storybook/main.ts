@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     disableTelemetry: true
   },
   docs: {
-    autodocs: 'tag'
+    autodocs: true
   },
   framework: {
     name: '@storybook/react-vite',
