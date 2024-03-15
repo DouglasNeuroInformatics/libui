@@ -78,5 +78,29 @@
       "en": "December",
       "fr": "Décembre"
     }
+  },
+  "form": {
+    "append": {
+      "en": "Append",
+      "fr": "Ajouter"
+    },
+    "required": {
+      "en": "This field is required",
+      "fr": "Ce champ est obligatoire"
+    },
+    "remove": {
+      "en": "Remove",
+      "fr": "Supprimer"
+    },
+    "radioLabels": {
+      "true": {
+        "en": "True",
+        "fr": "Vrai"
+      },
+      "false": {
+        "en": "False",
+        "fr": "Faux"
+      }
+    }
   }
 }
