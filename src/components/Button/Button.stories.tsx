@@ -10,7 +10,10 @@ export default {
     asChild: false,
     size: 'md'
   },
-  component: Button
+  component: Button,
+  parameters: {
+    layout: 'centered'
+  }
 } satisfies Meta<typeof Button>;
 
 export const Primary: Story = {

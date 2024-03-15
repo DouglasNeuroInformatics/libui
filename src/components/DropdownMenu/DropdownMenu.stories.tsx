@@ -5,7 +5,12 @@ import { DropdownMenu } from './DropdownMenu';
 
 type Story = StoryObj<typeof DropdownMenu>;
 
-export default { component: DropdownMenu } as Meta<typeof DropdownMenu>;
+export default {
+  component: DropdownMenu,
+  parameters: {
+    layout: 'centered'
+  }
+} as Meta<typeof DropdownMenu>;
 
 export const Default: Story = {
   args: {
