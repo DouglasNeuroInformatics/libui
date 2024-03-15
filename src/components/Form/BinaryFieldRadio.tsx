@@ -7,7 +7,7 @@ import type { Simplify } from 'type-fest';
 
 import { Label } from '../Label';
 import { RadioGroup } from '../RadioGroup';
-import { FormFieldContainer } from './FormFieldContainer';
+import { FieldContainer } from './FieldContainer';
 
 import type { BaseFieldComponentProps } from './types';
 
@@ -45,7 +45,7 @@ export const BinaryFieldRadio = ({
   );
 
   return (
-    <FormFieldContainer description={description} error={error}>
+    <FieldContainer description={description} error={error}>
       <Label>{label}</Label>
       <RadioGroup name={name} value={stringifyBoolean(value)} onValueChange={handleValueChange}>
         <div className="flex items-center space-x-2">
@@ -57,6 +57,6 @@ export const BinaryFieldRadio = ({
           <Label htmlFor={`${name}-false`}>{options?.f ?? t('form.radioLabels.false')}</Label>
         </div>
       </RadioGroup>
-    </FormFieldContainer>
+    </FieldContainer>
   );
 };

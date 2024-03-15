@@ -2,7 +2,7 @@ import type { BinaryFormField } from '@douglasneuroinformatics/libui-form-types'
 import type { Simplify } from 'type-fest';
 
 import { Checkbox } from '../Checkbox';
-import { FormFieldContainer } from './FormFieldContainer';
+import { FieldContainer } from './FieldContainer';
 
 import type { BaseFieldComponentProps } from './types';
 
@@ -12,7 +12,7 @@ export type BinaryFieldCheckboxProps = Simplify<
 
 export const BinaryFieldCheckbox = ({ description, error, label, name, setValue, value }: BinaryFieldCheckboxProps) => {
   return (
-    <FormFieldContainer description={description} error={error}>
+    <FieldContainer description={description} error={error}>
       <div className="flex items-center space-x-2">
         <Checkbox
           checked={value}
@@ -31,6 +31,6 @@ export const BinaryFieldCheckbox = ({ description, error, label, name, setValue,
           {label}
         </label>
       </div>
-    </FormFieldContainer>
+    </FieldContainer>
   );
 };
