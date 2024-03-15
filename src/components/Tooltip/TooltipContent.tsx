@@ -5,13 +5,13 @@ import { Content } from '@radix-ui/react-tooltip';
 import { cn } from '@/utils';
 
 export type TooltipContentProps = {
-  /** The preferred alignment against the trigger. May change when collisions occur. */
+  /** The preferred alignment against the trigger, which may change when collisions occur. */
   align?: 'center' | 'end' | 'start';
   /** The content to display when the user hovers over the tooltip trigger */
   children: React.ReactNode;
   /** Additional CSS classes to add to the component, potentially overriding default styling */
   className?: string;
-  /** The distance in pixels from the boundary edges where collision detection should occur */
+  /** The distance in pixels from the viewport edges where collision detection should occur */
   collisionPadding?: number;
   /** The distance in pixels from the trigger */
   sideOffset?: number;
