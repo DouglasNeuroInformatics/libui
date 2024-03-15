@@ -3,6 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CircleHelpIcon } from 'lucide-react';
 
+import { Button } from '../Button';
 import { Input } from '../Input';
 import { Label } from '../Label';
 import { Popover } from './Popover';
@@ -20,7 +21,9 @@ export const Form: Story = {
   args: {
     children: (
       <React.Fragment>
-        <Popover.Trigger>Open popover</Popover.Trigger>
+        <Popover.Trigger asChild>
+          <Button variant="outline">Open popover</Button>
+        </Popover.Trigger>
         <Popover.Content className="w-80 p-4">
           <div className="grid gap-4">
             <div className="space-y-2">
@@ -56,8 +59,10 @@ export const Icon: Story = {
   args: {
     children: (
       <React.Fragment>
-        <Popover.Trigger size="icon" variant="ghost">
-          <CircleHelpIcon />
+        <Popover.Trigger asChild>
+          <Button size="icon" variant="ghost">
+            <CircleHelpIcon />
+          </Button>
         </Popover.Trigger>
         <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
       </React.Fragment>
