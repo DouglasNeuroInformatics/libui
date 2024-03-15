@@ -29,9 +29,9 @@ export const YearSelector = (props: YearSelectorProps) => {
           <div className="flex h-7 items-center justify-center" key={year}>
             <button
               className={cn(
-                'h-full w-full rounded-md border shadow hover:bg-muted',
+                'h-full w-full rounded-md hover:bg-slate-200 dark:hover:bg-slate-700',
                 year === props.selected.getFullYear() &&
-                  'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground'
+                  'bg-primary text-primary-foreground hover:bg-primary dark:hover:bg-primary'
               )}
               ref={year === props.selected.getFullYear() ? selectedRef : null}
               tabIndex={-1}
