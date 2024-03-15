@@ -71,5 +71,6 @@ export const Default: Story = {
         </DropdownMenu.Content>
       </div>
     )
-  }
+  },
+  tags: ['autodocs']
 };

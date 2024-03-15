@@ -5,7 +5,7 @@ import { RadioGroup } from './RadioGroup';
 
 type Story = StoryObj<typeof RadioGroup>;
 
-export default { component: RadioGroup } as Meta<typeof RadioGroup>;
+export default { component: RadioGroup, tags: ['autodocs'] } as Meta<typeof RadioGroup>;
 
 export const Default: Story = {
   args: {

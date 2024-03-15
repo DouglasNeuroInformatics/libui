@@ -5,7 +5,7 @@ import { Switch } from './Switch';
 
 type Story = StoryObj<typeof Switch>;
 
-export default { component: Switch } as Meta<typeof Switch>;
+export default { component: Switch, tags: ['autodocs'] } as Meta<typeof Switch>;
 
 export const Default: Story = {
   decorators: [

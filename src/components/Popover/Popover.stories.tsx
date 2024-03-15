@@ -14,7 +14,8 @@ export default {
   component: Popover,
   parameters: {
     layout: 'centered'
-  }
+  },
+  tags: ['autodocs']
 } as Meta<typeof Popover>;
 
 export const Form: Story = {

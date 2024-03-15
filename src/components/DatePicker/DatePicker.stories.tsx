@@ -11,5 +11,6 @@ export const Default: Story = {
     onSelection: (date) => {
       alert(date);
     }
-  }
+  },
+  tags: ['autodocs']
 };

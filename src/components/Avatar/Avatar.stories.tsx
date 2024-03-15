@@ -4,7 +4,7 @@ import { Avatar } from './Avatar';
 
 type Story = StoryObj<typeof Avatar>;
 
-export default { component: Avatar } as Meta<typeof Avatar>;
+export default { component: Avatar, tags: ['autodocs'] } as Meta<typeof Avatar>;
 
 export const Default: Story = {
   args: {

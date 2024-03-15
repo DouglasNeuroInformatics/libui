@@ -4,7 +4,7 @@ import { ScrollArea } from './ScrollArea';
 
 type Story = StoryObj<typeof ScrollArea>;
 
-export default { component: ScrollArea } as Meta<typeof ScrollArea>;
+export default { component: ScrollArea, tags: ['autodocs'] } as Meta<typeof ScrollArea>;
 
 export const Default: Story = {
   args: {

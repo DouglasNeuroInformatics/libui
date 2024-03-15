@@ -47,7 +47,8 @@ export default {
       </>
     )
   },
-  component: Card
+  component: Card,
+  tags: ['autodocs']
 } as Meta<typeof Card>;
 
 export const Default: Story = {};
