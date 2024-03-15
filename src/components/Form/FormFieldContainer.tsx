@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { QuestionMarkCircledIcon } from '@radix-ui/react-icons';
+import { CircleHelpIcon } from 'lucide-react';
 
 import { Popover } from '../Popover';
 import { FormErrorMessage } from './FormErrorMessage';
@@ -19,7 +19,7 @@ export const FormFieldContainer = ({ children, description, error }: FormFieldCo
         {description && (
           <Popover>
             <Popover.Trigger>
-              <QuestionMarkCircledIcon />
+              <CircleHelpIcon />
             </Popover.Trigger>
             <Popover.Content>Hello World</Popover.Content>
           </Popover>

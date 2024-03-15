@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { QuestionMarkCircledIcon } from '@radix-ui/react-icons';
 import type { Meta, StoryObj } from '@storybook/react';
+import { CircleHelpIcon } from 'lucide-react';
 
 import { Input } from '../Input';
 import { Label } from '../Label';
@@ -57,7 +57,7 @@ export const Icon: Story = {
     children: (
       <React.Fragment>
         <Popover.Trigger size="icon" variant="ghost">
-          <QuestionMarkCircledIcon />
+          <CircleHelpIcon />
         </Popover.Trigger>
         <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
       </React.Fragment>

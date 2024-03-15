@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { IconButton } from '@storybook/components';
 import { addons, types } from '@storybook/manager-api';
+import { MoonIcon, SunIcon } from 'lucide-react';
 import { match } from 'ts-pattern';
 
 import { useTheme } from '../src/hooks/useTheme';

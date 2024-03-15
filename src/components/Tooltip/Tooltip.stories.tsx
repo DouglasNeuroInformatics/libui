@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { DownloadIcon } from '@radix-ui/react-icons';
 import type { Meta, StoryObj } from '@storybook/react';
+import { DownloadIcon } from 'lucide-react';
 
 import { Tooltip } from './Tooltip';
 

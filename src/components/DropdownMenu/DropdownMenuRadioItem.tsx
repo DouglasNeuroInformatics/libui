@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { CircleIcon } from '@radix-ui/react-icons';
+import { CircleIcon } from 'lucide-react';
 
 import { cn } from '@/utils';
 
