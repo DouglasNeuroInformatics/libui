@@ -1,9 +1,8 @@
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-
 import { TooltipContent } from './TooltipContent';
+import { TooltipRoot } from './TooltipRoot';
+import { TooltipTrigger } from './TooltipTrigger';
 
-export const Tooltip = Object.assign(TooltipPrimitive.Root, {
+export const Tooltip = Object.assign(TooltipRoot, {
   Content: TooltipContent,
-  Provider: TooltipPrimitive.Provider,
-  Trigger: TooltipPrimitive.Trigger
+  Trigger: TooltipTrigger
 });
