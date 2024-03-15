@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@douglasneuroinformatics/libjs':
+    specifier: ^0.0.3
+    version: 0.0.3(typescript@5.3.3)
   '@douglasneuroinformatics/libui-form-types':
     specifier: ^0.0.1
     version: 0.0.1(typescript@5.3.3)
@@ -1861,6 +1864,16 @@ packages:
       - svelte-eslint-parser
       - vue-eslint-parser
     dev: true
+
+  /@douglasneuroinformatics/libjs@0.0.3(typescript@5.3.3):
+    resolution:
+      { integrity: sha512-T3Uk1TOB9u+WvLAClGcJ3bz+FJoaVDo0+rjkqFlM2+n3x1lHcpJ0xdPUgfFgh0wmlBxk4EsPZIyL98QVZX5vCQ== }
+    peerDependencies:
+      typescript: ^5.1.0
+    dependencies:
+      type-fest: 4.12.0
+      typescript: 5.3.3
+    dev: false
 
   /@douglasneuroinformatics/libui-form-types@0.0.1(typescript@5.3.3):
     resolution:
