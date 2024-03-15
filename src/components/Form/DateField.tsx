@@ -1,5 +1,6 @@
 import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 
+import { DatePicker } from '../DatePicker';
 import { Input } from '../Input';
 import { Label } from '../Label';
 import { Popover } from '../Popover';
@@ -16,7 +17,14 @@ export const DateField = ({ description, error, label, name }: DateFieldProps) =
         <Popover.Trigger asChild>
           <Input />
         </Popover.Trigger>
-        <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
+        <Popover.Content align="start">
+          <DatePicker
+            onSelection={(value) => {
+              // eslint-disable-next-line no-alert
+              alert(value);
+            }}
+          />
+        </Popover.Content>
       </Popover>
     </FieldContainer>
   );

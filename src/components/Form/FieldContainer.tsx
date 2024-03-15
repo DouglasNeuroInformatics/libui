@@ -14,7 +14,7 @@ export const FieldContainer = ({ children, description, error }: FieldContainerP
     <div className="space-y-2">
       <div className="flex w-full">
         <div className="flex flex-grow flex-col space-y-2">{children}</div>
-        {description && <FieldDescription>{description}</FieldDescription>}
+        {description && null && <FieldDescription>{description}</FieldDescription>}
       </div>
       {error && <ErrorMessage>{error}</ErrorMessage>}
     </div>
