@@ -22,7 +22,8 @@ const preview: Preview = {
       }
     },
     docs: {
-      theme
+      theme,
+      toc: true
     },
     i18n
   }
