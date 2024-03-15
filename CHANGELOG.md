@@ -1,5 +1,23 @@
 Changelog
 
+## [1.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.3.0...v1.4.0) (2024-03-15)
+
+
+### Features
+
+* add binary field ([9e38ae4](https://github.com/DouglasNeuroInformatics/libui/commit/9e38ae47a57359d36e552310213fc6d1016563df))
+* add date field ([28b70a5](https://github.com/DouglasNeuroInformatics/libui/commit/28b70a5511af4ad499922c5d605769a4dbfe4f20))
+* add dropdown menu ([5911b80](https://github.com/DouglasNeuroInformatics/libui/commit/5911b80b94a7dc8a504ba3f1d7771d9b2e14b03f))
+* add language toggle ([208cda6](https://github.com/DouglasNeuroInformatics/libui/commit/208cda6b2b842f8e38736d6dbf3ca693fd319a9f))
+* add theme toggle ([09e6d89](https://github.com/DouglasNeuroInformatics/libui/commit/09e6d89bc9de831291a6931ce10e68bf160af508))
+
+
+### Bug Fixes
+
+* fix docs background color ([f35b753](https://github.com/DouglasNeuroInformatics/libui/commit/f35b7537b1ba284dd5d92d55d37f9f56e610cdf4))
+* setup radio field ([a9639c5](https://github.com/DouglasNeuroInformatics/libui/commit/a9639c5b9c5985ab718d21a1f9410c380fe2110f))
+* storybook theme icon size ([079153d](https://github.com/DouglasNeuroInformatics/libui/commit/079153d1b484e1c61e45b074d5251268ffee5151))
+
 ## [1.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.2.0...v1.3.0) (2024-03-14)
 
 
