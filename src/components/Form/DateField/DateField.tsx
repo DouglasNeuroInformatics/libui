@@ -1,17 +1,18 @@
 import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 
-import { DatePicker } from '../DatePicker';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Popover } from '../Popover';
-import { FieldContainer } from './FieldContainer';
-import { type BaseFieldComponentProps } from './types';
+import { DatePicker } from '@/components/DatePicker';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { Popover } from '@/components/Popover';
+
+import { FieldGroup } from '../FieldGroup';
+import { type BaseFieldComponentProps } from '../types';
 
 export type DateFieldProps = BaseFieldComponentProps<Date> & DateFormField;
 
-export const DateField = ({ description, error, label, name }: DateFieldProps) => {
+export const DateField = ({ error, label, name }: DateFieldProps) => {
   return (
-    <FieldContainer description={description} error={error}>
+    <FieldGroup>
       <Label htmlFor={name}>{label}</Label>
       <Popover>
         <Popover.Trigger asChild>
@@ -26,6 +27,7 @@ export const DateField = ({ description, error, label, name }: DateFieldProps) =
           />
         </Popover.Content>
       </Popover>
-    </FieldContainer>
+      <FieldGroup.Error error={error} />
+    </FieldGroup>
   );
 };
