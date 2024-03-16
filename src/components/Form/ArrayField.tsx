@@ -42,9 +42,9 @@ export const ArrayField = memo(function ArrayField({
   };
 
   return (
-    <div>
+    <div className="space-y-8">
       {arrayValue.map((fields, i) => (
-        <div key={i}>
+        <div className="space-y-4" key={i}>
           <span className="font-medium text-muted-foreground">{label + ' ' + (i + 1)}</span>
           {Object.keys(fields).map((name) => {
             const field = fieldset[name];

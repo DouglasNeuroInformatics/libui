@@ -85,12 +85,18 @@ const Form = <T extends FormDataType>({
   };
 
   return (
-    <form autoComplete="off" className={twMerge('w-full', className)} id={id} onSubmit={handleSubmit} {...props}>
+    <form
+      autoComplete="off"
+      className={twMerge('w-full space-y-8', className)}
+      id={id}
+      onSubmit={handleSubmit}
+      {...props}
+    >
       {Array.isArray(content) ? (
         content.map((fieldGroup, i) => {
           return (
-            <div key={i}>
-              <div className="my-5">
+            <div className="space-y-8" key={i}>
+              <div>
                 <h3 className="mb-2 font-semibold">{fieldGroup.title}</h3>
                 {fieldGroup.description && (
                   <small className="text-sm italic text-muted-foreground">{fieldGroup.description}</small>
