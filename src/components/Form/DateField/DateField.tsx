@@ -56,7 +56,7 @@ export const DateField = ({ error, label, name, setValue, value }: DateFieldProp
         <Popover.Content asChild align="start" autofocus={false} className="w-auto">
           <DatePicker
             onSelection={(value) => {
-              setValue(value);
+              setInputValue(toBasicISOString(value));
               setIsDatePickerOpen(false);
             }}
           />
