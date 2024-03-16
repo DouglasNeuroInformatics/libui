@@ -43,11 +43,15 @@ export const BinaryFieldRadio = ({ error, label, name, options, setValue, value 
       <RadioGroup name={name} value={stringifyBoolean(value)} onValueChange={handleValueChange}>
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
-          <Label htmlFor={`${name}-true`}>{options?.t ?? t('form.radioLabels.true')}</Label>
+          <Label className="font-normal" htmlFor={`${name}-true`}>
+            {options?.t ?? t('form.radioLabels.true')}
+          </Label>
         </FieldGroup.Row>
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-false`} value="false" />
-          <Label htmlFor={`${name}-false`}>{options?.f ?? t('form.radioLabels.false')}</Label>
+          <Label className="font-normal" htmlFor={`${name}-false`}>
+            {options?.f ?? t('form.radioLabels.false')}
+          </Label>
         </FieldGroup.Row>
       </RadioGroup>
       <FieldGroup.Error error={error} />
