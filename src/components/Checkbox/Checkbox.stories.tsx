@@ -4,7 +4,7 @@ import { Checkbox } from './Checkbox';
 
 type Story = StoryObj<typeof Checkbox>;
 
-export default { component: Checkbox } as Meta<typeof Checkbox>;
+export default { component: Checkbox, tags: ['autodocs'] } as Meta<typeof Checkbox>;
 
 export const Default: Story = {
   decorators: [
@@ -28,6 +28,5 @@ export const Default: Story = {
         </div>
       );
     }
-  ],
-  tags: ['autodocs']
+  ]
 };

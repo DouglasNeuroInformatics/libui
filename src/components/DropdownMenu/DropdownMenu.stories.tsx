@@ -9,7 +9,8 @@ export default {
   component: DropdownMenu,
   parameters: {
     layout: 'centered'
-  }
+  },
+  tags: ['autodocs']
 } as Meta<typeof DropdownMenu>;
 
 export const Default: Story = {
@@ -71,6 +72,5 @@ export const Default: Story = {
         </DropdownMenu.Content>
       </div>
     )
-  },
-  tags: ['autodocs']
+  }
 };
