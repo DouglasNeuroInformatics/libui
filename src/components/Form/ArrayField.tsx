@@ -3,7 +3,7 @@ import { memo, useEffect } from 'react';
 import type { ArrayFieldValue, ArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 import { PrimitiveField } from './PrimitiveField';
 
 import type { BaseFieldComponentProps } from './types';
