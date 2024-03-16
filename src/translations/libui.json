@@ -101,6 +101,14 @@
         "en": "False",
         "fr": "Faux"
       }
+    },
+    "reset": {
+      "en": "Reset",
+      "fr": "Réinitialiser"
+    },
+    "submit": {
+      "en": "Submit",
+      "fr": "Soumettre"
     }
   }
 }
