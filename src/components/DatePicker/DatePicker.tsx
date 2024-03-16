@@ -61,7 +61,10 @@ export type DatePickerProps = {
   onSelection: (value: Date) => void;
 };
 
-export const DatePicker = ({ onSelection, ...props }: DatePickerProps) => {
+export const DatePicker = React.forwardRef<React.ElementRef<typeof Card>, DatePickerProps>(function DatePicker(
+  { onSelection, ...props },
+  ref
+) {
   const [date, dispatch] = useReducer(reducer, new Date());
   const [showYearSelector, setShowYearSelector] = useState(false);
   const { t } = useTranslation('libui');
@@ -78,12 +81,12 @@ export const DatePicker = ({ onSelection, ...props }: DatePickerProps) => {
   };
 
   return (
-    <Card className="w-fit p-3" {...props}>
+    <Card className="w-fit p-3" data-testid="datepicker" ref={ref} {...props}>
       <div className="mb-3 flex items-center justify-between px-1">
         <div className="flex items-center">
-          <span className="mx-1 font-medium tracking-tight">{`${monthName} ${date.getFullYear()}`}</span>
+          <span className="mx-1 text-sm font-medium tracking-tight">{`${monthName} ${date.getFullYear()}`}</span>
           <ArrowToggle
-            className="flex items-center justify-center rounded-full p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700"
+            className="flex items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:bg-slate-700"
             isToggled={showYearSelector}
             position="up"
             rotation={180}
@@ -95,7 +98,7 @@ export const DatePicker = ({ onSelection, ...props }: DatePickerProps) => {
         </div>
         <div className={cn('flex', { hidden: showYearSelector })}>
           <ArrowToggle
-            className="flex items-center justify-center rounded-full p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700"
+            className="flex items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:bg-slate-700"
             position="left"
             tabIndex={-1}
             onClick={() => {
@@ -109,7 +112,7 @@ export const DatePicker = ({ onSelection, ...props }: DatePickerProps) => {
             }}
           />
           <ArrowToggle
-            className="flex items-center justify-center rounded-full p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700"
+            className="flex items-center justify-center rounded-full p-1 hover:bg-slate-200 dark:hover:bg-slate-700"
             position="right"
             tabIndex={-1}
             onClick={() => {
@@ -151,4 +154,4 @@ export const DatePicker = ({ onSelection, ...props }: DatePickerProps) => {
       </div>
     </Card>
   );
-};
+});

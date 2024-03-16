@@ -5,11 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../Label';
-import { RadioGroup } from '../RadioGroup';
-import { FieldContainer } from './FieldContainer';
+import { Label } from '@/components/Label';
+import { RadioGroup } from '@/components/RadioGroup';
 
-import type { BaseFieldComponentProps } from './types';
+import { FieldGroup } from '../FieldGroup';
+
+import type { BaseFieldComponentProps } from '../types';
 
 const stringifyBoolean = (value: boolean | undefined) =>
   match(value)
@@ -22,15 +23,7 @@ export type BinaryFieldRadioProps = Simplify<
   Extract<BaseFieldComponentProps<boolean> & BinaryFormField, { variant: 'radio' }>
 >;
 
-export const BinaryFieldRadio = ({
-  description,
-  error,
-  label,
-  name,
-  options,
-  setValue,
-  value
-}: BinaryFieldRadioProps) => {
+export const BinaryFieldRadio = ({ error, label, name, options, setValue, value }: BinaryFieldRadioProps) => {
   const { t } = useTranslation('libui');
 
   const handleValueChange = useCallback(
@@ -45,18 +38,23 @@ export const BinaryFieldRadio = ({
   );
 
   return (
-    <FieldContainer description={description} error={error}>
+    <FieldGroup>
       <Label>{label}</Label>
       <RadioGroup name={name} value={stringifyBoolean(value)} onValueChange={handleValueChange}>
-        <div className="flex items-center space-x-2">
+        <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
-          <Label htmlFor={`${name}-true`}>{options?.t ?? t('form.radioLabels.true')}</Label>
-        </div>
-        <div className="flex items-center space-x-2">
+          <Label className="font-normal" htmlFor={`${name}-true`}>
+            {options?.t ?? t('form.radioLabels.true')}
+          </Label>
+        </FieldGroup.Row>
+        <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-false`} value="false" />
-          <Label htmlFor={`${name}-false`}>{options?.f ?? t('form.radioLabels.false')}</Label>
-        </div>
+          <Label className="font-normal" htmlFor={`${name}-false`}>
+            {options?.f ?? t('form.radioLabels.false')}
+          </Label>
+        </FieldGroup.Row>
       </RadioGroup>
-    </FieldContainer>
+      <FieldGroup.Error error={error} />
+    </FieldGroup>
   );
 };
