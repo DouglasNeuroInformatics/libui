@@ -1,5 +1,29 @@
 Changelog
 
+## [1.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.4.0...v1.5.0) (2024-03-16)
+
+
+### Features
+
+* add array value ([89a4db9](https://github.com/DouglasNeuroInformatics/libui/commit/89a4db9e2b03dd1576eac0a6af6ff07c386d80a4))
+* add autofocus option to popover content ([9f7914c](https://github.com/DouglasNeuroInformatics/libui/commit/9f7914c239e6449a59941d49d4cca08404f38d7a))
+* add dynamic field ([5306d12](https://github.com/DouglasNeuroInformatics/libui/commit/5306d127dd79b73bfcd9778a3d0e79792e2ccf2d))
+* add form ([9c0da7e](https://github.com/DouglasNeuroInformatics/libui/commit/9c0da7e535fb290d42ae981ddcd52bd88c5a943d))
+* add form fields component ([69f0f9d](https://github.com/DouglasNeuroInformatics/libui/commit/69f0f9d16f573017b8a808a0e821910b3317fcef))
+* add numeric field ([d103f92](https://github.com/DouglasNeuroInformatics/libui/commit/d103f92aecfa61efd94096c7e7bacabdd0c6c7f0))
+* add options field ([c63ea1b](https://github.com/DouglasNeuroInformatics/libui/commit/c63ea1bb9d8dd801a750bc0f5ae71d1289107612))
+* add primitive field ([0ecbe37](https://github.com/DouglasNeuroInformatics/libui/commit/0ecbe377aacb23e7587ea1e324dbb1998abb34cd))
+* add slider ([179d33a](https://github.com/DouglasNeuroInformatics/libui/commit/179d33a33d3163e4a4fa21b6a02f9a2f24f05511))
+* add static field ([6445cd2](https://github.com/DouglasNeuroInformatics/libui/commit/6445cd21d67d080fa7f475bd69ee27a9744b8e70))
+* add text field ([0444181](https://github.com/DouglasNeuroInformatics/libui/commit/0444181644c672e40201b2e7b93a64460c44335d))
+
+
+### Bug Fixes
+
+* issue where cannot select date twice ([38bd5b4](https://github.com/DouglasNeuroInformatics/libui/commit/38bd5b410c0a13b7826c0c1facd28c5a1ff345f3))
+* set autocomplete to off ([36cd867](https://github.com/DouglasNeuroInformatics/libui/commit/36cd86714fac82ea82c468e2312a1896ad4d7f5b))
+* use forward ref for date picker ([2c792ac](https://github.com/DouglasNeuroInformatics/libui/commit/2c792acce4a1ddbb4a8cf3d7a0066881243181f6))
+
 ## [1.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.3.0...v1.4.0) (2024-03-15)
 
 
