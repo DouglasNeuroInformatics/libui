@@ -18,7 +18,7 @@ export const DateField = ({ error, label, name }: DateFieldProps) => {
         <Popover.Trigger asChild>
           <Input />
         </Popover.Trigger>
-        <Popover.Content align="start">
+        <Popover.Content asChild align="start" className="w-auto">
           <DatePicker
             onSelection={(value) => {
               // eslint-disable-next-line no-alert
