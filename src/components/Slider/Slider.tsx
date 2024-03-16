@@ -7,7 +7,11 @@ import { cn } from '@/utils';
 export const Slider = React.forwardRef<React.ElementRef<typeof Root>, React.ComponentPropsWithoutRef<typeof Root>>(
   function Slider({ className, ...props }, ref) {
     return (
-      <Root className={cn('relative flex w-full touch-none select-none items-center', className)} ref={ref} {...props}>
+      <Root
+        className={cn('relative flex w-full touch-none select-none items-center py-1.5', className)}
+        ref={ref}
+        {...props}
+      >
         <Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary opacity-20">
           <Range className="absolute h-full bg-primary" />
         </Track>
