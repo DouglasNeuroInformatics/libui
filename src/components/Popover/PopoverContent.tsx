@@ -9,6 +9,8 @@ export type PopoverContentProps = {
   align?: 'center' | 'end' | 'start';
   /** Change the default rendered element for the one passed as a child, merging their props and behavior */
   asChild?: boolean;
+  /** Whether the content should be automatically focused when opened (default = true) */
+  autofocus?: boolean;
   /** The content to display when the user opens the popover */
   children: React.ReactNode;
   /** Additional CSS classes to add to the component, potentially overriding default styling */
@@ -21,7 +23,7 @@ export type PopoverContentProps = {
 
 export const PopoverContent = React.forwardRef<React.ElementRef<typeof Content>, PopoverContentProps>(
   function PopoverContent(
-    { align = 'center', asChild, className, collisionPadding = 0, sideOffset = 4, ...props },
+    { align = 'center', asChild, autofocus = true, className, collisionPadding = 0, sideOffset = 4, ...props },
     ref
   ) {
     return (
@@ -36,6 +38,7 @@ export const PopoverContent = React.forwardRef<React.ElementRef<typeof Content>,
           collisionPadding={collisionPadding}
           ref={ref}
           sideOffset={sideOffset}
+          onOpenAutoFocus={autofocus === false ? (event) => event.preventDefault() : undefined}
           {...props}
         />
       </Portal>
