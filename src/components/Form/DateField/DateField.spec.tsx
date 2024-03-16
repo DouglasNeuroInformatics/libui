@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { getByText, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -65,5 +66,32 @@ describe('DateField', () => {
     expect(input.value).toBe('2000-01-01');
     expect(setValue).toHaveBeenCalledOnce();
     expect(setValue).toHaveBeenCalledWith(new Date('2000-01-01'));
+  });
+  it('should allow setting the date using the date picker', async () => {
+    render(<DateField label="Date" name="date" setError={setError} setValue={setValue} value={undefined} />);
+    const input = screen.getByRole('textbox') as HTMLInputElement;
+    let datepicker: HTMLElement;
+    let expectedDate: Date;
+    let expectedDateString: string;
+
+    await userEvent.click(input);
+    datepicker = screen.getByTestId('datepicker') as HTMLElement;
+    await userEvent.click(getByText(datepicker, '1'));
+    expectedDate = new Date(new Date().setDate(1));
+    expectedDateString = toBasicISOString(expectedDate);
+    expect(toBasicISOString(setValue.mock.lastCall[0])).toBe(expectedDateString);
+
+    await userEvent.click(input);
+    datepicker = screen.getByTestId('datepicker') as HTMLElement;
+    await userEvent.click(getByText(datepicker, '2'));
+    expectedDate = new Date(new Date().setDate(2));
+    expectedDateString = toBasicISOString(expectedDate);
+    expect(toBasicISOString(setValue.mock.lastCall[0])).toBe(expectedDateString);
+  });
+  it('should render the value provided as a prop', () => {
+    const today = new Date();
+    render(<DateField label="Date" name="date" setError={setError} setValue={setValue} value={today} />);
+    const input = screen.getByRole('textbox') as HTMLInputElement;
+    expect(input.value).toBe(toBasicISOString(today));
   });
 });
