@@ -81,7 +81,7 @@ export const DatePicker = React.forwardRef<React.ElementRef<typeof Card>, DatePi
   };
 
   return (
-    <Card className="w-fit p-3" ref={ref} {...props}>
+    <Card className="w-fit p-3" data-testid="datepicker" ref={ref} {...props}>
       <div className="mb-3 flex items-center justify-between px-1">
         <div className="flex items-center">
           <span className="mx-1 text-sm font-medium tracking-tight">{`${monthName} ${date.getFullYear()}`}</span>
