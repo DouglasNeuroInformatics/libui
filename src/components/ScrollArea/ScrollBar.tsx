@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { ScrollAreaScrollbar, ScrollAreaThumb } from '@radix-ui/react-scroll-area';
 
