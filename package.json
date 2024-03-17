@@ -41,7 +41,6 @@
       "import": "./dist/utils.js"
     }
   },
-  "main": "index.js",
   "files": [
     "dist",
     "tailwind.config.cjs",
