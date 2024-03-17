@@ -50,6 +50,7 @@
   "scripts": {
     "build": "tsup && cp -r src/styles dist",
     "format": "prettier --write src",
+    "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
     "prepare": "husky",
     "storybook": "storybook dev --no-open -p 6006",
@@ -131,6 +132,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "semantic-release": "^23.0.4",
+    "sort-json": "^2.0.1",
     "storybook": "^8.0.0",
     "storybook-react-i18next": "^3.0.1",
     "tailwindcss": "^3.4.1",

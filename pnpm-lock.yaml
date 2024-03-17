@@ -214,6 +214,9 @@ devDependencies:
   semantic-release:
     specifier: ^23.0.4
     version: 23.0.4(typescript@5.3.3)
+  sort-json:
+    specifier: ^2.0.1
+    version: 2.0.1
   storybook:
     specifier: ^8.0.0
     version: 8.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -6792,10 +6795,22 @@ packages:
     engines: { node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16 }
     dev: true
 
+  /detect-indent@5.0.0:
+    resolution:
+      { integrity: sha512-rlpvsxUtM0PQvy9iZe640/IWwWYyBsTApREbA1pHOpmOUIl9MkP/U4z7vTtg4Oaojvqhxt7sdufnT0EzGaR31g== }
+    engines: { node: '>=4' }
+    dev: true
+
   /detect-indent@6.1.0:
     resolution:
       { integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA== }
     engines: { node: '>=8' }
+    dev: true
+
+  /detect-newline@2.1.0:
+    resolution:
+      { integrity: sha512-CwffZFvlJffUg9zZA0uqrjQayUTC8ob94pnr5sFwaVv3IOmkfUHcWH+jXaQK3askE51Cqe8/9Ql/0uXNwqZ8Zg== }
+    engines: { node: '>=0.10.0' }
     dev: true
 
   /detect-node-es@1.1.0:
@@ -11590,6 +11605,16 @@ packages:
     resolution:
       { integrity: sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg== }
     engines: { node: '>=14.16' }
+    dev: true
+
+  /sort-json@2.0.1:
+    resolution:
+      { integrity: sha512-s8cs2bcsQCzo/P2T/uoU6Js4dS/jnX8+4xunziNoq9qmSpZNCrRIAIvp4avsz0ST18HycV4z/7myJ7jsHWB2XQ== }
+    hasBin: true
+    dependencies:
+      detect-indent: 5.0.0
+      detect-newline: 2.1.0
+      minimist: 1.2.8
     dev: true
 
   /source-map-js@1.0.2:
