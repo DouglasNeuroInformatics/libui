@@ -31,24 +31,6 @@ export function getFormFields<T extends FormDataType>(content: FormContent<T>): 
   return content.reduce((prev, current) => ({ ...prev, ...current.fields }), content[0]!.fields) as FormFields<T>;
 }
 
-export function formatFormDataAsString<T extends FormDataType>(data: T) {
-  const lines: string[] = [];
-  for (const key in data) {
-    const value = data[key]!;
-    if (Array.isArray(value)) {
-      for (let i = 0; i < value.length; i++) {
-        const record = value[i]!;
-        for (const prop in record) {
-          lines.push(`${prop} (${i + 1}): ${record[prop]?.toString()}`);
-        }
-      }
-    } else {
-      lines.push(`${key}: ${value.toString()}`);
-    }
-  }
-  return lines.join('\n') + '\n';
-}
-
 /**
  * Given a set of data, resolve static content for form fields. Null values
  * will be removed.
