@@ -131,6 +131,16 @@
       }
     }
   },
+  "pagination": {
+    "next": {
+      "en": "Next",
+      "fr": "Suivant"
+    },
+    "previous": {
+      "en": "Previous",
+      "fr": "Précédent"
+    }
+  },
   "searchBar": {
     "placeholder": {
       "en": "Search...",
