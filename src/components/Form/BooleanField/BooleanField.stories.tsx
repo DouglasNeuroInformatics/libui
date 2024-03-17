@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BinaryField } from './BinaryField';
+import { BooleanField } from './BooleanField';
 
-type Story = StoryObj<typeof BinaryField>;
+type Story = StoryObj<typeof BooleanField>;
 
-export default { component: BinaryField } as Meta<typeof BinaryField>;
+export default { component: BooleanField } as Meta<typeof BooleanField>;
 
 export const Radio: Story = {
   decorators: [
@@ -16,8 +16,8 @@ export const Radio: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Binary Field',
-            name: 'binary',
+            label: 'Boolean Field',
+            name: 'boolean',
             setValue,
             value,
             variant: 'radio'
@@ -36,8 +36,8 @@ export const Checkbox: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Binary Field',
-            name: 'binary',
+            label: 'Boolean Field',
+            name: 'boolean',
             setValue,
             value,
             variant: 'checkbox'

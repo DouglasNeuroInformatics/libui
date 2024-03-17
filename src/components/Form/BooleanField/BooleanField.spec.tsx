@@ -3,17 +3,16 @@ import { useState } from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { BinaryField, type BinaryFieldProps } from './BinaryField';
+import { BooleanField, type BooleanFieldProps } from './BooleanField';
 
-const TestBinaryField = ({ variant }: Pick<BinaryFieldProps, 'variant'>) => {
+const TestBooleanField = ({ variant }: Pick<BooleanFieldProps, 'variant'>) => {
   const [error, setError] = useState<string | undefined>();
   const [value, setValue] = useState<boolean | undefined>();
   return (
-    <BinaryField
+    <BooleanField
       error={error}
-      kind="binary"
-      label="binary-field"
-      name="binary-field"
+      label="boolean-field"
+      name="boolean-field"
       setError={setError}
       setValue={setValue}
       value={value}
@@ -22,14 +21,14 @@ const TestBinaryField = ({ variant }: Pick<BinaryFieldProps, 'variant'>) => {
   );
 };
 
-describe('BinaryField', () => {
+describe('BooleanField', () => {
   it('should render a checkbox field', async () => {
-    render(<TestBinaryField variant="checkbox" />);
+    render(<TestBooleanField variant="checkbox" />);
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
     expect(() => screen.getByRole('radiogroup')).toThrow();
   });
   it('should render a radio field', async () => {
-    render(<TestBinaryField variant="radio" />);
+    render(<TestBooleanField variant="radio" />);
     expect(screen.getByRole('radiogroup')).toBeInTheDocument();
     expect(() => screen.getByRole('checkbox')).toThrow();
   });

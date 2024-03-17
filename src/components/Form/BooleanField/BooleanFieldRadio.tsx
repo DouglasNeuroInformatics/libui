@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import type { BinaryFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { BooleanFormField } from '@douglasneuroinformatics/libui-form-types';
 import { useTranslation } from 'react-i18next';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
@@ -19,11 +19,11 @@ const stringifyBoolean = (value: boolean | undefined) =>
     .with(false, () => 'false' as const)
     .exhaustive();
 
-export type BinaryFieldRadioProps = Simplify<
-  Extract<BaseFieldComponentProps<boolean> & BinaryFormField, { variant: 'radio' }>
+export type BooleanFieldRadioProps = Simplify<
+  BaseFieldComponentProps<boolean> & Omit<Extract<BooleanFormField, { variant: 'radio' }>, 'kind'>
 >;
 
-export const BinaryFieldRadio = ({ error, label, name, options, setValue, value }: BinaryFieldRadioProps) => {
+export const BooleanFieldRadio = ({ error, label, name, options, setValue, value }: BooleanFieldRadioProps) => {
   const { t } = useTranslation('libui');
 
   const handleValueChange = useCallback(
@@ -32,7 +32,7 @@ export const BinaryFieldRadio = ({ error, label, name, options, setValue, value 
         .with('', () => setValue(undefined))
         .with('true', () => setValue(true))
         .with('false', () => setValue(false))
-        .otherwise((value) => console.error(`Unexpected value for binary field '${name}': ${value}`));
+        .otherwise((value) => console.error(`Unexpected value for boolean field '${name}': ${value}`));
     },
     [match, setValue]
   );

@@ -21,8 +21,8 @@ const meta: Meta<typeof Form> = {
 export default meta;
 
 type BasicFormValues = {
-  binaryCheck: boolean;
-  binaryRadio: boolean;
+  booleanCheck: boolean;
+  booleanRadio: boolean;
   date: Date;
   numericDefault: number;
   numericSlider: number;
@@ -35,14 +35,14 @@ type BasicFormValues = {
 export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
   args: {
     content: {
-      binaryCheck: {
-        kind: 'binary',
-        label: 'Binary',
+      booleanCheck: {
+        kind: 'boolean',
+        label: 'Boolean',
         variant: 'checkbox'
       },
-      binaryRadio: {
-        kind: 'binary',
-        label: 'Binary',
+      booleanRadio: {
+        kind: 'boolean',
+        label: 'Boolean',
         variant: 'radio'
       },
       date: {
@@ -96,8 +96,8 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       alert(JSON.stringify(data, null, 2));
     },
     validationSchema: z.object({
-      binaryCheck: z.boolean(),
-      binaryRadio: z.boolean(),
+      booleanCheck: z.boolean(),
+      booleanRadio: z.boolean(),
       date: z.date(),
       numericDefault: z.number(),
       numericSlider: z.number(),
@@ -132,7 +132,7 @@ export const ArrayForm: StoryObj<typeof Form<ArrayFormValues>> = {
               variant: 'short'
             },
             isDead: {
-              kind: 'binary',
+              kind: 'boolean',
               label: 'Is Dead?',
               options: {
                 f: 'Not yet',
@@ -245,7 +245,7 @@ export const DynamicForm: StoryObj<typeof Form<DynamicFormValues>> = {
   args: {
     content: {
       a: {
-        kind: 'binary',
+        kind: 'boolean',
         label: 'Should Show B?',
         variant: 'radio'
       },
