@@ -1,5 +1,67 @@
 Changelog
 
+## [1.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.4.0...v1.5.0) (2024-03-16)
+
+
+### Features
+
+* add array value ([89a4db9](https://github.com/DouglasNeuroInformatics/libui/commit/89a4db9e2b03dd1576eac0a6af6ff07c386d80a4))
+* add autofocus option to popover content ([9f7914c](https://github.com/DouglasNeuroInformatics/libui/commit/9f7914c239e6449a59941d49d4cca08404f38d7a))
+* add dynamic field ([5306d12](https://github.com/DouglasNeuroInformatics/libui/commit/5306d127dd79b73bfcd9778a3d0e79792e2ccf2d))
+* add form ([9c0da7e](https://github.com/DouglasNeuroInformatics/libui/commit/9c0da7e535fb290d42ae981ddcd52bd88c5a943d))
+* add form fields component ([69f0f9d](https://github.com/DouglasNeuroInformatics/libui/commit/69f0f9d16f573017b8a808a0e821910b3317fcef))
+* add numeric field ([d103f92](https://github.com/DouglasNeuroInformatics/libui/commit/d103f92aecfa61efd94096c7e7bacabdd0c6c7f0))
+* add options field ([c63ea1b](https://github.com/DouglasNeuroInformatics/libui/commit/c63ea1bb9d8dd801a750bc0f5ae71d1289107612))
+* add primitive field ([0ecbe37](https://github.com/DouglasNeuroInformatics/libui/commit/0ecbe377aacb23e7587ea1e324dbb1998abb34cd))
+* add slider ([179d33a](https://github.com/DouglasNeuroInformatics/libui/commit/179d33a33d3163e4a4fa21b6a02f9a2f24f05511))
+* add static field ([6445cd2](https://github.com/DouglasNeuroInformatics/libui/commit/6445cd21d67d080fa7f475bd69ee27a9744b8e70))
+* add text field ([0444181](https://github.com/DouglasNeuroInformatics/libui/commit/0444181644c672e40201b2e7b93a64460c44335d))
+
+
+### Bug Fixes
+
+* issue where cannot select date twice ([38bd5b4](https://github.com/DouglasNeuroInformatics/libui/commit/38bd5b410c0a13b7826c0c1facd28c5a1ff345f3))
+* set autocomplete to off ([36cd867](https://github.com/DouglasNeuroInformatics/libui/commit/36cd86714fac82ea82c468e2312a1896ad4d7f5b))
+* use forward ref for date picker ([2c792ac](https://github.com/DouglasNeuroInformatics/libui/commit/2c792acce4a1ddbb4a8cf3d7a0066881243181f6))
+
+## [1.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.3.0...v1.4.0) (2024-03-15)
+
+
+### Features
+
+* add binary field ([9e38ae4](https://github.com/DouglasNeuroInformatics/libui/commit/9e38ae47a57359d36e552310213fc6d1016563df))
+* add date field ([28b70a5](https://github.com/DouglasNeuroInformatics/libui/commit/28b70a5511af4ad499922c5d605769a4dbfe4f20))
+* add dropdown menu ([5911b80](https://github.com/DouglasNeuroInformatics/libui/commit/5911b80b94a7dc8a504ba3f1d7771d9b2e14b03f))
+* add language toggle ([208cda6](https://github.com/DouglasNeuroInformatics/libui/commit/208cda6b2b842f8e38736d6dbf3ca693fd319a9f))
+* add theme toggle ([09e6d89](https://github.com/DouglasNeuroInformatics/libui/commit/09e6d89bc9de831291a6931ce10e68bf160af508))
+
+
+### Bug Fixes
+
+* fix docs background color ([f35b753](https://github.com/DouglasNeuroInformatics/libui/commit/f35b7537b1ba284dd5d92d55d37f9f56e610cdf4))
+* setup radio field ([a9639c5](https://github.com/DouglasNeuroInformatics/libui/commit/a9639c5b9c5985ab718d21a1f9410c380fe2110f))
+* storybook theme icon size ([079153d](https://github.com/DouglasNeuroInformatics/libui/commit/079153d1b484e1c61e45b074d5251268ffee5151))
+
+## [1.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.2.0...v1.3.0) (2024-03-14)
+
+
+### Features
+
+* add avatar ([499f2b9](https://github.com/DouglasNeuroInformatics/libui/commit/499f2b9c81d2583ecf266f6680feb4aae6d59e4d))
+* add badge ([a43d492](https://github.com/DouglasNeuroInformatics/libui/commit/a43d4920669c1bac23acf0fc22cb7e849eae403a))
+* add card ([1457bff](https://github.com/DouglasNeuroInformatics/libui/commit/1457bff0097fff8f2f30f3b5154021114e012fc0))
+* add checkbox ([bb5c229](https://github.com/DouglasNeuroInformatics/libui/commit/bb5c229f5babddf1bca47e3ddef63c40b63bdaa8))
+* add date picker ([9d3f159](https://github.com/DouglasNeuroInformatics/libui/commit/9d3f159febed5bb9b79922f199f78569f4c3ec66))
+* add popover ([95f646d](https://github.com/DouglasNeuroInformatics/libui/commit/95f646dd9700084d0e0a5f333eca633dc0b4887d))
+* add radio group ([2b22337](https://github.com/DouglasNeuroInformatics/libui/commit/2b22337ef95d1be9c5e82417a757e0659461a16d))
+* add scroll area ([630ecef](https://github.com/DouglasNeuroInformatics/libui/commit/630ecef1d80e1d5d857d5cb47f5a2acaeba3af12))
+* add select ([9a25d23](https://github.com/DouglasNeuroInformatics/libui/commit/9a25d23d9eb2323b73774c753311a182ca813a39))
+* add separator ([8c5db8d](https://github.com/DouglasNeuroInformatics/libui/commit/8c5db8d6ee83a13d7596a14e27e07ccf5bf85363))
+* add switch ([fd6f50d](https://github.com/DouglasNeuroInformatics/libui/commit/fd6f50d2d4d5ab5b3f8f6f96902c1a3094c15bc2))
+* add tabs ([b71f41b](https://github.com/DouglasNeuroInformatics/libui/commit/b71f41b943864488938cb027ffacca38584ab168))
+* add text area ([41f6fa4](https://github.com/DouglasNeuroInformatics/libui/commit/41f6fa49155bd3abeb62dd4767e360e9dc0cccd0))
+* add tooltip ([867ef5a](https://github.com/DouglasNeuroInformatics/libui/commit/867ef5ac45a36b9bbfb2b93a330b5ad80fe2d61a))
+
 ## [1.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.1.0...v1.2.0) (2024-03-14)
 
 
