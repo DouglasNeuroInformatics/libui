@@ -24,6 +24,7 @@ type BasicFormValues = {
   booleanRadio: boolean;
   date: Date;
   numberInput: number;
+  numberRadio: number;
   numberSlider: number;
   setSelect: Set<'a' | 'b' | 'c' | 'd'>;
   stringInput: string;
@@ -56,6 +57,19 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         max: 10,
         min: 0,
         variant: 'input'
+      },
+      numberRadio: {
+        description: 'This is a number field',
+        kind: 'number',
+        variant: 'radio',
+        label: 'Radio (Number)',
+        options: {
+          1: '1 - Very Low',
+          2: '2 - Low',
+          3: '3 - Medium',
+          4: '4 - High',
+          5: '5 - Very High'
+        }
       },
       numberSlider: {
         description: 'This is a number field',
@@ -111,6 +125,7 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       date: z.date(),
       numberInput: z.number(),
       numberSlider: z.number(),
+      numberRadio: z.number().min(1).max(5).int(),
       stringSelect: z.enum(['a', 'b', 'c']),
       setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])),
       stringTextArea: z.string(),

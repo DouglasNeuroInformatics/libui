@@ -47,3 +47,30 @@ export const Slider: Story = {
     }
   ]
 };
+
+export const Radio: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Slider Radio Field',
+            name: 'number-radio',
+            options: {
+              1: 'Very Low',
+              2: 'Low',
+              3: 'Medium',
+              4: 'High',
+              5: 'Very High'
+            },
+            setValue,
+            value,
+            variant: 'radio'
+          }}
+        />
+      );
+    }
+  ]
+};
