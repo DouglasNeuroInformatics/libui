@@ -3,6 +3,7 @@ import type { Simplify } from 'type-fest';
 
 import { Label } from '@/components/Label';
 import { RadioGroup } from '@/components/RadioGroup';
+import { cn } from '@/utils';
 
 import { FieldGroup } from '../FieldGroup';
 
@@ -21,6 +22,8 @@ export const NumberFieldRadio = ({
   setValue,
   value
 }: NumberFieldRadioProps) => {
+  const optionsCount = Object.keys(options).length;
+
   return (
     <FieldGroup>
       <FieldGroup.Row>
@@ -28,7 +31,10 @@ export const NumberFieldRadio = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <RadioGroup
-        className="flex items-center justify-between"
+        className={cn(
+          'flex',
+          optionsCount > 5 ? 'flex-col' : 'flex-col @3xl:flex-row @3xl:items-center @3xl:justify-between'
+        )}
         name={name}
         value={value?.toString() ?? ''}
         onValueChange={(value) => setValue(parseInt(value))}
