@@ -1,15 +1,17 @@
 import { match } from 'ts-pattern';
 
-import { TextFieldLong, type TextFieldLongProps } from './TextFieldLong';
+import { TextFieldInput, type TextFieldInputProps } from './TextFieldInput';
 import { TextFieldPassword, type TextFieldPasswordProps } from './TextFieldPassword';
-import { TextFieldShort, type TextFieldShortProps } from './TextFieldShort';
+import { TextFieldSelect } from './TextFieldSelect';
+import { TextFieldTextArea, type TextFieldTextAreaProps } from './TextFieldTextArea';
 
-export type TextFieldProps = TextFieldLongProps | TextFieldPasswordProps | TextFieldShortProps;
+export type TextFieldProps = TextFieldInputProps | TextFieldPasswordProps | TextFieldTextAreaProps;
 
 export const TextField = (props: TextFieldProps) => {
   return match(props)
-    .with({ variant: 'long' }, (props) => <TextFieldLong {...props} />)
+    .with({ variant: 'textarea' }, (props) => <TextFieldTextArea {...props} />)
     .with({ variant: 'password' }, (props) => <TextFieldPassword {...props} />)
-    .with({ variant: 'short' }, () => <TextFieldShort {...props} />)
+    .with({ variant: 'input' }, (props) => <TextFieldInput {...props} />)
+    .with({ variant: 'select' }, (props) => <TextFieldSelect {...props} />)
     .exhaustive();
 };

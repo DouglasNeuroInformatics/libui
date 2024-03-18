@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const animate = require('tailwindcss-animate');
+const containerQueries = require('@tailwindcss/container-queries');
 const plugin = require('tailwindcss/plugin');
 
 const isDev = fs.existsSync(path.resolve(__dirname, 'src'));
@@ -14,6 +15,7 @@ module.exports = {
   darkMode: ['class', '[data-mode="dark"]'],
   plugins: [
     animate,
+    containerQueries,
     plugin(({ addUtilities }) => {
       addUtilities({
         '.scrollbar-none': {

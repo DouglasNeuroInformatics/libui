@@ -20,7 +20,7 @@ export const Short: Story = {
             name: 'text',
             setValue,
             value,
-            variant: 'short'
+            variant: 'input'
           }}
         />
       );
@@ -28,7 +28,7 @@ export const Short: Story = {
   ]
 };
 
-export const Long: Story = {
+export const TextArea: Story = {
   decorators: [
     (Story) => {
       const [value, setValue] = useState<string | undefined>();
@@ -36,11 +36,11 @@ export const Long: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Long Text Field',
+            label: 'Text Area',
             name: 'text',
             setValue,
             value,
-            variant: 'long'
+            variant: 'textarea'
           }}
         />
       );
@@ -56,11 +56,36 @@ export const Password: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Password Field',
+            label: 'Password',
             name: 'text',
             setValue,
             value,
             variant: 'password'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const Select: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<string | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Favorite Fruit',
+            name: 'fruit',
+            options: {
+              apple: 'Apple',
+              banana: 'Banana',
+              blueberry: 'Blueberry',
+              mango: 'Mango'
+            },
+            setValue,
+            value
           }}
         />
       );

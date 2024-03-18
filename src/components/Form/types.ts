@@ -1,16 +1,19 @@
 import type {
-  ArrayFieldValue,
+  CompositeFieldsetValue,
   FormDataType,
   FormFieldValue,
-  PrimitiveFieldValue
+  ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
-export type FieldError<T extends FormFieldValue = FormFieldValue> =
-  T extends NonNullable<ArrayFieldValue>
+export type FieldError<T extends FormFieldValue = FormFieldValue> = T extends (infer U)[]
+  ? U extends CompositeFieldsetValue
     ? Record<string, string>[]
-    : T extends NonNullable<PrimitiveFieldValue>
+    : U extends string
       ? string
-      : never;
+      : never
+  : T extends NonNullable<ScalarFieldValue>
+    ? string
+    : never;
 
 /** Common props for all field components */
 export type BaseFieldComponentProps<T extends FormFieldValue = FormFieldValue> = {
@@ -23,9 +26,9 @@ export type BaseFieldComponentProps<T extends FormFieldValue = FormFieldValue> =
 
 /** An object mapping field names to error messages, if applicable */
 export type FormErrors<T extends FormDataType = FormDataType> = {
-  [K in keyof T]?: T[K] extends NonNullable<PrimitiveFieldValue>
+  [K in keyof T]?: T[K] extends NonNullable<ScalarFieldValue>
     ? string
-    : T[K] extends NonNullable<PrimitiveFieldValue>
+    : T[K] extends NonNullable<ScalarFieldValue>
       ? Record<string, string>[]
       : never;
 };

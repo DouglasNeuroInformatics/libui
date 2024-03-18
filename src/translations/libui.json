@@ -1,24 +1,12 @@
 {
   "days": {
-    "monday": {
-      "en": "Monday",
-      "fr": "Lundi"
-    },
-    "tuesday": {
-      "en": "Tuesday",
-      "fr": "Mardi"
-    },
-    "wednesday": {
-      "en": "Wednesday",
-      "fr": "Mercredi"
-    },
-    "thursday": {
-      "en": "Thursday",
-      "fr": "Jeudi"
-    },
     "friday": {
       "en": "Friday",
       "fr": "Vendredi"
+    },
+    "monday": {
+      "en": "Monday",
+      "fr": "Lundi"
     },
     "saturday": {
       "en": "Saturday",
@@ -27,56 +15,18 @@
     "sunday": {
       "en": "Sunday",
       "fr": "Dimanche"
-    }
-  },
-  "months": {
-    "january": {
-      "en": "January",
-      "fr": "Janvier"
     },
-    "february": {
-      "en": "February",
-      "fr": "Février"
+    "thursday": {
+      "en": "Thursday",
+      "fr": "Jeudi"
     },
-    "march": {
-      "en": "March",
-      "fr": "Mars"
+    "tuesday": {
+      "en": "Tuesday",
+      "fr": "Mardi"
     },
-    "april": {
-      "en": "April",
-      "fr": "Avril"
-    },
-    "may": {
-      "en": "May",
-      "fr": "Mai"
-    },
-    "june": {
-      "en": "June",
-      "fr": "Juin"
-    },
-    "july": {
-      "en": "July",
-      "fr": "Juillet"
-    },
-    "august": {
-      "en": "August",
-      "fr": "Août"
-    },
-    "september": {
-      "en": "September",
-      "fr": "Septembre"
-    },
-    "october": {
-      "en": "October",
-      "fr": "Octobre"
-    },
-    "november": {
-      "en": "November",
-      "fr": "Novembre"
-    },
-    "december": {
-      "en": "December",
-      "fr": "Décembre"
+    "wednesday": {
+      "en": "Wednesday",
+      "fr": "Mercredi"
     }
   },
   "form": {
@@ -84,23 +34,23 @@
       "en": "Append",
       "fr": "Ajouter"
     },
-    "required": {
-      "en": "This field is required",
-      "fr": "Ce champ est obligatoire"
+    "radioLabels": {
+      "false": {
+        "en": "False",
+        "fr": "Faux"
+      },
+      "true": {
+        "en": "True",
+        "fr": "Vrai"
+      }
     },
     "remove": {
       "en": "Remove",
       "fr": "Supprimer"
     },
-    "radioLabels": {
-      "true": {
-        "en": "True",
-        "fr": "Vrai"
-      },
-      "false": {
-        "en": "False",
-        "fr": "Faux"
-      }
+    "required": {
+      "en": "This field is required",
+      "fr": "Ce champ est obligatoire"
     },
     "reset": {
       "en": "Reset",
@@ -109,6 +59,92 @@
     "submit": {
       "en": "Submit",
       "fr": "Soumettre"
+    }
+  },
+  "months": {
+    "april": {
+      "en": "April",
+      "fr": "Avril"
+    },
+    "august": {
+      "en": "August",
+      "fr": "Août"
+    },
+    "december": {
+      "en": "December",
+      "fr": "Décembre"
+    },
+    "february": {
+      "en": "February",
+      "fr": "Février"
+    },
+    "january": {
+      "en": "January",
+      "fr": "Janvier"
+    },
+    "july": {
+      "en": "July",
+      "fr": "Juillet"
+    },
+    "june": {
+      "en": "June",
+      "fr": "Juin"
+    },
+    "march": {
+      "en": "March",
+      "fr": "Mars"
+    },
+    "may": {
+      "en": "May",
+      "fr": "Mai"
+    },
+    "november": {
+      "en": "November",
+      "fr": "Novembre"
+    },
+    "october": {
+      "en": "October",
+      "fr": "Octobre"
+    },
+    "september": {
+      "en": "September",
+      "fr": "Septembre"
+    }
+  },
+  "notifications": {
+    "types": {
+      "error": {
+        "en": "Error",
+        "fr": "Erreur"
+      },
+      "info": {
+        "en": "Info",
+        "fr": "Attention"
+      },
+      "success": {
+        "en": "Success",
+        "fr": "Succès"
+      },
+      "warning": {
+        "en": "Warning",
+        "fr": "Avertissement"
+      }
+    }
+  },
+  "pagination": {
+    "next": {
+      "en": "Next",
+      "fr": "Suivant"
+    },
+    "previous": {
+      "en": "Previous",
+      "fr": "Précédent"
+    }
+  },
+  "searchBar": {
+    "placeholder": {
+      "en": "Search...",
+      "fr": "Rechercher..."
     }
   }
 }
