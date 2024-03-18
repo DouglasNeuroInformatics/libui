@@ -8,7 +8,7 @@ type Story = StoryObj<typeof NumberField>;
 
 export default { component: NumberField } as Meta<typeof NumberField>;
 
-export const Default: Story = {
+export const Input: Story = {
   decorators: [
     (Story) => {
       const [value, setValue] = useState<number | undefined>();
@@ -20,7 +20,7 @@ export const Default: Story = {
             name: 'number-default',
             setValue,
             value,
-            variant: 'default'
+            variant: 'input'
           }}
         />
       );

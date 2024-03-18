@@ -23,7 +23,7 @@ type BasicFormValues = {
   booleanCheck: boolean;
   booleanRadio: boolean;
   date: Date;
-  numberDefault: number;
+  numberInput: number;
   numberSlider: number;
   setDropdown: Set<'a' | 'b' | 'c' | 'd'>;
   stringLong: string;
@@ -49,13 +49,13 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         kind: 'date',
         label: 'Date'
       },
-      numberDefault: {
+      numberInput: {
         description: 'This is a number field',
         kind: 'number',
         label: 'Number (Default)',
         max: 10,
         min: 0,
-        variant: 'default'
+        variant: 'input'
       },
       numberSlider: {
         description: 'This is a number field',
@@ -109,7 +109,7 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       booleanCheck: z.boolean(),
       booleanRadio: z.boolean(),
       date: z.date(),
-      numberDefault: z.number(),
+      numberInput: z.number(),
       numberSlider: z.number(),
       stringSelect: z.enum(['a', 'b', 'c']),
       setDropdown: z.set(z.enum(['a', 'b', 'c', 'd'])),

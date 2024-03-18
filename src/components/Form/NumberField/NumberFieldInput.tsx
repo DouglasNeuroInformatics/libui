@@ -8,11 +8,11 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type NumberFieldDefaultProps = Simplify<
-  BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'default' }>
+export type NumberFieldInputProps = Simplify<
+  BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'input' }>
 >;
 
-export const NumberFieldDefault = ({
+export const NumberFieldInput = ({
   description,
   error,
   label,
@@ -21,7 +21,7 @@ export const NumberFieldDefault = ({
   name,
   setValue,
   value
-}: NumberFieldDefaultProps) => {
+}: NumberFieldInputProps) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const newValue = parseFloat(event.target.value);
     if (Number.isNaN(newValue)) {
