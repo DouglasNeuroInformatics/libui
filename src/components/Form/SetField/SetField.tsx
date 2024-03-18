@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
+import { Badge } from '@/components/Badge';
 import { DropdownButton } from '@/components/DropdownButton';
 import { DropdownMenu } from '@/components/DropdownMenu';
 import { Label } from '@/components/Label';
@@ -10,7 +11,7 @@ import { Label } from '@/components/Label';
 import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
-export type SetFieldProps<T extends string> = Simplify<BaseFieldComponentProps<T[]> & SetFormField<T>>;
+export type SetFieldProps<T extends string = string> = Simplify<BaseFieldComponentProps<Set<T>> & SetFormField<Set<T>>>;
 
 export const SetField = <T extends string = string>({
   description,
@@ -22,7 +23,7 @@ export const SetField = <T extends string = string>({
 }: SetFieldProps<T>) => {
   useEffect(() => {
     if (!value) {
-      setValue([]);
+      setValue(new Set([]));
     }
   }, [value]);
 
@@ -34,11 +35,21 @@ export const SetField = <T extends string = string>({
       </FieldGroup.Row>
       <DropdownMenu>
         <DropdownMenu.Trigger asChild className="w-full">
-          <DropdownButton />
+          <DropdownButton>
+            {value.size ? (
+              <div className="flex items-center gap-2">
+                {Array.from(value).map((option) => (
+                  <Badge className="font-normal" key={option} variant="outline">
+                    {options[option]}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
+          </DropdownButton>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content widthFull align="start">
           {Object.keys(options).map((option) => {
-            const checked = value.includes(option as T);
+            const checked = value.has(option as T);
             return (
               <DropdownMenu.CheckboxItem
                 checked={checked}
@@ -46,9 +57,13 @@ export const SetField = <T extends string = string>({
                 onSelect={(event) => {
                   event.preventDefault();
                   if (checked) {
-                    setValue(value.filter((val) => val !== option));
+                    const updatedValue = new Set(value);
+                    updatedValue.delete(option as T);
+                    setValue(updatedValue);
                   } else {
-                    setValue([...value, option as T]);
+                    const updatedValue = new Set(value);
+                    updatedValue.add(option as T);
+                    setValue(updatedValue);
                   }
                 }}
               >

@@ -27,6 +27,7 @@ type BasicFormValues = {
   enum: 'a' | 'b' | 'c';
   numberDefault: number;
   numberSlider: number;
+  setDropdown: Set<'a' | 'b' | 'c' | 'd'>;
   textLong: string;
   textPassword: string;
   textShort: string;
@@ -84,6 +85,16 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         label: 'Password',
         variant: 'password'
       },
+      setDropdown: {
+        kind: 'set',
+        label: 'Set',
+        options: {
+          a: 'Option A',
+          b: 'Option B',
+          c: 'Option C',
+          d: 'Option D'
+        }
+      },
       textShort: {
         description:
           'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae natus eaque dolor sequi qui dolore aut at amet fugit, porro, est et maiores, id esse! Esse doloribus laudantium laborum aperiam.',
@@ -102,6 +113,7 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       numberDefault: z.number(),
       numberSlider: z.number(),
       enum: z.enum(['a', 'b', 'c']),
+      setDropdown: z.set(z.enum(['a', 'b', 'c', 'd'])),
       textLong: z.string(),
       textPassword: z.string(),
       textShort: z.string()

@@ -13,7 +13,7 @@ export default { component: SetField } as Meta<typeof SetField>;
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const [value, setValue] = useState<Fruit[] | undefined>();
+      const [value, setValue] = useState<Set<Fruit> | undefined>();
       return (
         <Story
           args={{
