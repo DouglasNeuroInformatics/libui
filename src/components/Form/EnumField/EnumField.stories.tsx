@@ -2,13 +2,13 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { OptionsField } from './OptionsField';
+import { EnumField } from './EnumField';
 
-type Story = StoryObj<typeof OptionsField<Fruit>>;
+type Story = StoryObj<typeof EnumField<Fruit>>;
 
 type Fruit = 'apple' | 'banana' | 'blueberry' | 'mango';
 
-export default { component: OptionsField } as Meta<typeof OptionsField>;
+export default { component: EnumField } as Meta<typeof EnumField>;
 
 export const Default: Story = {
   decorators: [

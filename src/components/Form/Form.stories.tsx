@@ -24,9 +24,9 @@ type BasicFormValues = {
   booleanCheck: boolean;
   booleanRadio: boolean;
   date: Date;
+  enum: 'a' | 'b' | 'c';
   numericDefault: number;
   numericSlider: number;
-  options: 'a' | 'b' | 'c';
   textLong: string;
   textPassword: string;
   textShort: string;
@@ -65,9 +65,9 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         min: 0,
         variant: 'slider'
       },
-      options: {
-        kind: 'options',
-        label: 'Options',
+      enum: {
+        kind: 'enum',
+        label: 'Enum',
         options: {
           a: 'Option A',
           b: 'Option B',
@@ -101,7 +101,7 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       date: z.date(),
       numericDefault: z.number(),
       numericSlider: z.number(),
-      options: z.enum(['a', 'b', 'c']),
+      enum: z.enum(['a', 'b', 'c']),
       textLong: z.string(),
       textPassword: z.string(),
       textShort: z.string()

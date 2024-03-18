@@ -1,4 +1,4 @@
-import type { OptionsFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { EnumFormField } from '@douglasneuroinformatics/libui-form-types';
 
 import { Label } from '@/components/Label';
 import { Select } from '@/components/Select';
@@ -6,9 +6,9 @@ import { Select } from '@/components/Select';
 import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
-export type OptionsFieldProps<T extends string = string> = BaseFieldComponentProps<T> & OptionsFormField<T>;
+export type EnumFieldProps<T extends string = string> = BaseFieldComponentProps<T> & EnumFormField<T>;
 
-export const OptionsField = <T extends string = string>({
+export const EnumField = <T extends string = string>({
   description,
   error,
   label,
@@ -16,7 +16,7 @@ export const OptionsField = <T extends string = string>({
   options,
   setValue,
   value
-}: OptionsFieldProps<T>) => {
+}: EnumFieldProps<T>) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>
