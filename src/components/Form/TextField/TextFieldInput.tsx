@@ -7,9 +7,9 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type TextFieldShortProps = BaseFieldComponentProps<string> & TextFormField;
+export type TextFieldInputProps = BaseFieldComponentProps<string> & TextFormField;
 
-export const TextFieldShort = ({ description, error, label, name, setValue, value }: TextFieldShortProps) => {
+export const TextFieldInput = ({ description, error, label, name, setValue, value }: TextFieldInputProps) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>
