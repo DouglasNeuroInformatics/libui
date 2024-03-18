@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { NumericField } from './NumericField';
+import { NumberField } from './NumberField';
 
-type Story = StoryObj<typeof NumericField>;
+type Story = StoryObj<typeof NumberField>;
 
-export default { component: NumericField } as Meta<typeof NumericField>;
+export default { component: NumberField } as Meta<typeof NumberField>;
 
 export const Default: Story = {
   decorators: [
@@ -16,8 +16,8 @@ export const Default: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Default Numeric Field',
-            name: 'numeric-default',
+            label: 'Default Number Field',
+            name: 'number-default',
             setValue,
             value,
             variant: 'default'
@@ -36,8 +36,8 @@ export const Slider: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Slider Numeric Field',
-            name: 'numeric-slider',
+            label: 'Slider Number Field',
+            name: 'number-slider',
             setValue,
             value,
             variant: 'slider'

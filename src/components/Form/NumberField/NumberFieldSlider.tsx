@@ -1,4 +1,4 @@
-import type { NumericFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
 import { Label } from '@/components/Label';
@@ -8,11 +8,11 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type NumericFieldSliderProps = Simplify<
-  BaseFieldComponentProps<number> & Extract<NumericFormField, { variant: 'slider' }>
+export type NumberFieldSliderProps = Simplify<
+  BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'slider' }>
 >;
 
-export const NumericFieldSlider = ({
+export const NumberFieldSlider = ({
   description,
   error,
   label,
@@ -21,7 +21,7 @@ export const NumericFieldSlider = ({
   name,
   setValue,
   value
-}: NumericFieldSliderProps) => {
+}: NumberFieldSliderProps) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>

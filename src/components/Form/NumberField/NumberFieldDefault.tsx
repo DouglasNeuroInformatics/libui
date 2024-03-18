@@ -1,4 +1,4 @@
-import type { NumericFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
 import { Input } from '@/components/Input';
@@ -8,11 +8,11 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type NumericFieldDefaultProps = Simplify<
-  BaseFieldComponentProps<number> & Extract<NumericFormField, { variant: 'default' }>
+export type NumberFieldDefaultProps = Simplify<
+  BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'default' }>
 >;
 
-export const NumericFieldDefault = ({
+export const NumberFieldDefault = ({
   description,
   error,
   label,
@@ -21,7 +21,7 @@ export const NumericFieldDefault = ({
   name,
   setValue,
   value
-}: NumericFieldDefaultProps) => {
+}: NumberFieldDefaultProps) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     const newValue = parseFloat(event.target.value);
     if (Number.isNaN(newValue)) {

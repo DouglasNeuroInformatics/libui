@@ -25,8 +25,8 @@ type BasicFormValues = {
   booleanRadio: boolean;
   date: Date;
   enum: 'a' | 'b' | 'c';
-  numericDefault: number;
-  numericSlider: number;
+  numberDefault: number;
+  numberSlider: number;
   textLong: string;
   textPassword: string;
   textShort: string;
@@ -49,18 +49,18 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         kind: 'date',
         label: 'Date'
       },
-      numericDefault: {
-        description: 'This is a numeric field',
-        kind: 'numeric',
-        label: 'Numeric (Default)',
+      numberDefault: {
+        description: 'This is a number field',
+        kind: 'number',
+        label: 'Number (Default)',
         max: 10,
         min: 0,
         variant: 'default'
       },
-      numericSlider: {
-        description: 'This is a numeric field',
-        kind: 'numeric',
-        label: 'Numeric (Slider)',
+      numberSlider: {
+        description: 'This is a number field',
+        kind: 'number',
+        label: 'Number (Slider)',
         max: 10,
         min: 0,
         variant: 'slider'
@@ -99,8 +99,8 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       booleanCheck: z.boolean(),
       booleanRadio: z.boolean(),
       date: z.date(),
-      numericDefault: z.number(),
-      numericSlider: z.number(),
+      numberDefault: z.number(),
+      numberSlider: z.number(),
       enum: z.enum(['a', 'b', 'c']),
       textLong: z.string(),
       textPassword: z.string(),
