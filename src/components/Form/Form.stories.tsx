@@ -10,7 +10,7 @@ const meta: Meta<typeof Form> = {
   decorators: [
     (Story) => (
       <div className="container">
-        <h1 className="mb-3 text-center text-3xl">Example Form</h1>
+        <h1 className="string-center string-3xl mb-3">Example Form</h1>
         <Story />
       </div>
     )
@@ -23,13 +23,13 @@ type BasicFormValues = {
   booleanCheck: boolean;
   booleanRadio: boolean;
   date: Date;
-  enum: 'a' | 'b' | 'c';
   numberDefault: number;
   numberSlider: number;
   setDropdown: Set<'a' | 'b' | 'c' | 'd'>;
-  textLong: string;
-  textPassword: string;
-  textShort: string;
+  stringLong: string;
+  stringPassword: string;
+  stringSelect: 'a' | 'b' | 'c';
+  stringShort: string;
 };
 
 export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
@@ -37,12 +37,12 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
     content: {
       booleanCheck: {
         kind: 'boolean',
-        label: 'Boolean',
+        label: 'Boolean (Checkbox)',
         variant: 'checkbox'
       },
       booleanRadio: {
         kind: 'boolean',
-        label: 'Boolean',
+        label: 'Boolean (Radio)',
         variant: 'radio'
       },
       date: {
@@ -65,28 +65,9 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         min: 0,
         variant: 'slider'
       },
-      enum: {
-        kind: 'enum',
-        label: 'Enum',
-        options: {
-          a: 'Option A',
-          b: 'Option B',
-          c: 'Option C'
-        }
-      },
-      textLong: {
-        kind: 'text',
-        label: 'Long Text',
-        variant: 'long'
-      },
-      textPassword: {
-        kind: 'text',
-        label: 'Password',
-        variant: 'password'
-      },
       setDropdown: {
         kind: 'set',
-        label: 'Set',
+        label: 'Set (Dropdown)',
         options: {
           a: 'Option A',
           b: 'Option B',
@@ -94,11 +75,30 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
           d: 'Option D'
         }
       },
-      textShort: {
-        description:
-          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae natus eaque dolor sequi qui dolore aut at amet fugit, porro, est et maiores, id esse! Esse doloribus laudantium laborum aperiam.',
-        kind: 'text',
-        label: 'Short Text',
+      stringSelect: {
+        kind: 'string',
+        label: 'String (Select)',
+        options: {
+          a: 'Option A',
+          b: 'Option B',
+          c: 'Option C'
+        },
+        variant: 'select'
+      },
+      stringLong: {
+        kind: 'string',
+        label: 'String (Long)',
+        variant: 'long'
+      },
+      stringPassword: {
+        kind: 'string',
+        label: 'String (Password)',
+        variant: 'password'
+      },
+      stringShort: {
+        description: 'This is a string field',
+        kind: 'string',
+        label: 'String (Short)',
         variant: 'short'
       }
     },
@@ -111,11 +111,11 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       date: z.date(),
       numberDefault: z.number(),
       numberSlider: z.number(),
-      enum: z.enum(['a', 'b', 'c']),
+      stringSelect: z.enum(['a', 'b', 'c']),
       setDropdown: z.set(z.enum(['a', 'b', 'c', 'd'])),
-      textLong: z.string(),
-      textPassword: z.string(),
-      textShort: z.string()
+      stringLong: z.string(),
+      stringPassword: z.string(),
+      stringShort: z.string()
     })
   }
 };
@@ -138,7 +138,7 @@ export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
         render: () => ({
           fieldset: {
             patientName: {
-              kind: 'text',
+              kind: 'string',
               label: 'Patient Name',
               variant: 'short'
             },
@@ -169,7 +169,7 @@ export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
         })
       },
       doctorName: {
-        kind: 'text',
+        kind: 'string',
         label: 'Doctor Name',
         variant: 'short'
       }
@@ -205,12 +205,12 @@ export const GroupedForm: StoryObj<typeof Form<GroupedFormValues>> = {
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam et ut aut. Assumenda facilis numquam cupiditate aut in magni quisquam et natus obcaecati dicta eum nulla ducimus, earum alias rerum.',
         fields: {
           f1: {
-            kind: 'text',
+            kind: 'string',
             label: 'Field 1',
             variant: 'short'
           },
           f2: {
-            kind: 'text',
+            kind: 'string',
             label: 'Field 2',
             variant: 'short'
           }
@@ -222,12 +222,12 @@ export const GroupedForm: StoryObj<typeof Form<GroupedFormValues>> = {
           'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae natus eaque dolor sequi qui dolore aut at amet fugit, porro, est et maiores, id esse! Esse doloribus laudantium laborum aperiam.',
         fields: {
           f3: {
-            kind: 'text',
+            kind: 'string',
             label: 'Field 3',
             variant: 'short'
           },
           f4: {
-            kind: 'text',
+            kind: 'string',
             label: 'Field 4',
             variant: 'short'
           }
@@ -266,7 +266,7 @@ export const DynamicForm: StoryObj<typeof Form<DynamicFormValues>> = {
         render: (data) => {
           if (data?.a) {
             return {
-              kind: 'text',
+              kind: 'string',
               label: 'Example',
               variant: 'short'
             };

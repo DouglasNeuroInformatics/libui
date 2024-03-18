@@ -67,3 +67,28 @@ export const Password: Story = {
     }
   ]
 };
+
+export const Select: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<string | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Favorite Fruit',
+            name: 'fruit',
+            options: {
+              apple: 'Apple',
+              banana: 'Banana',
+              blueberry: 'Blueberry',
+              mango: 'Mango'
+            },
+            setValue,
+            value
+          }}
+        />
+      );
+    }
+  ]
+};
