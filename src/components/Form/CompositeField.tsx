@@ -48,7 +48,7 @@ export const CompositeField = memo(function CompositeField({
           <span className="font-medium text-muted-foreground">{label + ' ' + (i + 1)}</span>
           {Object.keys(fields).map((name) => {
             const field = fieldset[name];
-            const fieldProps = field?.kind === 'dynamic-fieldset' ? field.render(fields) : field;
+            const fieldProps = field?.kind === 'dynamic' ? field.render(fields) : field;
             if (!fieldProps) {
               return null;
             }

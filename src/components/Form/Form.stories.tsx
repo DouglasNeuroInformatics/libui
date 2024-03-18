@@ -141,7 +141,7 @@ export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
               variant: 'radio'
             },
             dateOfDeath: {
-              kind: 'dynamic-fieldset',
+              kind: 'dynamic',
               render: (fieldset) => {
                 if (!fieldset.isDead) {
                   return null;
