@@ -1,22 +1,22 @@
 import { useCallback } from 'react';
 
 import type {
-  ArrayFieldValue,
-  ArrayFormField,
+  CompositeFieldValue,
+  CompositeFormField,
   FormDataType,
   FormFieldValue,
   PartialFormDataType,
   PrimitiveFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
-import { ArrayField } from './ArrayField';
+import { CompositeField } from './CompositeField';
 import { PrimitiveField, type PrimitiveFieldProps } from './PrimitiveField';
 
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
-  field: ArrayFormField | PrimitiveFieldProps['field'];
+  field: CompositeFormField | PrimitiveFieldProps['field'];
   name: string;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
@@ -45,15 +45,15 @@ export const StaticField = <TData extends FormDataType>({
     [setValues]
   );
 
-  if (field.kind === 'array') {
+  if (field.kind === 'composite') {
     return (
-      <ArrayField
+      <CompositeField
         {...field}
         error={errors[name] as Record<string, string>[]}
         name={name}
         setError={setError}
         setValue={setValue}
-        value={values[name] as ArrayFieldValue}
+        value={values[name] as CompositeFieldValue}
       />
     );
   }

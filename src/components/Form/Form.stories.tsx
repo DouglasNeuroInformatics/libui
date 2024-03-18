@@ -109,8 +109,8 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
   }
 };
 
-type ArrayFormValues = {
-  array: {
+type CompositeFormValues = {
+  composite: {
     dateOfDeath?: Date;
     isDead: boolean;
     patientName: string;
@@ -118,10 +118,10 @@ type ArrayFormValues = {
   doctorName: string;
 };
 
-export const ArrayForm: StoryObj<typeof Form<ArrayFormValues>> = {
+export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
   args: {
     content: {
-      array: {
+      composite: {
         deps: [],
         kind: 'dynamic',
         render: () => ({
@@ -153,7 +153,7 @@ export const ArrayForm: StoryObj<typeof Form<ArrayFormValues>> = {
               }
             }
           },
-          kind: 'array',
+          kind: 'composite',
           label: 'Patient'
         })
       },
@@ -167,7 +167,7 @@ export const ArrayForm: StoryObj<typeof Form<ArrayFormValues>> = {
       alert(JSON.stringify(data, null, 2));
     },
     validationSchema: z.object({
-      array: z.array(
+      composite: z.array(
         z.object({
           dateOfDeath: z.date().optional(),
           isDead: z.boolean(),

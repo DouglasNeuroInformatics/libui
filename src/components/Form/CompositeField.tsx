@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import type { ArrayFieldValue, ArrayFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { CompositeFieldValue, CompositeFormField } from '@douglasneuroinformatics/libui-form-types';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../Button';
@@ -8,16 +8,16 @@ import { PrimitiveField } from './PrimitiveField';
 
 import type { BaseFieldComponentProps } from './types';
 
-export type ArrayFieldProps = BaseFieldComponentProps<ArrayFieldValue> & ArrayFormField;
+export type CompositeFieldProps = BaseFieldComponentProps<CompositeFieldValue> & CompositeFormField;
 
-export const ArrayField = memo(function ArrayField({
+export const CompositeField = memo(function CompositeField({
   error: arrayError,
   fieldset,
   label,
   setError: setArrayError,
   setValue: setArrayValue,
   value: arrayValue
-}: ArrayFieldProps) {
+}: CompositeFieldProps) {
   const { t } = useTranslation();
 
   const createNewFieldset = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));

@@ -1,12 +1,12 @@
 import type {
-  ArrayFieldValue,
+  CompositeFieldValue,
   FormDataType,
   FormFieldValue,
   PrimitiveFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
 export type FieldError<T extends FormFieldValue = FormFieldValue> =
-  T extends NonNullable<ArrayFieldValue>
+  T extends NonNullable<CompositeFieldValue>
     ? Record<string, string>[]
     : T extends NonNullable<PrimitiveFieldValue>
       ? string
