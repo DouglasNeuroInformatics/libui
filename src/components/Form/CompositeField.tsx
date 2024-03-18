@@ -4,7 +4,7 @@ import type { CompositeFieldValue, CompositeFormField } from '@douglasneuroinfor
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../Button';
-import { PrimitiveField } from './PrimitiveField';
+import { ScalarField } from './ScalarField';
 
 import type { BaseFieldComponentProps } from './types';
 
@@ -53,7 +53,7 @@ export const CompositeField = memo(function CompositeField({
               return null;
             }
             return (
-              <PrimitiveField
+              <ScalarField
                 error={arrayError?.[i]?.[name]}
                 field={fieldProps}
                 key={name}

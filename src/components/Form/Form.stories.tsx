@@ -17,7 +17,6 @@ const meta: Meta<typeof Form> = {
   ],
   tags: ['autodocs']
 };
-
 export default meta;
 
 type BasicFormValues = {

@@ -6,17 +6,17 @@ import type {
   FormDataType,
   FormFieldValue,
   PartialFormDataType,
-  PrimitiveFieldValue
+  ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
 import { CompositeField } from './CompositeField';
-import { PrimitiveField, type PrimitiveFieldProps } from './PrimitiveField';
+import { ScalarField, type ScalarFieldProps } from './ScalarField';
 
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
-  field: CompositeFormField | PrimitiveFieldProps['field'];
+  field: CompositeFormField | ScalarFieldProps['field'];
   name: string;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
@@ -58,13 +58,13 @@ export const StaticField = <TData extends FormDataType>({
     );
   }
   return (
-    <PrimitiveField
+    <ScalarField
       error={errors[name] as string}
       field={field}
       name={name}
       setError={setError}
       setValue={setValue}
-      value={values[name] as PrimitiveFieldValue}
+      value={values[name] as ScalarFieldValue}
     />
   );
 };

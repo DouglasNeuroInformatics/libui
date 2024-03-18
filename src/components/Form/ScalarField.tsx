@@ -3,7 +3,7 @@ import type {
   DateFormField,
   EnumFormField,
   NumberFormField,
-  PrimitiveFieldValue,
+  ScalarFieldValue,
   SetFormField,
   TextFormField
 } from '@douglasneuroinformatics/libui-form-types';
@@ -17,11 +17,11 @@ import { TextField, type TextFieldProps } from './TextField';
 
 import type { BaseFieldComponentProps } from './types';
 
-export type PrimitiveFieldProps = BaseFieldComponentProps<PrimitiveFieldValue> & {
+export type ScalarFieldProps = BaseFieldComponentProps<ScalarFieldValue> & {
   field: BooleanFormField | DateFormField | EnumFormField | NumberFormField | SetFormField | TextFormField;
 };
 
-export const PrimitiveField = ({ field, ...props }: PrimitiveFieldProps) => {
+export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {
   switch (field.kind) {
     case 'text':
       return <TextField {...field} {...(props as TextFieldProps)} />;
