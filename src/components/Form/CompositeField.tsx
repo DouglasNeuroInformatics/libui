@@ -5,11 +5,11 @@ import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../Button';
+import { Heading } from '../Heading';
 import { Label } from '../Label';
 import { ScalarField } from './ScalarField';
 
 import type { BaseFieldComponentProps } from './types';
-import { Heading } from '../Heading';
 
 export type CompositeFieldProps = BaseFieldComponentProps<CompositeFieldValue> & CompositeFormField;
 
