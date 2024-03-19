@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.0.3
     version: 0.0.3(typescript@5.3.3)
   '@douglasneuroinformatics/libui-form-types':
-    specifier: ^0.1.0
-    version: 0.1.0(typescript@5.3.3)
+    specifier: ^0.1.1
+    version: 0.1.1
   '@heroicons/react':
     specifier: ^2.1.1
     version: 2.1.1(react@18.2.0)
@@ -1926,14 +1926,11 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@douglasneuroinformatics/libui-form-types@0.1.0(typescript@5.3.3):
+  /@douglasneuroinformatics/libui-form-types@0.1.1:
     resolution:
-      { integrity: sha512-/nC7lUmbGm8tqA25zdkeLyNbuaxNA/9/W7PqYB2jRPZ9jK8jukUqCjclV7pC3bAfDwgXCPvia4amH/OYpF+6TA== }
-    peerDependencies:
-      typescript: ^5.3.3
+      { integrity: sha512-g0YJr69RUYZ/moS5iP7Nqv4YHr5TVX3xZxuAiwpBKY5EfbGnrrE3uD8NWPeAHej7c+/QxawJ/5pw7og4zIhiTA== }
     dependencies:
       type-fest: 4.12.0
-      typescript: 5.3.3
     dev: false
 
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.2.0):
