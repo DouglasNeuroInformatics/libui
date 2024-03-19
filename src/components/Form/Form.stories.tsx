@@ -26,6 +26,7 @@ type BasicFormValues = {
   numberInput: number;
   numberRadio: number;
   numberSlider: number;
+  setRadio: Set<'a' | 'b' | 'c' | 'd'>;
   setSelect: Set<'a' | 'b' | 'c' | 'd'>;
   stringInput: string;
   stringPassword: string;
@@ -79,6 +80,17 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
         min: 0,
         variant: 'slider'
       },
+      setRadio: {
+        kind: 'set',
+        label: 'Radio (Set)',
+        options: {
+          a: 'Option A',
+          b: 'Option B',
+          c: 'Option C',
+          d: 'Option D'
+        },
+        variant: 'radio'
+      },
       setSelect: {
         kind: 'set',
         label: 'Select (Set)',
@@ -128,6 +140,7 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       numberSlider: z.number(),
       numberRadio: z.number().min(1).max(5).int(),
       stringSelect: z.enum(['a', 'b', 'c']),
+      setRadio: z.set(z.enum(['a', 'b', 'c', 'd'])),
       setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])),
       stringTextArea: z.string(),
       stringPassword: z.string(),

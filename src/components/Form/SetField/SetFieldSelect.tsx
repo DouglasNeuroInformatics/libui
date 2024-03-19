@@ -1,27 +1,25 @@
-import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
-import type { Simplify } from 'type-fest';
-
 import { Badge } from '@/components/Badge';
 import { DropdownButton } from '@/components/DropdownButton';
 import { DropdownMenu } from '@/components/DropdownMenu';
 import { Label } from '@/components/Label';
 
 import { FieldGroup } from '../FieldGroup';
-import { type BaseFieldComponentProps } from '../types';
 
-export type SetFieldSelectProps<T extends string = string> = Simplify<
-  BaseFieldComponentProps<Set<T>> & SetFormField<Set<T>>
->;
+import type { SetFieldProps } from './SetField';
+
+export type SetFieldSelectProps<T extends string = string> = SetFieldProps<T> & {
+  onCheckedChange: (option: T, isChecked: boolean) => void;
+};
 
 export const SetFieldSelect = <T extends string = string>({
   description,
   error,
   label,
+  onCheckedChange,
   options,
-  setValue,
   value
-}: SetFieldSelectProps<T> & { value: Set<T> }) => {
-  return (
+}: SetFieldSelectProps<T>) => {
+  return value ? (
     <FieldGroup>
       <FieldGroup.Row>
         <Label>{label}</Label>
@@ -50,15 +48,7 @@ export const SetFieldSelect = <T extends string = string>({
                 key={option}
                 onSelect={(event) => {
                   event.preventDefault();
-                  if (checked) {
-                    const updatedValue = new Set<T>(value);
-                    updatedValue.delete(option as T);
-                    setValue(updatedValue);
-                  } else {
-                    const updatedValue = new Set<T>(value);
-                    updatedValue.add(option as T);
-                    setValue(updatedValue);
-                  }
+                  onCheckedChange(option as T, value.has(option as T));
                 }}
               >
                 {options[option as T]}
@@ -69,5 +59,5 @@ export const SetFieldSelect = <T extends string = string>({
       </DropdownMenu>
       <FieldGroup.Error error={error} />
     </FieldGroup>
-  );
+  ) : null;
 };

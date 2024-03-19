@@ -1,10 +1,15 @@
 import { useEffect } from 'react';
 
-import { P, match } from 'ts-pattern';
+import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
+import { match } from 'ts-pattern';
+import type { Simplify } from 'type-fest';
 
-import { SetFieldSelect, type SetFieldSelectProps } from './SetFieldSelect';
+import { SetFieldRadio } from './SetFieldRadio';
+import { SetFieldSelect } from './SetFieldSelect';
 
-export type SetFieldProps<T extends string = string> = SetFieldSelectProps<T>;
+import type { BaseFieldComponentProps } from '../types';
+
+export type SetFieldProps<T extends string = string> = Simplify<BaseFieldComponentProps<Set<T>> & SetFormField<Set<T>>>;
 
 export const SetField = <T extends string = string>(props: SetFieldProps<T>) => {
   useEffect(() => {
@@ -13,9 +18,20 @@ export const SetField = <T extends string = string>(props: SetFieldProps<T>) => 
     }
   }, [props.value]);
 
-  props.value;
+  const handleCheckedChange = (option: T, isChecked: boolean) => {
+    if (isChecked) {
+      const updatedValue = new Set<T>(props.value);
+      updatedValue.delete(option);
+      props.setValue(updatedValue);
+    } else {
+      const updatedValue = new Set<T>(props.value);
+      updatedValue.add(option);
+      props.setValue(updatedValue);
+    }
+  };
 
   return match(props)
-    .with({ value: P.instanceOf(Set), variant: 'select' }, (props) => <SetFieldSelect {...props} />)
-    .otherwise(() => null);
+    .with({ variant: 'select' }, (props) => <SetFieldSelect onCheckedChange={handleCheckedChange} {...props} />)
+    .with({ variant: 'radio' }, (props) => <SetFieldRadio onCheckedChange={handleCheckedChange} {...props} />)
+    .exhaustive();
 };
