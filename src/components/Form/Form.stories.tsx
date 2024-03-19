@@ -87,7 +87,8 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
           b: 'Option B',
           c: 'Option C',
           d: 'Option D'
-        }
+        },
+        variant: 'select'
       },
       stringSelect: {
         kind: 'string',
@@ -161,8 +162,8 @@ export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
               kind: 'boolean',
               label: 'Is Dead?',
               options: {
-                f: 'Not yet',
-                t: 'Unfortunately'
+                false: 'Not yet',
+                true: 'Unfortunately'
               },
               variant: 'radio'
             },

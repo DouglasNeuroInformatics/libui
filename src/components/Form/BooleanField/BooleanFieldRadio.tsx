@@ -44,13 +44,13 @@ export const BooleanFieldRadio = ({ error, label, name, options, setValue, value
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
           <Label className="font-normal" htmlFor={`${name}-true`}>
-            {options?.t ?? t('form.radioLabels.true')}
+            {options?.true ?? t('form.radioLabels.true')}
           </Label>
         </FieldGroup.Row>
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-false`} value="false" />
           <Label className="font-normal" htmlFor={`${name}-false`}>
-            {options?.f ?? t('form.radioLabels.false')}
+            {options?.false ?? t('form.radioLabels.false')}
           </Label>
         </FieldGroup.Row>
       </RadioGroup>
