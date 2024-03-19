@@ -25,6 +25,7 @@ type ExampleFormData = {
   showDynamicField?: boolean;
   stringInput?: string;
   stringPassword?: string;
+  stringRadio?: 'a' | 'b' | 'c';
   stringSelect?: 'a' | 'b' | 'c';
   stringTextArea?: string;
 };
@@ -48,7 +49,8 @@ const $ExampleFormData: z.ZodType<ExampleFormData> = z.object({
   setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   stringTextArea: z.string().optional(),
   stringPassword: z.string().optional(),
-  stringInput: z.string().optional()
+  stringInput: z.string().optional(),
+  stringRadio: z.enum(['a', 'b', 'c']).optional()
 });
 
 const meta: Meta<typeof Form> = {
@@ -189,6 +191,16 @@ export const Grouped: StoryObj<typeof Form<ExampleFormData>> = {
             kind: 'string',
             label: 'Input',
             variant: 'input'
+          },
+          stringRadio: {
+            kind: 'string',
+            label: 'Radio',
+            options: {
+              a: 'Option A',
+              b: 'Option B',
+              c: 'Option C'
+            },
+            variant: 'radio'
           }
         }
       },
@@ -338,6 +350,16 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormData>> = {
           c: 'Option C'
         },
         variant: 'select'
+      },
+      stringRadio: {
+        kind: 'string',
+        label: 'Radio',
+        options: {
+          a: 'Option A',
+          b: 'Option B',
+          c: 'Option C'
+        },
+        variant: 'radio'
       },
       stringTextArea: {
         kind: 'string',

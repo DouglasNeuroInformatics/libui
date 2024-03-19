@@ -21,7 +21,7 @@ const baseRadioFieldVariants = cva('flex', {
 
 export type BaseRadioFieldProps<T extends string> = Simplify<
   BaseFieldComponentProps<T> & {
-    description: string;
+    description?: string;
     label: string;
     options: Record<T, string>;
     orientation?: 'horizontal' | 'vertical';

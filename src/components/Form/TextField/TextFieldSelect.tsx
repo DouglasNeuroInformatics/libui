@@ -8,7 +8,7 @@ import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
 export type TextFieldSelectProps<T extends string = string> = Simplify<
-  BaseFieldComponentProps<T> & Extract<TextFormField<T>, { variant: 'select' }>
+  BaseFieldComponentProps<T> & Extract<TextFormField<T>, { options: object }>
 >;
 
 export const TextFieldSelect = <T extends string = string>({
