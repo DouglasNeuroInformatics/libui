@@ -122,7 +122,7 @@ const Form = <T extends FormDataType>({
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button
           aria-label="Submit Button"
-          className="block w-full first-letter:capitalize"
+          className="block w-full"
           data-cy="submit-form"
           type="submit"
           variant="primary"
@@ -130,13 +130,7 @@ const Form = <T extends FormDataType>({
           {submitBtnLabel ?? t('form.submit')}
         </Button>
         {resetBtn && (
-          <Button
-            aria-label="Reset Button"
-            className="block w-full first-letter:capitalize"
-            type="button"
-            variant="secondary"
-            onClick={reset}
-          >
+          <Button aria-label="Reset Button" className="block w-full" type="button" variant="secondary" onClick={reset}>
             {t('form.reset')}
           </Button>
         )}
