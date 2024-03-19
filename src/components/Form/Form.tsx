@@ -13,6 +13,7 @@ import { twMerge } from 'tailwind-merge';
 import { ZodError, type ZodType } from 'zod';
 
 import { Button } from '../Button';
+import { Heading } from '../Heading';
 import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';
@@ -84,20 +85,24 @@ const Form = <T extends FormDataType>({
     }
   };
 
+  const isGrouped = Array.isArray(content);
+
   return (
     <form
       autoComplete="off"
-      className={twMerge('w-full space-y-8', className)}
+      className={twMerge('my-8 w-full', isGrouped ? 'space-y-12' : 'space-y-8', className)}
       id={id}
       onSubmit={handleSubmit}
       {...props}
     >
-      {Array.isArray(content) ? (
+      {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
-            <div className="space-y-8" key={i}>
+            <div className="space-y-4" key={i}>
               <div>
-                <h3 className="mb-2 font-semibold">{fieldGroup.title}</h3>
+                <Heading className="font-medium" variant="h4">
+                  {fieldGroup.title}
+                </Heading>
                 {fieldGroup.description && (
                   <small className="text-sm italic text-muted-foreground">{fieldGroup.description}</small>
                 )}
