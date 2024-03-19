@@ -11,9 +11,9 @@ type ExampleFormData = {
   booleanCheck?: boolean;
   booleanRadio?: boolean;
   composite?: {
-    dynamicField?: string;
-    showDynamicField?: boolean;
-    stringInput?: string;
+    compositeDynamicField?: string;
+    compositeStringInput?: string;
+    showCompositeDynamicField?: boolean;
   }[];
   date?: Date;
   dynamicField?: string;
@@ -34,9 +34,9 @@ const $ExampleFormData: z.ZodType<ExampleFormData> = z.object({
   booleanRadio: z.boolean().optional(),
   composite: z.array(
     z.object({
-      stringInput: z.string().optional(),
-      showDynamicField: z.boolean().optional(),
-      dynamicField: z.string().optional()
+      compositeStringInput: z.string().optional(),
+      showCompositeDynamicField: z.boolean().optional(),
+      compositeDynamicField: z.string().optional()
     })
   ),
   date: z.date().optional(),
@@ -55,7 +55,7 @@ const meta: Meta<typeof Form> = {
   component: Form,
   decorators: [
     (Story) => (
-      <div className="container">
+      <div className="container mx-auto max-w-5xl">
         <Heading className="my-8 text-center" variant="h1">
           Example Form
         </Heading>
@@ -226,20 +226,20 @@ export const Grouped: StoryObj<typeof Form<ExampleFormData>> = {
             kind: 'composite',
             label: 'Composite',
             fieldset: {
-              stringInput: {
+              compositeStringInput: {
                 kind: 'string',
                 label: 'String',
                 variant: 'input'
               },
-              showDynamicField: {
+              showCompositeDynamicField: {
                 kind: 'boolean',
                 label: 'Show Dynamic Field',
-                variant: 'checkbox'
+                variant: 'radio'
               },
-              dynamicField: {
+              compositeDynamicField: {
                 kind: 'dynamic',
                 render(fieldset) {
-                  if (!fieldset.showDynamicField) {
+                  if (!fieldset.showCompositeDynamicField) {
                     return null;
                   }
                   return {
@@ -379,20 +379,20 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormData>> = {
         kind: 'composite',
         label: 'Composite',
         fieldset: {
-          stringInput: {
+          compositeStringInput: {
             kind: 'string',
             label: 'String',
             variant: 'input'
           },
-          showDynamicField: {
+          showCompositeDynamicField: {
             kind: 'boolean',
             label: 'Show Dynamic Field',
-            variant: 'checkbox'
+            variant: 'radio'
           },
-          dynamicField: {
+          compositeDynamicField: {
             kind: 'dynamic',
             render(fieldset) {
-              if (!fieldset.showDynamicField) {
+              if (!fieldset.showCompositeDynamicField) {
                 return null;
               }
               return {
