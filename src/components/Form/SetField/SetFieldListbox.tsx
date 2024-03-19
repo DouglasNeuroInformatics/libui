@@ -5,11 +5,11 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { SetFieldProps } from './SetField';
 
-export type SetFieldRadioProps<T extends string = string> = SetFieldProps<T> & {
+export type SetFieldListboxProps<T extends string = string> = SetFieldProps<T> & {
   onCheckedChange: (option: T, isChecked: boolean) => void;
 };
 
-export const SetFieldRadio = <T extends string = string>({
+export const SetFieldListbox = <T extends string = string>({
   description,
   error,
   label,
@@ -17,7 +17,7 @@ export const SetFieldRadio = <T extends string = string>({
   onCheckedChange,
   options,
   value
-}: SetFieldRadioProps<T>) => {
+}: SetFieldListboxProps<T>) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>

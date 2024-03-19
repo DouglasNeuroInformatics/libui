@@ -4,7 +4,7 @@ import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
-import { SetFieldRadio } from './SetFieldRadio';
+import { SetFieldListbox } from './SetFieldListbox';
 import { SetFieldSelect } from './SetFieldSelect';
 
 import type { BaseFieldComponentProps } from '../types';
@@ -32,6 +32,6 @@ export const SetField = <T extends string = string>(props: SetFieldProps<T>) => 
 
   return match(props)
     .with({ variant: 'select' }, (props) => <SetFieldSelect onCheckedChange={handleCheckedChange} {...props} />)
-    .with({ variant: 'radio' }, (props) => <SetFieldRadio onCheckedChange={handleCheckedChange} {...props} />)
+    .with({ variant: 'listbox' }, (props) => <SetFieldListbox onCheckedChange={handleCheckedChange} {...props} />)
     .exhaustive();
 };

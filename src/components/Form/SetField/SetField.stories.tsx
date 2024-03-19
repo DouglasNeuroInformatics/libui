@@ -36,7 +36,7 @@ export const Select: Story = {
   ]
 };
 
-export const Radio: Story = {
+export const Listbox: Story = {
   decorators: [
     (Story) => {
       const [value, setValue] = useState<Set<Fruit> | undefined>();
@@ -54,7 +54,7 @@ export const Radio: Story = {
             },
             setValue,
             value,
-            variant: 'radio'
+            variant: 'listbox'
           }}
         />
       );

@@ -20,7 +20,7 @@ type ExampleFormData = {
   numberInput?: number;
   numberRadio?: number;
   numberSlider?: number;
-  setRadio?: Set<'a' | 'b' | 'c' | 'd'>;
+  setListbox?: Set<'a' | 'b' | 'c' | 'd'>;
   setSelect?: Set<'a' | 'b' | 'c' | 'd'>;
   showDynamicField?: boolean;
   stringInput?: string;
@@ -45,7 +45,7 @@ const $ExampleFormData: z.ZodType<ExampleFormData> = z.object({
   numberSlider: z.number().optional(),
   numberRadio: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
-  setRadio: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
+  setListbox: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   stringTextArea: z.string().optional(),
   stringPassword: z.string().optional(),
@@ -138,16 +138,16 @@ export const Grouped: StoryObj<typeof Form<ExampleFormData>> = {
         title: 'Set',
         description: `The following variants are available for 'set' fields`,
         fields: {
-          setRadio: {
+          setListbox: {
             kind: 'set',
-            label: 'Radio',
+            label: 'Listbox',
             options: {
               a: 'Option A',
               b: 'Option B',
               c: 'Option C',
               d: 'Option D'
             },
-            variant: 'radio'
+            variant: 'listbox'
           },
           setSelect: {
             kind: 'set',
@@ -319,16 +319,16 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormData>> = {
         min: 0,
         variant: 'slider'
       },
-      setRadio: {
+      setListbox: {
         kind: 'set',
-        label: 'Radio',
+        label: 'Listbox',
         options: {
           a: 'Option A',
           b: 'Option B',
           c: 'Option C',
           d: 'Option D'
         },
-        variant: 'radio'
+        variant: 'listbox'
       },
       setSelect: {
         kind: 'set',
