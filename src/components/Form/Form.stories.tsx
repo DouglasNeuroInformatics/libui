@@ -3,14 +3,39 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
 
+import { Heading } from '../Heading';
 import { Form } from './Form';
+
+type ExampleFormData = {
+  booleanCheck: boolean;
+  booleanRadio: boolean;
+  composite: {
+    dynamicField?: string;
+    showDynamicField?: boolean;
+    stringInput?: string;
+  }[];
+  date: Date;
+  dynamicField?: string;
+  numberInput: number;
+  numberRadio: number;
+  numberSlider: number;
+  setRadio: Set<'a' | 'b' | 'c' | 'd'>;
+  setSelect: Set<'a' | 'b' | 'c' | 'd'>;
+  showDynamicField?: boolean;
+  stringInput: string;
+  stringPassword: string;
+  stringSelect: 'a' | 'b' | 'c';
+  stringTextArea: string;
+};
 
 const meta: Meta<typeof Form> = {
   component: Form,
   decorators: [
     (Story) => (
       <div className="container">
-        <h1 className="string-center string-3xl mb-3">Example Form</h1>
+        <Heading className="mb-8 text-center" variant="h1">
+          Example Form
+        </Heading>
         <Story />
       </div>
     )
@@ -19,122 +44,205 @@ const meta: Meta<typeof Form> = {
 };
 export default meta;
 
-type BasicFormValues = {
-  booleanCheck: boolean;
-  booleanRadio: boolean;
-  date: Date;
-  numberInput: number;
-  numberRadio: number;
-  numberSlider: number;
-  setRadio: Set<'a' | 'b' | 'c' | 'd'>;
-  setSelect: Set<'a' | 'b' | 'c' | 'd'>;
-  stringInput: string;
-  stringPassword: string;
-  stringSelect: 'a' | 'b' | 'c';
-  stringTextArea: string;
-};
-
-export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
+export const Default: StoryObj<typeof Form<ExampleFormData>> = {
   args: {
-    content: {
-      booleanCheck: {
-        kind: 'boolean',
-        label: 'Checkbox (Boolean)',
-        variant: 'checkbox'
-      },
-      booleanRadio: {
-        kind: 'boolean',
-        label: 'Radio (Boolean)',
-        variant: 'radio'
-      },
-      date: {
-        kind: 'date',
-        label: 'Date'
-      },
-      numberInput: {
-        description: 'This is a number field',
-        kind: 'number',
-        label: 'Input (Number)',
-        max: 10,
-        min: 0,
-        variant: 'input'
-      },
-      numberRadio: {
-        description: 'This is a number field',
-        kind: 'number',
-        variant: 'radio',
-        label: 'Radio (Number)',
-        options: {
-          1: '1 - Very Low',
-          2: '2 - Low',
-          3: '3 - Medium',
-          4: '4 - High',
-          5: '5 - Very High'
+    content: [
+      {
+        title: 'Boolean',
+        description: "The following variants are available for 'boolean' fields",
+        fields: {
+          booleanRadio: {
+            kind: 'boolean',
+            label: 'Radio',
+            variant: 'radio'
+          },
+          booleanCheck: {
+            kind: 'boolean',
+            label: 'Checkbox',
+            variant: 'checkbox'
+          }
         }
       },
-      numberSlider: {
-        description: 'This is a number field',
-        kind: 'number',
-        label: 'Slider (Number)',
-        max: 10,
-        min: 0,
-        variant: 'slider'
+      {
+        title: 'Date',
+        description: `The following variants are available for 'date' fields`,
+        fields: {
+          date: {
+            kind: 'date',
+            label: 'Datepicker (Default)'
+          }
+        }
       },
-      setRadio: {
-        kind: 'set',
-        label: 'Radio (Set)',
-        options: {
-          a: 'Option A',
-          b: 'Option B',
-          c: 'Option C',
-          d: 'Option D'
-        },
-        variant: 'radio'
+      {
+        title: 'Date',
+        description: `The following variants are available for 'number' fields`,
+        fields: {
+          numberInput: {
+            description: 'This is a number field',
+            kind: 'number',
+            label: 'Input',
+            max: 10,
+            min: 0,
+            variant: 'input'
+          },
+          numberRadio: {
+            description: 'This is a number field',
+            kind: 'number',
+            variant: 'radio',
+            label: 'Radio',
+            options: {
+              1: '1 - Very Low',
+              2: '2 - Low',
+              3: '3 - Medium',
+              4: '4 - High',
+              5: '5 - Very High'
+            }
+          },
+          numberSlider: {
+            description: 'This is a number field',
+            kind: 'number',
+            label: 'Slider',
+            max: 10,
+            min: 0,
+            variant: 'slider'
+          }
+        }
       },
-      setSelect: {
-        kind: 'set',
-        label: 'Select (Set)',
-        options: {
-          a: 'Option A',
-          b: 'Option B',
-          c: 'Option C',
-          d: 'Option D'
-        },
-        variant: 'select'
+      {
+        title: 'Set',
+        description: `The following variants are available for 'set' fields`,
+        fields: {
+          setRadio: {
+            kind: 'set',
+            label: 'Radio',
+            options: {
+              a: 'Option A',
+              b: 'Option B',
+              c: 'Option C',
+              d: 'Option D'
+            },
+            variant: 'radio'
+          },
+          setSelect: {
+            kind: 'set',
+            label: 'Select',
+            options: {
+              a: 'Option A',
+              b: 'Option B',
+              c: 'Option C',
+              d: 'Option D'
+            },
+            variant: 'select'
+          }
+        }
       },
-      stringSelect: {
-        kind: 'string',
-        label: 'Select (String)',
-        options: {
-          a: 'Option A',
-          b: 'Option B',
-          c: 'Option C'
-        },
-        variant: 'select'
+      {
+        title: 'String',
+        description: `The following variants are available for 'string' fields`,
+        fields: {
+          stringSelect: {
+            kind: 'string',
+            label: 'Select',
+            options: {
+              a: 'Option A',
+              b: 'Option B',
+              c: 'Option C'
+            },
+            variant: 'select'
+          },
+          stringTextArea: {
+            kind: 'string',
+            label: 'Text Area',
+            variant: 'textarea'
+          },
+          stringPassword: {
+            kind: 'string',
+            label: 'Password',
+            variant: 'password'
+          },
+          stringInput: {
+            description: 'This is a string field',
+            kind: 'string',
+            label: 'Input',
+            variant: 'input'
+          }
+        }
       },
-      stringTextArea: {
-        kind: 'string',
-        label: 'Text Area (String)',
-        variant: 'textarea'
+      {
+        title: 'Dynamic',
+        description: `A 'dynamic' field may be used with any data type. For a given data type T, a dynamic field must define a render method that returns either a scalar field for type T, or null to indicate the field should not be shown to the user. The render function receives as its first and only argument the current values in the form, unless it is in the context of a composite field, in which case it will receive the current value of the fieldset in which it is situated. To optimize performance, a dynamic field must specify an array of dependent fields, a change in which will trigger a rerender of the component.`,
+        fields: {
+          showDynamicField: {
+            kind: 'boolean',
+            label: 'Show Dynamic Field?',
+            variant: 'checkbox'
+          },
+          dynamicField: {
+            kind: 'dynamic',
+            deps: ['showDynamicField'],
+            render(data) {
+              if (!data?.showDynamicField) {
+                return null;
+              }
+              return {
+                kind: 'string',
+                label: 'Dynamic Field',
+                variant: 'input'
+              };
+            }
+          }
+        }
       },
-      stringPassword: {
-        kind: 'string',
-        label: 'Password (String)',
-        variant: 'password'
-      },
-      stringInput: {
-        description: 'This is a string field',
-        kind: 'string',
-        label: 'Input (String)',
-        variant: 'input'
+      {
+        title: 'Composite',
+        description: `A 'composite' field is composed of an array of given set of fields (referred to as a fieldset). A fieldset may include any number of fields, which can be any scalar kind. However, only one fieldset may be defined for a single composite field.`,
+        fields: {
+          composite: {
+            description: 'This is a composite field',
+            kind: 'composite',
+            label: 'Composite',
+            fieldset: {
+              stringInput: {
+                kind: 'string',
+                label: 'String',
+                variant: 'input'
+              },
+              showDynamicField: {
+                kind: 'boolean',
+                label: 'Show Dynamic Field',
+                variant: 'checkbox'
+              },
+              dynamicField: {
+                kind: 'dynamic',
+                render(fieldset) {
+                  if (!fieldset.showDynamicField) {
+                    return null;
+                  }
+                  return {
+                    kind: 'string',
+                    label: 'Dynamic Field',
+                    variant: 'input'
+                  };
+                }
+              }
+            }
+          }
+        }
       }
-    },
+    ],
     onSubmit: (data) => {
-      alert(JSON.stringify(data, null, 2));
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : value), 2));
     },
     validationSchema: z.object({
       booleanCheck: z.boolean(),
       booleanRadio: z.boolean(),
+      composite: z.array(
+        z.object({
+          stringInput: z.string().optional(),
+          showDynamicField: z.boolean().optional(),
+          dynamicField: z.string()
+        })
+      ),
       date: z.date(),
       numberInput: z.number(),
       numberSlider: z.number(),
@@ -146,170 +254,5 @@ export const BasicForm: StoryObj<typeof Form<BasicFormValues>> = {
       stringPassword: z.string(),
       stringInput: z.string()
     })
-  }
-};
-
-type CompositeFormValues = {
-  composite: {
-    dateOfDeath?: Date;
-    isDead: boolean;
-    patientName: string;
-  }[];
-  doctorName: string;
-};
-
-export const CompositeForm: StoryObj<typeof Form<CompositeFormValues>> = {
-  args: {
-    content: {
-      composite: {
-        deps: [],
-        kind: 'dynamic',
-        render: () => ({
-          fieldset: {
-            patientName: {
-              kind: 'string',
-              label: 'Patient Name',
-              variant: 'input'
-            },
-            isDead: {
-              kind: 'boolean',
-              label: 'Is Dead?',
-              options: {
-                false: 'Not yet',
-                true: 'Unfortunately'
-              },
-              variant: 'radio'
-            },
-            dateOfDeath: {
-              kind: 'dynamic',
-              render: (fieldset) => {
-                if (!fieldset.isDead) {
-                  return null;
-                }
-                return {
-                  kind: 'date',
-                  label: 'Date of Death'
-                };
-              }
-            }
-          },
-          kind: 'composite',
-          label: 'Patient'
-        })
-      },
-      doctorName: {
-        kind: 'string',
-        label: 'Doctor Name',
-        variant: 'input'
-      }
-    },
-    onSubmit: (data) => {
-      alert(JSON.stringify(data, null, 2));
-    },
-    validationSchema: z.object({
-      composite: z.array(
-        z.object({
-          dateOfDeath: z.date().optional(),
-          isDead: z.boolean(),
-          patientName: z.string()
-        })
-      ),
-      doctorName: z.string()
-    })
-  }
-};
-
-type GroupedFormValues = {
-  f1: string;
-  f2: string;
-  f3: string;
-  f4: string;
-};
-
-export const GroupedForm: StoryObj<typeof Form<GroupedFormValues>> = {
-  args: {
-    content: [
-      {
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam et ut aut. Assumenda facilis numquam cupiditate aut in magni quisquam et natus obcaecati dicta eum nulla ducimus, earum alias rerum.',
-        fields: {
-          f1: {
-            kind: 'string',
-            label: 'Field 1',
-            variant: 'input'
-          },
-          f2: {
-            kind: 'string',
-            label: 'Field 2',
-            variant: 'input'
-          }
-        },
-        title: 'Group 1'
-      },
-      {
-        description:
-          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae natus eaque dolor sequi qui dolore aut at amet fugit, porro, est et maiores, id esse! Esse doloribus laudantium laborum aperiam.',
-        fields: {
-          f3: {
-            kind: 'string',
-            label: 'Field 3',
-            variant: 'input'
-          },
-          f4: {
-            kind: 'string',
-            label: 'Field 4',
-            variant: 'input'
-          }
-        },
-        title: 'Group 2'
-      }
-    ],
-    onSubmit: (data) => {
-      alert(JSON.stringify(data, null, 2));
-    },
-    validationSchema: z.object({
-      f1: z.string(),
-      f2: z.string(),
-      f3: z.string(),
-      f4: z.string()
-    })
-  }
-};
-
-type DynamicFormValues = {
-  a: boolean;
-  b?: string;
-};
-
-export const DynamicForm: StoryObj<typeof Form<DynamicFormValues>> = {
-  args: {
-    content: {
-      a: {
-        kind: 'boolean',
-        label: 'Should Show B?',
-        variant: 'radio'
-      },
-      b: {
-        deps: ['a'],
-        kind: 'dynamic',
-        render: (data) => {
-          if (data?.a) {
-            return {
-              kind: 'string',
-              label: 'Example',
-              variant: 'input'
-            };
-          }
-          return null;
-        }
-      }
-    },
-    validationSchema: z.object({
-      a: z.boolean(),
-      b: z.string().optional()
-    }),
-    onSubmit: (data) => {
-      alert(JSON.stringify(data));
-    }
   }
 };
