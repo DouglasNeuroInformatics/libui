@@ -1,6 +1,7 @@
 import { memo, useEffect } from 'react';
 
 import type { CompositeFieldValue, CompositeFormField } from '@douglasneuroinformatics/libui-form-types';
+import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../Button';
@@ -77,12 +78,14 @@ export const CompositeField = memo(function CompositeField({
           })}
         </div>
       ))}
-      <div className="mb-5 flex gap-5">
-        <Button type="button" onClick={appendField}>
+      <div className="flex gap-3">
+        <Button type="button" variant="outline" onClick={appendField}>
           {t('form.append')}
+          <PlusCircleIcon className="ml-2" />
         </Button>
-        <Button type="button" variant="secondary" onClick={removeField}>
+        <Button type="button" variant="outline" onClick={removeField}>
           {t('form.remove')}
+          <MinusCircleIcon className="ml-2" />
         </Button>
       </div>
     </div>
