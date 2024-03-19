@@ -3,7 +3,7 @@ import { cn } from '@/utils';
 export type HeadingProps = {
   children: string;
   className?: string;
-  variant: 'h1' | 'h2' | 'h3' | 'h4';
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 };
 
 export const Heading = ({ children, className, variant }: HeadingProps) => {
@@ -16,6 +16,8 @@ export const Heading = ({ children, className, variant }: HeadingProps) => {
       return <h3 className={cn('text-xl font-semibold tracking-tight', className)}>{children}</h3>;
     case 'h4':
       return <h4 className={cn('text-lg font-semibold tracking-tight', className)}>{children}</h4>;
+    case 'h5':
+      return <h4 className={cn('text-base font-semibold tracking-tight', className)}>{children}</h4>;
     default:
       throw new Error(`Unhandled heading variant: ${variant satisfies never}`);
   }
