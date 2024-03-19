@@ -11,7 +11,7 @@ import { BooleanField, type BooleanFieldProps } from './BooleanField';
 import { DateField, type DateFieldProps } from './DateField';
 import { NumberField, type NumberFieldProps } from './NumberField';
 import { SetField, type SetFieldProps } from './SetField';
-import { TextField, type TextFieldProps } from './TextField';
+import { StringField, type StringFieldProps } from './StringField';
 
 import type { BaseFieldComponentProps } from './types';
 
@@ -22,7 +22,7 @@ export type ScalarFieldProps = BaseFieldComponentProps<ScalarFieldValue> & {
 export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {
   switch (field.kind) {
     case 'string':
-      return <TextField {...field} {...(props as TextFieldProps)} />;
+      return <StringField {...field} {...(props as StringFieldProps)} />;
     case 'number':
       return <NumberField {...field} {...(props as NumberFieldProps)} />;
     case 'date':

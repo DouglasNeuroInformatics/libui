@@ -7,11 +7,11 @@ import { Select } from '@/components/Select';
 import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
-export type TextFieldSelectProps<T extends string = string> = Simplify<
+export type StringFieldSelectProps<T extends string = string> = Simplify<
   BaseFieldComponentProps<T> & Extract<TextFormField<T>, { options: object }>
 >;
 
-export const TextFieldSelect = <T extends string = string>({
+export const StringFieldSelect = <T extends string = string>({
   description,
   error,
   label,
@@ -19,7 +19,7 @@ export const TextFieldSelect = <T extends string = string>({
   options,
   setValue,
   value
-}: TextFieldSelectProps<T>) => {
+}: StringFieldSelectProps<T>) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>

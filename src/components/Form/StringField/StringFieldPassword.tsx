@@ -11,9 +11,9 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type TextFieldPasswordProps = BaseFieldComponentProps<string> & TextFormField;
+export type StringFieldPasswordProps = BaseFieldComponentProps<string> & TextFormField;
 
-export const TextFieldPassword = ({ description, error, label, name, setValue, value }: TextFieldPasswordProps) => {
+export const StringFieldPassword = ({ description, error, label, name, setValue, value }: StringFieldPasswordProps) => {
   const [show, setShow] = useState(false);
   return (
     <FieldGroup>

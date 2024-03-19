@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextField } from './TextField';
+import { StringField } from './StringField';
 
-type Story = StoryObj<typeof TextField>;
+type Story = StoryObj<typeof StringField>;
 
-export default { component: TextField } as Meta<typeof TextField>;
+export default { component: StringField } as Meta<typeof StringField>;
 
 export const Short: Story = {
   decorators: [
