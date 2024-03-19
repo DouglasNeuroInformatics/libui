@@ -100,9 +100,7 @@ const Form = <T extends FormDataType>({
           return (
             <div className="space-y-4" key={i}>
               <div>
-                <Heading className="font-medium" variant="h4">
-                  {fieldGroup.title}
-                </Heading>
+                <Heading variant="h4">{fieldGroup.title}</Heading>
                 {fieldGroup.description && (
                   <small className="text-sm italic text-muted-foreground">{fieldGroup.description}</small>
                 )}
