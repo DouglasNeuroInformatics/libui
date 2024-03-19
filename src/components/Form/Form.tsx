@@ -90,7 +90,7 @@ const Form = <T extends FormDataType>({
   return (
     <form
       autoComplete="off"
-      className={twMerge('my-8 w-full', isGrouped ? 'space-y-12' : 'space-y-8', className)}
+      className={twMerge('my-8 w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-8', className)}
       id={id}
       onSubmit={handleSubmit}
       {...props}
@@ -98,7 +98,7 @@ const Form = <T extends FormDataType>({
       {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
-            <div className="space-y-4" key={i}>
+            <div className="space-y-8 [&:not(:first-child)]:pt-8" key={i}>
               <div>
                 <Heading variant="h4">{fieldGroup.title}</Heading>
                 {fieldGroup.description && (
