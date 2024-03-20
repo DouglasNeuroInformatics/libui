@@ -3,6 +3,7 @@ import { memo, useEffect } from 'react';
 import type { FieldsetArrayFieldValue, FieldsetArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import type { Simplify } from 'type-fest';
 
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -11,7 +12,9 @@ import { ScalarField } from './ScalarField';
 
 import type { BaseFieldComponentProps } from './types';
 
-export type FieldsetArrayFieldProps = BaseFieldComponentProps<FieldsetArrayFieldValue> & FieldsetArrayFormField;
+export type FieldsetArrayFieldProps = Simplify<
+  BaseFieldComponentProps<FieldsetArrayFieldValue> & FieldsetArrayFormField
+>;
 
 export const FieldsetArrayField = memo(function FieldsetArrayField({
   error: arrayError,
