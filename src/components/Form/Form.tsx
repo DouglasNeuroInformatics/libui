@@ -20,7 +20,7 @@ import { getInitialValues } from './utils';
 
 import type { FormErrors } from './types';
 
-type FormProps<TData extends FormDataType> = {
+type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSchema> = z.infer<TSchema>> = {
   [key: `data-${string}`]: unknown;
   className?: string;
   content: FormContent<TData>;
@@ -33,7 +33,7 @@ type FormProps<TData extends FormDataType> = {
   validationSchema: z.ZodType<TData>;
 };
 
-const Form = <TData extends FormDataType>({
+const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSchema> = z.infer<TSchema>>({
   className,
   content,
   id,
@@ -44,7 +44,7 @@ const Form = <TData extends FormDataType>({
   submitBtnLabel,
   validationSchema,
   ...props
-}: FormProps<TData>) => {
+}: FormProps<TSchema, TData>) => {
   const { t } = useTranslation();
   const [rootError, setRootError] = useState<null | string>(null);
   const [errors, setErrors] = useState<FormErrors<TData>>({});

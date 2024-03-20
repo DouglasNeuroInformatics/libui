@@ -7,30 +7,7 @@ import { Heading } from '../Heading';
 import { Separator } from '../Separator';
 import { Form } from './Form';
 
-type ExampleFormData = {
-  booleanCheck?: boolean;
-  booleanRadio?: boolean;
-  composite?: {
-    compositeDynamicField?: string;
-    compositeStringInput?: string;
-    showCompositeDynamicField?: boolean;
-  }[];
-  date?: Date;
-  dynamicField?: string;
-  numberInput?: number;
-  numberRadio?: number;
-  numberSlider?: number;
-  setListbox?: Set<'a' | 'b' | 'c' | 'd'>;
-  setSelect?: Set<'a' | 'b' | 'c' | 'd'>;
-  showDynamicField?: boolean;
-  stringInput?: string;
-  stringPassword?: string;
-  stringRadio?: 'a' | 'b' | 'c';
-  stringSelect?: 'a' | 'b' | 'c';
-  stringTextArea?: string;
-};
-
-const $ExampleFormData: z.ZodType<ExampleFormData> = z.object({
+const $ExampleFormData = z.object({
   booleanCheck: z.boolean().optional(),
   booleanRadio: z.boolean().optional(),
   composite: z.array(
@@ -47,13 +24,16 @@ const $ExampleFormData: z.ZodType<ExampleFormData> = z.object({
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
   setListbox: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
+  showDynamicField: z.boolean().optional(),
+  dynamicField: z.string().optional(),
   stringTextArea: z.string().optional(),
   stringPassword: z.string().optional(),
   stringInput: z.string().optional(),
   stringRadio: z.enum(['a', 'b', 'c']).optional()
 });
+type ExampleFormSchemaType = typeof $ExampleFormData;
 
-const meta: Meta<typeof Form> = {
+export default {
   component: Form,
   decorators: [
     (Story) => (
@@ -67,10 +47,9 @@ const meta: Meta<typeof Form> = {
     )
   ],
   tags: ['autodocs']
-};
-export default meta;
+} as Meta<typeof Form>;
 
-export const Grouped: StoryObj<typeof Form<ExampleFormData>> = {
+export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {
     content: [
       {
@@ -273,7 +252,7 @@ export const Grouped: StoryObj<typeof Form<ExampleFormData>> = {
   }
 };
 
-export const Ungrouped: StoryObj<typeof Form<ExampleFormData>> = {
+export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {
     content: {
       booleanRadio: {
