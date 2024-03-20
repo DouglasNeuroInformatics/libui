@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.0.3
     version: 0.0.3(typescript@5.3.3)
   '@douglasneuroinformatics/libui-form-types':
-    specifier: ^0.4.0
-    version: 0.4.0
+    specifier: ^0.6.0
+    version: 0.6.0
   '@heroicons/react':
     specifier: ^2.1.1
     version: 2.1.1(react@18.2.0)
@@ -1926,9 +1926,9 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@douglasneuroinformatics/libui-form-types@0.4.0:
+  /@douglasneuroinformatics/libui-form-types@0.6.0:
     resolution:
-      { integrity: sha512-naITvyOW+hvCOFgEsnsEIJi3giu8NuLO4Ii7ozB2hyyXW/NH7fr20beVa1H5i9J/DBQsWWNriPxejvSrii1cFA== }
+      { integrity: sha512-7vbG2xS5QYH/e1dQKWMl6toUqU/hz+/HnD9FS3wmSEN5fyKw2CIY+Yj+5yUnFUY9loRNG4J0Q3KjPmsWt+sN/Q== }
     dependencies:
       type-fest: 4.12.0
     dev: false
