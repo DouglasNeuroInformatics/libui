@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import type {
   NumberRecordFieldValue,
   NumberRecordFormField,
@@ -23,6 +25,14 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
   setValue: setRecordValue,
   value: recordValue
 }: NumberRecordFieldProps<T>) => {
+  useEffect(() => {
+    setRecordValue({});
+  }, [options]);
+
+  if (!recordValue) {
+    return null;
+  }
+
   return (
     <div className="space-y-4">
       <Heading variant="h5">{label}</Heading>
