@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import type { FieldsetArrayFieldValue, FieldsetArrayFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import type { Simplify } from 'type-fest';
@@ -12,24 +12,22 @@ import { ScalarField } from './ScalarField';
 
 import type { BaseFieldComponentProps } from './types';
 
-export type FieldsetArrayFieldProps = Simplify<
-  BaseFieldComponentProps<FieldsetArrayFieldValue> & FieldsetArrayFormField
->;
+export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 
-export const FieldsetArrayField = memo(function FieldsetArrayField({
+export const RecordArrayField = memo(function RecordArrayField({
   error: arrayError,
   fieldset,
   label,
   setError: setArrayError,
   setValue: setArrayValue,
   value: arrayValue
-}: FieldsetArrayFieldProps) {
+}: RecordArrayFieldProps) {
   const { t } = useTranslation();
 
-  const createNewFieldset = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));
+  const createNewRecord = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));
 
   useEffect(() => {
-    setArrayValue([createNewFieldset()]);
+    setArrayValue([createNewRecord()]);
   }, [fieldset]);
 
   if (!arrayValue) {
@@ -38,7 +36,7 @@ export const FieldsetArrayField = memo(function FieldsetArrayField({
 
   // Creates a new object with all values mapped to null and appends it to the previous arrayValue
   const appendField = () => {
-    setArrayValue([...arrayValue, createNewFieldset()]);
+    setArrayValue([...arrayValue, createNewRecord()]);
   };
 
   const removeField = () => {

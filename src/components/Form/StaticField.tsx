@@ -1,26 +1,26 @@
 import { useCallback } from 'react';
 
 import type {
-  FieldsetArrayFieldValue,
-  FieldsetArrayFormField,
   FormDataType,
   FormFieldValue,
   NumberRecordFieldValue,
   NumberRecordFormField,
   PartialFormDataType,
+  RecordArrayFieldValue,
+  RecordArrayFormField,
   ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 
-import { FieldsetArrayField } from './FieldsetArrayField';
 import { NumberRecordField } from './NumberRecordField';
+import { RecordArrayField } from './RecordArrayField';
 import { ScalarField, type ScalarFieldProps } from './ScalarField';
 
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
-  field: FieldsetArrayFormField | NumberRecordFormField | ScalarFieldProps['field'];
+  field: NumberRecordFormField | RecordArrayFormField | ScalarFieldProps['field'];
   name: string;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
@@ -50,14 +50,14 @@ export const StaticField = <TData extends FormDataType>({
   );
 
   return match(field)
-    .with({ kind: 'fieldset-array' }, (field) => (
-      <FieldsetArrayField
+    .with({ kind: 'record-array' }, (field) => (
+      <RecordArrayField
         {...field}
         error={errors[name] as Record<string, string>[]}
         name={name}
         setError={setError}
         setValue={setValue}
-        value={values[name] as FieldsetArrayFieldValue}
+        value={values[name] as RecordArrayFieldValue}
       />
     ))
     .with({ kind: 'number-record' }, (field) => (
