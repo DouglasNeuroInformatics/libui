@@ -20,20 +20,20 @@ import { getInitialValues } from './utils';
 
 import type { FormErrors } from './types';
 
-type FormProps<T extends FormDataType> = {
+type FormProps<TData extends FormDataType> = {
   [key: `data-${string}`]: unknown;
   className?: string;
-  content: FormContent<T>;
+  content: FormContent<TData>;
   id?: string;
-  initialValues?: PartialNullableFormDataType<T>;
-  onError?: (error: ZodError<T>) => void;
-  onSubmit: (data: T) => void;
+  initialValues?: PartialNullableFormDataType<TData>;
+  onError?: (error: ZodError<TData>) => void;
+  onSubmit: (data: TData) => void;
   resetBtn?: boolean;
   submitBtnLabel?: string;
-  validationSchema: ZodType<T>;
+  validationSchema: ZodType<TData>;
 };
 
-const Form = <T extends FormDataType>({
+const Form = <TData extends FormDataType>({
   className,
   content,
   id,
@@ -44,14 +44,16 @@ const Form = <T extends FormDataType>({
   submitBtnLabel,
   validationSchema,
   ...props
-}: FormProps<T>) => {
+}: FormProps<TData>) => {
   const { t } = useTranslation();
   const [rootError, setRootError] = useState<null | string>(null);
-  const [errors, setErrors] = useState<FormErrors<T>>({});
-  const [values, setValues] = useState<PartialFormDataType<T>>(initialValues ? getInitialValues(initialValues) : {});
+  const [errors, setErrors] = useState<FormErrors<TData>>({});
+  const [values, setValues] = useState<PartialFormDataType<TData>>(
+    initialValues ? getInitialValues(initialValues) : {}
+  );
 
-  const handleError = (error: ZodError<T>) => {
-    const fieldErrors: FormErrors<T> = {};
+  const handleError = (error: ZodError<TData>) => {
+    const fieldErrors: FormErrors<TData> = {};
     const rootErrors: string[] = [];
     for (const issue of error.issues) {
       if (issue.path.length > 0) {
@@ -107,7 +109,7 @@ const Form = <T extends FormDataType>({
               </div>
               <FieldsComponent
                 errors={errors}
-                fields={fieldGroup.fields as FormFields<T>}
+                fields={fieldGroup.fields as FormFields<TData>}
                 setErrors={setErrors}
                 setValues={setValues}
                 values={values}
