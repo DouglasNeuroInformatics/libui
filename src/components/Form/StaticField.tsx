@@ -5,18 +5,22 @@ import type {
   FieldsetArrayFormField,
   FormDataType,
   FormFieldValue,
+  NumericFieldsetFieldValue,
+  NumericFieldsetFormField,
   PartialFormDataType,
   ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
+import { match } from 'ts-pattern';
 
 import { FieldsetArrayField } from './FieldsetArrayField';
+import { NumericFieldsetField } from './NumericFieldsetField';
 import { ScalarField, type ScalarFieldProps } from './ScalarField';
 
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
-  field: FieldsetArrayFormField | ScalarFieldProps['field'];
+  field: FieldsetArrayFormField | NumericFieldsetFormField | ScalarFieldProps['field'];
   name: string;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
@@ -45,8 +49,8 @@ export const StaticField = <TData extends FormDataType>({
     [setValues]
   );
 
-  if (field.kind === 'fieldset-array') {
-    return (
+  return match(field)
+    .with({ kind: 'fieldset-array' }, (field) => (
       <FieldsetArrayField
         {...field}
         error={errors[name] as Record<string, string>[]}
@@ -55,16 +59,25 @@ export const StaticField = <TData extends FormDataType>({
         setValue={setValue}
         value={values[name] as FieldsetArrayFieldValue}
       />
-    );
-  }
-  return (
-    <ScalarField
-      error={errors[name] as string}
-      field={field}
-      name={name}
-      setError={setError}
-      setValue={setValue}
-      value={values[name] as ScalarFieldValue}
-    />
-  );
+    ))
+    .with({ kind: 'numeric-fieldset' }, (field) => (
+      <NumericFieldsetField
+        {...field}
+        error={errors[name] as Record<string, string>}
+        name={name}
+        setError={setError}
+        setValue={setValue}
+        value={values[name] as NumericFieldsetFieldValue}
+      />
+    ))
+    .otherwise((field) => (
+      <ScalarField
+        error={errors[name] as string}
+        field={field}
+        name={name}
+        setError={setError}
+        setValue={setValue}
+        value={values[name] as ScalarFieldValue}
+      />
+    ));
 };
