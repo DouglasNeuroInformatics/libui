@@ -1,34 +1,26 @@
-import type {
-  FieldsetValue,
-  FormDataType,
-  FormFieldValue,
-  ScalarFieldValue
-} from '@douglasneuroinformatics/libui-form-types';
+import type { FormDataType, FormFieldValue, ScalarFieldValue } from '@douglasneuroinformatics/libui-form-types';
 
-export type FieldError<T extends FormFieldValue = FormFieldValue> = T extends (infer U)[]
-  ? U extends FieldsetValue
-    ? Record<string, string>[]
-    : U extends string
+export type FieldError<T extends FormFieldValue> =
+  T extends NonNullable<infer TValue>
+    ? TValue extends NonNullable<ScalarFieldValue>
       ? string
-      : never
-  : T extends NonNullable<ScalarFieldValue>
-    ? string
+      : TValue extends Record<string, unknown>
+        ? Record<string, string>
+        : TValue extends Record<string, unknown>[]
+          ? Record<string, string>[]
+          : never
     : never;
 
 /** Common props for all field components */
-export type BaseFieldComponentProps<T extends FormFieldValue = FormFieldValue> = {
-  error?: FieldError<T>;
+export type BaseFieldComponentProps<TValue extends FormFieldValue = FormFieldValue> = {
+  error?: FieldError<TValue>;
   name: string;
-  setError: (error: FieldError<T>) => void;
-  setValue: (value: T | undefined) => void;
-  value: T | undefined;
+  setError: (error: FieldError<TValue>) => void;
+  setValue: (value: TValue | undefined) => void;
+  value: TValue | undefined;
 };
 
 /** An object mapping field names to error messages, if applicable */
-export type FormErrors<T extends FormDataType = FormDataType> = {
-  [K in keyof T]?: T[K] extends NonNullable<ScalarFieldValue>
-    ? string
-    : T[K] extends NonNullable<ScalarFieldValue>
-      ? Record<string, string>[]
-      : never;
+export type FormErrors<TData extends FormDataType = FormDataType> = {
+  [K in keyof TData]?: FieldError<TData[K]>;
 };
