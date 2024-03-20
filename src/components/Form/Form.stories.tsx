@@ -20,6 +20,7 @@ const $ExampleFormData = z.object({
   date: z.date().optional(),
   numberInput: z.number().optional(),
   numberSlider: z.number().optional(),
+  numberRecord: z.record(z.number()),
   numberRadio: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
   setListbox: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
@@ -209,6 +210,27 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
         }
       },
       {
+        title: 'Number Record',
+        fields: {
+          numberRecord: {
+            kind: 'number-record',
+            label: 'Number Record',
+            entries: {
+              q1: {
+                label: 'Question 1'
+              },
+              q2: {
+                label: 'Question 2'
+              },
+              q3: {
+                label: 'Question 3'
+              }
+            },
+            variant: 'likert'
+          }
+        }
+      },
+      {
         title: 'Record Array',
         description: `A 'record-array' field is composed of an array of given set of fields (referred to as a fieldset). A fieldset may include any number of fields, which can be any scalar kind. However, only one fieldset may be defined for a single fieldset array field.`,
         fields: {
@@ -297,6 +319,22 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
         max: 10,
         min: 0,
         variant: 'slider'
+      },
+      numberRecord: {
+        kind: 'number-record',
+        label: 'Number Record',
+        entries: {
+          q1: {
+            label: 'Question 1'
+          },
+          q2: {
+            label: 'Question 2'
+          },
+          q3: {
+            label: 'Question 3'
+          }
+        },
+        variant: 'likert'
       },
       setListbox: {
         kind: 'set',
