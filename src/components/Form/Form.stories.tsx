@@ -215,7 +215,7 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
           numberRecord: {
             kind: 'number-record',
             label: 'Number Record',
-            entries: {
+            items: {
               q1: {
                 label: 'Question 1'
               },
@@ -225,6 +225,13 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
               q3: {
                 label: 'Question 3'
               }
+            },
+            options: {
+              1: '1 - Very Low',
+              2: '2 - Low',
+              3: '3 - Medium',
+              4: '4 - High',
+              5: '5 - Very High'
             },
             variant: 'likert'
           }
@@ -323,7 +330,7 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
       numberRecord: {
         kind: 'number-record',
         label: 'Number Record',
-        entries: {
+        items: {
           q1: {
             label: 'Question 1'
           },
@@ -333,6 +340,13 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
           q3: {
             label: 'Question 3'
           }
+        },
+        options: {
+          1: '1 - Very Low',
+          2: '2 - Low',
+          3: '3 - Medium',
+          4: '4 - High',
+          5: '5 - Very High'
         },
         variant: 'likert'
       },
