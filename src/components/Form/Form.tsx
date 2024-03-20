@@ -10,7 +10,7 @@ import type {
 import { set } from 'lodash-es';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
-import { ZodError, type ZodType } from 'zod';
+import { z } from 'zod';
 
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -26,11 +26,11 @@ type FormProps<TData extends FormDataType> = {
   content: FormContent<TData>;
   id?: string;
   initialValues?: PartialNullableFormDataType<TData>;
-  onError?: (error: ZodError<TData>) => void;
+  onError?: (error: z.ZodError<TData>) => void;
   onSubmit: (data: TData) => void;
   resetBtn?: boolean;
   submitBtnLabel?: string;
-  validationSchema: ZodType<TData>;
+  validationSchema: z.ZodType<TData>;
 };
 
 const Form = <TData extends FormDataType>({
@@ -52,7 +52,7 @@ const Form = <TData extends FormDataType>({
     initialValues ? getInitialValues(initialValues) : {}
   );
 
-  const handleError = (error: ZodError<TData>) => {
+  const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
     const rootErrors: string[] = [];
     for (const issue of error.issues) {
