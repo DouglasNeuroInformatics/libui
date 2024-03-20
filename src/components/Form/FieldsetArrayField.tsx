@@ -1,6 +1,6 @@
 import { memo, useEffect } from 'react';
 
-import type { CompositeFieldValue, CompositeFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { FieldsetArrayFieldValue, FieldsetArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,16 +11,16 @@ import { ScalarField } from './ScalarField';
 
 import type { BaseFieldComponentProps } from './types';
 
-export type CompositeFieldProps = BaseFieldComponentProps<CompositeFieldValue> & CompositeFormField;
+export type FieldsetArrayFieldProps = BaseFieldComponentProps<FieldsetArrayFieldValue> & FieldsetArrayFormField;
 
-export const CompositeField = memo(function CompositeField({
+export const FieldsetArrayField = memo(function FieldsetArrayField({
   error: arrayError,
   fieldset,
   label,
   setError: setArrayError,
   setValue: setArrayValue,
   value: arrayValue
-}: CompositeFieldProps) {
+}: FieldsetArrayFieldProps) {
   const { t } = useTranslation();
 
   const createNewFieldset = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));

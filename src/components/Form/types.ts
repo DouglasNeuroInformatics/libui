@@ -1,12 +1,12 @@
 import type {
-  CompositeFieldsetValue,
+  FieldsetValue,
   FormDataType,
   FormFieldValue,
   ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
 export type FieldError<T extends FormFieldValue = FormFieldValue> = T extends (infer U)[]
-  ? U extends CompositeFieldsetValue
+  ? U extends FieldsetValue
     ? Record<string, string>[]
     : U extends string
       ? string

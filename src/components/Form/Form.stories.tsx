@@ -10,11 +10,11 @@ import { Form } from './Form';
 const $ExampleFormData = z.object({
   booleanCheck: z.boolean().optional(),
   booleanRadio: z.boolean().optional(),
-  composite: z.array(
+  fieldsetArray: z.array(
     z.object({
-      compositeStringInput: z.string().optional(),
-      showCompositeDynamicField: z.boolean().optional(),
-      compositeDynamicField: z.string().optional()
+      fieldsetArrayStringInput: z.string().optional(),
+      showFieldsetArrayDynamicField: z.boolean().optional(),
+      fieldsetArrayDynamicField: z.string().optional()
     })
   ),
   date: z.date().optional(),
@@ -185,7 +185,7 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
       },
       {
         title: 'Dynamic',
-        description: `A 'dynamic' field may be used with any data type. For a given data type T, a dynamic field must define a render method that returns either a scalar field for type T, or null to indicate the field should not be shown to the user. The render function receives as its first and only argument the current values in the form, unless it is in the context of a composite field, in which case it will receive the current value of the fieldset in which it is situated. To optimize performance, a dynamic field must specify an array of dependent fields, a change in which will trigger a rerender of the component.`,
+        description: `A 'dynamic' field may be used with any data type. For a given data type T, a dynamic field must define a render method that returns either a scalar field for type T, or null to indicate the field should not be shown to the user. The render function receives as its first and only argument the current values in the form, unless it is in the context of a fieldset-array field, in which case it will receive the current value of the fieldset in which it is situated. To optimize performance, a dynamic field must specify an array of dependent fields, a change in which will trigger a rerender of the component.`,
         fields: {
           showDynamicField: {
             kind: 'boolean',
@@ -209,28 +209,28 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
         }
       },
       {
-        title: 'Composite',
-        description: `A 'composite' field is composed of an array of given set of fields (referred to as a fieldset). A fieldset may include any number of fields, which can be any scalar kind. However, only one fieldset may be defined for a single composite field.`,
+        title: 'Fieldset Array',
+        description: `A 'fieldset-array' field is composed of an array of given set of fields (referred to as a fieldset). A fieldset may include any number of fields, which can be any scalar kind. However, only one fieldset may be defined for a single fieldset array field.`,
         fields: {
-          composite: {
-            description: 'This is a composite field',
-            kind: 'composite',
-            label: 'Composite',
+          fieldsetArray: {
+            description: 'This is a fieldset-array field',
+            kind: 'fieldset-array',
+            label: 'Fieldset Array',
             fieldset: {
-              compositeStringInput: {
+              fieldsetArrayStringInput: {
                 kind: 'string',
                 label: 'String',
                 variant: 'input'
               },
-              showCompositeDynamicField: {
+              showFieldsetArrayDynamicField: {
                 kind: 'boolean',
                 label: 'Show Dynamic Field',
                 variant: 'radio'
               },
-              compositeDynamicField: {
+              fieldsetArrayDynamicField: {
                 kind: 'dynamic',
                 render(fieldset) {
-                  if (!fieldset.showCompositeDynamicField) {
+                  if (!fieldset.showFieldsetArrayDynamicField) {
                     return null;
                   }
                   return {
@@ -375,25 +375,25 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
           };
         }
       },
-      composite: {
-        description: 'This is a composite field',
-        kind: 'composite',
-        label: 'Composite',
+      fieldsetArray: {
+        description: 'This is a fieldset-array field',
+        kind: 'fieldset-array',
+        label: 'Fieldset Array',
         fieldset: {
-          compositeStringInput: {
+          fieldsetArrayStringInput: {
             kind: 'string',
             label: 'String',
             variant: 'input'
           },
-          showCompositeDynamicField: {
+          showFieldsetArrayDynamicField: {
             kind: 'boolean',
             label: 'Show Dynamic Field',
             variant: 'radio'
           },
-          compositeDynamicField: {
+          fieldsetArrayDynamicField: {
             kind: 'dynamic',
             render(fieldset) {
-              if (!fieldset.showCompositeDynamicField) {
+              if (!fieldset.showFieldsetArrayDynamicField) {
                 return null;
               }
               return {

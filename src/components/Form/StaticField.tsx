@@ -1,22 +1,22 @@
 import { useCallback } from 'react';
 
 import type {
-  CompositeFieldValue,
-  CompositeFormField,
+  FieldsetArrayFieldValue,
+  FieldsetArrayFormField,
   FormDataType,
   FormFieldValue,
   PartialFormDataType,
   ScalarFieldValue
 } from '@douglasneuroinformatics/libui-form-types';
 
-import { CompositeField } from './CompositeField';
+import { FieldsetArrayField } from './FieldsetArrayField';
 import { ScalarField, type ScalarFieldProps } from './ScalarField';
 
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
-  field: CompositeFormField | ScalarFieldProps['field'];
+  field: FieldsetArrayFormField | ScalarFieldProps['field'];
   name: string;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
@@ -45,15 +45,15 @@ export const StaticField = <TData extends FormDataType>({
     [setValues]
   );
 
-  if (field.kind === 'composite') {
+  if (field.kind === 'fieldset-array') {
     return (
-      <CompositeField
+      <FieldsetArrayField
         {...field}
         error={errors[name] as Record<string, string>[]}
         name={name}
         setError={setError}
         setValue={setValue}
-        value={values[name] as CompositeFieldValue}
+        value={values[name] as FieldsetArrayFieldValue}
       />
     );
   }
