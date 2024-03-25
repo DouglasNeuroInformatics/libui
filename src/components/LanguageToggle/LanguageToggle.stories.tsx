@@ -6,4 +6,12 @@ type Story = StoryObj<typeof LanguageToggle>;
 
 export default { component: LanguageToggle, tags: ['autodocs'] } as Meta<typeof LanguageToggle>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    align: 'start',
+    options: {
+      en: 'English',
+      fr: 'Français'
+    }
+  }
+};
