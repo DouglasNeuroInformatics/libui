@@ -6,12 +6,14 @@ import { LegacyStepperContext } from '@/context/LegacyStepperContext';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { cn } from '@/utils';
 
+/** @deprecated */
 export type Step = {
   element: React.ReactElement;
   icon: React.ReactElement;
   label: string;
 };
 
+/** @deprecated */
 export type LegacyStepperProps = {
   className?: string;
   steps: Step[];
