@@ -10,14 +10,25 @@ import { useNotificationsStore } from './useNotificationsStore';
  */
 export function useDownload() {
   const notifications = useNotificationsStore();
-  const [data, setData] = useState<null | string>(null);
+  const [data, setData] = useState<null | Object>(null);
   const [filename, setFilename] = useState<null | string>(null);
 
   useEffect(() => {
     if (data && filename) {
       const anchor = document.createElement('a');
       document.body.appendChild(anchor);
-      const blob = new Blob([data], { type: 'text/plain' });
+
+      let blobType = 'text/plain';
+      let blob = new Blob();
+      if (filename.includes('png')) {
+        blobType = 'image/png';
+        const blobData = data as Blob;
+        blob = new Blob([blobData], { type: blobType });
+      } else {
+        const blobData = data.toString();
+        blob = new Blob([blobData], { type: blobType });
+      }
+
       const url = URL.createObjectURL(blob);
       anchor.href = url;
       anchor.download = filename;
@@ -29,10 +40,14 @@ export function useDownload() {
     }
   }, [data, filename]);
 
-  return async (filename: string, fetchData: () => Promisable<string>) => {
+  return async (filename: string, fetchData: () => Promisable<Object>) => {
     try {
       const data = await fetchData();
-      setData(data);
+      if (data instanceof String) {
+        setData(data.toString);
+      } else {
+        setData(data as Blob);
+      }
       setFilename(filename);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'An unknown error occurred';
