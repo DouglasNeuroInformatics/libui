@@ -3,6 +3,7 @@ export * from './useEventCallback';
 export * from './useEventListener';
 export * from './useInterval';
 export * from './useIsomorphicLayoutEffect';
+export * from './useLegacyStepper';
 export * from './useMediaQuery';
 export * from './useNotificationsStore';
 export * from './useOnClickOutside';
