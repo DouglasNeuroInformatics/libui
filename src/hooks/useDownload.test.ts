@@ -57,4 +57,9 @@ describe('useDownload', () => {
     await act(() => download('hello.txt', () => 'hello world'));
     expect(document.createElement).toHaveBeenLastCalledWith('a');
   });
+  it('should invoke the fetch data a gather an image', async () => {
+    const fetchData = vi.fn(() => document.createElement('div'));
+    await download('testdiv.png', fetchData);
+    expect(fetchData).toHaveBeenCalledOnce();
+  });
 });
