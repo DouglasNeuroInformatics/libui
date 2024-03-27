@@ -23,6 +23,7 @@ export * from './HoverCard';
 export * from './Input';
 export * from './Label';
 export * from './LanguageToggle';
+export * from './LegacyStepper';
 export * from './LineGraph';
 export * from './MenuBar';
 export * from './NotificationHub';
