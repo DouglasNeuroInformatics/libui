@@ -4,30 +4,29 @@ import type { Promisable } from 'type-fest';
 
 import { useNotificationsStore } from './useNotificationsStore';
 
+type DownloadOptions<T extends Blob | string = Blob | string> = T extends Blob
+  ? { blobType: 'image/png' }
+  : { blobType: 'text/csv' | 'text/plain' };
+
 /**
  * Used to trigger downloads of arbitrary data to the client
  * @returns A function to invoke the download
  */
 export function useDownload() {
   const notifications = useNotificationsStore();
-  const [data, setData] = useState<null | Object>(null);
-  const [filename, setFilename] = useState<null | string>(null);
+  const [state, setState] = useState<{
+    blobType: DownloadOptions['blobType'];
+    data: Blob | string;
+    filename: string;
+  } | null>(null);
 
   useEffect(() => {
-    if (data && filename) {
+    if (state) {
+      const { blobType, data, filename } = state;
       const anchor = document.createElement('a');
       document.body.appendChild(anchor);
 
-      let blobType = 'text/plain';
-      let blob = new Blob();
-      if (filename.includes('png')) {
-        blobType = 'image/png';
-        const blobData = data as Blob;
-        blob = new Blob([blobData], { type: blobType });
-      } else {
-        const blobData = data.toString();
-        blob = new Blob([blobData], { type: blobType });
-      }
+      const blob = new Blob([data], { type: blobType });
 
       const url = URL.createObjectURL(blob);
       anchor.href = url;
@@ -35,20 +34,18 @@ export function useDownload() {
       anchor.click();
       URL.revokeObjectURL(url);
       anchor.remove();
-      setData(null);
-      setFilename(null);
+      setState(null);
     }
-  }, [data, filename]);
+  }, [state]);
 
-  return async (filename: string, fetchData: () => Promisable<Object>) => {
+  return async <T extends Blob | string>(
+    filename: string,
+    fetchData: () => Promisable<T>,
+    options: DownloadOptions<T>
+  ) => {
     try {
       const data = await fetchData();
-      if (data instanceof String) {
-        setData(data.toString);
-      } else {
-        setData(data as Blob);
-      }
-      setFilename(filename);
+      setState({ blobType: options.blobType, data, filename });
     } catch (error) {
       const message = error instanceof Error ? error.message : 'An unknown error occurred';
       notifications.addNotification({
