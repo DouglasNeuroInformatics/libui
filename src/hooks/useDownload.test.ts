@@ -58,7 +58,7 @@ describe('useDownload', () => {
     expect(document.createElement).toHaveBeenLastCalledWith('a');
   });
   it('should invoke the fetch data a gather an image', async () => {
-    const fetchData = vi.fn(() => document.createElement('div'));
+    const fetchData = vi.fn(() => new Blob());
     await download('testdiv.png', fetchData);
     expect(fetchData).toHaveBeenCalledOnce();
   });
