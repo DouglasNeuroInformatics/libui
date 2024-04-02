@@ -41,11 +41,14 @@ export function useDownload() {
   return async <T extends Blob | string>(
     filename: string,
     fetchData: () => Promisable<T>,
-    options: DownloadOptions<T>
+    options?: DownloadOptions<T>
   ) => {
     try {
       const data = await fetchData();
-      setState({ blobType: options.blobType, data, filename });
+      if (typeof data !== 'string' && !options?.blobType) {
+        throw new Error("argument 'blobType' must be defined when download is called with a Blob object");
+      }
+      setState({ blobType: options?.blobType ?? 'text/plain', data, filename });
     } catch (error) {
       const message = error instanceof Error ? error.message : 'An unknown error occurred';
       notifications.addNotification({
