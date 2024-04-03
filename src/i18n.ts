@@ -1,3 +1,4 @@
+import { isPlainObject } from '@douglasneuroinformatics/libjs';
 import { type i18n as I18n, createInstance } from 'i18next';
 import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';
@@ -22,7 +23,6 @@ type TranslatedResource<T = EmptyObject> = {
 };
 
 function transformTranslations<T extends Record<string, any>>(translations: T, locale: string) {
-  const isPlainObject = Object.getPrototypeOf(translations) === Object.prototype;
   if (!isPlainObject) {
     throw new Error('Invalid format of translations: must be plain object');
   }
