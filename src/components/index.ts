@@ -23,6 +23,7 @@ export * from './HoverCard';
 export * from './Input';
 export * from './Label';
 export * from './LanguageToggle';
+export * from './LegacyModal';
 export * from './LegacySlider';
 export * from './LegacyStepper';
 export * from './LineGraph';
