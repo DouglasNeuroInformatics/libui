@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@douglasneuroinformatics/libjs':
-    specifier: ^0.0.3
-    version: 0.0.3(typescript@5.3.3)
+    specifier: ^0.3.0
+    version: 0.3.0(typescript@5.3.3)
   '@douglasneuroinformatics/libui-form-types':
     specifier: ^0.6.0
     version: 0.6.0
@@ -1916,9 +1916,9 @@ packages:
       - vue-eslint-parser
     dev: true
 
-  /@douglasneuroinformatics/libjs@0.0.3(typescript@5.3.3):
+  /@douglasneuroinformatics/libjs@0.3.0(typescript@5.3.3):
     resolution:
-      { integrity: sha512-T3Uk1TOB9u+WvLAClGcJ3bz+FJoaVDo0+rjkqFlM2+n3x1lHcpJ0xdPUgfFgh0wmlBxk4EsPZIyL98QVZX5vCQ== }
+      { integrity: sha512-izbwuAuwCHMZVkUmjOPYFx/BdaLR/GCca4U5CbaZACm6D6Pb5t721NBGsuaMGBQt1qo6GzXzfRJ41xqxqISgzg== }
     peerDependencies:
       typescript: ^5.1.0
     dependencies:
