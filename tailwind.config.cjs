@@ -5,6 +5,7 @@ const path = require('path');
 
 const animate = require('tailwindcss-animate');
 const containerQueries = require('@tailwindcss/container-queries');
+const headlessui = require('@headlessui/tailwindcss');
 const plugin = require('tailwindcss/plugin');
 
 const isDev = fs.existsSync(path.resolve(__dirname, 'src'));
@@ -16,6 +17,7 @@ module.exports = {
   plugins: [
     animate,
     containerQueries,
+    headlessui,
     plugin(({ addUtilities }) => {
       addUtilities({
         '.scrollbar-none': {
