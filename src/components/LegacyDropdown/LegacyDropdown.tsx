@@ -12,6 +12,7 @@ type LegacyDropdownOptionKey<T> = T extends readonly string[]
     ? Extract<keyof T, string>
     : never;
 
+/** @deprecated */
 export type LegacyDropdownProps<T extends LegacyDropdownOptions> = {
   className?: string;
 
@@ -25,6 +26,7 @@ export type LegacyDropdownProps<T extends LegacyDropdownOptions> = {
   title: string;
 };
 
+/** @deprecated */
 // eslint-disable-next-line react/function-component-definition
 export function LegacyDropdown<const T extends LegacyDropdownOptions>({
   className,

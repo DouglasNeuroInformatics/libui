@@ -6,12 +6,14 @@ import { type ButtonProps } from '../Button';
 import { Card } from '../Card';
 import { DropdownButton } from '../DropdownButton';
 
-export type SelectOption = {
+/** @deprecated */
+export type LegacySelectOption = {
   key: string;
   label: string;
 };
 
-export type LegacySelectDropdownProps<T extends SelectOption> = {
+/** @deprecated */
+export type LegacySelectDropdownProps<T extends LegacySelectOption> = {
   checkPosition?: 'left' | 'right';
   className?: string;
   options: T[];
@@ -22,7 +24,8 @@ export type LegacySelectDropdownProps<T extends SelectOption> = {
   variant?: ButtonProps['variant'];
 };
 
-export const LegacySelectDropdown = <T extends SelectOption>({
+/** @deprecated */
+export const LegacySelectDropdown = <T extends LegacySelectOption>({
   checkPosition = 'right',
   className,
   options,
