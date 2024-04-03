@@ -8,6 +8,8 @@ import { Input } from '../Input';
 export type SearchBarProps = {
   /** Additional CSS classes to add to the wrapper form component, potentially overriding default styling */
   className?: string;
+  /** An optional callback invoked when the user clicks the search bar */
+  onClick?: () => void;
   /** Event handler called when the value changes */
   onValueChange: (value: string) => void;
   /** Custom placeholder to use instead of the default */
@@ -16,7 +18,7 @@ export type SearchBarProps = {
   value: string;
 };
 
-export const SearchBar = ({ className, onValueChange, placeholder, value }: SearchBarProps) => {
+export const SearchBar = ({ className, onClick, onValueChange, placeholder, value }: SearchBarProps) => {
   const { t } = useTranslation();
   return (
     <form className={cn('relative', className)}>
@@ -29,6 +31,7 @@ export const SearchBar = ({ className, onValueChange, placeholder, value }: Sear
         onChange={(event) => {
           onValueChange?.(event.target.value);
         }}
+        onClick={() => onClick?.()}
       />
     </form>
   );
