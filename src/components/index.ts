@@ -28,6 +28,7 @@ export * from './LegacyModal';
 export * from './LegacySelectDropdown';
 export * from './LegacySlider';
 export * from './LegacyStepper';
+export * from './LegacyTable';
 export * from './LineGraph';
 export * from './MenuBar';
 export * from './NotificationHub';
