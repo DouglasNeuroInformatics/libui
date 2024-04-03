@@ -6,7 +6,7 @@ import { Separator } from './Separator';
 const TEST_ID = 'separator';
 
 describe('Separator', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Separator />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

@@ -55,6 +55,7 @@ describe('useDownload', () => {
   });
   it('should attempt to create one anchor element', async () => {
     await act(() => download('hello.txt', () => 'hello world'));
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(document.createElement).toHaveBeenLastCalledWith('a');
   });
   it('should invoke the fetch data a gather an image', async () => {

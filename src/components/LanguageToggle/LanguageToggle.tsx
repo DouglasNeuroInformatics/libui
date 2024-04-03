@@ -23,7 +23,7 @@ export const LanguageToggle = ({ align, options }: LanguageToggleProps = { align
       </DropdownMenu.Trigger>
       <DropdownMenu.Content align={align}>
         {Object.keys(options).map((option) => (
-          <DropdownMenu.Item key={option} onClick={() => i18n.changeLanguage(option)}>
+          <DropdownMenu.Item key={option} onClick={() => void i18n.changeLanguage(option)}>
             {options[option]}
           </DropdownMenu.Item>
         ))}

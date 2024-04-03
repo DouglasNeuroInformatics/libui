@@ -1,4 +1,4 @@
-import type { TextFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
 import { Label } from '@/components/Label';
@@ -8,7 +8,7 @@ import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
 export type StringFieldSelectProps<T extends string = string> = Simplify<
-  BaseFieldComponentProps<T> & Extract<TextFormField<T>, { options: object }>
+  BaseFieldComponentProps<T> & Extract<StringFormField<T>, { options: object }>
 >;
 
 export const StringFieldSelect = <T extends string = string>({

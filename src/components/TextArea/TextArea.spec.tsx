@@ -7,7 +7,7 @@ import { TextArea } from './TextArea';
 const TEST_ID = 'text-area';
 
 describe('TextArea ', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<TextArea />);
     const input = screen.getByTestId(TEST_ID);
     expect(input).toBeInTheDocument();

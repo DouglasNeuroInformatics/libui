@@ -6,7 +6,7 @@ import { ScrollArea } from './ScrollArea';
 const TEST_ID = 'scroll-area';
 
 describe('ScrollArea', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<ScrollArea />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

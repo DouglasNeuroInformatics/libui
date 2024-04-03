@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { TextFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
 import { Input } from '@/components/Input';
@@ -11,7 +11,7 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type StringFieldPasswordProps = BaseFieldComponentProps<string> & TextFormField;
+export type StringFieldPasswordProps = BaseFieldComponentProps<string> & StringFormField;
 
 export const StringFieldPassword = ({ description, error, label, name, setValue, value }: StringFieldPasswordProps) => {
   const [show, setShow] = useState(false);

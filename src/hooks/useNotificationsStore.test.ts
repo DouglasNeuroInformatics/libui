@@ -11,11 +11,11 @@ describe('useNotificationsStore', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
-  it('should render and return an object', async () => {
+  it('should render and return an object', () => {
     const { result } = renderHook(() => useNotificationsStore());
     expect(result.current).toBeTypeOf('object');
   });
-  it('should add and dismiss notifications', async () => {
+  it('should add and dismiss notifications', () => {
     const { result } = renderHook(() => useNotificationsStore());
     act(() => {
       result.current.addNotification({ message: 'test', type: 'info' });

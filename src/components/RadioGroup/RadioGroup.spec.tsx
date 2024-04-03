@@ -21,7 +21,7 @@ const TestRadioGroup = (props: RadioGroupProps) => (
 );
 
 describe('RadioGroup', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<TestRadioGroup />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

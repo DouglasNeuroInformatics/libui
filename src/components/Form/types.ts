@@ -4,10 +4,10 @@ export type FieldError<T extends FormFieldValue> =
   T extends NonNullable<infer TValue>
     ? TValue extends NonNullable<ScalarFieldValue>
       ? string
-      : TValue extends Record<string, unknown>
-        ? Record<string, string>
-        : TValue extends Record<string, unknown>[]
-          ? Record<string, string>[]
+      : TValue extends { [key: string]: unknown }
+        ? { [key: string]: string }
+        : TValue extends { [key: string]: unknown }[]
+          ? { [key: string]: string }[]
           : never
     : never;
 

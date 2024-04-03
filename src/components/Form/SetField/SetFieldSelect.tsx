@@ -32,7 +32,7 @@ export const SetFieldSelect = <T extends string = string>({
               <div className="flex items-center gap-2">
                 {Array.from(value).map((option) => (
                   <Badge className="font-normal" key={option} variant="outline">
-                    {options[option as T]}
+                    {options[option]}
                   </Badge>
                 ))}
               </div>

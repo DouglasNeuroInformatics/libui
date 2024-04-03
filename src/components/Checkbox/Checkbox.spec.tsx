@@ -7,7 +7,7 @@ import { Checkbox } from './Checkbox';
 const TEST_ID = 'checkbox';
 
 describe('Checkbox', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Checkbox />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

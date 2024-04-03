@@ -1,4 +1,4 @@
-import type { TextFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
 import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';
@@ -7,7 +7,7 @@ import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 
-export type StringFieldInputProps = BaseFieldComponentProps<string> & TextFormField;
+export type StringFieldInputProps = BaseFieldComponentProps<string> & StringFormField;
 
 export const StringFieldInput = ({ description, error, label, name, setValue, value }: StringFieldInputProps) => {
   return (

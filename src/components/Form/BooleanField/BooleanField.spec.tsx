@@ -22,12 +22,12 @@ const TestBooleanField = ({ variant }: Pick<BooleanFieldProps, 'variant'>) => {
 };
 
 describe('BooleanField', () => {
-  it('should render a checkbox field', async () => {
+  it('should render a checkbox field', () => {
     render(<TestBooleanField variant="checkbox" />);
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
     expect(() => screen.getByRole('radiogroup')).toThrow();
   });
-  it('should render a radio field', async () => {
+  it('should render a radio field', () => {
     render(<TestBooleanField variant="radio" />);
     expect(screen.getByRole('radiogroup')).toBeInTheDocument();
     expect(() => screen.getByRole('checkbox')).toThrow();

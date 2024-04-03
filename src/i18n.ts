@@ -12,21 +12,21 @@ const supportedLngs = ['en', 'fr'] as const;
 type DefaultNS = typeof defaultNS;
 type Language = (typeof supportedLngs)[number];
 
-type TranslationsDef = Record<string, Record<string, unknown>>;
+type TranslationsDef = { [key: string]: { [key: string]: unknown } };
 
 type TranslatedResource<T = EmptyObject> = {
-  [K in keyof T]: T[K] extends Record<string, unknown>
-    ? T[K] extends Record<Language, unknown>
+  [K in keyof T]: T[K] extends { [key: string]: unknown }
+    ? T[K] extends { [K in Language]: unknown }
       ? ValueOf<T[K]>
       : TranslatedResource<T[K]>
     : T[K];
 };
 
-function transformTranslations<T extends Record<string, any>>(translations: T, locale: string) {
+function transformTranslations<T extends { [key: string]: any }>(translations: T, locale: string) {
   if (!isPlainObject) {
     throw new Error('Invalid format of translations: must be plain object');
   }
-  const result: Record<string, unknown> = {};
+  const result: { [key: string]: unknown } = {};
   for (const key in translations) {
     const value = translations[key];
     if (Object.hasOwn(value, locale)) {

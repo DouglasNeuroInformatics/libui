@@ -28,7 +28,7 @@ export const mockMatchMedia = (matches: ((query: string) => boolean) | boolean):
  */
 export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
   class StorageMock implements Omit<Storage, 'key' | 'length'> {
-    store: Record<string, string> = {};
+    store: { [key: string]: string } = {};
 
     clear() {
       this.store = {};
@@ -43,7 +43,7 @@ export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
     }
 
     setItem(key: string, value: unknown) {
-      this.store[key] = value + '';
+      this.store[key] = String(value) + '';
     }
   }
 

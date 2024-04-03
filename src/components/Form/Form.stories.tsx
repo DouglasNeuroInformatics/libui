@@ -275,7 +275,7 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
       }
     ],
     onSubmit: (data) => {
-      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : value), 2));
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
     validationSchema: $ExampleFormData
   }
@@ -459,7 +459,7 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
       }
     },
     onSubmit: (data) => {
-      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : value), 2));
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
     validationSchema: $ExampleFormData
   }

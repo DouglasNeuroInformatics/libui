@@ -9,7 +9,7 @@ import type {
 } from '@douglasneuroinformatics/libui-form-types';
 
 export function getInitialValues<T extends FormDataType>(values: PartialNullableFormDataType<T>) {
-  const initialValues: Record<string, unknown> = {};
+  const initialValues: { [key: string]: unknown } = {};
   for (const key in values) {
     const value = values[key];
     if (value === null || value === undefined) {
@@ -28,7 +28,7 @@ export function getFormFields<T extends FormDataType>(content: FormContent<T>): 
   if (!Array.isArray(content)) {
     return content;
   }
-  return content.reduce((prev, current) => ({ ...prev, ...current.fields }), content[0]!.fields) as FormFields<T>;
+  return content.reduce((prev, current) => ({ ...prev, ...current.fields }), content[0].fields) as FormFields<T>;
 }
 
 /**

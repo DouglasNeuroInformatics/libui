@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 
 const TEST_ID = 'avatar';
 
-const TestAvatar = (props: Record<string, any>) => (
+const TestAvatar = (props: { [key: string]: any }) => (
   <Avatar {...props}>
     <Avatar.Image alt="@shadcn" src="https://github.com/shadcn.png" />
     <Avatar.Fallback>CN</Avatar.Fallback>
@@ -13,7 +13,7 @@ const TestAvatar = (props: Record<string, any>) => (
 );
 
 describe('Avatar', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<TestAvatar />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

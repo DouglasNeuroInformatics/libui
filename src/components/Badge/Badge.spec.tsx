@@ -6,7 +6,7 @@ import { Badge } from './Badge';
 const TEST_ID = 'badge';
 
 describe('Badge', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Badge />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

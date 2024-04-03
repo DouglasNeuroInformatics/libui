@@ -38,8 +38,10 @@ describe('useEventListener', () => {
       useEventListener(eventName, handler, ref, options);
     });
 
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(ref.current.addEventListener).toHaveBeenCalledWith(eventName, expect.any(Function), options);
     unmount();
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(ref.current.removeEventListener).toHaveBeenCalledWith(eventName, expect.any(Function), options);
   });
 
@@ -56,8 +58,10 @@ describe('useEventListener', () => {
       useEventListener(eventName, handler, ref, options);
     });
 
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(document.addEventListener).toHaveBeenCalledWith(eventName, expect.any(Function), options);
     unmount();
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(document.removeEventListener).toHaveBeenCalledWith(eventName, expect.any(Function), options);
   });
 

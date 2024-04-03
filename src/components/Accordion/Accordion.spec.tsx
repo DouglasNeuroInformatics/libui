@@ -15,11 +15,11 @@ const TestAccordion = () => (
 );
 
 describe('Accordion', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<TestAccordion />);
     expect(screen.getByTestId(TEST_ID)).toBeDefined();
   });
-  it('should open and close an item', async () => {
+  it('should open and close an item', () => {
     render(<TestAccordion />);
 
     const toggle = screen.getByText('T1');

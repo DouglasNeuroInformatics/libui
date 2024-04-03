@@ -5,16 +5,16 @@ import type { DefaultNS, Language, TranslatedResource } from '../i18n';
 import 'i18next';
 
 declare module 'i18next' {
-  interface CustomResources {
+  type CustomResources = {
     libui: TranslatedResource<typeof libui>;
-  }
+  };
 
-  interface CustomTypeOptions {
+  type CustomTypeOptions = {
     defaultNS: DefaultNS;
     resources: CustomResources;
-  }
+  };
 
-  interface i18n {
+  type i18n = {
     resolvedLanguage?: Language;
-  }
+  };
 }

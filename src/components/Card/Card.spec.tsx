@@ -6,7 +6,7 @@ import { Card } from './Card';
 const TEST_ID = 'card';
 
 describe('Card', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Card />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
   });

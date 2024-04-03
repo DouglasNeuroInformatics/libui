@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { Button } from './Button';
 
 describe('Button', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Button>My Button</Button>);
     expect(screen.getByText('My Button')).toBeInTheDocument();
   });

@@ -4,7 +4,7 @@ import type {
   NumberFormField,
   ScalarFieldValue,
   SetFormField,
-  TextFormField
+  StringFormField
 } from '@douglasneuroinformatics/libui-form-types';
 
 import { BooleanField, type BooleanFieldProps } from './BooleanField';
@@ -16,7 +16,7 @@ import { StringField, type StringFieldProps } from './StringField';
 import type { BaseFieldComponentProps } from './types';
 
 export type ScalarFieldProps = BaseFieldComponentProps<ScalarFieldValue> & {
-  field: BooleanFormField | DateFormField | NumberFormField | SetFormField | TextFormField;
+  field: BooleanFormField | DateFormField | NumberFormField | SetFormField | StringFormField;
 };
 
 export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {

@@ -49,6 +49,7 @@ describe('useTheme', () => {
     const { result } = renderHook(() => useTheme());
     await act(async () => {
       result.current[1]('dark');
+      return Promise.resolve();
     });
     expect(result.current[0]).toBe('dark');
   });
@@ -58,6 +59,7 @@ describe('useTheme', () => {
     const { result } = renderHook(() => useTheme());
     await act(async () => {
       result.current[1]('dark');
+      return Promise.resolve();
     });
     expect(window.localStorage.getItem(THEME_KEY)).toBe('dark');
   });
@@ -66,6 +68,7 @@ describe('useTheme', () => {
     vi.spyOn(console, 'error');
     await act(async () => {
       document.documentElement.setAttribute(THEME_ATTRIBUTE, 'INVALID_THEME');
+      return Promise.resolve();
     });
     expect(console.error).toHaveBeenLastCalledWith(expect.stringContaining('INVALID_THEME'));
   });

@@ -23,7 +23,7 @@ export type BaseRadioFieldProps<T extends string> = Simplify<
   BaseFieldComponentProps<T> & {
     description?: string;
     label: string;
-    options: Record<T, string>;
+    options: { [K in T]: string };
     orientation?: 'horizontal' | 'vertical';
   }
 >;

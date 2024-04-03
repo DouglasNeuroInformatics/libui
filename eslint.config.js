@@ -9,6 +9,7 @@ export default config({
     enabled: false
   },
   react: {
-    enabled: true
+    enabled: true,
+    version: '18'
   }
 });

@@ -7,7 +7,7 @@ import { Input } from './Input';
 const TEST_ID = 'input';
 
 describe('Input ', () => {
-  it('should render', async () => {
+  it('should render', () => {
     render(<Input />);
     const input = screen.getByTestId(TEST_ID);
     expect(input).toBeInTheDocument();
