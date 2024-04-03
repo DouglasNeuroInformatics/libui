@@ -5,18 +5,28 @@ import { cn } from '@/utils';
 
 import { Input } from '../Input';
 
-export type SearchBarProps = {
+export type BaseSearchBarProps = {
   /** Additional CSS classes to add to the wrapper form component, potentially overriding default styling */
   className?: string;
   /** An optional callback invoked when the user clicks the search bar */
   onClick?: () => void;
-  /** Event handler called when the value changes */
-  onValueChange: (value: string) => void;
   /** Custom placeholder to use instead of the default */
   placeholder?: string;
+};
+
+type ControlledSearchBarProps = BaseSearchBarProps & {
+  /** Event handler called when the value changes */
+  onValueChange: (value: string) => void;
   /** The controlled value of the search bar, which should be used in conjunction with onValueChange */
   value: string;
 };
+
+type UncontrolledSearchBarProps = BaseSearchBarProps & {
+  onValueChange?: never;
+  value?: never;
+};
+
+export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 
 export const SearchBar = ({ className, onClick, onValueChange, placeholder, value }: SearchBarProps) => {
   const { t } = useTranslation();
