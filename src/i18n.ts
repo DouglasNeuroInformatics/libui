@@ -1,5 +1,5 @@
 import { isPlainObject } from '@douglasneuroinformatics/libjs';
-import { createInstance } from 'i18next';
+import { type i18n as I18n, createInstance } from 'i18next';
 import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';
 import type { EmptyObject, ValueOf } from 'type-fest';
@@ -49,7 +49,7 @@ export function createResources<T extends TranslationsDef>(translations: T) {
 
 export const resources = createResources({ libui });
 
-export const i18n = createInstance({
+const i18n = createInstance({
   fallbackLng: 'en' satisfies Language,
   interpolation: {
     escapeValue: false
@@ -58,4 +58,20 @@ export const i18n = createInstance({
   resources,
   returnObjects: true,
   supportedLngs
-}).use(initReactI18next);
+}) as I18n & {
+  addPreInitTranslations<T extends TranslationsDef>(translations: T): void;
+};
+
+i18n.addPreInitTranslations = function (this, translations) {
+  if (!this.options.resources) {
+    console.error("Cannot add additional translations to i18next instance: 'this.options.resources' is undefined");
+    return;
+  }
+  const resources = createResources(translations);
+  Object.assign(this.options.resources.en, resources.en);
+  Object.assign(this.options.resources.fr, resources.fr);
+};
+
+i18n.use(initReactI18next);
+
+export { i18n };
