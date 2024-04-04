@@ -40,6 +40,20 @@ designed as a generic implementation.
 pnpm install @douglasneuroinformatics/libui
 ```
 
+## Usage
+
+**tailwind.config.cjs**
+
+```javascript
+const baseConfig = require('@douglasneuroinformatics/libui/tailwind.config.cjs');
+
+/** @type {import('tailwindcss').Config} */
+module.exports {
+  content: [...baseConfig.content, './src/**/*.{js,ts,jsx,tsx}'],
+  presets: [baseConfig]
+};
+```
+
 ## Contributing
 
 We welcome contributions! If you're interested in improving the library or adding new features, please refer to our contribution guide.
