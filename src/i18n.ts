@@ -1,5 +1,6 @@
 import { isPlainObject } from '@douglasneuroinformatics/libjs';
 import { type i18n as I18n, createInstance } from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';
 import type { EmptyObject, ValueOf } from 'type-fest';
@@ -72,6 +73,6 @@ i18n.addPreInitTranslations = function (this, translations) {
   Object.assign(this.options.resources.fr, resources.fr);
 };
 
-i18n.use(initReactI18next);
+i18n.use(initReactI18next).use(LanguageDetector);
 
 export { i18n };
