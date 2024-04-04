@@ -6,13 +6,13 @@ import type { EmptyObject, ValueOf } from 'type-fest';
 
 import libui from './translations/libui.json';
 
-const supportedLngs = ['en', 'fr'] as const;
+export const supportedLngs = ['en', 'fr'] as const;
 
-type Language = (typeof supportedLngs)[number];
+export type Language = (typeof supportedLngs)[number];
 
-type TranslationsDef = { [key: string]: { [key: string]: unknown } };
+export type TranslationsDef = { [key: string]: { [key: string]: unknown } };
 
-type TranslatedResource<T = EmptyObject> = {
+export type TranslatedResource<T = EmptyObject> = {
   [K in keyof T]: T[K] extends { [key: string]: unknown }
     ? T[K] extends { [K in Language]: unknown }
       ? ValueOf<T[K]>
@@ -20,7 +20,7 @@ type TranslatedResource<T = EmptyObject> = {
     : T[K];
 };
 
-function transformTranslations<T extends { [key: string]: any }>(translations: T, locale: string) {
+export function transformTranslations<T extends { [key: string]: any }>(translations: T, locale: string) {
   if (!isPlainObject) {
     throw new Error('Invalid format of translations: must be plain object');
   }
@@ -36,20 +36,20 @@ function transformTranslations<T extends { [key: string]: any }>(translations: T
   return result;
 }
 
-function createResourcesForLanguage<T extends TranslationsDef>(translations: T, locale: Language) {
+export function createResourcesForLanguage<T extends TranslationsDef>(translations: T, locale: Language) {
   return mapValues(translations, (value) => transformTranslations(value, locale));
 }
 
-function createResources<T extends TranslationsDef>(translations: T) {
+export function createResources<T extends TranslationsDef>(translations: T) {
   return {
     en: createResourcesForLanguage(translations, 'en'),
     fr: createResourcesForLanguage(translations, 'fr')
   } as TranslatedResource<T>;
 }
 
-const resources = createResources({ libui });
+export const resources = createResources({ libui });
 
-const i18n = createInstance({
+export const i18n = createInstance({
   fallbackLng: 'en' satisfies Language,
   interpolation: {
     escapeValue: false
@@ -58,10 +58,4 @@ const i18n = createInstance({
   resources,
   returnObjects: true,
   supportedLngs
-}) as I18n;
-
-await i18n.use(initReactI18next).init();
-
-export default i18n;
-
-export type { Language, TranslatedResource };
+}).use(initReactI18next) as I18n;
