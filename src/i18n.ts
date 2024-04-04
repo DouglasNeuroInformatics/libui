@@ -1,5 +1,5 @@
 import { isPlainObject } from '@douglasneuroinformatics/libjs';
-import { type i18n as I18n, createInstance } from 'i18next';
+import { createInstance } from 'i18next';
 import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';
 import type { EmptyObject, ValueOf } from 'type-fest';
@@ -58,4 +58,4 @@ export const i18n = createInstance({
   resources,
   returnObjects: true,
   supportedLngs
-}).use(initReactI18next) as I18n;
+}).use(initReactI18next);
