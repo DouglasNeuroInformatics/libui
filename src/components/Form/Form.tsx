@@ -45,7 +45,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSc
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('libui');
   const [rootError, setRootError] = useState<null | string>(null);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(

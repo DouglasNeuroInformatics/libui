@@ -6,10 +6,8 @@ import type { EmptyObject, ValueOf } from 'type-fest';
 
 import libui from './translations/libui.json';
 
-const defaultNS = 'libui' as const;
 const supportedLngs = ['en', 'fr'] as const;
 
-type DefaultNS = typeof defaultNS;
 type Language = (typeof supportedLngs)[number];
 
 type TranslationsDef = { [key: string]: { [key: string]: unknown } };
@@ -52,7 +50,6 @@ function createResources<T extends TranslationsDef>(translations: T) {
 const resources = createResources({ libui });
 
 const i18n = createInstance({
-  defaultNS,
   fallbackLng: 'en' satisfies Language,
   interpolation: {
     escapeValue: false
@@ -67,4 +64,4 @@ await i18n.use(initReactI18next).init();
 
 export default i18n;
 
-export type { DefaultNS, Language, TranslatedResource };
+export type { Language, TranslatedResource };

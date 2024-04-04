@@ -132,6 +132,10 @@
     }
   },
   "pagination": {
+    "info": {
+      "en": "Showing {{first}} to {{last}} of {{total}} results",
+      "fr": "Affichage de {{first}} à {{last}} sur {{total}} résultats"
+    },
     "next": {
       "en": "Next",
       "fr": "Suivant"

@@ -13,7 +13,7 @@ export type LanguageToggleProps = {
 };
 
 export const LanguageToggle = ({ align = 'start', options = {}, variant = 'outline' }: LanguageToggleProps) => {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation('libui');
 
   return (
     <DropdownMenu>

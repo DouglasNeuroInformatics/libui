@@ -13,7 +13,7 @@ type NotificationHubProps = {
 };
 
 const NotificationHub = ({ timeout = 5000 }: NotificationHubProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('libui');
   const { dismissNotification, notifications } = useNotificationsStore();
 
   return (

@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+
 import libui from '../translations/libui.json';
 
-import type { DefaultNS, Language, TranslatedResource } from '../i18n';
+import type { Language, TranslatedResource } from '../i18n';
 
 import 'i18next';
 
 declare module 'i18next' {
-  type CustomResources = {
+  interface CustomResources {
     libui: TranslatedResource<typeof libui>;
-  };
+  }
 
-  type CustomTypeOptions = {
-    defaultNS: DefaultNS;
+  interface CustomTypeOptions {
     resources: CustomResources;
-  };
+  }
 
-  type i18n = {
+  interface i18n {
     resolvedLanguage?: Language;
-  };
+  }
 }

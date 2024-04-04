@@ -22,7 +22,7 @@ export const RecordArrayField = memo(function RecordArrayField({
   setValue: setArrayValue,
   value: arrayValue
 }: RecordArrayFieldProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('libui');
 
   const createNewRecord = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));
 

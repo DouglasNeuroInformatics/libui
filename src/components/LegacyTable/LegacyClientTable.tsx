@@ -8,7 +8,7 @@ import { LegacyTable, type LegacyTableEntry, type LegacyTableProps } from './Leg
 export const LegacyClientTable = <T extends LegacyTableEntry>({ data, ...props }: LegacyTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage] = useState(10);
-  const { t } = useTranslation();
+  const { t } = useTranslation('libui');
 
   const pageCount = Math.ceil(data.length / entriesPerPage);
 
@@ -22,7 +22,7 @@ export const LegacyClientTable = <T extends LegacyTableEntry>({ data, ...props }
       <div className="flex items-center justify-between px-1 py-3">
         <div className="hidden sm:block">
           <p className="text-sm font-medium text-muted-foreground">
-            {t('table.pagination.info', {
+            {t('pagination.info', {
               first: firstEntry,
               last: lastEntry,
               total: data.length
@@ -37,7 +37,7 @@ export const LegacyClientTable = <T extends LegacyTableEntry>({ data, ...props }
               setCurrentPage(currentPage - 1);
             }}
           >
-            {t('table.pagination.previous')}
+            {t('pagination.previous')}
           </button>
           <button
             className="relative ml-3 inline-flex items-center rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-muted-foreground disabled:opacity-75 dark:border-slate-600 dark:bg-slate-800"
@@ -46,7 +46,7 @@ export const LegacyClientTable = <T extends LegacyTableEntry>({ data, ...props }
               setCurrentPage(currentPage + 1);
             }}
           >
-            {t('table.pagination.next')}
+            {t('pagination.next')}
           </button>
         </div>
       </div>

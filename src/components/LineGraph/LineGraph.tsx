@@ -68,7 +68,7 @@ function LineGraphComponent<const T extends LineGraphData>({
     label?: string;
   };
 }) {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation('libui');
   const [theme] = useTheme();
 
   return (

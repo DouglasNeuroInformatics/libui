@@ -29,7 +29,7 @@ type UncontrolledSearchBarProps = BaseSearchBarProps & {
 export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 
 export const SearchBar = ({ className, onClick, onValueChange, placeholder, value }: SearchBarProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('libui');
   return (
     <form className={cn('relative', className)}>
       <SearchIcon className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
