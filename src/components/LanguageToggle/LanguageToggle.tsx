@@ -1,7 +1,7 @@
 import { LanguagesIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '../Button';
+import { Button, type ButtonProps } from '../Button';
 import { DropdownMenu } from '../DropdownMenu';
 
 export type LanguageToggleProps = {
@@ -9,15 +9,16 @@ export type LanguageToggleProps = {
   options: {
     [key: string]: string;
   };
+  variant?: ButtonProps['variant'];
 };
 
-export const LanguageToggle = ({ align, options }: LanguageToggleProps = { align: 'start', options: {} }) => {
+export const LanguageToggle = ({ align = 'start', options = {}, variant = 'outline' }: LanguageToggleProps) => {
   const { i18n } = useTranslation();
 
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button size="icon" variant="outline">
+        <Button size="icon" variant={variant}>
           <LanguagesIcon />
         </Button>
       </DropdownMenu.Trigger>
