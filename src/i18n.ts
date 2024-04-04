@@ -42,9 +42,9 @@ export function createResourcesForLanguage<T extends TranslationsDef>(translatio
 
 export function createResources<T extends TranslationsDef>(translations: T) {
   return {
-    en: createResourcesForLanguage(translations, 'en'),
-    fr: createResourcesForLanguage(translations, 'fr')
-  } as TranslatedResource<T>;
+    en: createResourcesForLanguage(translations, 'en') as TranslatedResource<T>,
+    fr: createResourcesForLanguage(translations, 'fr') as TranslatedResource<T>
+  };
 }
 
 export const resources = createResources({ libui });
