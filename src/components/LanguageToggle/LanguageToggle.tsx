@@ -9,16 +9,21 @@ export type LanguageToggleProps = {
   options: {
     [key: string]: string;
   };
+  triggerClassName?: string;
   variant?: ButtonProps['variant'];
 };
 
-export const LanguageToggle = ({ align = 'start', options = {}, variant = 'outline' }: LanguageToggleProps) => {
+export const LanguageToggle = ({
+  align = 'start',
+  options = {},
+  triggerClassName,
+  variant = 'outline'
+}: LanguageToggleProps) => {
   const { i18n } = useTranslation('libui');
-
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button size="icon" variant={variant}>
+        <Button className={triggerClassName} size="icon" variant={variant}>
           <LanguagesIcon />
         </Button>
       </DropdownMenu.Trigger>
