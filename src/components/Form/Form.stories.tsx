@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
 
 import { Heading } from '../Heading';
-import { Separator } from '../Separator';
 import { Form } from './Form';
 
 const $ExampleFormData = z.object({
@@ -42,7 +41,6 @@ export default {
         <Heading className="my-8 text-center" variant="h1">
           Example Form
         </Heading>
-        <Separator />
         <Story />
       </div>
     )

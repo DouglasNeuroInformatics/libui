@@ -92,7 +92,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSc
   return (
     <form
       autoComplete="off"
-      className={twMerge('my-8 w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-8', className)}
+      className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-8', className)}
       id={id}
       onSubmit={handleSubmit}
       {...props}
