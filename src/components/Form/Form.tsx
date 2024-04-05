@@ -92,7 +92,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSc
   return (
     <form
       autoComplete="off"
-      className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-8', className)}
+      className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
       id={id}
       onSubmit={handleSubmit}
       {...props}
@@ -100,11 +100,11 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSc
       {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
-            <div className="space-y-8 [&:not(:first-child)]:pt-8" key={i}>
-              <div>
+            <div className="space-y-6 [&:not(:first-child)]:pt-8" key={i}>
+              <div className="space-y-1">
                 <Heading variant="h4">{fieldGroup.title}</Heading>
                 {fieldGroup.description && (
-                  <small className="text-sm italic text-muted-foreground">{fieldGroup.description}</small>
+                  <p className="text-sm italic leading-tight text-muted-foreground">{fieldGroup.description}</p>
                 )}
               </div>
               <FieldsComponent

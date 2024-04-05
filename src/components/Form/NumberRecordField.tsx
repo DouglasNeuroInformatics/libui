@@ -36,7 +36,7 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
   return (
     <div className="space-y-4">
       <Heading variant="h5">{label}</Heading>
-      <div className="space-y-8">
+      <div className="space-y-6">
         {Object.keys(items).map((name) => {
           const item = items[name];
           return (
