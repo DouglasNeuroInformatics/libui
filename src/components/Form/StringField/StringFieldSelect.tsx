@@ -27,10 +27,10 @@ export const StringFieldSelect = <T extends string = string>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value ?? ''} onValueChange={(value: T) => setValue(value)}>
-        <Select.Trigger>
+        <Select.Trigger data-cy={`${name}-select-trigger`} data-testid={`${name}-select-trigger`}>
           <Select.Value />
         </Select.Trigger>
-        <Select.Content>
+        <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>
           {Object.keys(options).map((option) => (
             <Select.Item key={option} value={option}>
               {options[option as T]}
