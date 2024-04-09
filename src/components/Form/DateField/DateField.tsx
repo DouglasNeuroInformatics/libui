@@ -45,6 +45,7 @@ export const DateField = ({ error, label, name, setValue, value }: DateFieldProp
             autoComplete="off"
             data-cy="date-input"
             data-testid="date-input"
+            name={name}
             placeholder="YYYY-MM-DD"
             type="text"
             value={inputValue}
