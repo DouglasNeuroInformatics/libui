@@ -25,8 +25,8 @@ export const Default: Story = {
             </AlertDialog.Description>
           </AlertDialog.Header>
           <AlertDialog.Footer>
-            <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
             <AlertDialog.Action>Continue</AlertDialog.Action>
+            <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </React.Fragment>
