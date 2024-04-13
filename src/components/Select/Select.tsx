@@ -8,7 +8,7 @@ import { SelectScrollUpButton } from './SelectScrollUpButton.js';
 import { SelectSeparator } from './SelectSeparator.js';
 import { SelectTrigger } from './SelectTrigger.js';
 
-export const Select = Object.assign(SelectPrimitive.Root, {
+export const Select = Object.assign(SelectPrimitive.Root.bind(null), {
   Content: SelectContent,
   Group: SelectPrimitive.Group,
   Item: SelectItem,

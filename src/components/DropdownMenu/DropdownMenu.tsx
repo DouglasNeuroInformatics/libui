@@ -10,7 +10,7 @@ import { DropdownMenuShortcut } from './DropdownMenuShortcut.js';
 import { DropdownMenuSubContent } from './DropdownMenuSubContent.js';
 import { DropdownMenuSubTrigger } from './DropdownMenuSubTrigger.js';
 
-export const DropdownMenu = Object.assign(DropdownMenuPrimitive.Root, {
+export const DropdownMenu = Object.assign(DropdownMenuPrimitive.Root.bind(null), {
   CheckboxItem: DropdownMenuCheckboxItem,
   Content: DropdownMenuContent,
   Group: DropdownMenuPrimitive.Group,

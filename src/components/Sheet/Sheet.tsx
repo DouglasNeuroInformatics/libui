@@ -7,7 +7,7 @@ import { SheetHeader } from './SheetHeader.js';
 import { SheetOverlay } from './SheetOverlay.js';
 import { SheetTitle } from './SheetTitle.js';
 
-export const Sheet = Object.assign(Root, {
+export const Sheet = Object.assign(Root.bind(null), {
   Close,
   Content: SheetContent,
   Description: SheetDescription,

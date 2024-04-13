@@ -1,6 +1,8 @@
-import { Content, Root, Trigger } from '@radix-ui/react-collapsible';
+import { Content, Trigger } from '@radix-ui/react-collapsible';
 
-export const Collapsible = Object.assign(Root, {
+import { CollapsibleRoot } from './CollapsibleRoot.js';
+
+export const Collapsible = Object.assign(CollapsibleRoot, {
   Content,
   Trigger
 });

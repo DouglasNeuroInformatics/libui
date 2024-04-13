@@ -9,7 +9,7 @@ import { AlertDialogHeader } from './AlertDialogHeader.js';
 import { AlertDialogOverlay } from './AlertDialogOverlay.js';
 import { AlertDialogTitle } from './AlertDialogTitle.js';
 
-export const AlertDialog = Object.assign(Root, {
+export const AlertDialog = Object.assign(Root.bind(null), {
   Action: AlertDialogAction,
   Cancel: AlertDialogCancel,
   Content: AlertDialogContent,

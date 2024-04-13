@@ -2,7 +2,7 @@ import { Root as PopoverRoot, Trigger as PopoverTrigger } from '@radix-ui/react-
 
 import { PopoverContent } from './PopoverContent.js';
 
-export const Popover = Object.assign(PopoverRoot, {
+export const Popover = Object.assign(PopoverRoot.bind(null), {
   Content: PopoverContent,
   Trigger: PopoverTrigger
 });

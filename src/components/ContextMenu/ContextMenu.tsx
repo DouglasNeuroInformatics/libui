@@ -10,7 +10,7 @@ import { ContextMenuShortcut } from './ContextMenuShortcut.js';
 import { ContextMenuSubContent } from './ContextMenuSubContent.js';
 import { ContextMenuSubTrigger } from './ContextMenuSubTrigger.js';
 
-export const ContextMenu = Object.assign(Root, {
+export const ContextMenu = Object.assign(Root.bind(null), {
   CheckboxItem: ContextMenuCheckboxItem,
   Content: ContextMenuContent,
   Group,

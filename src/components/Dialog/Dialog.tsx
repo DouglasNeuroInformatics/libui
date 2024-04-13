@@ -6,7 +6,7 @@ import { DialogFooter } from './DialogFooter.js';
 import { DialogHeader } from './DialogHeader.js';
 import { DialogTitle } from './DialogTitle.js';
 
-export const Dialog = Object.assign(Root, {
+export const Dialog = Object.assign(Root.bind(null), {
   Content: DialogContent,
   Description: DialogDescription,
   Footer: DialogFooter,
