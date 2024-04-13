@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
+import type { Simplify } from 'type-fest';
 
 import { cn } from '@/utils';
 
@@ -12,10 +13,12 @@ import { CommandList } from './CommandList';
 import { CommandSeparator } from './CommandSeparator';
 import { CommandShortcut } from './CommandShortcut';
 
-const CommandRoot = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(function Command({ className, ...props }, ref) {
+type CommandRootProps = Simplify<React.ComponentPropsWithoutRef<typeof CommandPrimitive>>;
+
+const CommandRoot = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, CommandRootProps>(function Command(
+  { className, ...props },
+  ref
+) {
   return (
     <CommandPrimitive
       className={cn(
