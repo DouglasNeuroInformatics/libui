@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';

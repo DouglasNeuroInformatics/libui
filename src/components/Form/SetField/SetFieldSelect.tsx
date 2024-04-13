@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Badge } from '../../Badge/Badge.js';
 import { DropdownButton } from '../../DropdownButton/DropdownButton.js';
 import { DropdownMenu } from '../../DropdownMenu/DropdownMenu.js';

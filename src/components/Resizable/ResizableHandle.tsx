@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { GripVertical } from 'lucide-react';
 import { PanelResizeHandle } from 'react-resizable-panels';
 

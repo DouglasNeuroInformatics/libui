@@ -1,3 +1,5 @@
+import React from 'react';
+
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 

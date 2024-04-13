@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { CircleAlertIcon } from 'lucide-react';
 
 export const ErrorMessage: React.FC<{ error?: null | string }> = ({ error }) =>

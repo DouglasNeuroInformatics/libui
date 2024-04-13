@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { CircleHelpIcon } from 'lucide-react';
 
 import { Popover } from '../../Popover/Popover.js';

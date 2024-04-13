@@ -1,3 +1,5 @@
+import React from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
 import { DownloadIcon } from 'lucide-react';
 

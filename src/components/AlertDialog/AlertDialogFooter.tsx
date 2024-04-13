@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { cn } from '../../utils.js';
 
 export const AlertDialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

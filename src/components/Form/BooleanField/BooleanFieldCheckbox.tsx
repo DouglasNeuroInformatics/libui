@@ -1,3 +1,5 @@
+import React from 'react';
+
 import type { BooleanFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 

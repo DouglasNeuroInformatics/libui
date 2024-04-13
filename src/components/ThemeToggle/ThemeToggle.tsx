@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { MoonIcon, SunIcon } from 'lucide-react';
 
 import { useTheme } from '../../hooks/useTheme.js';

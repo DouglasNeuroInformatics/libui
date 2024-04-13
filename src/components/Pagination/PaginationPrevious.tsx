@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { ChevronLeftIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

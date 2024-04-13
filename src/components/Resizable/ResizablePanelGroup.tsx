@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { PanelGroup } from 'react-resizable-panels';
 
 import { cn } from '../../utils.js';
