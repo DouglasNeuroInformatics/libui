@@ -1,6 +1,6 @@
 import { type RefObject } from 'react';
 
-import { useEventListener } from './useEventListener';
+import { useEventListener } from './useEventListener.js';
 
 type Handler = (event: MouseEvent) => void;
 

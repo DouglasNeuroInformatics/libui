@@ -5,12 +5,12 @@ import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import type { Simplify } from 'type-fest';
 
-import { Button } from '../Button';
-import { Heading } from '../Heading';
-import { Label } from '../Label';
-import { ScalarField } from './ScalarField';
+import { Button } from '../Button/Button.js';
+import { Heading } from '../Heading/Heading.js';
+import { Label } from '../Label/Label.js';
+import { ScalarField } from './ScalarField.js';
 
-import type { BaseFieldComponentProps } from './types';
+import type { BaseFieldComponentProps } from './types.js';
 
 export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 

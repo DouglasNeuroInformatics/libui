@@ -1,10 +1,10 @@
-import { PaginationContent } from './PaginationContent';
-import { PaginationEllipsis } from './PaginationEllipsis';
-import { PaginationItem } from './PaginationItem';
-import { PaginationLink } from './PaginationLink';
-import { PaginationNext } from './PaginationNext';
-import { PaginationPrevious } from './PaginationPrevious';
-import { PaginationRoot } from './PaginationRoot';
+import { PaginationContent } from './PaginationContent.js';
+import { PaginationEllipsis } from './PaginationEllipsis.js';
+import { PaginationItem } from './PaginationItem.js';
+import { PaginationLink } from './PaginationLink.js';
+import { PaginationNext } from './PaginationNext.js';
+import { PaginationPrevious } from './PaginationPrevious.js';
+import { PaginationRoot } from './PaginationRoot.js';
 
 export const Pagination = Object.assign(PaginationRoot, {
   Content: PaginationContent,

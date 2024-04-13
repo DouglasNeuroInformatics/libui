@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentProps<'li'>) => (
   <li aria-hidden="true" className={cn('[&>svg]:size-3.5', className)} role="presentation" {...props}>

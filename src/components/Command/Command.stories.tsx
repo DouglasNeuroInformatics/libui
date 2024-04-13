@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CalculatorIcon, CalendarIcon, CreditCardIcon, SettingsIcon, SmileIcon, UserIcon } from 'lucide-react';
 
-import { Command } from './Command';
+import { Command } from './Command.js';
 
 type Story = StoryObj<typeof Command>;
 

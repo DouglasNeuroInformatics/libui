@@ -3,9 +3,9 @@ import { useEffect, useMemo, useState } from 'react';
 import type { DynamicFormField, FormDataType, PartialFormDataType } from '@douglasneuroinformatics/libui-form-types';
 import { pick } from 'lodash-es';
 
-import { StaticField } from './StaticField';
+import { StaticField } from './StaticField.js';
 
-import type { FormErrors } from './types';
+import type { FormErrors } from './types.js';
 
 export type DynamicFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;

@@ -1,11 +1,10 @@
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
-import { Label } from '@/components/Label';
-import { TextArea } from '@/components/TextArea';
+import { Label } from '../../Label/Label.js';
+import { TextArea } from '../../TextArea/TextArea.js';
+import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
-import { FieldGroup } from '../FieldGroup';
-
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.js';
 
 export type StringFieldTextAreaProps = BaseFieldComponentProps<string> & StringFormField;
 

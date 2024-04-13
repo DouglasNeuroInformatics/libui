@@ -3,7 +3,7 @@ import React from 'react';
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { useDownload } from './useDownload';
+import { useDownload } from './useDownload.js';
 
 const mockNotificationsStore = {
   addNotification: vi.fn()

@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "checkJs": true,
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
@@ -10,13 +9,10 @@
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "maxNodeModuleJsDepth": 0,
-    "module": "ESNext",
+    "module": "Node16",
     "moduleDetection": "force",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node16",
     "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

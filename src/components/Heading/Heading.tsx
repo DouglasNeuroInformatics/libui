@@ -1,4 +1,4 @@
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export type HeadingProps = {
   children: string;

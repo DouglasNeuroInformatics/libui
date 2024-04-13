@@ -30,14 +30,14 @@ export function create<T>(stateCreator: StateCreator<T>): UseBoundStore<StoreApi
   if (typeof stateCreator === 'function') {
     return createUncurried(stateCreator);
   }
-  return createUncurried as any;
+  return createUncurried as unknown as UseBoundStore<StoreApi<T>>;
 }
 
 export function createStore<T>(stateCreator: StateCreator<T>): StoreApi<T> {
   if (typeof stateCreator === 'function') {
     return createStoreUncurried(stateCreator);
   }
-  return createStoreUncurried as any;
+  return createStoreUncurried as unknown as StoreApi<T>;
 }
 
 afterEach(() => {

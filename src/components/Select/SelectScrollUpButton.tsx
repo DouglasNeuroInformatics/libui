@@ -3,7 +3,7 @@ import React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { ChevronUpIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,

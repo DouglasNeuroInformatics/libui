@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-import { LegacyTable, type LegacyTableEntry, type LegacyTableProps } from './LegacyTable';
+import { LegacyTable, type LegacyTableEntry, type LegacyTableProps } from './LegacyTable.js';
 
 /** @deprecated */
 export const LegacyClientTable = <T extends LegacyTableEntry>({ data, ...props }: LegacyTableProps<T>) => {

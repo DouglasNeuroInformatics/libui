@@ -3,12 +3,11 @@ import React, { useReducer, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/utils';
-
-import { ArrowToggle } from '../ArrowToggle';
-import { Card } from '../Card';
-import { CALENDAR_ANIMATION_DURATION, Calendar } from './Calendar';
-import { YearSelector } from './YearSelector';
+import { cn } from '../../utils.js';
+import { ArrowToggle } from '../ArrowToggle/ArrowToggle.js';
+import { Card } from '../Card/Card.js';
+import { CALENDAR_ANIMATION_DURATION, Calendar } from './Calendar.js';
+import { YearSelector } from './YearSelector.js';
 
 const MONTHS = [
   'january',

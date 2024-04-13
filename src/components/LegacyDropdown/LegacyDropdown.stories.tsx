@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LegacyDropdown } from './LegacyDropdown';
+import { LegacyDropdown } from './LegacyDropdown.js';
 
 type Story = StoryObj<typeof LegacyDropdown>;
 

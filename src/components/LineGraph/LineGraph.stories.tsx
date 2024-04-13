@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LineGraph } from './LineGraph';
+import { LineGraph } from './LineGraph.js';
 
 type GraphData = readonly {
   m1: number;

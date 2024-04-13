@@ -1,7 +1,7 @@
 import { Label } from '@radix-ui/react-label';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Switch } from './Switch';
+import { Switch } from './Switch.js';
 
 type Story = StoryObj<typeof Switch>;
 

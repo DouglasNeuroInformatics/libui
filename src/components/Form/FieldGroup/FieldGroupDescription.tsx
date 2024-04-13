@@ -1,6 +1,6 @@
 import { CircleHelpIcon } from 'lucide-react';
 
-import { Popover } from '@/components/Popover';
+import { Popover } from '../../Popover/Popover.js';
 
 export const FieldGroupDescription: React.FC<{ description?: null | string }> = ({ description }) =>
   description ? (

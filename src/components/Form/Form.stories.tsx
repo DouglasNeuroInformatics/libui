@@ -3,8 +3,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { z } from 'zod';
 
-import { Heading } from '../Heading';
-import { Form } from './Form';
+import { Heading } from '../Heading/Heading.js';
+import { Form } from './Form.js';
 
 const $ExampleFormData = z.object({
   booleanCheck: z.boolean().optional(),

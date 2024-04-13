@@ -2,9 +2,9 @@ import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/solid';
 import { clsx } from 'clsx';
 
-import { type ButtonProps } from '../Button';
-import { Card } from '../Card';
-import { DropdownButton } from '../DropdownButton';
+import { type ButtonProps } from '../Button/Button.js';
+import { Card } from '../Card/Card.js';
+import { DropdownButton } from '../DropdownButton/DropdownButton.js';
 
 /** @deprecated */
 export type LegacySelectOption = {

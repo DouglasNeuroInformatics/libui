@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement,

@@ -4,7 +4,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import { clsx } from 'clsx';
 
-import type { LegacyTableColumn, LegacyTableEntry } from './LegacyTable';
+import type { LegacyTableColumn, LegacyTableEntry } from './LegacyTable.js';
 
 /** @deprecated */
 export type LegacyColumnDropdownOptions<T extends LegacyTableEntry> = {

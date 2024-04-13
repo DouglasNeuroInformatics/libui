@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const Slider = React.forwardRef<React.ElementRef<typeof Root>, React.ComponentPropsWithoutRef<typeof Root>>(
   function Slider({ className, ...props }, ref) {

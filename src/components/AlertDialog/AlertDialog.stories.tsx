@@ -2,8 +2,8 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button';
-import { AlertDialog } from './AlertDialog';
+import { Button } from '../Button/Button.js';
+import { AlertDialog } from './AlertDialog.js';
 
 type Story = StoryObj<typeof AlertDialog>;
 

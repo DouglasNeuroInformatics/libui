@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const TableRoot = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(function TableRoot(
   { className, ...props },

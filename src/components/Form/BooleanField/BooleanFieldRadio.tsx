@@ -5,12 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '@/components/Label';
-import { RadioGroup } from '@/components/RadioGroup';
+import { Label } from '../../Label/Label.js';
+import { RadioGroup } from '../../RadioGroup/RadioGroup.js';
+import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
-import { FieldGroup } from '../FieldGroup';
-
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.js';
 
 const stringifyBoolean = (value: boolean | undefined) =>
   match(value)

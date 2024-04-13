@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SubContent } from '@radix-ui/react-menubar';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const MenuBarSubContent = React.forwardRef<
   React.ElementRef<typeof SubContent>,

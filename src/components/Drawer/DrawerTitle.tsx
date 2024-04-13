@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Drawer as DrawerPrimitive } from 'vaul';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const DrawerTitle = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Title>,

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Resizable } from './Resizable';
+import { Resizable } from './Resizable.js';
 
 type Story = StoryObj<typeof Resizable>;
 

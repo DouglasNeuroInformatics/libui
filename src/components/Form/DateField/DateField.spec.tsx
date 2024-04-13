@@ -1,9 +1,9 @@
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { getByText, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { DateField } from './DateField';
+import { DateField } from './DateField.js';
 
 describe('DateField', () => {
   const setError = vi.fn();

@@ -12,13 +12,13 @@ import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import { z } from 'zod';
 
-import { Button } from '../Button';
-import { Heading } from '../Heading';
-import { ErrorMessage } from './ErrorMessage';
-import { FieldsComponent } from './FieldsComponent';
-import { getInitialValues } from './utils';
+import { Button } from '../Button/Button.js';
+import { Heading } from '../Heading/Heading.js';
+import { ErrorMessage } from './ErrorMessage.js';
+import { FieldsComponent } from './FieldsComponent.js';
+import { getInitialValues } from './utils.js';
 
-import type { FormErrors } from './types';
+import type { FormErrors } from './types.js';
 
 type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSchema> = z.infer<TSchema>> = {
   [key: `data-${string}`]: unknown;

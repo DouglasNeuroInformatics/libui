@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeToggle } from './ThemeToggle';
+import { ThemeToggle } from './ThemeToggle.js';
 
 type Story = StoryObj<typeof ThemeToggle>;
 

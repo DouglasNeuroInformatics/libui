@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LanguageToggle } from './LanguageToggle';
+import { LanguageToggle } from './LanguageToggle.js';
 
 type Story = StoryObj<typeof LanguageToggle>;
 

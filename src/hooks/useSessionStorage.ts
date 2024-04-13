@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
-import { isBrowser } from '@/utils';
-
-import { useEventCallback } from './useEventCallback';
-import { useEventListener } from './useEventListener';
+import { isBrowser } from '../utils.js';
+import { useEventCallback } from './useEventCallback.js';
+import { useEventListener } from './useEventListener.js';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions

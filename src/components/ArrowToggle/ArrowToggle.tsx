@@ -3,9 +3,8 @@ import React, { useMemo } from 'react';
 import { ChevronUpIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '@/utils';
-
-import { Button, type ButtonProps } from '../Button';
+import { cn } from '../../utils.js';
+import { Button, type ButtonProps } from '../Button/Button.js';
 
 export type ArrowToggleProps = Simplify<
   React.HTMLAttributes<HTMLButtonElement> & {

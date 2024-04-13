@@ -4,10 +4,10 @@ import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
-import { SetFieldListbox } from './SetFieldListbox';
-import { SetFieldSelect } from './SetFieldSelect';
+import { SetFieldListbox } from './SetFieldListbox.js';
+import { SetFieldSelect } from './SetFieldSelect.js';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.js';
 
 export type SetFieldProps<T extends string = string> = Simplify<BaseFieldComponentProps<Set<T>> & SetFormField<Set<T>>>;
 

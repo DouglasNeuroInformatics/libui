@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { DropdownButton } from '../DropdownButton';
+import { DropdownButton } from '../DropdownButton/DropdownButton.js';
 
 export const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,

@@ -2,9 +2,8 @@ import { useEffect, useRef } from 'react';
 
 import { range } from 'lodash-es';
 
-import { cn } from '@/utils';
-
-import { ScrollArea } from '../ScrollArea';
+import { cn } from '../../utils.js';
+import { ScrollArea } from '../ScrollArea/ScrollArea.js';
 
 export type YearSelectorProps = {
   onSelection: (date: Date) => void;

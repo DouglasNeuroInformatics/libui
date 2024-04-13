@@ -1,9 +1,9 @@
 import type { FormDataType, FormFields, PartialFormDataType } from '@douglasneuroinformatics/libui-form-types';
 
-import { DynamicField } from './DynamicField';
-import { StaticField } from './StaticField';
+import { DynamicField } from './DynamicField.js';
+import { StaticField } from './StaticField.js';
 
-import type { FormErrors } from './types';
+import type { FormErrors } from './types.js';
 
 export type FieldsComponentProps<T extends FormDataType> = {
   errors: FormErrors<T>;

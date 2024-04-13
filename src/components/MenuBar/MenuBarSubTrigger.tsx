@@ -3,7 +3,7 @@ import React from 'react';
 import { SubTrigger } from '@radix-ui/react-menubar';
 import { ChevronRightIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const MenuBarSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,

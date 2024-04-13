@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const TableCaption = React.forwardRef<HTMLTableCaptionElement, React.HTMLAttributes<HTMLTableCaptionElement>>(
   function TableCaption({ className, ...props }, ref) {

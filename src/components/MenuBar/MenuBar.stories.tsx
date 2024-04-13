@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { MenuBar } from './MenuBar';
+import { MenuBar } from './MenuBar.js';
 
 type Story = StoryObj<typeof MenuBar>;
 

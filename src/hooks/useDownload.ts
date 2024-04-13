@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import type { Promisable } from 'type-fest';
 
-import { useNotificationsStore } from './useNotificationsStore';
+import { useNotificationsStore } from './useNotificationsStore.js';
 
 type DownloadOptions<T extends Blob | string = Blob | string> = T extends Blob
   ? { blobType: 'image/png' }

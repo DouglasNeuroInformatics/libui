@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ChevronDownIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const DropdownButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
   function DropdownButton({ children, className, ...props }, ref) {

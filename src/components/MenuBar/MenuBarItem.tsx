@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Item } from '@radix-ui/react-menubar';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const MenuBarItem = React.forwardRef<
   React.ElementRef<typeof Item>,

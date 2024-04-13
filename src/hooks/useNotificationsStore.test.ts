@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import * as zustand from 'zustand';
 
-import { useNotificationsStore } from './useNotificationsStore';
+import { useNotificationsStore } from './useNotificationsStore.js';
 
 describe('useNotificationsStore', () => {
   beforeAll(() => {

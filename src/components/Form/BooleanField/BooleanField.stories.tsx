@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BooleanField } from './BooleanField';
+import { BooleanField } from './BooleanField.js';
 
 type Story = StoryObj<typeof BooleanField>;
 

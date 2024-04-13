@@ -1,10 +1,9 @@
 import { FaceSmileIcon } from '@heroicons/react/24/solid';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { useLegacyStepper } from '@/hooks/useLegacyStepper';
-
-import { Button } from '../Button';
-import { LegacyStepper, type Step } from './LegacyStepper';
+import { useLegacyStepper } from '../../hooks/useLegacyStepper.js';
+import { Button } from '../Button/Button.js';
+import { LegacyStepper, type Step } from './LegacyStepper.js';
 
 type Story = StoryObj<typeof LegacyStepper>;
 

@@ -1,10 +1,10 @@
-import { BreadcrumbEllipsis } from './BreadcrumbEllipsis';
-import { BreadcrumbItem } from './BreadcrumbItem';
-import { BreadcrumbLink } from './BreadcrumbLink';
-import { BreadcrumbList } from './BreadcrumbList';
-import { BreadcrumbPage } from './BreadcrumbPage';
-import { BreadcrumbRoot } from './BreadcrumbRoot';
-import { BreadcrumbSeparator } from './BreadcrumbSeparator';
+import { BreadcrumbEllipsis } from './BreadcrumbEllipsis.js';
+import { BreadcrumbItem } from './BreadcrumbItem.js';
+import { BreadcrumbLink } from './BreadcrumbLink.js';
+import { BreadcrumbList } from './BreadcrumbList.js';
+import { BreadcrumbPage } from './BreadcrumbPage.js';
+import { BreadcrumbRoot } from './BreadcrumbRoot.js';
+import { BreadcrumbSeparator } from './BreadcrumbSeparator.js';
 
 export const Breadcrumb = Object.assign(BreadcrumbRoot, {
   Ellipsis: BreadcrumbEllipsis,

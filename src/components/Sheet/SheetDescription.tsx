@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Description } from '@radix-ui/react-dialog';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const SheetDescription = React.forwardRef<
   React.ElementRef<typeof Description>,

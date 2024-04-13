@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ScrollAreaScrollbar, ScrollAreaThumb } from '@radix-ui/react-scroll-area';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const ScrollBar = React.forwardRef<
   React.ElementRef<typeof ScrollAreaScrollbar>,

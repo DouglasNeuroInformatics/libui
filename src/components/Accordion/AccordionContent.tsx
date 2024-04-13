@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,

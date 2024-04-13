@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content, Portal } from '@radix-ui/react-popover';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export type PopoverContentProps = {
   /** The preferred alignment against the anchor, which may change when collisions occur */

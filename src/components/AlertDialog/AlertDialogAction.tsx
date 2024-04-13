@@ -2,9 +2,8 @@ import React from 'react';
 
 import { Action } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '@/utils';
-
-import { buttonVariants } from '../Button';
+import { cn } from '../../utils.js';
+import { buttonVariants } from '../Button/Button.js';
 
 export const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof Action>,

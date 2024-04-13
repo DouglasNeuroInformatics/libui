@@ -1,4 +1,4 @@
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const SpinnerIcon = ({ className, ...props }: React.HTMLAttributes<SVGElement>) => (
   <svg

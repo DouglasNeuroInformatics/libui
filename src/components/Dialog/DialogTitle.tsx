@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Title } from '@radix-ui/react-dialog';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const DialogTitle = React.forwardRef<
   React.ElementRef<typeof Title>,

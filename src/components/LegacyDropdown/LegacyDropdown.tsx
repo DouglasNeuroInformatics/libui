@@ -1,8 +1,8 @@
 import { Menu, Transition } from '@headlessui/react';
 import { twMerge } from 'tailwind-merge';
 
-import { Card } from '../Card/Card';
-import { DropdownButton } from '../DropdownButton';
+import { Card } from '../Card/Card.js';
+import { DropdownButton } from '../DropdownButton/DropdownButton.js';
 
 type LegacyDropdownOptions = { [key: string]: string } | readonly string[];
 

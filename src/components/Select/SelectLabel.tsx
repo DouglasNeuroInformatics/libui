@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,

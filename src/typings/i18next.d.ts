@@ -2,7 +2,7 @@
 
 import libui from '../translations/libui.json';
 
-import type { Language, TranslatedResource } from '../i18n';
+import type { Language, TranslatedResource } from '../i18n.js';
 
 import 'i18next';
 

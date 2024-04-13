@@ -4,7 +4,7 @@ import { Slot, Slottable } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const BUTTON_ICON_SIZE = {
   lg: 18,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const TableFooter = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
   function TableFooter({ className, ...props }, ref) {

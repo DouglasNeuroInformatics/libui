@@ -3,10 +3,10 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CircleHelpIcon } from 'lucide-react';
 
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Popover } from './Popover';
+import { Button } from '../Button/Button.js';
+import { Input } from '../Input/Input.js';
+import { Label } from '../Label/Label.js';
+import { Popover } from './Popover.js';
 
 type Story = StoryObj<typeof Popover>;
 

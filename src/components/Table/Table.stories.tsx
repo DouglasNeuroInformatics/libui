@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Table } from './Table';
+import { Table } from './Table.js';
 
 const invoices = [
   {

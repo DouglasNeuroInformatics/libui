@@ -2,7 +2,7 @@ import { range, toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import { type LegacyColumnDropdownOptions, LegacyTableColumnHeader } from './LegacyTableColumnHeader';
+import { type LegacyColumnDropdownOptions, LegacyTableColumnHeader } from './LegacyTableColumnHeader.js';
 
 /** Coerces the value in a cell to a string for consistant display purposes */
 function defaultFormatter(value: unknown): string {

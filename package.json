@@ -23,12 +23,12 @@
   ],
   "exports": {
     "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js"
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.js"
     },
     "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.js"
+      "types": "./dist/hooks.d.ts",
+      "import": "./dist/hooks.js"
     },
     "./i18n": {
       "types": "./dist/i18n.d.ts",
@@ -42,12 +42,16 @@
     }
   },
   "files": [
-    "dist",
-    "tailwind.config.cjs",
-    "tailwind.config.d.cts"
+    "!/src/**/*.spec.*",
+    "!/src/**/*.stories.*",
+    "!/src/**/*.test.*",
+    "/dist",
+    "/src",
+    "/tailwind.config.cjs",
+    "/tailwind.config.d.cts"
   ],
   "scripts": {
-    "build": "tsup && cp -r src/styles dist",
+    "build": "rm -rf dist && tsc -b tsconfig.build.json && cp -r src/styles dist",
     "format": "prettier --write src",
     "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
@@ -150,7 +154,6 @@
     "storybook": "^8.0.5",
     "storybook-react-i18next": "^3.0.1",
     "tailwindcss": "^3.4.3",
-    "tsup": "^8.0.2",
     "typescript": "~5.4.3",
     "vite": "5.2.8",
     "vitest": "^1.4.0"

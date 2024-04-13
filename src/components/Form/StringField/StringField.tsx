@@ -1,10 +1,10 @@
 import { match } from 'ts-pattern';
 
-import { StringFieldInput, type StringFieldInputProps } from './StringFieldInput';
-import { StringFieldPassword, type StringFieldPasswordProps } from './StringFieldPassword';
-import { StringFieldRadio, type StringFieldRadioProps } from './StringFieldRadio';
-import { StringFieldSelect } from './StringFieldSelect';
-import { StringFieldTextArea, type StringFieldTextAreaProps } from './StringFieldTextArea';
+import { StringFieldInput, type StringFieldInputProps } from './StringFieldInput.js';
+import { StringFieldPassword, type StringFieldPasswordProps } from './StringFieldPassword.js';
+import { StringFieldRadio, type StringFieldRadioProps } from './StringFieldRadio.js';
+import { StringFieldSelect } from './StringFieldSelect.js';
+import { StringFieldTextArea, type StringFieldTextAreaProps } from './StringFieldTextArea.js';
 
 export type StringFieldProps =
   | StringFieldInputProps

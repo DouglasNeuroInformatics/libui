@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 
-import { i18n } from '../src/i18n';
-import theme from './theme';
+import { i18n } from '../src/i18n.js';
+import theme from './theme.js';
 
 import '../src/styles/globals.css';
 

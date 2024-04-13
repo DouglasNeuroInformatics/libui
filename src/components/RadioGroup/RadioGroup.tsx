@@ -2,9 +2,8 @@ import React from 'react';
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
-import { cn } from '@/utils';
-
-import { RadioGroupItem } from './RadioGroupItem';
+import { cn } from '../../utils.js';
+import { RadioGroupItem } from './RadioGroupItem.js';
 
 type RadioGroupProps = React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>;
 

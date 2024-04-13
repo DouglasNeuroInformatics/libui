@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWithoutRef<'span'>>(
   function BreadcrumbPage({ className, ...props }, ref) {

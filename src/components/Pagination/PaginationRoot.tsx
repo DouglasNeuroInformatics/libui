@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const PaginationRoot = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav

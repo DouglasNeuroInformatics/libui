@@ -1,12 +1,11 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
+import { Input } from '../../Input/Input.js';
+import { Label } from '../../Label/Label.js';
+import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
-import { FieldGroup } from '../FieldGroup';
-
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.js';
 
 export type NumberFieldInputProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'input' }>

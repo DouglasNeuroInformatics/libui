@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Trigger } from '@radix-ui/react-tooltip';
 
-import { Button, type ButtonProps } from '../Button';
+import { Button, type ButtonProps } from '../Button/Button.js';
 
 export type TooltipTriggerProps = Omit<ButtonProps, 'asChild'>;
 

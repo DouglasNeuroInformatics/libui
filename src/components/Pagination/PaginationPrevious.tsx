@@ -1,9 +1,8 @@
 import { ChevronLeftIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '@/utils';
-
-import { PaginationLink, type PaginationLinkProps } from './PaginationLink';
+import { cn } from '../../utils.js';
+import { PaginationLink, type PaginationLinkProps } from './PaginationLink.js';
 
 export const PaginationPrevious = ({ className, ...props }: PaginationLinkProps) => {
   const { t } = useTranslation('libui');

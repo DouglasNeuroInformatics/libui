@@ -1,9 +1,8 @@
-import { Checkbox } from '@/components/Checkbox';
-import { Label } from '@/components/Label';
+import { Checkbox } from '../../Checkbox/Checkbox.js';
+import { Label } from '../../Label/Label.js';
+import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
-import { FieldGroup } from '../FieldGroup';
-
-import type { SetFieldProps } from './SetField';
+import type { SetFieldProps } from './SetField.js';
 
 export type SetFieldListboxProps<T extends string = string> = SetFieldProps<T> & {
   onCheckedChange: (option: T, isChecked: boolean) => void;

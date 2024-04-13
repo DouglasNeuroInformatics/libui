@@ -1,7 +1,7 @@
 import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { useEventCallback } from './useEventCallback';
+import { useEventCallback } from './useEventCallback.js';
 
 describe('useEventCallback', () => {
   it('should not call the callback during render', () => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from './Label';
+import { Label } from './Label.js';
 
 type Story = StoryObj<typeof Label>;
 

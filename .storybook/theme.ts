@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming/create';
-import colors from 'tailwindcss/colors';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from 'tailwindcss/colors.js';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
 
 import logo from '../src/assets/libui-logo.svg';
 

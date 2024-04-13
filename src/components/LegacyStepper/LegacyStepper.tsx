@@ -2,9 +2,9 @@ import React, { useEffect, useReducer, useRef, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { LegacyStepperContext } from '@/context/LegacyStepperContext';
-import { useWindowSize } from '@/hooks/useWindowSize';
-import { cn } from '@/utils';
+import { LegacyStepperContext } from '../../context/LegacyStepperContext.js';
+import { useWindowSize } from '../../hooks/useWindowSize.js';
+import { cn } from '../../utils.js';
 
 /** @deprecated */
 export type Step = {

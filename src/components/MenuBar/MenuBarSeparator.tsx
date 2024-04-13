@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Separator } from '@radix-ui/react-menubar';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const MenuBarSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,

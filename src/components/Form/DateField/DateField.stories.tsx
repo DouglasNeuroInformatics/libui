@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { DateField } from './DateField';
+import { DateField } from './DateField.js';
 
 type Story = StoryObj<typeof DateField>;
 

@@ -1,7 +1,7 @@
 import { randomInt, range } from '@douglasneuroinformatics/libjs';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LegacyTable, type LegacyTableColumn } from './LegacyTable';
+import { LegacyTable, type LegacyTableColumn } from './LegacyTable.js';
 
 type ExampleItem = {
   c1: number;

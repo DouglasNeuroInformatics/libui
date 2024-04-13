@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button';
-import { LegacyModal } from './LegacyModal';
+import { Button } from '../Button/Button.js';
+import { LegacyModal } from './LegacyModal.js';
 
 type Story = StoryObj<typeof LegacyModal>;
 

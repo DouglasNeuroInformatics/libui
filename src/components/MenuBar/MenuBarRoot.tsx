@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Root } from '@radix-ui/react-menubar';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const MenuBarRoot = React.forwardRef<React.ElementRef<typeof Root>, React.ComponentPropsWithoutRef<typeof Root>>(
   function MenuBarRoot({ className, ...props }, ref) {

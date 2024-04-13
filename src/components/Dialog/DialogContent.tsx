@@ -3,9 +3,8 @@ import React from 'react';
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
-
-import { DialogOverlay } from './DialogOverlay';
+import { cn } from '../../utils.js';
+import { DialogOverlay } from './DialogOverlay.js';
 
 export const DialogContent = React.forwardRef<
   React.ElementRef<typeof Content>,

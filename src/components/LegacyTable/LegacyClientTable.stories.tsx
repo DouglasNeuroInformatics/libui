@@ -1,8 +1,8 @@
 import { randomInt, range } from '@douglasneuroinformatics/libjs';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LegacyClientTable } from './LegacyClientTable';
-import { type LegacyTableColumn } from './LegacyTable';
+import { LegacyClientTable } from './LegacyClientTable.js';
+import { type LegacyTableColumn } from './LegacyTable.js';
 
 type ExampleItem = {
   c1: number;

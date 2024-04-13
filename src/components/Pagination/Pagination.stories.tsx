@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Pagination } from './Pagination';
+import { Pagination } from './Pagination.js';
 
 type Story = StoryObj<typeof Pagination>;
 

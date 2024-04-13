@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Label } from './Label';
+import { Label } from './Label.js';
 
 describe('Label', () => {
   it('should render', () => {

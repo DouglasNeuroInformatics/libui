@@ -3,7 +3,7 @@ import React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils.js';
 
 export const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
