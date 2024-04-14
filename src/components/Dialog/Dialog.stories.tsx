@@ -22,17 +22,13 @@ export default {
             <Dialog.Description>Make changes to your profile here. Click save when you are done.</Dialog.Description>
           </Dialog.Header>
           <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right" htmlFor="name">
-                Name
-              </Label>
-              <Input className="col-span-3" id="name" />
+            <div className="grid gap-2">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" />
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right" htmlFor="username">
-                Username
-              </Label>
-              <Input className="col-span-3" id="username" />
+            <div className="grid gap-2">
+              <Label htmlFor="description">Description</Label>
+              <Input id="description" />
             </div>
           </div>
           <Dialog.Footer>
