@@ -19,6 +19,7 @@ export type DynamicFieldProps<TData extends FormDataType> = {
 export const DynamicField = <TData extends FormDataType>({
   field,
   name,
+  setValues,
   values,
   ...props
 }: DynamicFieldProps<TData>) => {
@@ -27,6 +28,12 @@ export const DynamicField = <TData extends FormDataType>({
   const staticField = useMemo(() => {
     return field.render(values);
   }, [dependentValues, field.render]);
+
+  useEffect(() => {
+    if (!staticField) {
+      setValues((prevValues) => ({ ...prevValues, [name]: undefined }));
+    }
+  }, [staticField]);
 
   useEffect(() => {
     for (const key of field.deps) {
@@ -41,5 +48,5 @@ export const DynamicField = <TData extends FormDataType>({
     return null;
   }
 
-  return <StaticField {...props} field={staticField} name={name} values={values} />;
+  return <StaticField {...props} field={staticField} name={name} setValues={setValues} values={values} />;
 };

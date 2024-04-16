@@ -17,11 +17,12 @@ export const StringFieldPassword = ({ description, error, label, name, setValue,
   return (
     <FieldGroup>
       <FieldGroup.Row>
-        <Label>{label}</Label>
+        <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Input
+          id={name}
           name={name}
           type={show ? 'text' : 'password'}
           value={value ?? ''}

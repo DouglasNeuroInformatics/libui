@@ -14,10 +14,10 @@ export const StringFieldInput = ({ description, error, label, name, setValue, va
   return (
     <FieldGroup>
       <FieldGroup.Row>
-        <Label>{label}</Label>
+        <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
-      <Input name={name} type="text" value={value ?? ''} onChange={(event) => setValue(event.target.value)} />
+      <Input id={name} name={name} type="text" value={value ?? ''} onChange={(event) => setValue(event.target.value)} />
       <FieldGroup.Error error={error} />
     </FieldGroup>
   );
