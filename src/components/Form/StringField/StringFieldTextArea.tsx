@@ -14,10 +14,10 @@ export const StringFieldTextArea = ({ description, error, label, name, setValue,
   return (
     <FieldGroup>
       <FieldGroup.Row>
-        <Label>{label}</Label>
+        <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
-      <TextArea name={name} rows={5} value={value ?? ''} onChange={(event) => setValue(event.target.value)} />
+      <TextArea id={name} name={name} rows={5} value={value ?? ''} onChange={(event) => setValue(event.target.value)} />
       <FieldGroup.Error error={error} />
     </FieldGroup>
   );
