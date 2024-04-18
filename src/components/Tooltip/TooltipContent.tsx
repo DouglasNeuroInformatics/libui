@@ -13,6 +13,7 @@ export type TooltipContentProps = {
   className?: string;
   /** The distance in pixels from the viewport edges where collision detection should occur */
   collisionPadding?: number;
+  /** The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled. */
   side?: 'bottom' | 'left' | 'right' | 'top';
   /** The distance in pixels from the trigger */
   sideOffset?: number;
