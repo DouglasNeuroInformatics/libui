@@ -5,9 +5,9 @@ import { PanelResizeHandle } from 'react-resizable-panels';
 
 import { cn } from '../../utils.js';
 
-export type ResizableHandleProps = React.ComponentProps<typeof PanelResizeHandle> & {
+export type ResizableHandleProps = {
   withHandle?: boolean;
-};
+} & React.ComponentProps<typeof PanelResizeHandle>;
 
 export const ResizableHandle = ({ className, withHandle, ...props }: ResizableHandleProps) => (
   <PanelResizeHandle

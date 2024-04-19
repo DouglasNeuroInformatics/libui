@@ -6,9 +6,9 @@ import { cn } from '../../utils.js';
 
 export const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & {
+  {
     inset?: boolean;
-  }
+  } & React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label>
 >(function ContextMenuLabel({ className, inset, ...props }, ref) {
   return (
     <ContextMenuPrimitive.Label

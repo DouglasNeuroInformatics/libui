@@ -59,9 +59,9 @@ const i18n = createInstance({
   resources,
   returnObjects: true,
   supportedLngs
-}) as I18n & {
+}) as {
   addPreInitTranslations<T extends TranslationsDef>(translations: T): void;
-};
+} & I18n;
 
 i18n.addPreInitTranslations = function (this, translations) {
   if (!this.options.resources) {

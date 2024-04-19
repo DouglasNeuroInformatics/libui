@@ -6,9 +6,9 @@ import { cn } from '../../utils.js';
 
 export const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+  {
     inset?: boolean;
-  }
+  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>
 >(function DropdownMenuItem({ className, inset, ...props }, ref) {
   return (
     <DropdownMenuPrimitive.Item

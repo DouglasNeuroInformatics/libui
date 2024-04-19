@@ -39,12 +39,12 @@ export const buttonVariants = cva(
 );
 
 export type ButtonProps = Simplify<
-  React.ButtonHTMLAttributes<HTMLButtonElement> &
-    VariantProps<typeof buttonVariants> & {
-      asChild?: boolean;
-      /** @deprecated - use children   */
-      label?: string;
-    }
+  {
+    asChild?: boolean;
+    /** @deprecated - use children   */
+    label?: string;
+  } & React.ButtonHTMLAttributes<HTMLButtonElement> &
+    VariantProps<typeof buttonVariants>
 >;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(

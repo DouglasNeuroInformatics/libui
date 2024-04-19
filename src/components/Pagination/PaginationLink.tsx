@@ -6,10 +6,10 @@ import { cn } from '../../utils.js';
 import { type ButtonProps, buttonVariants } from '../Button/Button.js';
 
 export type PaginationLinkProps = Simplify<
-  Pick<ButtonProps, 'size'> &
-    React.ComponentProps<'a'> & {
-      isActive?: boolean;
-    }
+  {
+    isActive?: boolean;
+  } & Pick<ButtonProps, 'size'> &
+    React.ComponentProps<'a'>
 >;
 
 export const PaginationLink = ({ children, className, isActive, size = 'icon', ...props }: PaginationLinkProps) => (

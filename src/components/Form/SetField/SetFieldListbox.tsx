@@ -6,9 +6,9 @@ import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
 import type { SetFieldProps } from './SetField.js';
 
-export type SetFieldListboxProps<T extends string = string> = SetFieldProps<T> & {
+export type SetFieldListboxProps<T extends string = string> = {
   onCheckedChange: (option: T, isChecked: boolean) => void;
-};
+} & SetFieldProps<T>;
 
 export const SetFieldListbox = <T extends string = string>({
   description,

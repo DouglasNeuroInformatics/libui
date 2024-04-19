@@ -17,9 +17,9 @@ import { StringField, type StringFieldProps } from './StringField/StringField.js
 
 import type { BaseFieldComponentProps } from './types.js';
 
-export type ScalarFieldProps = BaseFieldComponentProps<ScalarFieldValue> & {
+export type ScalarFieldProps = {
   field: BooleanFormField | DateFormField | NumberFormField | SetFormField | StringFormField;
-};
+} & BaseFieldComponentProps<ScalarFieldValue>;
 
 export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {
   switch (field.kind) {

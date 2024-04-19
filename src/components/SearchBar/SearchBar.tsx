@@ -15,17 +15,17 @@ export type BaseSearchBarProps = {
   placeholder?: string;
 };
 
-type ControlledSearchBarProps = BaseSearchBarProps & {
+type ControlledSearchBarProps = {
   /** Event handler called when the value changes */
   onValueChange: (value: string) => void;
   /** The controlled value of the search bar, which should be used in conjunction with onValueChange */
   value: string;
-};
+} & BaseSearchBarProps;
 
-type UncontrolledSearchBarProps = BaseSearchBarProps & {
+type UncontrolledSearchBarProps = {
   onValueChange?: never;
   value?: never;
-};
+} & BaseSearchBarProps;
 
 export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 

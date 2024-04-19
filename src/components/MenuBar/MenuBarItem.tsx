@@ -6,9 +6,9 @@ import { cn } from '../../utils.js';
 
 export const MenuBarItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> & {
+  {
     inset?: boolean;
-  }
+  } & React.ComponentPropsWithoutRef<typeof Item>
 >(function MenuBarItem({ className, inset, ...props }, ref) {
   return (
     <Item

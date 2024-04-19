@@ -7,9 +7,9 @@ import { cn } from '../../utils.js';
 
 export const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & {
+  {
     inset?: boolean;
-  }
+  } & React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger>
 >(function ContextMenuSubTrigger({ children, className, inset, ...props }, ref) {
   return (
     <ContextMenuPrimitive.SubTrigger

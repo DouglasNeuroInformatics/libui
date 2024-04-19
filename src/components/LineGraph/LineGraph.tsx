@@ -27,14 +27,11 @@ type LineGraphData = readonly { [key: string]: any }[];
 type ExtractValidKeys<T extends LineGraphData, K> = Extract<ConditionalKeys<T[number], K>, string>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type LineGraphLine<T extends LineGraphData = { [key: string]: any }[]> = Pick<
-  LineProps,
-  'legendType' | 'stroke' | 'strokeDasharray' | 'strokeWidth' | 'type'
-> & {
+type LineGraphLine<T extends LineGraphData = { [key: string]: any }[]> = {
   err?: ExtractValidKeys<T, number>;
   name: string;
   val: ExtractValidKeys<T, number>;
-};
+} & Pick<LineProps, 'legendType' | 'stroke' | 'strokeDasharray' | 'strokeWidth' | 'type'>;
 
 const strokeColors = {
   dark: '#cbd5e1', // slate-300

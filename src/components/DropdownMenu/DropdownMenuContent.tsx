@@ -4,9 +4,9 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '../../utils.js';
 
-export type DropdownMenuContentProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
+export type DropdownMenuContentProps = {
   widthFull?: boolean;
-};
+} & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>;
 export const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
   DropdownMenuContentProps
