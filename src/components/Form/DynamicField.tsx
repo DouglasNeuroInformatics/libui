@@ -26,7 +26,7 @@ export const DynamicField = <TData extends FormDataType>({
   const [dependentValues, setDependentValues] = useState(pick(values, field.deps));
 
   const staticField = useMemo(() => {
-    return field.render(values);
+    return field.render.call(undefined, values);
   }, [dependentValues, field.render]);
 
   useEffect(() => {

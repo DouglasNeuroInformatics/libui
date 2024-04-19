@@ -54,7 +54,7 @@ export const RecordArrayField = memo(function RecordArrayField({
             <Label className="font-semibold italic">{label + ' ' + (i + 1)}</Label>
             {Object.keys(fields).map((name) => {
               const field = fieldset[name];
-              const fieldProps = field?.kind === 'dynamic' ? field.render(fields) : field;
+              const fieldProps = field?.kind === 'dynamic' ? field.render.call(undefined, fields) : field;
               if (!fieldProps) {
                 return null;
               }
