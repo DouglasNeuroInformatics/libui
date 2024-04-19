@@ -102,7 +102,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSc
           return (
             <div className="space-y-6 [&:not(:first-child)]:pt-8" key={i}>
               <div className="space-y-1">
-                <Heading variant="h4">{fieldGroup.title}</Heading>
+                {fieldGroup.title && <Heading variant="h4">{fieldGroup.title}</Heading>}
                 {fieldGroup.description && (
                   <p className="text-sm italic leading-tight text-muted-foreground">{fieldGroup.description}</p>
                 )}
