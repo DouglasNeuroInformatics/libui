@@ -83,8 +83,8 @@ export const Select: Story = {
         <Story
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            label: 'Slider Radio Field',
-            name: 'number-radio',
+            label: 'Slider Number Field',
+            name: 'number-select',
             options: {
               1: 'Very Low',
               2: 'Low',
