@@ -11,7 +11,7 @@ import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 import type { BaseFieldComponentProps } from '../types.js';
 
 export type NumberFieldRadioProps = Simplify<
-  BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'radio' }>
+  BaseFieldComponentProps<number> & Extract<NumberFormField, { options: object }>
 >;
 
 export const NumberFieldRadio = ({
