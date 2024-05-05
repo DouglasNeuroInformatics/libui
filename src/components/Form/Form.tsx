@@ -20,7 +20,7 @@ import { getInitialValues } from './utils.js';
 
 import type { FormErrors } from './types.js';
 
-type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSchema> = z.infer<TSchema>> = {
+type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>> = {
   [key: `data-${string}`]: unknown;
   className?: string;
   content: FormContent<TData>;
@@ -33,7 +33,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TS
   validationSchema: z.ZodType<TData>;
 };
 
-const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.infer<TSchema> = z.infer<TSchema>>({
+const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   className,
   content,
   id,
