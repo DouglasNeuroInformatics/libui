@@ -46,7 +46,7 @@ export const NumberFieldRadio = ({
           .map((key) => (
             <div className="flex items-center gap-2" key={key}>
               <RadioGroup.Item id={`${name}-${key}`} value={key.toString()} />
-              <Label className="font-normal" htmlFor={`${name}-${key}`}>
+              <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${key}`}>
                 {options[key]}
               </Label>
             </div>

@@ -42,13 +42,13 @@ export const BooleanFieldRadio = ({ error, label, name, options, setValue, value
       <RadioGroup name={name} value={stringifyBoolean(value)} onValueChange={handleValueChange}>
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
-          <Label className="font-normal" htmlFor={`${name}-true`}>
+          <Label className="font-normal text-muted-foreground" htmlFor={`${name}-true`}>
             {options?.true ?? t('form.radioLabels.true')}
           </Label>
         </FieldGroup.Row>
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-false`} value="false" />
-          <Label className="font-normal" htmlFor={`${name}-false`}>
+          <Label className="font-normal text-muted-foreground" htmlFor={`${name}-false`}>
             {options?.false ?? t('form.radioLabels.false')}
           </Label>
         </FieldGroup.Row>

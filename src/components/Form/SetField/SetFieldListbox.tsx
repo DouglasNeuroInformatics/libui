@@ -34,7 +34,7 @@ export const SetFieldListbox = <T extends string = string>({
               onCheckedChange(option as T, !checked);
             }}
           />
-          <Label className="font-normal" htmlFor={`${name}-${option}`}>
+          <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
             {options[option as T]}
           </Label>
         </div>

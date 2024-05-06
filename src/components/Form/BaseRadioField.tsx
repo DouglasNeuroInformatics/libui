@@ -56,7 +56,7 @@ export const BaseRadioField = <T extends string>({
         {Object.keys(options).map((option) => (
           <div className="flex items-center gap-2" key={option}>
             <RadioGroup.Item id={`${name}-${option}`} value={option} />
-            <Label className="font-normal" htmlFor={`${name}-${option}`}>
+            <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
               {options[option as T]}
             </Label>
           </div>
