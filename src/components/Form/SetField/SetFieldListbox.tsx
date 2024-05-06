@@ -25,20 +25,22 @@ export const SetFieldListbox = <T extends string = string>({
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
-      {Object.keys(options).map((option) => (
-        <div className="flex items-center gap-2" key={option}>
-          <Checkbox
-            checked={value?.has(option as T) ?? false}
-            id={`${name}-${option}`}
-            onCheckedChange={(checked) => {
-              onCheckedChange(option as T, !checked);
-            }}
-          />
-          <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
-            {options[option as T]}
-          </Label>
-        </div>
-      ))}
+      <div className="grid gap-2">
+        {Object.keys(options).map((option) => (
+          <FieldGroup.Row key={option}>
+            <Checkbox
+              checked={value?.has(option as T) ?? false}
+              id={`${name}-${option}`}
+              onCheckedChange={(checked) => {
+                onCheckedChange(option as T, !checked);
+              }}
+            />
+            <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
+              {options[option as T]}
+            </Label>
+          </FieldGroup.Row>
+        ))}
+      </div>
       <FieldGroup.Error error={error} />
     </FieldGroup>
   );
