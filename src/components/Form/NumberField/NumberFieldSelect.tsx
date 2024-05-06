@@ -35,7 +35,7 @@ export const NumberFieldSelect = <T extends number = number>({
           {Object.keys(options).map((option) => (
             <Select.Item key={option} value={option}>
               {/** option needs to be type number, but no sense converting it when it is coerced right back anyways */}
-              {options[option as any as T]}
+              {`${option} - ${options[option as any as T]}`}
             </Select.Item>
           ))}
         </Select.Content>

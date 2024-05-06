@@ -43,11 +43,11 @@ export const NumberFieldRadio = ({
         {Object.keys(options)
           .map((val) => parseInt(val))
           .toSorted((a, b) => a - b)
-          .map((key) => (
-            <div className="flex items-center gap-2" key={key}>
-              <RadioGroup.Item id={`${name}-${key}`} value={key.toString()} />
-              <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${key}`}>
-                {options[key]}
+          .map((val) => (
+            <div className="flex items-center gap-2" key={val}>
+              <RadioGroup.Item id={`${name}-${val}`} value={val.toString()} />
+              <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${val}`}>
+                {`${val} - ${options[val]}`}
               </Label>
             </div>
           ))}

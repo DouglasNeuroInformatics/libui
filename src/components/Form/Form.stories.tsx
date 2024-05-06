@@ -23,6 +23,7 @@ const $ExampleFormData = z.object({
   numberSlider: z.number().optional(),
   numberRecord: z.record(z.number()),
   numberRadio: z.number().min(1).max(5).int().optional(),
+  numberSelect: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
   setListbox: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
@@ -97,11 +98,11 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
             variant: 'radio',
             label: 'Radio',
             options: {
-              1: '1 - Very Low',
-              2: '2 - Low',
-              3: '3 - Medium',
-              4: '4 - High',
-              5: '5 - Very High'
+              1: 'Very Low',
+              2: 'Low',
+              3: 'Medium',
+              4: 'High',
+              5: 'Very High'
             }
           },
           numberSlider: {
@@ -111,6 +112,19 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
             max: 10,
             min: 0,
             variant: 'slider'
+          },
+          numberSelect: {
+            description: 'This is a number field',
+            kind: 'number',
+            variant: 'select',
+            label: 'Select',
+            options: {
+              1: 'Very Low',
+              2: 'Low',
+              3: 'Medium',
+              4: 'High',
+              5: 'Very High'
+            }
           }
         }
       },
@@ -227,11 +241,11 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
               }
             },
             options: {
-              1: '1 - Very Low',
-              2: '2 - Low',
-              3: '3 - Medium',
-              4: '4 - High',
-              5: '5 - Very High'
+              1: 'Very Low',
+              2: 'Low',
+              3: 'Medium',
+              4: 'High',
+              5: 'Very High'
             },
             variant: 'likert'
           }
@@ -312,11 +326,11 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
         variant: 'radio',
         label: 'Radio',
         options: {
-          1: '1 - Very Low',
-          2: '2 - Low',
-          3: '3 - Medium',
-          4: '4 - High',
-          5: '5 - Very High'
+          1: 'Very Low',
+          2: 'Low',
+          3: 'Medium',
+          4: 'High',
+          5: 'Very High'
         }
       },
       numberSlider: {
@@ -342,13 +356,26 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
           }
         },
         options: {
-          1: '1 - Very Low',
-          2: '2 - Low',
-          3: '3 - Medium',
-          4: '4 - High',
-          5: '5 - Very High'
+          1: 'Very Low',
+          2: 'Low',
+          3: 'Medium',
+          4: 'High',
+          5: 'Very High'
         },
         variant: 'likert'
+      },
+      numberSelect: {
+        description: 'This is a number field',
+        kind: 'number',
+        variant: 'select',
+        label: 'Select',
+        options: {
+          1: 'Very Low',
+          2: 'Low',
+          3: 'Medium',
+          4: 'High',
+          5: 'Very High'
+        }
       },
       setListbox: {
         kind: 'set',
