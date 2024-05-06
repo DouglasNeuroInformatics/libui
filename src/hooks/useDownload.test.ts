@@ -60,7 +60,7 @@ describe('useDownload', () => {
   });
   it('should invoke the fetch data a gather an image', async () => {
     const fetchData = vi.fn(() => new Blob());
-    await download('testdiv.png', fetchData);
+    await download('testdiv.png', fetchData, { blobType: 'image/png' });
     expect(fetchData).toHaveBeenCalledOnce();
   });
 });
