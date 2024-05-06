@@ -8,6 +8,7 @@ import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
 
 export type LanguageToggleProps = {
   align?: 'center' | 'end' | 'start';
+  contentClassName?: string;
   options: {
     [key: string]: string;
   };
@@ -17,6 +18,7 @@ export type LanguageToggleProps = {
 
 export const LanguageToggle = ({
   align = 'start',
+  contentClassName,
   options = {},
   triggerClassName,
   variant = 'outline'
@@ -29,7 +31,7 @@ export const LanguageToggle = ({
           <LanguagesIcon />
         </Button>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align={align}>
+      <DropdownMenu.Content align={align} className={contentClassName}>
         {Object.keys(options).map((option) => (
           <DropdownMenu.Item key={option} onClick={() => void i18n.changeLanguage(option)}>
             {options[option]}
