@@ -3,7 +3,6 @@ export * from './hooks/useEventCallback.js';
 export * from './hooks/useEventListener.js';
 export * from './hooks/useInterval.js';
 export * from './hooks/useIsomorphicLayoutEffect.js';
-export * from './hooks/useLegacyStepper.js';
 export * from './hooks/useMediaQuery.js';
 export * from './hooks/useNotificationsStore.js';
 export * from './hooks/useOnClickOutside.js';
