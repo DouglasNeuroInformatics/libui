@@ -72,7 +72,7 @@ export const ClientTable = <T extends ClientTableEntry>({
 }: ClientTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const pageCount = Math.ceil(data.length / entriesPerPage);
+  const pageCount = Math.max(Math.ceil(data.length / entriesPerPage), 1);
 
   const firstEntry = data.length === 0 ? 0 : (currentPage - 1) * entriesPerPage + 1;
   const lastEntry = Math.min(firstEntry + entriesPerPage - 1, data.length);
