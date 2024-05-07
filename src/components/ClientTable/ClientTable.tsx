@@ -81,7 +81,7 @@ export const ClientTable = <T extends ClientTableEntry>({
 
   return (
     <div className={className}>
-      <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow">
+      <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow-sm">
         <Table>
           <Table.Header>
             <Table.Row>
