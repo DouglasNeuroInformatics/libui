@@ -24,6 +24,8 @@ export type ActionDropdownProps<T extends ActionDropdownOptions> = {
 
   /** The text content for the dropdown toggle */
   title: string;
+
+  triggerClassName?: string;
 };
 
 // eslint-disable-next-line react/function-component-definition
@@ -31,14 +33,15 @@ export function ActionDropdown<const T extends ActionDropdownOptions>({
   align = 'start',
   onSelection,
   options,
-  title
+  title,
+  triggerClassName
 }: ActionDropdownProps<T>) {
   const optionKeys: readonly string[] = options instanceof Array ? options : Object.keys(options);
   return (
     <DropdownMenu>
       <div className="w-full">
         <DropdownMenu.Trigger asChild>
-          <DropdownButton>{title}</DropdownButton>
+          <DropdownButton className={triggerClassName}>{title}</DropdownButton>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content align={align} style={{ width: 'var(--radix-popper-anchor-width)' }}>
           <DropdownMenu.Group>
