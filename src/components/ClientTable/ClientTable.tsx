@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { range, toBasicISOString } from '@douglasneuroinformatics/libjs';
-import { useTranslation } from 'react-i18next';
 
 import { cn } from '../../utils.js';
 import { ClientTableColumnHeader } from './ClientTableColumnHeader.js';
+import { ClientTablePagination } from './ClientTablePagination.js';
 
 /** Coerces the value in a cell to a string for consistant display purposes */
 function defaultFormatter(value: unknown): string {
@@ -67,7 +67,6 @@ export const ClientTable = <T extends ClientTableEntry>({
 }: ClientTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage] = useState(10);
-  const { t } = useTranslation('libui');
 
   const pageCount = Math.ceil(data.length / entriesPerPage);
 
@@ -138,37 +137,14 @@ export const ClientTable = <T extends ClientTableEntry>({
           </table>
         </div>
       </div>
-      <div className="flex items-center justify-between px-1 py-3">
-        <div className="hidden sm:block">
-          <p className="text-sm font-medium text-muted-foreground">
-            {t('pagination.info', {
-              first: firstEntry,
-              last: lastEntry,
-              total: data.length
-            })}
-          </p>
-        </div>
-        <div className="flex flex-1 justify-between sm:justify-end">
-          <button
-            className="relative inline-flex items-center rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-muted-foreground disabled:opacity-75 dark:border-slate-600 dark:bg-slate-800"
-            disabled={currentPage === 1}
-            onClick={() => {
-              setCurrentPage(currentPage - 1);
-            }}
-          >
-            {t('pagination.previous')}
-          </button>
-          <button
-            className="relative ml-3 inline-flex items-center rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-muted-foreground disabled:opacity-75 dark:border-slate-600 dark:bg-slate-800"
-            disabled={currentPage === pageCount}
-            onClick={() => {
-              setCurrentPage(currentPage + 1);
-            }}
-          >
-            {t('pagination.next')}
-          </button>
-        </div>
-      </div>
+      <ClientTablePagination
+        currentPage={currentPage}
+        firstEntry={firstEntry}
+        lastEntry={lastEntry}
+        pageCount={pageCount}
+        setCurrentPage={setCurrentPage}
+        totalEntries={data.length}
+      />
     </div>
   );
 };
