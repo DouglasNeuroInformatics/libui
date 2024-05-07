@@ -25,8 +25,6 @@ export * from './components/HoverCard/HoverCard.js';
 export * from './components/Input/Input.js';
 export * from './components/Label/Label.js';
 export * from './components/LanguageToggle/LanguageToggle.js';
-export * from './components/LegacySlider/LegacySlider.js';
-export * from './components/LegacyStepper/LegacyStepper.js';
 export * from './components/LineGraph/LineGraph.js';
 export * from './components/ListboxDropdown/ListboxDropdown.js';
 export * from './components/MenuBar/MenuBar.js';
