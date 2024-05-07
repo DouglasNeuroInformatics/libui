@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 
-import { range, toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { range } from 'lodash-es';
+import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '../../utils.js';
-import { ClientTableColumnHeader } from './ClientTableColumnHeader.js';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
+import { Table } from '../Table/Table.js';
 import { ClientTablePagination } from './ClientTablePagination.js';
 
 /** Coerces the value in a cell to a string for consistant display purposes */
@@ -53,6 +56,7 @@ export type ClientTableProps<T extends ClientTableEntry> = {
   columnDropdownOptions?: ClientTableDropdownOptions<T>;
   columns: ClientTableColumn<T>[];
   data: T[];
+  entriesPerPage?: number;
   minRows?: number;
   onEntryClick?: (entry: T) => void;
 };
@@ -62,11 +66,11 @@ export const ClientTable = <T extends ClientTableEntry>({
   columnDropdownOptions,
   columns,
   data,
+  entriesPerPage = 10,
   minRows,
   onEntryClick
 }: ClientTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [entriesPerPage] = useState(10);
 
   const pageCount = Math.ceil(data.length / entriesPerPage);
 
@@ -76,66 +80,77 @@ export const ClientTable = <T extends ClientTableEntry>({
   const nRows = Math.max(currentEntries.length, minRows ?? -1);
 
   return (
-    <div>
-      <div className={cn('min-w-full overflow-hidden rounded-md bg-slate-50 shadow dark:bg-slate-800', className)}>
-        <div className="w-full overflow-x-scroll">
-          <table className="w-full table-auto">
-            <thead className="border-b border-slate-300 bg-slate-50 dark:border-0 dark:bg-slate-700">
-              <tr>
-                {columns.map((column, i) => (
-                  <th
-                    className="whitespace-nowrap text-left  text-sm font-semibold text-slate-800 dark:text-slate-200"
-                    key={i}
-                  >
-                    <ClientTableColumnHeader column={column} dropdownOptions={columnDropdownOptions} />
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y dark:divide-slate-600">
-              {nRows > 0 &&
-                range(nRows).map((i) => {
-                  const entry = currentEntries[i];
-                  return (
-                    <tr
-                      className={cn('whitespace-nowrap p-4 text-sm text-muted-foreground', {
-                        'cursor-pointer hover:backdrop-brightness-95': entry && typeof onEntryClick === 'function'
-                      })}
-                      // eslint-disable-next-line react/no-unknown-property
-                      currentEntries-cy="table-row"
-                      key={i}
-                      onClick={() => {
-                        entry && onEntryClick && onEntryClick(entry);
-                      }}
-                    >
-                      {columns.map(({ field, formatter }, j) => {
-                        let value: unknown;
-                        if (!entry) {
-                          value = '';
-                        } else if (typeof field === 'function') {
-                          value = field(entry);
-                        } else {
-                          value = entry[field];
-                        }
-                        const formattedValue = entry && formatter ? formatter(value) : defaultFormatter(value);
-                        return (
-                          <td
-                            className="whitespace-nowrap px-6"
-                            // eslint-disable-next-line react/no-unknown-property
-                            currentEntries-cy="table-currentEntries-item"
-                            key={j}
-                            style={{ height: 42 }}
-                          >
-                            <span className="block text-ellipsis leading-none">{formattedValue}</span>
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
+    <div className={className}>
+      <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow">
+        <Table>
+          <Table.Header>
+            <Table.Row>
+              {columns.map((column, i) => (
+                <Table.Head className="whitespace-nowrap text-foreground md:px-6" key={i}>
+                  {columnDropdownOptions ? (
+                    <DropdownMenu>
+                      <DropdownMenu.Trigger className="flex items-center justify-between gap-3">
+                        <span>{column.label}</span>
+                        <ChevronDownIcon />
+                      </DropdownMenu.Trigger>
+                      <DropdownMenu.Content align="start">
+                        <DropdownMenu.Group>
+                          {columnDropdownOptions.map((option) => {
+                            const Icon = option.icon;
+                            return (
+                              <DropdownMenu.Item
+                                key={option.label}
+                                onClick={() => {
+                                  option.onSelection(column);
+                                }}
+                              >
+                                {Icon && <Icon className="mr-2" height={16} width={16} />}
+                                {option.label}
+                              </DropdownMenu.Item>
+                            );
+                          })}
+                        </DropdownMenu.Group>
+                      </DropdownMenu.Content>
+                    </DropdownMenu>
+                  ) : (
+                    column.label
+                  )}
+                </Table.Head>
+              ))}
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {range(nRows).map((i) => {
+              const entry = currentEntries[i];
+              return (
+                <Table.Row
+                  className={cn(typeof onEntryClick === 'function' && 'cursor-pointer hover:backdrop-brightness-95')}
+                  key={i}
+                  onClick={() => {
+                    onEntryClick?.(entry);
+                  }}
+                >
+                  {columns.map(({ field, formatter }, j) => {
+                    let value: unknown;
+                    if (!entry) {
+                      value = '';
+                    } else if (typeof field === 'function') {
+                      value = field(entry);
+                    } else {
+                      value = entry[field];
+                    }
+                    const formattedValue = entry && formatter ? formatter(value) : defaultFormatter(value);
+                    return (
+                      <Table.Cell className="text-ellipsis leading-none md:px-6" key={j}>
+                        {formattedValue}
+                      </Table.Cell>
+                    );
+                  })}
+                </Table.Row>
+              );
+            })}
+          </Table.Body>
+        </Table>
       </div>
       <ClientTablePagination
         currentPage={currentPage}

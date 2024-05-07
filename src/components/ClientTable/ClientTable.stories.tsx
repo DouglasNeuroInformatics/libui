@@ -62,14 +62,14 @@ export default meta;
 
 export const Default: StoryObj<typeof ClientTable<ExampleItem>> = {
   args: {
-    columnDropdownOptions: [
-      {
-        label: 'Delete',
-        onSelection: (column) => {
-          alert(`Delete column: ${column.label}`);
-        }
-      }
-    ],
+    // columnDropdownOptions: [
+    //   {
+    //     label: 'Delete',
+    //     onSelection: (column) => {
+    //       alert(`Delete column: ${column.label}`);
+    //     }
+    //   }
+    // ],
     columns,
     data,
     minRows: 10,

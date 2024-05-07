@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '../Button/Button.js';
+
 export type ClientPagePaginationProps = {
   currentPage: number;
   firstEntry: number;
@@ -21,7 +23,7 @@ export const ClientTablePagination = ({
 }: ClientPagePaginationProps) => {
   const { t } = useTranslation('libui');
   return (
-    <div className="flex items-center justify-between px-1 py-3">
+    <div className="flex items-center justify-between py-3">
       <div className="hidden sm:block">
         <p className="text-sm font-medium text-muted-foreground">
           {t('pagination.info', {
@@ -31,25 +33,27 @@ export const ClientTablePagination = ({
           })}
         </p>
       </div>
-      <div className="flex flex-1 justify-between sm:justify-end">
-        <button
-          className="relative inline-flex items-center rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-muted-foreground disabled:opacity-75 dark:border-slate-600 dark:bg-slate-800"
+      <div className="flex flex-1 justify-between gap-3 sm:justify-end">
+        <Button
           disabled={currentPage === 1}
+          type="button"
+          variant="outline"
           onClick={() => {
             setCurrentPage(currentPage - 1);
           }}
         >
           {t('pagination.previous')}
-        </button>
-        <button
-          className="relative ml-3 inline-flex items-center rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-muted-foreground disabled:opacity-75 dark:border-slate-600 dark:bg-slate-800"
+        </Button>
+        <Button
           disabled={currentPage === pageCount}
+          type="button"
+          variant="outline"
           onClick={() => {
             setCurrentPage(currentPage + 1);
           }}
         >
           {t('pagination.next')}
-        </button>
+        </Button>
       </div>
     </div>
   );
