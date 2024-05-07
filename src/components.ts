@@ -1,4 +1,5 @@
 export * from './components/Accordion/Accordion.js';
+export * from './components/ActionDropdown/ActionDropdown.js';
 export * from './components/AlertDialog/AlertDialog.js';
 export * from './components/ArrowToggle/ArrowToggle.js';
 export * from './components/Avatar/Avatar.js';
@@ -24,7 +25,6 @@ export * from './components/HoverCard/HoverCard.js';
 export * from './components/Input/Input.js';
 export * from './components/Label/Label.js';
 export * from './components/LanguageToggle/LanguageToggle.js';
-export * from './components/LegacyDropdown/LegacyDropdown.js';
 export * from './components/LegacyModal/LegacyModal.js';
 export * from './components/LegacySlider/LegacySlider.js';
 export * from './components/LegacyStepper/LegacyStepper.js';
