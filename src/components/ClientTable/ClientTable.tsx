@@ -86,7 +86,7 @@ export const ClientTable = <T extends ClientTableEntry>({
           <Table.Header>
             <Table.Row>
               {columns.map((column, i) => (
-                <Table.Head className="whitespace-nowrap text-foreground md:px-6" key={i}>
+                <Table.Head className="whitespace-nowrap text-foreground" key={i}>
                   {columnDropdownOptions ? (
                     <DropdownMenu>
                       <DropdownMenu.Trigger className="flex items-center justify-between gap-3">
@@ -133,7 +133,7 @@ export const ClientTable = <T extends ClientTableEntry>({
                   {columns.map(({ field, formatter }, j) => {
                     let value: unknown;
                     if (!entry) {
-                      value = '';
+                      value = 'NA';
                     } else if (typeof field === 'function') {
                       value = field(entry);
                     } else {
@@ -141,7 +141,7 @@ export const ClientTable = <T extends ClientTableEntry>({
                     }
                     const formattedValue = entry && formatter ? formatter(value) : defaultFormatter(value);
                     return (
-                      <Table.Cell className="text-ellipsis leading-none md:px-6" key={j}>
+                      <Table.Cell className={cn('text-ellipsis leading-none', !entry && 'invisible')} key={j}>
                         {formattedValue}
                       </Table.Cell>
                     );
