@@ -21,7 +21,7 @@ export default {
             <Dialog.Title>Edit profile</Dialog.Title>
             <Dialog.Description>Make changes to your profile here. Click save when you are done.</Dialog.Description>
           </Dialog.Header>
-          <div className="grid gap-4 py-4">
+          <Dialog.Body className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
               <Input id="name" />
@@ -30,7 +30,7 @@ export default {
               <Label htmlFor="description">Description</Label>
               <Input id="description" />
             </div>
-          </div>
+          </Dialog.Body>
           <Dialog.Footer>
             <Button type="submit">Save changes</Button>
           </Dialog.Footer>

@@ -23,7 +23,7 @@ export const Default: Story = {
             <Sheet.Title>Edit profile</Sheet.Title>
             <Sheet.Description>Make changes to your profile here. Click save when you are done.</Sheet.Description>
           </Sheet.Header>
-          <div className="grid gap-4 py-4">
+          <Sheet.Body className="grid gap-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label className="text-right" htmlFor="name">
                 Name
@@ -36,7 +36,7 @@ export const Default: Story = {
               </Label>
               <Input className="col-span-3" id="username" value="@peduarte" />
             </div>
-          </div>
+          </Sheet.Body>
           <Sheet.Footer>
             <Sheet.Close asChild>
               <Button type="submit">Save changes</Button>
