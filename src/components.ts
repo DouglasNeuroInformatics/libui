@@ -29,8 +29,6 @@ export * from './components/LegacyModal/LegacyModal.js';
 export * from './components/LegacySelectDropdown/LegacySelectDropdown.js';
 export * from './components/LegacySlider/LegacySlider.js';
 export * from './components/LegacyStepper/LegacyStepper.js';
-export * from './components/LegacyTable/LegacyClientTable.js';
-export * from './components/LegacyTable/LegacyTable.js';
 export * from './components/LineGraph/LineGraph.js';
 export * from './components/MenuBar/MenuBar.js';
 export * from './components/NotificationHub/NotificationHub.js';
