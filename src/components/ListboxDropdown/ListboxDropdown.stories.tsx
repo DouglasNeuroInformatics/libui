@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LegacySelectDropdown } from './LegacySelectDropdown.js';
+import { ListboxDropdown } from './ListboxDropdown.js';
 
-type Story = StoryObj<typeof LegacySelectDropdown>;
+type Story = StoryObj<typeof ListboxDropdown>;
 
-const meta: Meta<typeof LegacySelectDropdown> = { component: LegacySelectDropdown };
+const meta: Meta<typeof ListboxDropdown> = { component: ListboxDropdown };
 
 export default meta;
 
@@ -35,7 +35,7 @@ export const Default: Story = {
             options,
             selected,
             setSelected,
-            title: 'My Select Dropdown'
+            title: 'My Listbox Dropdown'
           }}
         />
       );
