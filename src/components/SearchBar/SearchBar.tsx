@@ -13,6 +13,8 @@ export type BaseSearchBarProps = {
   onClick?: () => void;
   /** Custom placeholder to use instead of the default */
   placeholder?: string;
+  /** Whether the input element should be readonly */
+  readOnly?: boolean;
 };
 
 type ControlledSearchBarProps = {
@@ -29,7 +31,7 @@ type UncontrolledSearchBarProps = {
 
 export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 
-export const SearchBar = ({ className, onClick, onValueChange, placeholder, value }: SearchBarProps) => {
+export const SearchBar = ({ className, onClick, onValueChange, placeholder, readOnly, value }: SearchBarProps) => {
   const { t } = useTranslation('libui');
   return (
     <form className={cn('relative', className)}>
@@ -37,6 +39,7 @@ export const SearchBar = ({ className, onClick, onValueChange, placeholder, valu
       <Input
         className="pl-8"
         placeholder={placeholder ?? t('searchBar.placeholder')}
+        readOnly={readOnly}
         type="search"
         value={value}
         onChange={(event) => {
