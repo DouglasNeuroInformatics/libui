@@ -18,20 +18,22 @@ export type ListboxDropdownProps<T extends ListboxDropdownOption> = {
   title: string;
   /** The button variant to use for the dropdown toggle */
   variant?: ButtonProps['variant'];
+  widthFull?: boolean;
 };
 
 export const ListboxDropdown = <T extends ListboxDropdownOption>({
   options,
   selected,
   setSelected,
-  title
+  title,
+  widthFull
 }: ListboxDropdownProps<T>) => {
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild className="w-full">
         <DropdownButton>{title}</DropdownButton>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content widthFull align="start">
+      <DropdownMenu.Content align="start" widthFull={widthFull}>
         {options.map((option) => {
           const checked = Boolean(selected.find((selectedOption) => selectedOption.key === option.key));
           return (

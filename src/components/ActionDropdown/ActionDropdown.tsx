@@ -28,6 +28,8 @@ export type ActionDropdownProps<T extends ActionDropdownOptions> = {
   title: string;
 
   triggerClassName?: string;
+
+  widthFull?: boolean;
 };
 
 // eslint-disable-next-line react/function-component-definition
@@ -37,7 +39,8 @@ export function ActionDropdown<const T extends ActionDropdownOptions>({
   onSelection,
   options,
   title,
-  triggerClassName
+  triggerClassName,
+  widthFull
 }: ActionDropdownProps<T>) {
   const optionKeys: readonly string[] = options instanceof Array ? options : Object.keys(options);
   return (
@@ -48,7 +51,7 @@ export function ActionDropdown<const T extends ActionDropdownOptions>({
             {title}
           </DropdownButton>
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content align={align} style={{ width: 'var(--radix-popper-anchor-width)' }}>
+        <DropdownMenu.Content align={align} widthFull={widthFull}>
           <DropdownMenu.Group>
             {optionKeys.map((option) => (
               <DropdownMenu.Item
