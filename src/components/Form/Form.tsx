@@ -28,9 +28,9 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   initialValues?: PartialNullableFormDataType<TData>;
   onError?: (error: z.ZodError<TData>) => void;
   onSubmit: (data: TData) => void;
+  preventResetValuesOnReset?: boolean;
   resetBtn?: boolean;
   submitBtnLabel?: string;
-  useInitialValuesOnReset?: boolean;
   validationSchema: z.ZodType<TData>;
 };
 
@@ -41,9 +41,9 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   initialValues,
   onError,
   onSubmit,
+  preventResetValuesOnReset,
   resetBtn,
   submitBtnLabel,
-  useInitialValuesOnReset,
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
@@ -74,9 +74,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const reset = () => {
     setRootError(null);
     setErrors({});
-    if (useInitialValuesOnReset && initialValues) {
-      setValues(getInitialValues(initialValues));
-    } else {
+    if (!preventResetValuesOnReset) {
       setValues({});
     }
   };
