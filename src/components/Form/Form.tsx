@@ -30,6 +30,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   onSubmit: (data: TData) => void;
   resetBtn?: boolean;
   submitBtnLabel?: string;
+  useInitialValuesOnReset?: boolean;
   validationSchema: z.ZodType<TData>;
 };
 
@@ -42,6 +43,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   onSubmit,
   resetBtn,
   submitBtnLabel,
+  useInitialValuesOnReset,
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
@@ -72,7 +74,11 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const reset = () => {
     setRootError(null);
     setErrors({});
-    setValues({});
+    if (useInitialValuesOnReset && initialValues) {
+      setValues(getInitialValues(initialValues));
+    } else {
+      setValues({});
+    }
   };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
