@@ -16,6 +16,8 @@ type ActionDropdownOptionKey<T> = T extends readonly string[]
 export type ActionDropdownProps<T extends ActionDropdownOptions> = {
   align?: DropdownMenuContentProps['align'];
 
+  contentClassName?: string;
+
   disabled?: boolean;
 
   /** Callback function invoked when user clicks an option */
@@ -35,6 +37,7 @@ export type ActionDropdownProps<T extends ActionDropdownOptions> = {
 // eslint-disable-next-line react/function-component-definition
 export function ActionDropdown<const T extends ActionDropdownOptions>({
   align = 'start',
+  contentClassName,
   disabled,
   onSelection,
   options,
@@ -51,7 +54,7 @@ export function ActionDropdown<const T extends ActionDropdownOptions>({
             {title}
           </DropdownButton>
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content align={align} widthFull={widthFull}>
+        <DropdownMenu.Content align={align} className={contentClassName} widthFull={widthFull}>
           <DropdownMenu.Group>
             {optionKeys.map((option) => (
               <DropdownMenu.Item

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { cn } from '../../utils.js';
 import { type ButtonProps } from '../Button/Button.js';
 import { DropdownButton } from '../DropdownButton/DropdownButton.js';
 import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
@@ -12,28 +13,31 @@ export type ListboxDropdownOption = {
 export type ListboxDropdownProps<T extends ListboxDropdownOption> = {
   checkPosition?: 'left' | 'right';
   className?: string;
+  contentClassName?: string;
   options: T[];
   selected: T[];
   setSelected: React.Dispatch<React.SetStateAction<T[]>>;
   title: string;
-  /** The button variant to use for the dropdown toggle */
+  triggerClassName?: string;
   variant?: ButtonProps['variant'];
   widthFull?: boolean;
 };
 
 export const ListboxDropdown = <T extends ListboxDropdownOption>({
+  contentClassName,
   options,
   selected,
   setSelected,
   title,
+  triggerClassName,
   widthFull
 }: ListboxDropdownProps<T>) => {
   return (
     <DropdownMenu>
-      <DropdownMenu.Trigger asChild className="w-full">
+      <DropdownMenu.Trigger asChild className={cn('w-full', triggerClassName)}>
         <DropdownButton>{title}</DropdownButton>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="start" widthFull={widthFull}>
+      <DropdownMenu.Content align="start" className={contentClassName} widthFull={widthFull}>
         {options.map((option) => {
           const checked = Boolean(selected.find((selectedOption) => selectedOption.key === option.key));
           return (
