@@ -14,6 +14,7 @@ export type ListboxDropdownProps<T extends ListboxDropdownOption> = {
   checkPosition?: 'left' | 'right';
   className?: string;
   contentClassName?: string;
+  disabled?: boolean;
   options: T[];
   selected: T[];
   setSelected: React.Dispatch<React.SetStateAction<T[]>>;
@@ -25,6 +26,7 @@ export type ListboxDropdownProps<T extends ListboxDropdownOption> = {
 
 export const ListboxDropdown = <T extends ListboxDropdownOption>({
   contentClassName,
+  disabled,
   options,
   selected,
   setSelected,
@@ -34,7 +36,7 @@ export const ListboxDropdown = <T extends ListboxDropdownOption>({
 }: ListboxDropdownProps<T>) => {
   return (
     <DropdownMenu>
-      <DropdownMenu.Trigger asChild className={cn('w-full', triggerClassName)}>
+      <DropdownMenu.Trigger asChild className={cn('w-full', triggerClassName)} disabled={disabled}>
         <DropdownButton>{title}</DropdownButton>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content align="start" className={contentClassName} widthFull={widthFull}>
