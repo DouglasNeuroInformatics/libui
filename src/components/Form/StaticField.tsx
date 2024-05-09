@@ -22,6 +22,7 @@ export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
   field: NumberRecordFormField | RecordArrayFormField | ScalarFieldProps['field'];
   name: string;
+  readOnly?: boolean;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
   values: PartialFormDataType<TData>;
@@ -31,6 +32,7 @@ export const StaticField = <TData extends FormDataType>({
   errors,
   field,
   name,
+  readOnly,
   setErrors,
   setValues,
   values
@@ -55,6 +57,7 @@ export const StaticField = <TData extends FormDataType>({
         {...field}
         error={errors[name] as { [key: string]: string }[]}
         name={name}
+        readOnly={readOnly}
         setError={setError}
         setValue={setValue}
         value={values[name] as RecordArrayFieldValue}
@@ -65,6 +68,7 @@ export const StaticField = <TData extends FormDataType>({
         {...field}
         error={errors[name] as { [key: string]: string }}
         name={name}
+        readOnly={readOnly}
         setError={setError}
         setValue={setValue}
         value={values[name] as NumberRecordFieldValue}
@@ -75,6 +79,7 @@ export const StaticField = <TData extends FormDataType>({
         error={errors[name] as string}
         field={field}
         name={name}
+        readOnly={readOnly}
         setError={setError}
         setValue={setValue}
         value={values[name] as ScalarFieldValue}

@@ -37,6 +37,7 @@ export const BaseRadioField = <T extends string>({
   name,
   options,
   orientation = 'vertical',
+  readOnly,
   setValue,
   value
 }: BaseRadioFieldProps<T>) => {
@@ -55,8 +56,8 @@ export const BaseRadioField = <T extends string>({
       >
         {Object.keys(options).map((option) => (
           <div className="flex items-center gap-2" key={option}>
-            <RadioGroup.Item id={`${name}-${option}`} value={option} />
-            <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
+            <RadioGroup.Item disabled={readOnly} id={`${name}-${option}`} value={option} />
+            <Label aria-disabled={readOnly} className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
               {options[option as T]}
             </Label>
           </div>

@@ -18,6 +18,7 @@ export const RecordArrayField = memo(function RecordArrayField({
   error: arrayError,
   fieldset,
   label,
+  readOnly,
   setError: setArrayError,
   setValue: setArrayValue,
   value: arrayValue
@@ -64,6 +65,7 @@ export const RecordArrayField = memo(function RecordArrayField({
                   field={fieldProps}
                   key={name}
                   name={name}
+                  readOnly={readOnly}
                   setError={(error) => {
                     const newArrayError = arrayError ? [...arrayError] : [];
                     if (!newArrayError[i]) {
@@ -85,11 +87,11 @@ export const RecordArrayField = memo(function RecordArrayField({
         ))}
       </div>
       <div className="flex gap-3">
-        <Button type="button" variant="outline" onClick={appendField}>
+        <Button disabled={readOnly} type="button" variant="outline" onClick={appendField}>
           {t('form.append')}
           <PlusCircleIcon className="ml-2" />
         </Button>
-        <Button type="button" variant="outline" onClick={removeField}>
+        <Button disabled={readOnly} type="button" variant="outline" onClick={removeField}>
           {t('form.remove')}
           <MinusCircleIcon className="ml-2" />
         </Button>

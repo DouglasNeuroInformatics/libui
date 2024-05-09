@@ -10,6 +10,7 @@ import type { FormErrors } from './types.js';
 export type FieldsComponentProps<T extends FormDataType> = {
   errors: FormErrors<T>;
   fields: FormFields<T>;
+  readOnly?: boolean;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<T>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<T>>>;
   values: PartialFormDataType<T>;

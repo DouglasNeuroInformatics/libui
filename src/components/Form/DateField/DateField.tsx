@@ -15,7 +15,7 @@ const isValidDateString = (s: string) => /^(\d{4})-((0[1-9])|(1[0-2]))-((0[1-9])
 
 export type DateFieldProps = Simplify<BaseFieldComponentProps<Date> & Omit<DateFormField, 'kind'>>;
 
-export const DateField = ({ error, label, name, setValue, value }: DateFieldProps) => {
+export const DateField = ({ error, label, name, readOnly, setValue, value }: DateFieldProps) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -44,6 +44,7 @@ export const DateField = ({ error, label, name, setValue, value }: DateFieldProp
             autoComplete="off"
             data-cy="date-input"
             data-testid="date-input"
+            disabled={readOnly}
             name={name}
             placeholder="YYYY-MM-DD"
             type="text"

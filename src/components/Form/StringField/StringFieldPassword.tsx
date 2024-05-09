@@ -12,7 +12,15 @@ import type { BaseFieldComponentProps } from '../types.js';
 
 export type StringFieldPasswordProps = BaseFieldComponentProps<string> & StringFormField;
 
-export const StringFieldPassword = ({ description, error, label, name, setValue, value }: StringFieldPasswordProps) => {
+export const StringFieldPassword = ({
+  description,
+  error,
+  label,
+  name,
+  readOnly,
+  setValue,
+  value
+}: StringFieldPasswordProps) => {
   const [show, setShow] = useState(false);
   return (
     <FieldGroup>
@@ -22,6 +30,7 @@ export const StringFieldPassword = ({ description, error, label, name, setValue,
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Input
+          disabled={readOnly}
           id={name}
           name={name}
           type={show ? 'text' : 'password'}
@@ -30,6 +39,7 @@ export const StringFieldPassword = ({ description, error, label, name, setValue,
         />
         <button
           className="absolute right-0 flex h-full w-8 items-center justify-center text-muted-foreground"
+          disabled={readOnly}
           tabIndex={-1}
           type="button"
           onClick={() => setShow(!show)}

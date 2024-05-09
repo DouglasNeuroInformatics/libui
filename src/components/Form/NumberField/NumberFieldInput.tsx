@@ -20,6 +20,7 @@ export const NumberFieldInput = ({
   max,
   min,
   name,
+  readOnly,
   setValue,
   value
 }: NumberFieldInputProps) => {
@@ -37,7 +38,15 @@ export const NumberFieldInput = ({
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
-      <Input max={max} min={min} name={name} type="text" value={value ?? ''} onChange={handleChange} />
+      <Input
+        disabled={readOnly}
+        max={max}
+        min={min}
+        name={name}
+        type="text"
+        value={value ?? ''}
+        onChange={handleChange}
+      />
       <FieldGroup.Error error={error} />
     </FieldGroup>
   );

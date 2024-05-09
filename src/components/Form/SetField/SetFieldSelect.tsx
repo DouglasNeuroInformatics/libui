@@ -18,6 +18,7 @@ export const SetFieldSelect = <T extends string = string>({
   label,
   onCheckedChange,
   options,
+  readOnly,
   value
 }: SetFieldSelectProps<T>) => {
   return value ? (
@@ -27,7 +28,7 @@ export const SetFieldSelect = <T extends string = string>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <DropdownMenu>
-        <DropdownMenu.Trigger asChild className="w-full">
+        <DropdownMenu.Trigger asChild className="w-full" disabled={readOnly}>
           <DropdownButton>
             {value.size ? (
               <div className="flex items-center gap-2">

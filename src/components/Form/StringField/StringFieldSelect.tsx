@@ -18,6 +18,7 @@ export const StringFieldSelect = <T extends string = string>({
   label,
   name,
   options,
+  readOnly,
   setValue,
   value
 }: StringFieldSelectProps<T>) => {
@@ -28,7 +29,7 @@ export const StringFieldSelect = <T extends string = string>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value ?? ''} onValueChange={(value: T) => setValue(value)}>
-        <Select.Trigger data-cy={`${name}-select-trigger`} data-testid={`${name}-select-trigger`}>
+        <Select.Trigger data-cy={`${name}-select-trigger`} data-testid={`${name}-select-trigger`} disabled={readOnly}>
           <Select.Value />
         </Select.Trigger>
         <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>

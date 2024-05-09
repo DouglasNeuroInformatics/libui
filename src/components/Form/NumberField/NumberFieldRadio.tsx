@@ -20,6 +20,7 @@ export const NumberFieldRadio = ({
   label,
   name,
   options,
+  readOnly,
   setValue,
   value
 }: NumberFieldRadioProps) => {
@@ -45,8 +46,8 @@ export const NumberFieldRadio = ({
           .toSorted((a, b) => a - b)
           .map((val) => (
             <div className="flex items-center gap-2" key={val}>
-              <RadioGroup.Item id={`${name}-${val}`} value={val.toString()} />
-              <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${val}`}>
+              <RadioGroup.Item disabled={readOnly} id={`${name}-${val}`} value={val.toString()} />
+              <Label aria-disabled={readOnly} className="font-normal text-muted-foreground" htmlFor={`${name}-${val}`}>
                 {`${val} - ${options[val]}`}
               </Label>
             </div>

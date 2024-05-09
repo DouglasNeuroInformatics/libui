@@ -15,6 +15,7 @@ export type FieldError<T extends FormFieldValue> =
 export type BaseFieldComponentProps<TValue extends FormFieldValue = FormFieldValue> = {
   error?: FieldError<TValue>;
   name: string;
+  readOnly?: boolean;
   setError: (error: FieldError<TValue>) => void;
   setValue: (value: TValue | undefined) => void;
   value: TValue | undefined;

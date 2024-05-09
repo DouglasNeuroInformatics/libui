@@ -30,6 +30,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   onError?: (error: z.ZodError<TData>) => void;
   onSubmit: (data: TData) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
+  readOnly?: boolean;
   resetBtn?: boolean;
   submitBtnLabel?: string;
   validationSchema: z.ZodType<TData>;
@@ -43,6 +44,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   onError,
   onSubmit,
   preventResetValuesOnReset,
+  readOnly,
   resetBtn,
   submitBtnLabel,
   validationSchema,
@@ -115,6 +117,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
               <FieldsComponent
                 errors={errors}
                 fields={fieldGroup.fields as FormFields<TData>}
+                readOnly={readOnly}
                 setErrors={setErrors}
                 setValues={setValues}
                 values={values}
@@ -123,7 +126,14 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           );
         })
       ) : (
-        <FieldsComponent errors={errors} fields={content} setErrors={setErrors} setValues={setValues} values={values} />
+        <FieldsComponent
+          errors={errors}
+          fields={content}
+          readOnly={readOnly}
+          setErrors={setErrors}
+          setValues={setValues}
+          values={values}
+        />
       )}
       <div className="flex w-full gap-3">
         {/** Note - aria-label is used for testing in downstream packages */}
@@ -131,13 +141,21 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           aria-label="Submit Button"
           className="block w-full"
           data-cy="submit-form"
+          disabled={readOnly}
           type="submit"
           variant="primary"
         >
           {submitBtnLabel ?? t('form.submit')}
         </Button>
         {resetBtn && (
-          <Button aria-label="Reset Button" className="block w-full" type="button" variant="secondary" onClick={reset}>
+          <Button
+            aria-label="Reset Button"
+            className="block w-full"
+            disabled={readOnly}
+            type="button"
+            variant="secondary"
+            onClick={reset}
+          >
             {t('form.reset')}
           </Button>
         )}

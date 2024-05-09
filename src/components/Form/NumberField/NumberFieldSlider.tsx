@@ -20,6 +20,7 @@ export const NumberFieldSlider = ({
   max,
   min,
   name,
+  readOnly,
   setValue,
   value
 }: NumberFieldSliderProps) => {
@@ -30,7 +31,14 @@ export const NumberFieldSlider = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <FieldGroup.Row>
-        <Slider max={max} min={min} name={name} value={[value ?? 0]} onValueChange={([value]) => setValue(value)} />
+        <Slider
+          disabled={readOnly}
+          max={max}
+          min={min}
+          name={name}
+          value={[value ?? 0]}
+          onValueChange={([value]) => setValue(value)}
+        />
         <span className="flex h-full w-8 items-center justify-center text-sm text-muted-foreground">
           {value ?? 'NA'}
         </span>

@@ -4,7 +4,6 @@ import React from 'react';
 
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
-import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 
 import { Heading } from '../Heading/Heading.js';
@@ -267,6 +266,17 @@ const recordArrayFields: FormFields<Pick<ExampleFormData, 'recordArray'>> = {
   }
 };
 
+const ungroupedContent = {
+  ...booleanFields,
+  ...dateFields,
+  ...numberFields,
+  ...setFields,
+  ...stringFields,
+  ...dynamicFields,
+  ...numberRecordFields,
+  ...recordArrayFields
+} as const;
+
 export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {
     content: [
@@ -319,16 +329,7 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
 
 export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {
-    content: {
-      ...booleanFields,
-      ...dateFields,
-      ...numberFields,
-      ...setFields,
-      ...stringFields,
-      ...dynamicFields,
-      ...numberRecordFields,
-      ...recordArrayFields
-    },
+    content: ungroupedContent,
     onSubmit: (data) => {
       alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
@@ -336,35 +337,13 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   }
 };
 
-export const WithTranslatedError: StoryObj<typeof Form<z.ZodType<{ foo: string; reset: boolean }>>> = {
-  decorators: [
-    (Story) => {
-      const { t } = useTranslation('libui');
-      return (
-        <Story
-          args={{
-            content: {
-              foo: {
-                kind: 'string',
-                label: 'Foo',
-                variant: 'input'
-              },
-              reset: {
-                kind: 'boolean',
-                label: t('form.reset'),
-                variant: 'radio'
-              }
-            },
-            onSubmit: (data) => {
-              alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
-            },
-            validationSchema: z.object({
-              foo: z.string(),
-              reset: z.boolean()
-            })
-          }}
-        />
-      );
-    }
-  ]
+export const ReadOnly: StoryObj<typeof Form<ExampleFormSchemaType>> = {
+  args: {
+    content: ungroupedContent,
+    readOnly: true,
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+    },
+    validationSchema: $ExampleFormData
+  }
 };

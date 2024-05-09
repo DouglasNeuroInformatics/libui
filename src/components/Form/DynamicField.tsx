@@ -11,6 +11,7 @@ export type DynamicFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;
   field: DynamicFormField<TData>;
   name: string;
+  readOnly?: boolean;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
   setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
   values: PartialFormDataType<TData>;
@@ -19,6 +20,7 @@ export type DynamicFieldProps<TData extends FormDataType> = {
 export const DynamicField = <TData extends FormDataType>({
   field,
   name,
+  readOnly,
   setValues,
   values,
   ...props
@@ -48,5 +50,7 @@ export const DynamicField = <TData extends FormDataType>({
     return null;
   }
 
-  return <StaticField {...props} field={staticField} name={name} setValues={setValues} values={values} />;
+  return (
+    <StaticField {...props} field={staticField} name={name} readOnly={readOnly} setValues={setValues} values={values} />
+  );
 };
