@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import type {
   FormContent,
@@ -50,12 +50,26 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
-  const { t } = useTranslation('libui');
+  const { i18n, t } = useTranslation('libui');
   const [rootError, setRootError] = useState<null | string>(null);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(
     initialValues ? getInitialValues(initialValues) : {}
   );
+
+  useEffect(() => {
+    const hasErrors = Object.keys(errors).length > 0;
+    if (hasErrors) {
+      validationSchema
+        .safeParseAsync(values)
+        .then((result) => {
+          if (!result.success) {
+            handleError(result.error);
+          }
+        })
+        .catch(console.error);
+    }
+  }, [i18n.resolvedLanguage]);
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
