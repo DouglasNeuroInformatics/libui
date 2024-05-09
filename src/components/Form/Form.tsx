@@ -10,6 +10,7 @@ import type {
 import { set } from 'lodash-es';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
 import { Button } from '../Button/Button.js';
@@ -27,7 +28,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   id?: string;
   initialValues?: PartialNullableFormDataType<TData>;
   onError?: (error: z.ZodError<TData>) => void;
-  onSubmit: (data: TData) => void;
+  onSubmit: (data: TData) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
   resetBtn?: boolean;
   submitBtnLabel?: string;
@@ -79,12 +80,12 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
     }
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = validationSchema.safeParse(values);
+    const result = await validationSchema.safeParseAsync(values);
     if (result.success) {
       reset();
-      onSubmit(result.data);
+      await onSubmit(result.data);
     } else {
       console.error(result.error.issues);
       handleError(result.error);
@@ -98,7 +99,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       autoComplete="off"
       className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
       id={id}
-      onSubmit={handleSubmit}
+      onSubmit={(event) => void handleSubmit(event)}
       {...props}
     >
       {isGrouped ? (
