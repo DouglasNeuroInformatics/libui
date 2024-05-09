@@ -32,6 +32,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   preventResetValuesOnReset?: boolean;
   readOnly?: boolean;
   resetBtn?: boolean;
+  revalidateOnBlur?: boolean;
   submitBtnLabel?: string;
   validationSchema: z.ZodType<TData>;
 };
@@ -46,6 +47,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   preventResetValuesOnReset,
   readOnly,
   resetBtn,
+  revalidateOnBlur,
   submitBtnLabel,
   validationSchema,
   ...props
@@ -56,20 +58,6 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const [values, setValues] = useState<PartialFormDataType<TData>>(
     initialValues ? getInitialValues(initialValues) : {}
   );
-
-  useEffect(() => {
-    const hasErrors = Object.keys(errors).length > 0;
-    if (hasErrors) {
-      validationSchema
-        .safeParseAsync(values)
-        .then((result) => {
-          if (!result.success) {
-            handleError(result.error);
-          }
-        })
-        .catch(console.error);
-    }
-  }, [i18n.resolvedLanguage]);
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
@@ -110,11 +98,30 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   const isGrouped = Array.isArray(content);
 
+  const revalidate = () => {
+    const hasErrors = Object.keys(errors).length > 0;
+    if (hasErrors) {
+      validationSchema
+        .safeParseAsync(values)
+        .then((result) => {
+          if (!result.success) {
+            handleError(result.error);
+          }
+        })
+        .catch(console.error);
+    }
+  };
+
+  useEffect(() => {
+    revalidate();
+  }, [i18n.resolvedLanguage]);
+
   return (
     <form
       autoComplete="off"
       className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
       id={id}
+      onBlur={revalidateOnBlur ? revalidate : undefined}
       onSubmit={(event) => void handleSubmit(event)}
       {...props}
     >

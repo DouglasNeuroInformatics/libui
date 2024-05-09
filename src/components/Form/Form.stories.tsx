@@ -343,6 +343,7 @@ export const WithRequiredFields: StoryObj<typeof Form<ExampleFormSchemaType>> = 
     onSubmit: (data) => {
       alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
+    revalidateOnBlur: true,
     validationSchema: $ExampleFormData.required()
   }
 };
