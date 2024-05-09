@@ -30,6 +30,7 @@ export const StringFieldPassword = ({ description, error, label, name, setValue,
         />
         <button
           className="absolute right-0 flex h-full w-8 items-center justify-center text-muted-foreground"
+          tabIndex={-1}
           type="button"
           onClick={() => setShow(!show)}
         >

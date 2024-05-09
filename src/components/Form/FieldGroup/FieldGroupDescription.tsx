@@ -7,7 +7,7 @@ import { Popover } from '../../Popover/Popover.js';
 export const FieldGroupDescription: React.FC<{ description?: null | string }> = ({ description }) =>
   description ? (
     <Popover>
-      <Popover.Trigger>
+      <Popover.Trigger tabIndex={-1}>
         <CircleHelpIcon className="text-muted-foreground" />
       </Popover.Trigger>
       <Popover.Content className="text-sm text-muted-foreground">
