@@ -337,6 +337,16 @@ export const Ungrouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   }
 };
 
+export const WithRequiredFields: StoryObj<typeof Form<ExampleFormSchemaType>> = {
+  args: {
+    content: ungroupedContent,
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+    },
+    validationSchema: $ExampleFormData.required()
+  }
+};
+
 export const ReadOnly: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {
     content: ungroupedContent,
