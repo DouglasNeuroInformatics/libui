@@ -48,7 +48,9 @@ export const RecordArrayField = memo(function RecordArrayField({
 
   return (
     <div className="space-y-4">
-      <Heading variant="h5">{label}</Heading>
+      <Heading className="font-medium" variant="h5">
+        {label}
+      </Heading>
       <div className="space-y-6">
         {arrayValue.map((fields, i) => (
           <div className="space-y-4" key={i}>

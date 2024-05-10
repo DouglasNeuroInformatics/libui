@@ -19,7 +19,7 @@ export const Heading = ({ children, className, variant }: HeadingProps) => {
     case 'h4':
       return <h4 className={cn('text-lg font-semibold tracking-tight', className)}>{children}</h4>;
     case 'h5':
-      return <h4 className={cn('text-base font-semibold tracking-tight', className)}>{children}</h4>;
+      return <h5 className={cn('text-base font-semibold tracking-tight', className)}>{children}</h5>;
     default:
       throw new Error(`Unhandled heading variant: ${variant satisfies never}`);
   }
