@@ -58,6 +58,7 @@ export type ClientTableProps<T extends ClientTableEntry> = {
   data: T[];
   entriesPerPage?: number;
   minRows?: number;
+  noWrap?: boolean;
   onEntryClick?: (entry: T) => void;
 };
 
@@ -68,6 +69,7 @@ export const ClientTable = <T extends ClientTableEntry>({
   data,
   entriesPerPage = 10,
   minRows,
+  noWrap,
   onEntryClick
 }: ClientTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -141,7 +143,14 @@ export const ClientTable = <T extends ClientTableEntry>({
                     }
                     const formattedValue = entry && formatter ? formatter(value) : defaultFormatter(value);
                     return (
-                      <Table.Cell className={cn('text-ellipsis leading-none', !entry && 'invisible')} key={j}>
+                      <Table.Cell
+                        className={cn(
+                          'text-ellipsis leading-none',
+                          !entry && 'invisible',
+                          noWrap && 'max-w-3xl overflow-hidden text-ellipsis whitespace-nowrap'
+                        )}
+                        key={j}
+                      >
                         {formattedValue}
                       </Table.Cell>
                     );

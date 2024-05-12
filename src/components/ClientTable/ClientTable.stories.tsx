@@ -62,14 +62,14 @@ export default meta;
 
 export const Default: StoryObj<typeof ClientTable<ExampleItem>> = {
   args: {
-    // columnDropdownOptions: [
-    //   {
-    //     label: 'Delete',
-    //     onSelection: (column) => {
-    //       alert(`Delete column: ${column.label}`);
-    //     }
-    //   }
-    // ],
+    columnDropdownOptions: [
+      {
+        label: 'Delete',
+        onSelection: (column) => {
+          alert(`Delete column: ${column.label}`);
+        }
+      }
+    ],
     columns,
     data,
     minRows: 10,
@@ -83,5 +83,44 @@ export const Empty: StoryObj<typeof ClientTable<ExampleItem>> = {
   args: {
     columns: columns,
     data: []
+  }
+};
+
+export const WithNoWrap: StoryObj<typeof ClientTable> = {
+  args: {
+    columnDropdownOptions: [
+      {
+        label: 'Delete',
+        onSelection: (column) => {
+          alert(`Delete column: ${column.label}`);
+        }
+      }
+    ],
+    columns: [
+      {
+        field: 'f1',
+        label: 'Field 1'
+      },
+      {
+        field: 'f2',
+        label: 'Field 2'
+      },
+      {
+        field: 'f3',
+        label: 'Field 3'
+      }
+    ],
+    data: [
+      {
+        f1: 1,
+        f2: range(1000).join(', '),
+        f3: 3
+      }
+    ],
+    minRows: 10,
+    noWrap: true,
+    onEntryClick: (entry) => {
+      alert(entry.id);
+    }
   }
 };
