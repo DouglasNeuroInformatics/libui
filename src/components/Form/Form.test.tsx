@@ -71,18 +71,18 @@ describe('Form', () => {
       fireEvent.click(a);
       expect(() => screen.getByLabelText('Field B')).toThrow();
     });
-    it('should should allow submitting the form if field A is not checked', () => {
+    it('should allow submitting the form if field A is not checked', () => {
       fireEvent.submit(screen.getByTestId(testid));
       expect(onError).not.toBeCalled();
       expect(onSubmit).toHaveBeenCalledOnce();
     });
-    it('should should not allow submitting the form if field A has been checked', () => {
+    it('should not allow submitting the form if field A has been checked', () => {
       fireEvent.click(screen.getByLabelText('Field A'));
       fireEvent.submit(screen.getByTestId(testid));
       expect(onError).toHaveBeenCalledOnce();
       expect(onSubmit).not.toHaveBeenCalled();
     });
-    it('should should allow submitting the form if field A has been checked and then unchecked', () => {
+    it('should allow submitting the form if field A has been checked and then unchecked', () => {
       const a = screen.getByLabelText('Field A');
       expect(a).toHaveAttribute('data-state', 'unchecked');
       fireEvent.click(a);
