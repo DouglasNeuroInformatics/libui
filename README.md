@@ -48,7 +48,7 @@ pnpm install @douglasneuroinformatics/libui
 const baseConfig = require('@douglasneuroinformatics/libui/tailwind.config.cjs');
 
 /** @type {import('tailwindcss').Config} */
-module.exports {
+module.exports = {
   content: [...baseConfig.content, './src/**/*.{js,ts,jsx,tsx}'],
   presets: [baseConfig]
 };
