@@ -54,6 +54,12 @@ module.exports {
 };
 ```
 
+**main.tsx**
+
+```js
+import '@douglasneuroinformatics/libui/styles/globals.css';
+```
+
 ## Contributing
 
 We welcome contributions! If you're interested in improving the library or adding new features, please refer to our contribution guide.
