@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { z } from 'zod';
@@ -49,6 +49,7 @@ describe('Form', () => {
         />
       );
     });
+
     afterEach(() => {
       vi.clearAllMocks();
     });
@@ -71,18 +72,21 @@ describe('Form', () => {
       fireEvent.click(a);
       expect(() => screen.getByLabelText('Field B')).toThrow();
     });
-    it('should allow submitting the form if field A is not checked', () => {
+
+    it('should allow submitting the form if field A is not checked', async () => {
       fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onError).not.toBeCalled();
-      expect(onSubmit).toHaveBeenCalledOnce();
     });
-    it('should not allow submitting the form if field A has been checked', () => {
+
+    it('should not allow submitting the form if field A has been checked', async () => {
       fireEvent.click(screen.getByLabelText('Field A'));
       fireEvent.submit(screen.getByTestId(testid));
-      expect(onError).toHaveBeenCalledOnce();
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
       expect(onSubmit).not.toHaveBeenCalled();
     });
-    it('should allow submitting the form if field A has been checked and then unchecked', () => {
+
+    it('should allow submitting the form if field A has been checked and then unchecked', async () => {
       const a = screen.getByLabelText('Field A');
       expect(a).toHaveAttribute('data-state', 'unchecked');
       fireEvent.click(a);
@@ -90,8 +94,8 @@ describe('Form', () => {
       fireEvent.click(a);
       expect(a).toHaveAttribute('data-state', 'unchecked');
       fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onError).not.toBeCalled();
-      expect(onSubmit).toHaveBeenCalledOnce();
     });
 
     it('should delete the data associated when field b when it is removed from the DOM', async () => {
@@ -108,7 +112,7 @@ describe('Form', () => {
       expect(b.value).toBe('');
       fireEvent.click(a);
       fireEvent.submit(screen.getByTestId(testid));
-      expect(onSubmit).toHaveBeenCalledOnce();
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onSubmit.mock.lastCall[0].b).toBeUndefined();
     });
   });
