@@ -22,7 +22,7 @@ export type TranslatedResource<T = EmptyObject> = {
 };
 
 export function transformTranslations<T extends { [key: string]: any }>(translations: T, locale: string) {
-  if (!isPlainObject) {
+  if (!isPlainObject(translations)) {
     throw new Error('Invalid format of translations: must be plain object');
   }
   const result: { [key: string]: unknown } = {};
