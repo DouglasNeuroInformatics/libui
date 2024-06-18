@@ -33,7 +33,6 @@ export type ClientTableColumn<T extends ClientTableEntry> = {
   field: ClientFieldFactory<T> | keyof T;
 
   /** Override the default formatter for this field */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formatter?: (value: any) => string;
 
   /** The label to be displayed on the header */
@@ -123,14 +122,13 @@ export const ClientTable = <T extends ClientTableEntry>({
           </Table.Header>
           <Table.Body>
             {range(nRows).map((i) => {
-              const entry = currentEntries[i];
+              const entry = currentEntries[i] as T | undefined;
+              const onClick = onEntryClick && entry ? () => onEntryClick(entry) : undefined;
               return (
                 <Table.Row
-                  className={cn(typeof onEntryClick === 'function' && 'cursor-pointer hover:backdrop-brightness-95')}
+                  className={cn(onClick && 'cursor-pointer hover:backdrop-brightness-95')}
                   key={i}
-                  onClick={() => {
-                    onEntryClick?.(entry);
-                  }}
+                  onClick={onClick}
                 >
                   {columns.map(({ field, formatter }, j) => {
                     let value: unknown;
@@ -146,7 +144,7 @@ export const ClientTable = <T extends ClientTableEntry>({
                       <Table.Cell
                         className={cn(
                           'text-ellipsis leading-none',
-                          !entry && 'invisible',
+                          !entry && 'opacity-0', // safari does not include borders if invisible
                           noWrap && 'max-w-3xl overflow-hidden text-ellipsis whitespace-nowrap'
                         )}
                         key={j}
