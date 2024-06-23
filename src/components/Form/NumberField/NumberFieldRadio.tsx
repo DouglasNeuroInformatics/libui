@@ -16,6 +16,7 @@ export type NumberFieldRadioProps = Simplify<
 
 export const NumberFieldRadio = ({
   description,
+  disableAutoPrefix,
   error,
   label,
   name,
@@ -44,14 +45,21 @@ export const NumberFieldRadio = ({
         {Object.keys(options)
           .map((val) => parseInt(val))
           .toSorted((a, b) => a - b)
-          .map((val) => (
-            <div className="flex items-center gap-2" key={val}>
-              <RadioGroup.Item disabled={readOnly} id={`${name}-${val}`} value={val.toString()} />
-              <Label aria-disabled={readOnly} className="font-normal text-muted-foreground" htmlFor={`${name}-${val}`}>
-                {`${val} - ${options[val]}`}
-              </Label>
-            </div>
-          ))}
+          .map((val) => {
+            const text = (disableAutoPrefix ? '' : `${val} - `) + options[val];
+            return (
+              <div className="flex items-center gap-2" key={val}>
+                <RadioGroup.Item disabled={readOnly} id={`${name}-${val}`} value={val.toString()} />
+                <Label
+                  aria-disabled={readOnly}
+                  className="font-normal text-muted-foreground"
+                  htmlFor={`${name}-${val}`}
+                >
+                  {text}
+                </Label>
+              </div>
+            );
+          })}
       </RadioGroup>
       <FieldGroup.Error error={error} />
     </FieldGroup>
