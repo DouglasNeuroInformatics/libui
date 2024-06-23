@@ -1,5 +1,18 @@
 Changelog
 
+## [2.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.5.3...v2.6.0) (2024-06-23)
+
+
+### Features
+
+* add disableAutoPrefix to NumberField ([9c6a38b](https://github.com/DouglasNeuroInformatics/libui/commit/9c6a38bb0a7eacbb1df79a59f045fda014f0c6fa))
+
+
+### Bug Fixes
+
+* typo in form test ([4e971e6](https://github.com/DouglasNeuroInformatics/libui/commit/4e971e6624a6c72a7abd18e078836dee3deefb50))
+* typo in i18n isPlainObject usage ([0429016](https://github.com/DouglasNeuroInformatics/libui/commit/0429016cc8bda9189a2c1406bbd53ef2e7d61fab))
+
 ## [1.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v1.4.0...v1.5.0) (2024-03-16)
 
 
