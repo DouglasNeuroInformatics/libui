@@ -1,5 +1,12 @@
 Changelog
 
+## [2.6.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.1...v2.6.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* increase container padding ([9f7c2f9](https://github.com/DouglasNeuroInformatics/libui/commit/9f7c2f95b8c1394275b244c82bdebd4a985a8c7f))
+
 ## [2.6.1](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.0...v2.6.1) (2024-06-27)
 
 
