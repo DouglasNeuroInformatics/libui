@@ -1,5 +1,12 @@
 Changelog
 
+## [2.6.3](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.2...v2.6.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* incorrectly placed screens property ([57ba546](https://github.com/DouglasNeuroInformatics/libui/commit/57ba546e8aa7886ff81a9420db13ed685770293b))
+
 ## [2.6.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.1...v2.6.2) (2024-07-02)
 
 
