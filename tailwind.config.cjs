@@ -35,9 +35,8 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: '1rem',
-        lg: '4rem',
-        md: '3rem',
-        sm: '2rem'
+        md: '2rem',
+        xl: '3rem'
       }
     },
     extend: {
