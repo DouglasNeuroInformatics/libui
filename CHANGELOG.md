@@ -1,5 +1,12 @@
 Changelog
 
+## [2.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.7.0...v2.8.0) (2024-07-09)
+
+
+### Features
+
+* add new password strength bar ([d64ec27](https://github.com/DouglasNeuroInformatics/libui/commit/d64ec27f0f8cb9be273cef43a2233b1b46b85eb1))
+
 ## [2.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.4...v2.7.0) (2024-07-09)
 
 
