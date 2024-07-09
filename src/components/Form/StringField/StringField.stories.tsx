@@ -4,6 +4,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { StringField } from './StringField.js';
 
+import type { PasswordStrengthValue } from './StringFieldPassword.js';
+
 type Story = StoryObj<typeof StringField>;
 
 export default { component: StringField } as Meta<typeof StringField>;
@@ -55,6 +57,29 @@ export const Password: Story = {
       return (
         <Story
           args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Password',
+            name: 'text',
+            setValue,
+            value,
+            variant: 'password'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const PasswordWithStrength: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<string | undefined>();
+      return (
+        <Story
+          args={{
+            calculateStrength: (password: string) => {
+              return Math.min(password.length, 4) as PasswordStrengthValue;
+            },
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             label: 'Password',
             name: 'text',
