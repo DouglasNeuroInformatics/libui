@@ -4,6 +4,7 @@ import React from 'react';
 
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
+import type { IntRange } from 'type-fest';
 import { z } from 'zod';
 
 import { Heading } from '../Heading/Heading.js';
@@ -165,7 +166,10 @@ const stringFields: FormFields<
   stringPassword: {
     kind: 'string',
     label: 'Password',
-    variant: 'password'
+    variant: 'password',
+    calculateStrength: (password: string) => {
+      return Math.min(password.length, 4) as IntRange<0, 5>;
+    }
   },
   stringInput: {
     description: 'This is a string field',
