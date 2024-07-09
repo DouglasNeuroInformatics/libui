@@ -33,7 +33,7 @@ const $ExampleFormData = z.object({
   stringTextArea: z.string().optional(),
   stringPassword: z.string().optional(),
   stringInput: z.string().optional(),
-  stringRadio: z.enum(['a', 'b', 'c']).optional()
+  stringRadio: z.enum(['a', 'b', 'c'])
 });
 type ExampleFormSchemaType = typeof $ExampleFormData;
 type ExampleFormData = z.TypeOf<typeof $ExampleFormData>;

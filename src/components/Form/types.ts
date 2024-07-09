@@ -3,11 +3,11 @@ import type { FormDataType, FormFieldValue, ScalarFieldValue } from '@douglasneu
 export type FieldError<T extends FormFieldValue> =
   T extends NonNullable<infer TValue>
     ? TValue extends NonNullable<ScalarFieldValue>
-      ? string
+      ? string[]
       : TValue extends { [key: string]: unknown }
-        ? { [key: string]: string }
+        ? { [key: string]: string[] }
         : TValue extends { [key: string]: unknown }[]
-          ? { [key: string]: string }[]
+          ? { [key: string]: string[] }[]
           : never
     : never;
 
