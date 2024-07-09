@@ -10,19 +10,7 @@ import { Heading } from '../Heading/Heading.js';
 import { Form } from './Form.js';
 
 const $ExampleFormData = z.object({
-  booleanCheck: z
-    .boolean()
-    .optional()
-    .superRefine((_, ctx) => {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'Issue 1'
-      });
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'Issue 2'
-      });
-    }),
+  booleanCheck: z.boolean().optional(),
   booleanRadio: z.boolean().optional(),
   recordArray: z.array(
     z.object({
