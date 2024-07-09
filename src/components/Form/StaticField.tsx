@@ -55,7 +55,7 @@ export const StaticField = <TData extends FormDataType>({
     .with({ kind: 'record-array' }, (field) => (
       <RecordArrayField
         {...field}
-        error={errors[name] as { [key: string]: string }[]}
+        error={errors[name] as { [key: string]: string[] }[]}
         name={name}
         readOnly={readOnly}
         setError={setError}
@@ -66,7 +66,7 @@ export const StaticField = <TData extends FormDataType>({
     .with({ kind: 'number-record' }, (field) => (
       <NumberRecordField
         {...field}
-        error={errors[name] as { [key: string]: string }}
+        error={errors[name] as { [key: string]: string[] }}
         name={name}
         readOnly={readOnly}
         setError={setError}
@@ -76,7 +76,7 @@ export const StaticField = <TData extends FormDataType>({
     ))
     .otherwise((field) => (
       <ScalarField
-        error={errors[name] as string}
+        error={errors[name] as string[]}
         field={field}
         name={name}
         readOnly={readOnly}

@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { BooleanField, type BooleanFieldProps } from './BooleanField.js';
 
 const TestBooleanField = ({ variant }: Pick<BooleanFieldProps, 'variant'>) => {
-  const [error, setError] = useState<string | undefined>();
+  const [error, setError] = useState<string[] | undefined>();
   const [value, setValue] = useState<boolean | undefined>();
   return (
     <BooleanField

@@ -7,7 +7,7 @@ import type {
   PartialFormDataType,
   PartialNullableFormDataType
 } from '@douglasneuroinformatics/libui-form-types';
-import { set } from 'lodash-es';
+import { get, set } from 'lodash-es';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
@@ -53,7 +53,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   ...props
 }: FormProps<TSchema, TData>) => {
   const { i18n, t } = useTranslation('libui');
-  const [rootError, setRootError] = useState<null | string>(null);
+  const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(
     initialValues ? getInitialValues(initialValues) : {}
@@ -61,15 +61,18 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
-    const rootErrors: string[] = [];
     for (const issue of error.issues) {
       if (issue.path.length > 0) {
-        set(fieldErrors, issue.path, issue.message);
+        const current = get(fieldErrors, issue.path) as string[] | undefined;
+        if (current) {
+          current.push(issue.message);
+        } else {
+          set(fieldErrors, issue.path, [issue.message]);
+        }
       } else {
-        rootErrors.push(issue.message);
+        setRootErrors((prevErrors) => [...prevErrors, issue.message]);
       }
     }
-    setRootError(rootErrors.join('\n'));
     setErrors(fieldErrors);
     if (onError) {
       onError(error);
@@ -77,7 +80,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   };
 
   const reset = () => {
-    setRootError(null);
+    setRootErrors([]);
     setErrors({});
     if (!preventResetValuesOnReset) {
       setValues({});
@@ -185,7 +188,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           </Button>
         )}
       </div>
-      {rootError && <ErrorMessage error={rootError} />}
+      {Boolean(rootErrors.length) && <ErrorMessage error={rootErrors} />}
     </form>
   );
 };
