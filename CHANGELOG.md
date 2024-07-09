@@ -1,5 +1,12 @@
 Changelog
 
+## [2.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.0...v2.8.1) (2024-07-09)
+
+
+### Bug Fixes
+
+* password strength meter with a strength of zero ([4f6eec9](https://github.com/DouglasNeuroInformatics/libui/commit/4f6eec92429abb6717d6cf289c84cc6817c45402))
+
 ## [2.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.7.0...v2.8.0) (2024-07-09)
 
 
