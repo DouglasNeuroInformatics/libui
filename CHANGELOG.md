@@ -1,5 +1,12 @@
 Changelog
 
+## [2.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.4...v2.7.0) (2024-07-09)
+
+
+### Features
+
+* add support for multiple error messages ([4c04cc9](https://github.com/DouglasNeuroInformatics/libui/commit/4c04cc965b454ebc4c7a6189c4464f4e42373371))
+
 ## [2.6.4](https://github.com/DouglasNeuroInformatics/libui/compare/v2.6.3...v2.6.4) (2024-07-02)
 
 
