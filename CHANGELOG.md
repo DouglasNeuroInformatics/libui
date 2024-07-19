@@ -1,3 +1,12 @@
+# Changelog
+
+## [2.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.1...v2.8.2) (2024-07-19)
+
+
+### Bug Fixes
+
+* set global scrollbar width to thin ([60bfdd3](https://github.com/DouglasNeuroInformatics/libui/commit/60bfdd3001aa4a2823fe5671757cd667244061ed))
+
 Changelog
 
 ## [2.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.0...v2.8.1) (2024-07-09)
