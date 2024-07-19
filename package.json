@@ -3,16 +3,13 @@
   "type": "module",
   "version": "2.8.1",
   "packageManager": "pnpm@9.3.0",
-  "description": "Generic UI components for DNP projects, built using React and TailwindCSS",
-  "author": {
-    "name": "Douglas Neuroinformatics",
-    "email": "support@douglasneuroinformatics.ca"
-  },
+  "description": "Generic UI components for DNP projects, built using React and Tailwind CSS",
+  "author": "Joshua Unrau",
   "license": "Apache-2.0",
   "homepage": "https://github.com/DouglasNeuroInformatics/libui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DouglasNeuroInformatics/libui"
+    "url": "https://github.com/DouglasNeuroInformatics/libui"
   },
   "bugs": {
     "url": "https://github.com/DouglasNeuroInformatics/libui/issues"
@@ -116,11 +113,10 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@commitlint/types": "^19.0.3",
     "@douglasneuroinformatics/eslint-config": "^4.2.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^12.0.1",
+    "@douglasneuroinformatics/prettier-config": "^0.0.1",
+    "@douglasneuroinformatics/semantic-release": "^0.0.1",
+    "@douglasneuroinformatics/tsconfig": "^1.0.1",
     "@storybook/addon-essentials": "^8.1.6",
     "@storybook/addon-interactions": "^8.1.6",
     "@storybook/addon-links": "^8.1.6",
@@ -147,9 +143,8 @@
     "husky": "^9.0.11",
     "jsdom": "24.1.0",
     "postcss": "^8.4.38",
-    "prettier": "^3.3.1",
+    "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.2",
-    "semantic-release": "^23.0.8",
     "sort-json": "^2.0.1",
     "storybook": "^8.1.6",
     "storybook-react-i18next": "^3.1.1",
@@ -157,5 +152,15 @@
     "typescript": "~5.4.5",
     "vite": "5.2.13",
     "vitest": "^1.6.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "extends": [
+      "@douglasneuroinformatics/semantic-release"
+    ]
   }
 }

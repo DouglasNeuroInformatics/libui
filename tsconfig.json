@@ -1,25 +1,10 @@
 {
+  "extends": ["@douglasneuroinformatics/tsconfig"],
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "checkJs": true,
-    "esModuleInterop": false,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
     "jsx": "react",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "maxNodeModuleJsDepth": 0,
-    "module": "Node16",
-    "moduleDetection": "force",
-    "moduleResolution": "Node16",
     "noEmit": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ESNext",
-    "types": ["vite/client"],
-    "useDefineForClassFields": true,
-    "verbatimModuleSyntax": true
+    "types": ["vite/client"]
   },
   "include": [
     "__mocks__/**/*",

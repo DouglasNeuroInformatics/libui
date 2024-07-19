@@ -69,8 +69,8 @@ i18n.addPreInitTranslations = function (this, translations) {
     return;
   }
   const resources = createResources(translations);
-  Object.assign(this.options.resources.en, resources.en);
-  Object.assign(this.options.resources.fr, resources.fr);
+  Object.assign(this.options.resources.en!, resources.en);
+  Object.assign(this.options.resources.fr!, resources.fr);
 };
 
 i18n.use(initReactI18next).use(LanguageDetector);

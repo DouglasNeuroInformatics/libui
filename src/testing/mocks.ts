@@ -35,7 +35,7 @@ export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
     }
 
     getItem(key: string) {
-      return this.store[key] || null;
+      return this.store[key] ?? null;
     }
 
     removeItem(key: string) {

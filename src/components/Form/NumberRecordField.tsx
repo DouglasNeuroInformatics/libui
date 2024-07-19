@@ -41,7 +41,7 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
       </Heading>
       <div className="space-y-6">
         {Object.keys(items).map((name) => {
-          const item = items[name];
+          const item = items[name]!;
           return (
             <NumberField
               error={recordError?.[name]}

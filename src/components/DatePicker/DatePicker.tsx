@@ -72,7 +72,7 @@ export const DatePicker = React.forwardRef<React.ElementRef<typeof Card>, DatePi
   // the duration is doubled because presumably it is to mount old and mount new
   const [canSetMonth, setCanSetMonth] = useState(true);
 
-  const monthName = t(`months.${MONTHS[date.getMonth()]}`);
+  const monthName = t(`months.${MONTHS[date.getMonth()]!}`);
 
   const handleYearSelection = (date: Date) => {
     dispatch({ type: 'set-year', value: date.getFullYear() });

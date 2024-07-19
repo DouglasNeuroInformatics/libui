@@ -1,7 +1,5 @@
-/** @type {import("prettier").Options} */
-export default {
-  plugins: ['prettier-plugin-tailwindcss'],
-  printWidth: 120,
-  singleQuote: true,
-  trailingComma: 'none'
-};
+import { createConfig } from '@douglasneuroinformatics/prettier-config';
+
+export default createConfig({
+  tailwindcss: true
+});

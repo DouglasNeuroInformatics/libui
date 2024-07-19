@@ -28,7 +28,7 @@ export function getFormFields<T extends FormDataType>(content: FormContent<T>): 
   if (!Array.isArray(content)) {
     return content;
   }
-  return content.reduce((prev, current) => ({ ...prev, ...current.fields }), content[0].fields) as FormFields<T>;
+  return content.reduce((prev, current) => ({ ...prev, ...current.fields }), content[0]!.fields) as FormFields<T>;
 }
 
 /**

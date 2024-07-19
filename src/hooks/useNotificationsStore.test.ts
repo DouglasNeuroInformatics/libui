@@ -23,7 +23,7 @@ describe('useNotificationsStore', () => {
     expect(result.current.notifications.length).toBe(1);
     expect(result.current.notifications[0]).toMatchObject({ message: 'test' });
     act(() => {
-      result.current.dismissNotification(result.current.notifications[0].id);
+      result.current.dismissNotification(result.current.notifications[0]!.id);
     });
     expect(result.current.notifications.length).toBe(0);
   });
