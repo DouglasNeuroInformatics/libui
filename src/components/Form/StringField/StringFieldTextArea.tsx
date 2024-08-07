@@ -8,13 +8,15 @@ import { FieldGroup } from '../FieldGroup/FieldGroup.js';
 
 import type { BaseFieldComponentProps } from '../types.js';
 
-export type StringFieldTextAreaProps = BaseFieldComponentProps<string> & StringFormField;
+export type StringFieldTextAreaProps = BaseFieldComponentProps<string> &
+  Extract<StringFormField, { variant: 'input' | 'textarea' }>;
 
 export const StringFieldTextArea = ({
   description,
   error,
   label,
   name,
+  placeholder,
   readOnly,
   setValue,
   value
@@ -29,6 +31,7 @@ export const StringFieldTextArea = ({
         disabled={readOnly}
         id={name}
         name={name}
+        placeholder={placeholder}
         rows={5}
         value={value ?? ''}
         onChange={(event) => setValue(event.target.value)}

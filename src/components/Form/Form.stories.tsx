@@ -160,6 +160,7 @@ const stringFields: FormFields<
   },
   stringTextArea: {
     kind: 'string',
+    placeholder: 'This is a text area...',
     label: 'Text Area',
     variant: 'textarea'
   },
@@ -175,6 +176,7 @@ const stringFields: FormFields<
     description: 'This is a string field',
     kind: 'string',
     label: 'Input',
+    placeholder: 'This in an input field...',
     variant: 'input'
   },
   stringRadio: {

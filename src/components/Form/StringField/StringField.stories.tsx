@@ -40,6 +40,7 @@ export const TextArea: Story = {
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             label: 'Text Area',
             name: 'text',
+            placeholder: 'This is a text area...',
             setValue,
             value,
             variant: 'textarea'
