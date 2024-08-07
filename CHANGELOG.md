@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.2...v2.9.0) (2024-08-07)
+
+
+### Features
+
+* implement placeholder for string field ([87a0a57](https://github.com/DouglasNeuroInformatics/libui/commit/87a0a57491231d1a9eb284c5d46829d3f2164f1a))
+
+
+### Bug Fixes
+
+* reduce opacity of placeholder text ([d02c388](https://github.com/DouglasNeuroInformatics/libui/commit/d02c388900b3292103e7e559d1ac1a4f2f7de54f))
+
 ## [2.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.1...v2.8.2) (2024-07-19)
 
 
