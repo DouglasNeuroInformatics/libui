@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.0...v2.9.1) (2024-08-10)
+
+
+### Bug Fixes
+
+* lower required zod version to 3.23.6 ([e074f87](https://github.com/DouglasNeuroInformatics/libui/commit/e074f87b91effddfb6e10a6ee19c434642f8b8c7))
+
 ## [2.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.8.2...v2.9.0) (2024-08-07)
 
 
