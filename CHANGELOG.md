@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.1...v2.9.2) (2024-08-13)
+
+
+### Bug Fixes
+
+* set zod as peer dependency ([9035595](https://github.com/DouglasNeuroInformatics/libui/commit/9035595070cc83105d9b4bac663198c00119ebb1))
+
 ## [2.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.0...v2.9.1) (2024-08-10)
 
 
