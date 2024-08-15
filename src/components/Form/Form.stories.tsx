@@ -34,7 +34,7 @@ const $ExampleFormData = z.object({
   stringTextArea: z.string().optional(),
   stringPassword: z.string().optional(),
   stringInput: z.string().optional(),
-  stringRadio: z.enum(['a', 'b', 'c'])
+  stringRadio: z.enum(['a', 'b', 'c']).optional()
 });
 type ExampleFormSchemaType = typeof $ExampleFormData;
 type ExampleFormData = z.TypeOf<typeof $ExampleFormData>;
@@ -79,9 +79,7 @@ const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadi
     numberInput: {
       description: 'This is a number field',
       kind: 'number',
-      label: 'Input',
-      max: 10,
-      min: 0,
+      label: 'Number Input',
       variant: 'input'
     },
     numberRadio: {
@@ -109,7 +107,7 @@ const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadi
       description: 'This is a number field',
       kind: 'number',
       variant: 'select',
-      label: 'Select',
+      label: 'Number Select',
       options: {
         1: 'Very Low',
         2: 'Low',
