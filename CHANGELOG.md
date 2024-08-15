@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.3](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.2...v2.9.3) (2024-08-15)
+
+
+### Bug Fixes
+
+* use libjs parseNumber for form field and set SAFE_INTEGER defaults ([86be3d6](https://github.com/DouglasNeuroInformatics/libui/commit/86be3d69f26b757f3eb22582409e2d84798d0703))
+
 ## [2.9.2](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.1...v2.9.2) (2024-08-13)
 
 
