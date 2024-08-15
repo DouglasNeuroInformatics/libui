@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
@@ -17,18 +18,18 @@ export const NumberFieldInput = ({
   description,
   error,
   label,
-  max,
-  min,
+  max = Number.MAX_SAFE_INTEGER,
+  min = Number.MIN_SAFE_INTEGER,
   name,
   readOnly,
   setValue,
   value
 }: NumberFieldInputProps) => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    const newValue = parseFloat(event.target.value);
+    const newValue = parseNumber(event.target.value);
     if (Number.isNaN(newValue)) {
       setValue(undefined);
-    } else if (newValue >= (min ?? -Infinity) && newValue <= (max ?? Infinity)) {
+    } else if (newValue >= min && newValue <= max) {
       setValue(newValue);
     }
   };
