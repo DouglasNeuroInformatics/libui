@@ -8,11 +8,11 @@ importers:
   .:
     dependencies:
       '@douglasneuroinformatics/libjs':
-        specifier: ^0.3.1
-        version: 0.3.1(typescript@5.4.5)
+        specifier: ^0.5.0
+        version: 0.5.0(typescript@5.4.5)
       '@douglasneuroinformatics/libui-form-types':
-        specifier: ^0.10.0
-        version: 0.10.0
+        specifier: ^0.10.1
+        version: 0.10.1
       '@headlessui/tailwindcss':
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.4)
@@ -1154,15 +1154,15 @@ packages:
       typescript:
         optional: true
 
-  '@douglasneuroinformatics/libjs@0.3.1':
+  '@douglasneuroinformatics/libjs@0.5.0':
     resolution:
-      { integrity: sha512-23K0XenTIhcCRomB5OsTY3BmDmacjwbO+X41ze7O9j9mcqwC4tPUct/1GN3KGimPEFiEHO+75kgCJhpX/dQH5g== }
+      { integrity: sha512-Eing+TQ4afyLVXrRhNucn3dP3wokG9KpjpiFCFp8EPBuXesSJniDAyFKRJClOb1oz2OEBNqKs5pz4lCajUz3MA== }
     peerDependencies:
       typescript: ^5.1.0
 
-  '@douglasneuroinformatics/libui-form-types@0.10.0':
+  '@douglasneuroinformatics/libui-form-types@0.10.1':
     resolution:
-      { integrity: sha512-YnM/TyPGulikVdgARq+PxL8s7vWb6fnZwIJyikRBFe5UvTsb9pqhLqwmZCLn+p7xU3hKPduxM5cCwjI20GXapg== }
+      { integrity: sha512-na2BydgmTuRNui/sDLAOnl4xqT03jAx+7gp/YVKIixS1hCqyeVLa4UevjU97c3fsaRj99n3FYNU8olRnwYLOOA== }
 
   '@douglasneuroinformatics/prettier-config@0.0.1':
     resolution:
@@ -8974,12 +8974,12 @@ snapshots:
       - svelte-eslint-parser
       - vue-eslint-parser
 
-  '@douglasneuroinformatics/libjs@0.3.1(typescript@5.4.5)':
+  '@douglasneuroinformatics/libjs@0.5.0(typescript@5.4.5)':
     dependencies:
       type-fest: 4.20.1
       typescript: 5.4.5
 
-  '@douglasneuroinformatics/libui-form-types@0.10.0':
+  '@douglasneuroinformatics/libui-form-types@0.10.1':
     dependencies:
       type-fest: 4.20.1
 
