@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
@@ -25,14 +25,24 @@ export const NumberFieldInput = ({
   setValue,
   value
 }: NumberFieldInputProps) => {
+  const inputValueRef = useRef(value?.toString() ?? '');
+  const [inputKey, setInputKey] = useState(0);
+
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    const newValue = parseNumber(event.target.value);
-    if (Number.isNaN(newValue)) {
-      setValue(undefined);
-    } else if (newValue >= min && newValue <= max) {
-      setValue(newValue);
+    let newValue: number | undefined = value;
+    if (/^[+-]?$/.test(event.target.value)) {
+      newValue = undefined;
+      inputValueRef.current = event.target.value;
+    } else {
+      const parsedValue = parseNumber(event.target.value);
+      if (parsedValue >= min && parsedValue <= max) {
+        newValue = parsedValue;
+        inputValueRef.current = event.target.value;
+      }
     }
+    value === newValue ? setInputKey(inputKey + 1) : setValue(newValue);
   };
+
   return (
     <FieldGroup>
       <FieldGroup.Row>
@@ -45,7 +55,7 @@ export const NumberFieldInput = ({
         min={min}
         name={name}
         type="text"
-        value={value ?? ''}
+        value={inputValueRef.current}
         onChange={handleChange}
       />
       <FieldGroup.Error error={error} />
