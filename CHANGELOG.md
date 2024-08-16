@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.3...v2.10.0) (2024-08-16)
+
+
+### Features
+
+* allow floating point and negative values for number field ([23c980b](https://github.com/DouglasNeuroInformatics/libui/commit/23c980bb41eeadfe8ba3cb90ad22371721890a2c))
+
 ## [2.9.3](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.2...v2.9.3) (2024-08-15)
 
 
