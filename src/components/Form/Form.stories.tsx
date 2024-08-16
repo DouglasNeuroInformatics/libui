@@ -362,3 +362,25 @@ export const ReadOnly: StoryObj<typeof Form<ExampleFormSchemaType>> = {
     validationSchema: $ExampleFormData
   }
 };
+
+export const WithInitialValue: StoryObj<typeof Form> = {
+  args: {
+    content: {
+      numberInput: {
+        kind: 'number',
+        label: 'Number Input',
+        variant: 'input'
+      }
+    },
+    initialValues: {
+      numberInput: 44
+    },
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, null, 2));
+    },
+    preventResetValuesOnReset: true,
+    validationSchema: z.object({
+      numberInput: z.number()
+    })
+  }
+};
