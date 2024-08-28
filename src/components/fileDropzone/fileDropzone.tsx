@@ -1,28 +1,41 @@
 import React, { useCallback } from 'react';
 
-import { useDropzone } from 'react-dropzone';
+import { type FileRejection, useDropzone } from 'react-dropzone';
+import { useTranslation } from 'react-i18next';
 
-export const fileDropzone = () => {
-  const onDrop = useCallback((acceptedFiles: any[]) => {
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader();
+export type fileDropzoneProps = {
+  file: File | null;
+  setFile: (file: File) => void;
+};
 
-      reader.onabort = () => console.log('file reading was aborted');
-      reader.onerror = () => console.log('file reading has failed');
-      reader.onload = () => {
-        // Do whatever you want with the file contents
-        const binaryStr = reader.result;
-        console.log(binaryStr);
-      };
-      reader.readAsArrayBuffer(file as Blob);
-    });
-  }, []);
-  const { getInputProps, getRootProps } = useDropzone({ onDrop });
+export const fileDropzone = ({ file, setFile }: fileDropzoneProps) => {
+  const { t } = useTranslation('libui');
+
+  const handleDrop = useCallback(
+    (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
+      for (const { errors, file } of rejectedFiles) {
+        console.error(errors, file);
+      }
+      setFile(acceptedFiles[0]!);
+    },
+    [setFile]
+  );
+  const { getInputProps, getRootProps, isDragActive } = useDropzone({
+    accept: {
+      'text/csv': ['.csv'],
+      'text/plain': ['.csv', '.tsv']
+    },
+    maxFiles: 1,
+    onDrop: handleDrop
+  });
 
   return (
     <div {...getRootProps()}>
+      <p className="mt-1 text-center text-sm">
+        {file ? file.name : isDragActive ? t('fileDropzone.fileToUpload') : t('fileDropzone.dropHere')}
+      </p>
+
       <input {...getInputProps()} />
-      <p>Drag 'n' drop some files here, or click to select files</p>
     </div>
   );
 };
