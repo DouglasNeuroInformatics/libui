@@ -31,7 +31,7 @@ export const fileDropzone = ({ file, setFile }: fileDropzoneProps) => {
 
   return (
     <div {...getRootProps()}>
-      <p className="mt-1 text-center text-sm">
+      <p className="mt-1 border border-dashed p-4 text-center text-sm">
         {file ? file.name : isDragActive ? t('fileDropzone.fileToUpload') : t('fileDropzone.dropHere')}
       </p>
 
