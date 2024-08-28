@@ -18,12 +18,14 @@ export const Default: Story = {
     (Story) => {
       const [file, setFile] = useState<File | undefined>();
       return (
-        <Story
-          args={{
-            file,
-            setFile
-          }}
-        />
+        <div className="border border-dashed p-5">
+          <Story
+            args={{
+              file,
+              setFile
+            }}
+          />
+        </div>
       );
     }
   ]
