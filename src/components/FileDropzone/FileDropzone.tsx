@@ -3,12 +3,12 @@ import React, { useCallback } from 'react';
 import { type FileRejection, useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
 
-export type fileDropzoneProps = {
+export type FileDropzoneProps = {
   file: File | null;
   setFile: (file: File) => void;
 };
 
-export const fileDropzone = ({ file, setFile }: fileDropzoneProps) => {
+export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
   const { t } = useTranslation('libui');
 
   const handleDrop = useCallback(
