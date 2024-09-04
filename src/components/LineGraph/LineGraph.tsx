@@ -20,13 +20,12 @@ import type { ConditionalKeys } from 'type-fest';
 import { type Theme, useTheme } from '../../hooks/useTheme.js';
 
 /** An array of arbitrary objects with data to graph  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 type LineGraphData = readonly { [key: string]: any }[];
 
 /** Extract string keys from items in `T` where the value of `T[K]` extends `K` */
 type ExtractValidKeys<T extends LineGraphData, K> = Extract<ConditionalKeys<T[number], K>, string>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type LineGraphLine<T extends LineGraphData = { [key: string]: any }[]> = {
   err?: ExtractValidKeys<T, number>;
   name: string;

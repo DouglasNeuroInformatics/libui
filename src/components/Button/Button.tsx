@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Slot, Slottable } from '@radix-ui/react-slot';
-import { type VariantProps, cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
 import { cn } from '../../utils.js';

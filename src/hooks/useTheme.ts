@@ -69,4 +69,4 @@ function useTheme(): readonly [Theme, UpdateTheme] {
   return [theme, updateTheme] as const;
 }
 
-export { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_ATTRIBUTE, THEME_KEY, type Theme, useTheme };
+export { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, type Theme, THEME_ATTRIBUTE, THEME_KEY, useTheme };

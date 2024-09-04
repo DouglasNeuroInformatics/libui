@@ -73,7 +73,7 @@ export const RecordArrayField = memo(function RecordArrayField({
                     if (!newArrayError[i]) {
                       newArrayError[i] = {};
                     }
-                    newArrayError[i]![name] = error;
+                    newArrayError[i][name] = error;
                     setArrayError(newArrayError);
                   }}
                   setValue={(value) => {

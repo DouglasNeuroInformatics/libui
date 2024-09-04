@@ -113,7 +113,7 @@ describe('Form', () => {
       fireEvent.click(a);
       fireEvent.submit(screen.getByTestId(testid));
       await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
-      expect(onSubmit.mock.lastCall[0].b).toBeUndefined();
+      expect(onSubmit.mock.lastCall?.[0].b).toBeUndefined();
     });
   });
 });

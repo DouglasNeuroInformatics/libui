@@ -43,11 +43,12 @@ describe('useDownload', () => {
       })
     );
     expect(mockNotificationsStore.addNotification).toHaveBeenCalledOnce();
-    expect(mockNotificationsStore.addNotification.mock.lastCall[0]).toMatchObject({ message: 'An error occurred!' });
+    expect(mockNotificationsStore.addNotification.mock.lastCall?.[0]).toMatchObject({ message: 'An error occurred!' });
   });
   it('should attempt at add a notification if the fetch data function throws a non-error', async () => {
     await act(() =>
       download('hello.txt', () => {
+        // eslint-disable-next-line @typescript-eslint/only-throw-error
         throw NaN;
       })
     );

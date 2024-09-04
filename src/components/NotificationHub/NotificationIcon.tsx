@@ -10,13 +10,13 @@ export type NotificationIconProps = {
 
 export const NotificationIcon = ({ type }: NotificationIconProps) => {
   switch (type) {
+    case 'error':
+      return <XCircleIcon aria-hidden="true" className="h-6 w-6 text-red-500" />;
     case 'info':
       return <InformationCircleIcon aria-hidden="true" className="h-6 w-6 text-blue-500" />;
     case 'success':
       return <CheckCircleIcon aria-hidden="true" className="h-6 w-6 text-green-500" />;
     case 'warning':
       return <ExclamationCircleIcon aria-hidden="true" className="h-6 w-6 text-yellow-500" />;
-    case 'error':
-      return <XCircleIcon aria-hidden="true" className="h-6 w-6 text-red-500" />;
   }
 };

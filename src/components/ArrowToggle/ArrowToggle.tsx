@@ -31,14 +31,14 @@ export const ArrowToggle = React.forwardRef<HTMLButtonElement, ArrowToggleProps>
   const computedRotation = useMemo(() => {
     const toggleRotation = isToggled ? rotation : 0;
     switch (position) {
-      case 'up':
-        return 0 + toggleRotation;
-      case 'right':
-        return 90 + toggleRotation;
       case 'down':
         return 180 + toggleRotation;
       case 'left':
         return 270 + toggleRotation;
+      case 'right':
+        return 90 + toggleRotation;
+      case 'up':
+        return 0 + toggleRotation;
     }
   }, [position, rotation, isToggled]);
 

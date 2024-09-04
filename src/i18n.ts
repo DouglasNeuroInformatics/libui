@@ -1,5 +1,5 @@
 import { isPlainObject } from '@douglasneuroinformatics/libjs';
-import { type i18n as I18n, createInstance } from 'i18next';
+import { createInstance, type i18n as I18n } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { mapValues } from 'lodash-es';
 import { initReactI18next } from 'react-i18next';

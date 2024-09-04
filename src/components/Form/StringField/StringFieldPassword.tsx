@@ -26,7 +26,7 @@ export const StringFieldPassword = ({
   setValue,
   value
 }: StringFieldPasswordProps) => {
-  const [strength, setStrength] = useState<PasswordStrengthValue | null>(calculateStrength ? 0 : null);
+  const [strength, setStrength] = useState<null | PasswordStrengthValue>(calculateStrength ? 0 : null);
   const [show, setShow] = useState(false);
   useEffect(() => {
     if (calculateStrength) {

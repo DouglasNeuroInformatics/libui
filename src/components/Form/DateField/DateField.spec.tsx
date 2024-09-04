@@ -81,14 +81,14 @@ describe('DateField', () => {
     await userEvent.click(getByText(datepicker, '1'));
     expectedDate = new Date(new Date().setDate(1));
     expectedDateString = toBasicISOString(expectedDate);
-    expect(toBasicISOString(setValue.mock.lastCall[0])).toBe(expectedDateString);
+    expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
 
     await userEvent.click(input);
     datepicker = screen.getByTestId('datepicker');
     await userEvent.click(getByText(datepicker, '2'));
     expectedDate = new Date(new Date().setDate(2));
     expectedDateString = toBasicISOString(expectedDate);
-    expect(toBasicISOString(setValue.mock.lastCall[0])).toBe(expectedDateString);
+    expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
   });
   it('should render the value provided as a prop', () => {
     const today = new Date();

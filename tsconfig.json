@@ -4,6 +4,7 @@
     "jsx": "react",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "noEmit": true,
+    "resolveJsonModule": true,
     "types": ["vite/client"]
   },
   "include": [

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Close, Content, Overlay, Portal } from '@radix-ui/react-dialog';
-import { type VariantProps, cva } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 
 import { cn } from '../../utils.js';

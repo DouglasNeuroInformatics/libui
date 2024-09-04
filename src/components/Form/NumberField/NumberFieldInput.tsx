@@ -40,7 +40,11 @@ export const NumberFieldInput = ({
         inputValueRef.current = event.target.value;
       }
     }
-    value === newValue ? setInputKey(inputKey + 1) : setValue(newValue);
+    if (value === newValue) {
+      setInputKey(inputKey + 1);
+    } else {
+      setValue(newValue);
+    }
   };
 
   return (
