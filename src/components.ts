@@ -42,6 +42,7 @@ export * from './components/Sheet/Sheet.js';
 export * from './components/Slider/Slider.js';
 export * from './components/Spinner/Spinner.js';
 export * from './components/SpinnerIcon/SpinnerIcon.js';
+export * from './components/StatisticCard/StatisticCard.js';
 export * from './components/Switch/Switch.js';
 export * from './components/Table/Table.js';
 export * from './components/Tabs/Tabs.js';
