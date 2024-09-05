@@ -10,6 +10,8 @@ import { z } from 'zod';
 import { Heading } from '../Heading/Heading.js';
 import { Form } from './Form.js';
 
+const DISABLED = false;
+
 const $ExampleFormData = z.object({
   booleanCheck: z.boolean().optional(),
   booleanRadio: z.boolean().optional(),
@@ -56,11 +58,13 @@ export default {
 
 const booleanFields: FormFields<Pick<ExampleFormData, 'booleanCheck' | 'booleanRadio'>> = {
   booleanRadio: {
+    disabled: DISABLED,
     kind: 'boolean',
     label: 'Radio',
     variant: 'radio'
   },
   booleanCheck: {
+    disabled: DISABLED,
     kind: 'boolean',
     label: 'Checkbox',
     variant: 'checkbox'
@@ -69,6 +73,7 @@ const booleanFields: FormFields<Pick<ExampleFormData, 'booleanCheck' | 'booleanR
 
 const dateFields: FormFields<Pick<ExampleFormData, 'date'>> = {
   date: {
+    disabled: DISABLED,
     kind: 'date',
     label: 'Datepicker (Default)'
   }
@@ -77,12 +82,14 @@ const dateFields: FormFields<Pick<ExampleFormData, 'date'>> = {
 const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadio' | 'numberSelect' | 'numberSlider'>> =
   {
     numberInput: {
+      disabled: DISABLED,
       description: 'This is a number field',
       kind: 'number',
       label: 'Number Input',
       variant: 'input'
     },
     numberRadio: {
+      disabled: DISABLED,
       description: 'This is a number field',
       kind: 'number',
       variant: 'radio',
@@ -96,6 +103,7 @@ const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadi
       }
     },
     numberSlider: {
+      disabled: DISABLED,
       description: 'This is a number field',
       kind: 'number',
       label: 'Slider',
@@ -105,6 +113,7 @@ const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadi
     },
     numberSelect: {
       description: 'This is a number field',
+      disabled: DISABLED,
       kind: 'number',
       variant: 'select',
       label: 'Number Select',
@@ -120,6 +129,7 @@ const numberFields: FormFields<Pick<ExampleFormData, 'numberInput' | 'numberRadi
 
 const setFields: FormFields<Pick<ExampleFormData, 'setListbox' | 'setSelect'>> = {
   setListbox: {
+    disabled: DISABLED,
     kind: 'set',
     label: 'Listbox',
     options: {
@@ -131,6 +141,7 @@ const setFields: FormFields<Pick<ExampleFormData, 'setListbox' | 'setSelect'>> =
     variant: 'listbox'
   },
   setSelect: {
+    disabled: DISABLED,
     kind: 'set',
     label: 'Select',
     options: {
@@ -147,6 +158,7 @@ const stringFields: FormFields<
   Pick<ExampleFormData, 'stringInput' | 'stringPassword' | 'stringRadio' | 'stringSelect' | 'stringTextArea'>
 > = {
   stringSelect: {
+    disabled: DISABLED,
     kind: 'string',
     label: 'Select',
     options: {
@@ -157,12 +169,14 @@ const stringFields: FormFields<
     variant: 'select'
   },
   stringTextArea: {
+    disabled: DISABLED,
     kind: 'string',
     placeholder: 'This is a text area...',
     label: 'Text Area',
     variant: 'textarea'
   },
   stringPassword: {
+    disabled: DISABLED,
     kind: 'string',
     label: 'Password',
     variant: 'password',
@@ -171,6 +185,7 @@ const stringFields: FormFields<
     }
   },
   stringInput: {
+    disabled: DISABLED,
     description: 'This is a string field',
     kind: 'string',
     label: 'Input',
@@ -178,6 +193,7 @@ const stringFields: FormFields<
     variant: 'input'
   },
   stringRadio: {
+    disabled: DISABLED,
     kind: 'string',
     label: 'Radio',
     options: {
@@ -191,6 +207,7 @@ const stringFields: FormFields<
 
 const dynamicFields: FormFields<Pick<ExampleFormData, 'dynamicField' | 'showDynamicField'>> = {
   showDynamicField: {
+    disabled: DISABLED,
     kind: 'boolean',
     label: 'Show Dynamic Field?',
     variant: 'checkbox'
@@ -203,6 +220,7 @@ const dynamicFields: FormFields<Pick<ExampleFormData, 'dynamicField' | 'showDyna
         return null;
       }
       return {
+        disabled: DISABLED,
         kind: 'string',
         label: 'Dynamic Field',
         variant: 'input'
@@ -213,6 +231,7 @@ const dynamicFields: FormFields<Pick<ExampleFormData, 'dynamicField' | 'showDyna
 
 const numberRecordFields: FormFields<Pick<ExampleFormData, 'numberRecord'>> = {
   numberRecord: {
+    disabled: DISABLED,
     kind: 'number-record',
     label: 'Number Record',
     items: {
@@ -239,6 +258,7 @@ const numberRecordFields: FormFields<Pick<ExampleFormData, 'numberRecord'>> = {
 
 const recordArrayFields: FormFields<Pick<ExampleFormData, 'recordArray'>> = {
   recordArray: {
+    disabled: DISABLED,
     description: 'This is a record-array field',
     kind: 'record-array',
     label: 'Record Array',
