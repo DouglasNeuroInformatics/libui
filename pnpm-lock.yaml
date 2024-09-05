@@ -11,8 +11,8 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(typescript@5.5.4)
       '@douglasneuroinformatics/libui-form-types':
-        specifier: ^0.10.3
-        version: 0.10.3
+        specifier: ^0.11.0
+        version: 0.11.0
       '@headlessui/tailwindcss':
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.10)
@@ -1150,9 +1150,9 @@ packages:
     peerDependencies:
       typescript: ^5.1.0
 
-  '@douglasneuroinformatics/libui-form-types@0.10.3':
+  '@douglasneuroinformatics/libui-form-types@0.11.0':
     resolution:
-      { integrity: sha512-/N8Uz4vzscM7l2+jAgFmO/RGNtvXurbtnBrnJaRhtR32Qy+Tt602DIp6QfMdWd4iqmJl4LCDLS9eZ/w5wA/hjw== }
+      { integrity: sha512-erds8oNXFrWSJfCglR8S7I3Yfkgx2Vz6RIQTa5OFtVAVx8DTSFf5FbnHpp49l6BcQ4FCU5w/PLO5NWdx08cNUg== }
 
   '@douglasneuroinformatics/prettier-config@0.0.1':
     resolution:
@@ -9133,7 +9133,7 @@ snapshots:
       type-fest: 4.26.0
       typescript: 5.5.4
 
-  '@douglasneuroinformatics/libui-form-types@0.10.3':
+  '@douglasneuroinformatics/libui-form-types@0.11.0':
     dependencies:
       type-fest: 4.26.0
 

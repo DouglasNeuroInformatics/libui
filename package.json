@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "@douglasneuroinformatics/libjs": "^0.6.0",
-    "@douglasneuroinformatics/libui-form-types": "^0.10.3",
+    "@douglasneuroinformatics/libui-form-types": "^0.11.0",
     "@headlessui/tailwindcss": "^0.2.1",
     "@heroicons/react": "^2.1.5",
     "@radix-ui/react-accordion": "^1.2.0",
