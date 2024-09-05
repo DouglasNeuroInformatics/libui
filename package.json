@@ -113,7 +113,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
-    "@douglasneuroinformatics/eslint-config": "^5.1.1",
+    "@douglasneuroinformatics/eslint-config": "^5.1.2",
     "@douglasneuroinformatics/prettier-config": "^0.0.1",
     "@douglasneuroinformatics/semantic-release": "^0.0.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.2",
