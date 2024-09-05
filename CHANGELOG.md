@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.11.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.10.0...v2.11.0) (2024-09-05)
+
+
+### Features
+
+* add statistic card component ([a32e8d3](https://github.com/DouglasNeuroInformatics/libui/commit/a32e8d34d9cd2941f806490b92fb454241d86fac))
+* implement disabled feature ([9d6bfc3](https://github.com/DouglasNeuroInformatics/libui/commit/9d6bfc3b054529558dc371b1c69a564179c6b980))
+
+
+### Bug Fixes
+
+* issue with MenuBar requiring type assertion ([04c7848](https://github.com/DouglasNeuroInformatics/libui/commit/04c7848f7b08a4463069a68105b534fd7bc259dd))
+
 ## [2.10.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.9.3...v2.10.0) (2024-08-16)
 
 
