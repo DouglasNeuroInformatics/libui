@@ -24,6 +24,7 @@ const baseRadioFieldVariants = cva('flex', {
 export type BaseRadioFieldProps<T extends string> = Simplify<
   {
     description?: string;
+    disabled?: boolean;
     label: string;
     options: { [K in T]: string };
     orientation?: 'horizontal' | 'vertical';
@@ -32,6 +33,7 @@ export type BaseRadioFieldProps<T extends string> = Simplify<
 
 export const BaseRadioField = <T extends string>({
   description,
+  disabled,
   error,
   label,
   name,
@@ -56,8 +58,12 @@ export const BaseRadioField = <T extends string>({
       >
         {Object.keys(options).map((option) => (
           <div className="flex items-center gap-2" key={option}>
-            <RadioGroup.Item disabled={readOnly} id={`${name}-${option}`} value={option} />
-            <Label aria-disabled={readOnly} className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
+            <RadioGroup.Item disabled={disabled || readOnly} id={`${name}-${option}`} value={option} />
+            <Label
+              aria-disabled={disabled || readOnly}
+              className="font-normal text-muted-foreground"
+              htmlFor={`${name}-${option}`}
+            >
               {options[option as T]}
             </Label>
           </div>

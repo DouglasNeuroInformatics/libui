@@ -13,6 +13,7 @@ export type StringFieldInputProps = BaseFieldComponentProps<string> &
 
 export const StringFieldInput = ({
   description,
+  disabled,
   error,
   label,
   name,
@@ -28,7 +29,7 @@ export const StringFieldInput = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Input
-        disabled={readOnly}
+        disabled={disabled || readOnly}
         id={name}
         name={name}
         placeholder={placeholder}

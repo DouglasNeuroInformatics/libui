@@ -13,13 +13,21 @@ export type BooleanFieldCheckboxProps = Simplify<
   BaseFieldComponentProps<boolean> & Omit<Extract<BooleanFormField, { variant: 'checkbox' }>, 'kind'>
 >;
 
-export const BooleanFieldCheckbox = ({ error, label, name, readOnly, setValue, value }: BooleanFieldCheckboxProps) => {
+export const BooleanFieldCheckbox = ({
+  disabled,
+  error,
+  label,
+  name,
+  readOnly,
+  setValue,
+  value
+}: BooleanFieldCheckboxProps) => {
   return (
     <FieldGroup>
       <FieldGroup.Row>
         <Checkbox
           checked={value}
-          disabled={readOnly}
+          disabled={disabled || readOnly}
           id={name}
           name={name}
           onCheckedChange={(value) => {

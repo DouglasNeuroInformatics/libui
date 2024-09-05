@@ -12,6 +12,7 @@ export type SetFieldListboxProps<T extends string = string> = {
 
 export const SetFieldListbox = <T extends string = string>({
   description,
+  disabled,
   error,
   label,
   name,
@@ -31,7 +32,7 @@ export const SetFieldListbox = <T extends string = string>({
           <FieldGroup.Row key={option}>
             <Checkbox
               checked={value?.has(option as T) ?? false}
-              disabled={readOnly}
+              disabled={disabled || readOnly}
               id={`${name}-${option}`}
               onCheckedChange={(checked) => {
                 onCheckedChange(option as T, !checked);

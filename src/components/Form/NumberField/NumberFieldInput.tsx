@@ -16,6 +16,7 @@ export type NumberFieldInputProps = Simplify<
 
 export const NumberFieldInput = ({
   description,
+  disabled,
   error,
   label,
   max = Number.MAX_SAFE_INTEGER,
@@ -54,7 +55,7 @@ export const NumberFieldInput = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Input
-        disabled={readOnly}
+        disabled={disabled || readOnly}
         max={max}
         min={min}
         name={name}

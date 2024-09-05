@@ -17,6 +17,7 @@ export type NumberRecordFieldProps<T extends NumberRecordFieldValue = NumberReco
 >;
 
 export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecordFieldValue>({
+  disabled,
   error: recordError,
   items,
   label,
@@ -49,7 +50,7 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
               kind="number"
               name={name}
               options={options}
-              readOnly={readOnly}
+              readOnly={disabled || readOnly}
               setError={(error) => setRecordError({ ...recordError, [name]: error })}
               setValue={(value) => setRecordValue({ ...recordValue, [name]: value })}
               value={recordValue?.[name]}

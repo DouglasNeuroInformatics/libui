@@ -15,6 +15,7 @@ export type NumberFieldSliderProps = Simplify<
 
 export const NumberFieldSlider = ({
   description,
+  disabled,
   error,
   label,
   max,
@@ -32,7 +33,7 @@ export const NumberFieldSlider = ({
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Slider
-          disabled={readOnly}
+          disabled={disabled || readOnly}
           max={max}
           min={min}
           name={name}

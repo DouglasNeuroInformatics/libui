@@ -19,6 +19,7 @@ export type StringFieldPasswordProps = BaseFieldComponentProps<string> &
 export const StringFieldPassword = ({
   calculateStrength,
   description,
+  disabled,
   error,
   label,
   name,
@@ -42,7 +43,7 @@ export const StringFieldPassword = ({
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Input
-          disabled={readOnly}
+          disabled={disabled || readOnly}
           id={name}
           name={name}
           type={show ? 'text' : 'password'}
@@ -51,7 +52,7 @@ export const StringFieldPassword = ({
         />
         <button
           className="absolute right-0 flex h-full w-8 items-center justify-center text-muted-foreground"
-          disabled={readOnly}
+          disabled={disabled || readOnly}
           tabIndex={-1}
           type="button"
           onClick={() => setShow(!show)}

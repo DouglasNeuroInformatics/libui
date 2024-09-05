@@ -14,6 +14,7 @@ export type StringFieldSelectProps<T extends string = string> = Simplify<
 
 export const StringFieldSelect = <T extends string = string>({
   description,
+  disabled,
   error,
   label,
   name,
@@ -29,7 +30,11 @@ export const StringFieldSelect = <T extends string = string>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value ?? ''} onValueChange={(value: T) => setValue(value)}>
-        <Select.Trigger data-cy={`${name}-select-trigger`} data-testid={`${name}-select-trigger`} disabled={readOnly}>
+        <Select.Trigger
+          data-cy={`${name}-select-trigger`}
+          data-testid={`${name}-select-trigger`}
+          disabled={disabled || readOnly}
+        >
           <Select.Value />
         </Select.Trigger>
         <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>

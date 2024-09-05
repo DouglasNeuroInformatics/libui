@@ -17,6 +17,7 @@ export type NumberFieldRadioProps = Simplify<
 export const NumberFieldRadio = ({
   description,
   disableAutoPrefix,
+  disabled,
   error,
   label,
   name,
@@ -49,9 +50,9 @@ export const NumberFieldRadio = ({
             const text = (disableAutoPrefix ? '' : `${val} - `) + options[val];
             return (
               <div className="flex items-center gap-2" key={val}>
-                <RadioGroup.Item disabled={readOnly} id={`${name}-${val}`} value={val.toString()} />
+                <RadioGroup.Item disabled={disabled || readOnly} id={`${name}-${val}`} value={val.toString()} />
                 <Label
-                  aria-disabled={readOnly}
+                  aria-disabled={disabled || readOnly}
                   className="font-normal text-muted-foreground"
                   htmlFor={`${name}-${val}`}
                 >

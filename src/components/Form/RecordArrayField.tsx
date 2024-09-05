@@ -15,6 +15,7 @@ import type { BaseFieldComponentProps } from './types.js';
 export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 
 export const RecordArrayField = memo(function RecordArrayField({
+  disabled,
   error: arrayError,
   fieldset,
   label,
@@ -64,10 +65,13 @@ export const RecordArrayField = memo(function RecordArrayField({
               return (
                 <ScalarField
                   error={arrayError?.[i]?.[name]}
-                  field={fieldProps}
+                  field={{
+                    ...fieldProps,
+                    disabled: disabled || fieldProps.disabled
+                  }}
                   key={name}
                   name={name}
-                  readOnly={readOnly}
+                  readOnly={disabled || readOnly}
                   setError={(error) => {
                     const newArrayError = arrayError ? [...arrayError] : [];
                     if (!newArrayError[i]) {
@@ -89,11 +93,11 @@ export const RecordArrayField = memo(function RecordArrayField({
         ))}
       </div>
       <div className="flex gap-3">
-        <Button disabled={readOnly} type="button" variant="outline" onClick={appendField}>
+        <Button disabled={disabled || readOnly} type="button" variant="outline" onClick={appendField}>
           {t('form.append')}
           <PlusCircleIcon className="ml-2" />
         </Button>
-        <Button disabled={readOnly} type="button" variant="outline" onClick={removeField}>
+        <Button disabled={disabled || readOnly} type="button" variant="outline" onClick={removeField}>
           {t('form.remove')}
           <MinusCircleIcon className="ml-2" />
         </Button>

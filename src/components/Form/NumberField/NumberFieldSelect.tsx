@@ -15,6 +15,7 @@ export type NumberFieldSelectProps<T extends number = number> = Simplify<
 export const NumberFieldSelect = <T extends number = number>({
   description,
   disableAutoPrefix,
+  disabled,
   error,
   label,
   name,
@@ -30,7 +31,11 @@ export const NumberFieldSelect = <T extends number = number>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value?.toString() ?? ''} onValueChange={(value) => setValue(parseFloat(value) as T)}>
-        <Select.Trigger data-cy={`${name}-select-trigger`} data-testid={`${name}-select-trigger`} disabled={readOnly}>
+        <Select.Trigger
+          data-cy={`${name}-select-trigger`}
+          data-testid={`${name}-select-trigger`}
+          disabled={disabled || readOnly}
+        >
           <Select.Value />
         </Select.Trigger>
         <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>

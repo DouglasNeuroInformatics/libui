@@ -13,6 +13,7 @@ export type StringFieldTextAreaProps = BaseFieldComponentProps<string> &
 
 export const StringFieldTextArea = ({
   description,
+  disabled,
   error,
   label,
   name,
@@ -28,7 +29,7 @@ export const StringFieldTextArea = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <TextArea
-        disabled={readOnly}
+        disabled={disabled || readOnly}
         id={name}
         name={name}
         placeholder={placeholder}
