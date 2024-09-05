@@ -1,4 +1,7 @@
+import type React from 'react';
+
 import { Group, Menu, Portal, RadioGroup, Sub } from '@radix-ui/react-menubar';
+import type { MenubarMenuProps } from '@radix-ui/react-menubar';
 
 import { MenuBarCheckboxItem } from './MenuBarCheckboxItem.js';
 import { MenuBarContent } from './MenuBarContent.js';
@@ -18,7 +21,7 @@ export const MenuBar = Object.assign(MenuBarRoot, {
   Group: Group,
   Item: MenuBarItem,
   Label: MenuBarLabel,
-  Menu: Menu,
+  Menu: Menu as React.ComponentType<MenubarMenuProps>,
   Portal: Portal,
   RadioGroup: RadioGroup,
   RadioItem: MenuBarRadioItem,
