@@ -5,8 +5,8 @@ import { addons, types } from '@storybook/manager-api';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { match } from 'ts-pattern';
 
-import { useTheme } from '../src/hooks/useTheme.js';
-import theme from './theme.js';
+import { useTheme } from '../src/hooks/useTheme';
+import theme from './theme';
 
 const ExampleToolbar = React.memo(function ExampleToolbar() {
   const [theme, setTheme] = useTheme();

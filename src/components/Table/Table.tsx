@@ -1,11 +1,11 @@
-import { TableBody } from './TableBody.js';
-import { TableCaption } from './TableCaption.js';
-import { TableCell } from './TableCell.js';
-import { TableFooter } from './TableFooter.js';
-import { TableHead } from './TableHead.js';
-import { TableHeader } from './TableHeader.js';
-import { TableRoot } from './TableRoot.js';
-import { TableRow } from './TableRow.js';
+import { TableBody } from './TableBody';
+import { TableCaption } from './TableCaption';
+import { TableCell } from './TableCell';
+import { TableFooter } from './TableFooter';
+import { TableHead } from './TableHead';
+import { TableHeader } from './TableHeader';
+import { TableRoot } from './TableRoot';
+import { TableRow } from './TableRow';
 
 export const Table = Object.assign(TableRoot, {
   Body: TableBody,

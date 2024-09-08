@@ -1,7 +1,7 @@
 import { fireEvent, renderHook } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { useEventListener } from './useEventListener.js';
+import { useEventListener } from './useEventListener';
 
 describe('useEventListener', () => {
   afterEach(() => {

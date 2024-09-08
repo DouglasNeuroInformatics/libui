@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ContextMenu } from './ContextMenu.js';
+import { ContextMenu } from './ContextMenu';
 
 type Story = StoryObj<typeof ContextMenu>;
 

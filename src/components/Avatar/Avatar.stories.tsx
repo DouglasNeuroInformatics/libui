@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Avatar } from './Avatar.js';
+import { Avatar } from './Avatar';
 
 type Story = StoryObj<typeof Avatar>;
 

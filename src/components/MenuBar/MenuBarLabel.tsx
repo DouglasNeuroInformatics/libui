@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Label } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const MenuBarLabel = forwardRef<
   React.ElementRef<typeof Label>,

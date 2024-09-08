@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const TableHead = forwardRef<HTMLTableCellElement, React.ThHTMLAttributes<HTMLTableCellElement>>(
   function TableHead({ className, ...props }, ref) {

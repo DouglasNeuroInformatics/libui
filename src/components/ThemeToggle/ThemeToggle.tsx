@@ -1,7 +1,7 @@
 import { MoonIcon, SunIcon } from 'lucide-react';
 
-import { useTheme } from '../../hooks/useTheme.js';
-import { Button, type ButtonProps } from '../Button/Button.js';
+import { useTheme } from '../../hooks/useTheme';
+import { Button, type ButtonProps } from '../Button/Button';
 
 export type ThemeToggleProps = Omit<ButtonProps, 'children' | 'size'>;
 

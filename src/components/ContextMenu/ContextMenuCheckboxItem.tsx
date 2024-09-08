@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { CheckIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const ContextMenuCheckboxItem = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>,

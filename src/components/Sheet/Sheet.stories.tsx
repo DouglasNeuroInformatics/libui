@@ -2,10 +2,10 @@ import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { Input } from '../Input/Input.js';
-import { Label } from '../Label/Label.js';
-import { Sheet } from './Sheet.js';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
+import { Label } from '../Label/Label';
+import { Sheet } from './Sheet';
 
 type Story = StoryObj<typeof Sheet>;
 

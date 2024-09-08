@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { DownloadIcon } from 'lucide-react';
 
-import { Tooltip } from './Tooltip.js';
+import { Tooltip } from './Tooltip';
 
 type Story = StoryObj<typeof Tooltip>;
 

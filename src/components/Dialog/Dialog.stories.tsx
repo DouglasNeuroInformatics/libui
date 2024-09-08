@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { Input } from '../Input/Input.js';
-import { Label } from '../Label/Label.js';
-import { Dialog } from './Dialog.js';
+import { Button } from '../Button/Button';
+import { Input } from '../Input/Input';
+import { Label } from '../Label/Label';
+import { Dialog } from './Dialog';
 
 type Story = StoryObj<typeof Dialog>;
 

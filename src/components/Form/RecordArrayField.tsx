@@ -4,13 +4,13 @@ import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroi
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
-import { useTranslation } from '../../hooks.js';
-import { Button } from '../Button/Button.js';
-import { Heading } from '../Heading/Heading.js';
-import { Label } from '../Label/Label.js';
-import { ScalarField } from './ScalarField.js';
+import { useTranslation } from '../../hooks';
+import { Button } from '../Button/Button';
+import { Heading } from '../Heading/Heading';
+import { Label } from '../Label/Label';
+import { ScalarField } from './ScalarField';
 
-import type { BaseFieldComponentProps } from './types.js';
+import type { BaseFieldComponentProps } from './types';
 
 export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 

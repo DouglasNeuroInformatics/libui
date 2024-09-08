@@ -5,11 +5,11 @@ import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Input } from '../../Input/Input.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Input } from '../../Input/Input';
+import { Label } from '../../Label/Label';
+import { FieldGroup } from '../FieldGroup/FieldGroup';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import type { BaseFieldComponentProps } from '../types';
 
 export type NumberFieldInputProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'input' }>

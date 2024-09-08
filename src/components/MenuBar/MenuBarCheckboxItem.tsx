@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { CheckboxItem, ItemIndicator } from '@radix-ui/react-menubar';
 import { CheckIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const MenuBarCheckboxItem = forwardRef<
   React.ElementRef<typeof CheckboxItem>,

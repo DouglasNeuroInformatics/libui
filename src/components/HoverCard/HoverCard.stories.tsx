@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CalendarDays } from 'lucide-react';
 
-import { Avatar } from '../Avatar/Avatar.js';
-import { Button } from '../Button/Button.js';
-import { HoverCard } from './HoverCard.js';
+import { Avatar } from '../Avatar/Avatar';
+import { Button } from '../Button/Button';
+import { HoverCard } from './HoverCard';
 
 type Story = StoryObj<typeof HoverCard>;
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Select } from './Select.js';
+import { Select } from './Select';
 
 type Story = StoryObj<typeof Select>;
 

@@ -1,8 +1,8 @@
 import { SearchIcon } from 'lucide-react';
 
-import { useTranslation } from '../../hooks.js';
-import { cn } from '../../utils.js';
-import { Input } from '../Input/Input.js';
+import { useTranslation } from '../../hooks';
+import { cn } from '../../utils';
+import { Input } from '../Input/Input';
 
 export type BaseSearchBarProps = {
   /** Additional CSS classes to add to the wrapper form component, potentially overriding default styling */

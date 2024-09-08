@@ -5,8 +5,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';
 import { z } from 'zod';
 
-import { Heading } from '../Heading/Heading.js';
-import { Form } from './Form.js';
+import { Heading } from '../Heading/Heading';
+import { Form } from './Form';
 
 const DISABLED = false;
 

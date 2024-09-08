@@ -13,14 +13,14 @@ import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
-import { useTranslation } from '../../hooks.js';
-import { Button } from '../Button/Button.js';
-import { Heading } from '../Heading/Heading.js';
-import { ErrorMessage } from './ErrorMessage.js';
-import { FieldsComponent } from './FieldsComponent.js';
-import { getInitialValues } from './utils.js';
+import { useTranslation } from '../../hooks';
+import { Button } from '../Button/Button';
+import { Heading } from '../Heading/Heading';
+import { ErrorMessage } from './ErrorMessage';
+import { FieldsComponent } from './FieldsComponent';
+import { getInitialValues } from './utils';
 
-import type { FormErrors } from './types.js';
+import type { FormErrors } from './types';
 
 type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>> = {
   [key: `data-${string}`]: unknown;

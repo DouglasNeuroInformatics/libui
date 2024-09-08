@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ErrorFallback } from './ErrorFallback.js';
+import { ErrorFallback } from './ErrorFallback';
 
 type Story = StoryObj<typeof ErrorFallback>;
 

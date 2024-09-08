@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import { motion, useSpring, useTransform } from 'framer-motion';
 
-import { cn } from '../../utils.js';
-import { Card } from '../Card/Card.js';
+import { cn } from '../../utils';
+import { Card } from '../Card/Card';
 
 type StatisticCardProps = {
   className?: string;

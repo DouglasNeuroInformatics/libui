@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DownloadIcon } from 'lucide-react';
 
-import { Button } from './Button.js';
+import { Button } from './Button';
 
 type Story = StoryObj<typeof Button>;
 

@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Content, Portal } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 export const MenuBarContent = forwardRef<
   React.ElementRef<typeof Content>,
   React.ComponentPropsWithoutRef<typeof Content>

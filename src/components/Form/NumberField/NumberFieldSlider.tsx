@@ -1,11 +1,11 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../../Label/Label.js';
-import { Slider } from '../../Slider/Slider.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Label } from '../../Label/Label';
+import { Slider } from '../../Slider/Slider';
+import { FieldGroup } from '../FieldGroup/FieldGroup';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import type { BaseFieldComponentProps } from '../types';
 
 export type NumberFieldSliderProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'slider' }>

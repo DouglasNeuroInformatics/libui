@@ -1,7 +1,7 @@
-import { DropdownButton } from '../DropdownButton/DropdownButton.js';
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
+import { DropdownButton } from '../DropdownButton/DropdownButton';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu';
 
-import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent.js';
+import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent';
 
 type ActionDropdownOptions = { [key: string]: string } | readonly string[];
 

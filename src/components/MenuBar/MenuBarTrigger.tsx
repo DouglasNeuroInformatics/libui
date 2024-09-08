@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Trigger } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 export const MenuBarTrigger = forwardRef<
   React.ElementRef<typeof Trigger>,
   React.ComponentPropsWithoutRef<typeof Trigger>

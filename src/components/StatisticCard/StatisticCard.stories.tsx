@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { UsersRoundIcon } from 'lucide-react';
 
-import { StatisticCard } from './StatisticCard.js';
+import { StatisticCard } from './StatisticCard';
 
 type Story = StoryObj<typeof StatisticCard>;
 

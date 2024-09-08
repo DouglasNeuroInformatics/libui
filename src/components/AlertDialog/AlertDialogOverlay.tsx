@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Overlay } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const AlertDialogOverlay = forwardRef<
   React.ElementRef<typeof Overlay>,

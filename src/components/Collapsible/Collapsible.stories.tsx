@@ -3,8 +3,8 @@ import { Fragment, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronsUpDownIcon } from 'lucide-react';
 
-import { Button } from '../Button/Button.js';
-import { Collapsible } from './Collapsible.js';
+import { Button } from '../Button/Button';
+import { Collapsible } from './Collapsible';
 
 type Story = StoryObj<typeof Collapsible>;
 

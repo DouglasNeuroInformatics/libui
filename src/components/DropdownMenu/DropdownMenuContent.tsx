@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export type DropdownMenuContentProps = {
   widthFull?: boolean;

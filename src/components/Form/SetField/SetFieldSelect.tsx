@@ -1,10 +1,10 @@
-import { Badge } from '../../Badge/Badge.js';
-import { DropdownButton } from '../../DropdownButton/DropdownButton.js';
-import { DropdownMenu } from '../../DropdownMenu/DropdownMenu.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Badge } from '../../Badge/Badge';
+import { DropdownButton } from '../../DropdownButton/DropdownButton';
+import { DropdownMenu } from '../../DropdownMenu/DropdownMenu';
+import { Label } from '../../Label/Label';
+import { FieldGroup } from '../FieldGroup/FieldGroup';
 
-import type { SetFieldProps } from './SetField.js';
+import type { SetFieldProps } from './SetField';
 
 export type SetFieldSelectProps<T extends string = string> = {
   onCheckedChange: (option: T, isChecked: boolean) => void;

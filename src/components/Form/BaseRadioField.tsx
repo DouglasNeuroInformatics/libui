@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../Label/Label.js';
-import { RadioGroup } from '../RadioGroup/RadioGroup.js';
-import { FieldGroup } from './FieldGroup/FieldGroup.js';
+import { Label } from '../Label/Label';
+import { RadioGroup } from '../RadioGroup/RadioGroup';
+import { FieldGroup } from './FieldGroup/FieldGroup';
 
-import type { BaseFieldComponentProps } from './types.js';
+import type { BaseFieldComponentProps } from './types';
 
 const baseRadioFieldVariants = cva('flex', {
   defaultVariants: {

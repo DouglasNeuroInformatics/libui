@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { useWindowSize } from './useWindowSize.js';
+import { useWindowSize } from './useWindowSize';
 
 const setupHook = () => renderHook(() => useWindowSize());
 

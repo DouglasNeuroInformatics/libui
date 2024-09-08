@@ -4,12 +4,12 @@ import type { StringFormField } from '@douglasneuroinformatics/libui-form-types'
 import { motion } from 'framer-motion';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-import { cn } from '../../../utils.js';
-import { Input } from '../../Input/Input.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { cn } from '../../../utils';
+import { Input } from '../../Input/Input';
+import { Label } from '../../Label/Label';
+import { FieldGroup } from '../FieldGroup/FieldGroup';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import type { BaseFieldComponentProps } from '../types';
 
 export type PasswordStrengthValue = 0 | 1 | 2 | 3 | 4;
 

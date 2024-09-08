@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
 
-import { cn } from '../../utils.js';
+import { cn } from '../../utils';
 
 export const CommandGroup = forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
-import { Input } from './Input.js';
+import { Input } from './Input';
 
 const TEST_ID = 'input';
 

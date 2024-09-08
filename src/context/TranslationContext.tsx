@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 import libui from '../translations/libui.json';
 
-import type { I18N } from '../i18n.js';
+import type { I18N } from '../i18n';
 
 type TranslationContextType = {
   changeLanguage: (language: I18N.Language) => void;
