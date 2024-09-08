@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Content } from '@radix-ui/react-tooltip';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
 
 export type TooltipContentProps = {
   /** The preferred alignment against the trigger, which may change when collisions occur. */

@@ -1,7 +1,8 @@
 import { SearchIcon } from 'lucide-react';
 
-import { useTranslation } from '../../hooks';
-import { cn } from '../../utils';
+import { useTranslation } from '@/hooks';
+import { cn } from '@/utils';
+
 import { Input } from '../Input';
 
 export type BaseSearchBarProps = {

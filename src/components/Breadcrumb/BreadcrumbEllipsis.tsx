@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { MoreHorizontalIcon } from 'lucide-react';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
 
 export const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<'span'>) => (
   <span

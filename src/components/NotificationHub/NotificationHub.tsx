@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
 
-import { useTranslation } from '../../hooks';
-import { useNotificationsStore } from '../../hooks/useNotificationsStore';
+import { useTranslation } from '@/hooks';
+import { useNotificationsStore } from '@/hooks/useNotificationsStore';
+
 import { Card } from '../Card';
 import { NotificationIcon } from './NotificationIcon';
 

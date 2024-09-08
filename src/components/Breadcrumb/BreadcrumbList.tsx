@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
 
 export const BreadcrumbList = forwardRef<HTMLOListElement, React.ComponentPropsWithoutRef<'ol'>>(
   function BreadcrumbList({ className, ...props }, ref) {

@@ -1,7 +1,8 @@
 import { ChevronLeftIcon } from 'lucide-react';
 
-import { useTranslation } from '../../hooks';
-import { cn } from '../../utils';
+import { useTranslation } from '@/hooks';
+import { cn } from '@/utils';
+
 import { PaginationLink, type PaginationLinkProps } from './PaginationLink';
 
 export const PaginationPrevious = ({ className, ...props }: PaginationLinkProps) => {

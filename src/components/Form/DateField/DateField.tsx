@@ -4,10 +4,11 @@ import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { DatePicker } from '../../DatePicker';
-import { Input } from '../../Input';
-import { Label } from '../../Label';
-import { Popover } from '../../Popover';
+import { DatePicker } from '@/components/DatePicker';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { Popover } from '@/components/Popover';
+
 import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 

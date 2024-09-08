@@ -13,7 +13,8 @@ import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
-import { useTranslation } from '../../hooks';
+import { useTranslation } from '@/hooks';
+
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { ErrorMessage } from './ErrorMessage';

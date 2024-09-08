@@ -3,7 +3,8 @@ import * as React from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { CommandEmpty } from './CommandEmpty';
 import { CommandGroup } from './CommandGroup';
 import { CommandInput } from './CommandInput';

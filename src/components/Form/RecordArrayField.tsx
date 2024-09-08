@@ -4,7 +4,8 @@ import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroi
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
-import { useTranslation } from '../../hooks';
+import { useTranslation } from '@/hooks';
+
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Label } from '../Label';

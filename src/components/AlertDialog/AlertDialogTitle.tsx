@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Title } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
 
 export const AlertDialogTitle = forwardRef<
   React.ElementRef<typeof Title>,

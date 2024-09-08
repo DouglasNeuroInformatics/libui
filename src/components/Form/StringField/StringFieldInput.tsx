@@ -1,7 +1,8 @@
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
-import { Input } from '../../Input';
-import { Label } from '../../Label';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+
 import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';

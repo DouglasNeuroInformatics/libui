@@ -5,7 +5,8 @@ import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { range } from 'lodash-es';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { DropdownMenu } from '../DropdownMenu';
 import { Table } from '../Table';
 import { ClientTablePagination } from './ClientTablePagination';

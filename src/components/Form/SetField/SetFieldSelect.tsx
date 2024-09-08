@@ -1,7 +1,8 @@
-import { Badge } from '../../Badge';
-import { DropdownButton } from '../../DropdownButton';
-import { DropdownMenu } from '../../DropdownMenu';
-import { Label } from '../../Label';
+import { Badge } from '@/components/Badge';
+import { DropdownButton } from '@/components/DropdownButton';
+import { DropdownMenu } from '@/components/DropdownMenu';
+import { Label } from '@/components/Label';
+
 import { FieldGroup } from '../FieldGroup';
 
 import type { SetFieldProps } from './SetField';

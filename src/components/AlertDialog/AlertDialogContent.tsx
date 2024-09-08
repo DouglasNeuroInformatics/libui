@@ -2,7 +2,8 @@ import { forwardRef } from 'react';
 
 import { Content, Portal } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { AlertDialogOverlay } from './AlertDialogOverlay';
 
 export const AlertDialogContent = forwardRef<

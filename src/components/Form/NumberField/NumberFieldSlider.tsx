@@ -1,8 +1,9 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../../Label';
-import { Slider } from '../../Slider';
+import { Label } from '@/components/Label';
+import { Slider } from '@/components/Slider';
+
 import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';

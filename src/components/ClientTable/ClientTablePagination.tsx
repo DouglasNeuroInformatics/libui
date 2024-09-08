@@ -1,4 +1,5 @@
-import { useTranslation } from '../../hooks';
+import { useTranslation } from '@/hooks';
+
 import { Button } from '../Button';
 
 export type ClientPagePaginationProps = {

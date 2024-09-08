@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 
 import { range } from 'lodash-es';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { ScrollArea } from '../ScrollArea';
 
 export type YearSelectorProps = {

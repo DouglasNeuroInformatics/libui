@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 
 import { motion, useSpring, useTransform } from 'framer-motion';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { Card } from '../Card';
 
 type StatisticCardProps = {

@@ -2,7 +2,8 @@ import { forwardRef } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
+
 import { SelectScrollDownButton } from './SelectScrollDownButton';
 import { SelectScrollUpButton } from './SelectScrollUpButton';
 

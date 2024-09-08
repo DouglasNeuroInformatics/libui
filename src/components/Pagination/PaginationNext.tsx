@@ -2,8 +2,9 @@ import * as React from 'react';
 
 import { ChevronRightIcon } from 'lucide-react';
 
-import { useTranslation } from '../../hooks';
-import { cn } from '../../utils';
+import { useTranslation } from '@/hooks';
+import { cn } from '@/utils';
+
 import { PaginationLink } from './PaginationLink';
 
 export const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => {

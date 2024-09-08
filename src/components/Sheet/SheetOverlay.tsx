@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Overlay } from '@radix-ui/react-dialog';
 
-import { cn } from '../../utils';
+import { cn } from '@/utils';
 
 export const SheetOverlay = forwardRef<
   React.ElementRef<typeof Overlay>,

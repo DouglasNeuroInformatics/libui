@@ -4,9 +4,10 @@ import type { StringFormField } from '@douglasneuroinformatics/libui-form-types'
 import { motion } from 'framer-motion';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-import { cn } from '../../../utils';
-import { Input } from '../../Input';
-import { Label } from '../../Label';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { cn } from '@/utils';
+
 import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
