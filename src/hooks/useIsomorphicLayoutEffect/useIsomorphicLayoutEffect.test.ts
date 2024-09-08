@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const isBrowser = vi.fn();
 
-vi.mock('../utils.js', () => ({ isBrowser }));
+vi.mock('@/utils.js', () => ({ isBrowser }));
 
 describe('useIsomorphicLayoutEffect', () => {
   beforeEach(() => {

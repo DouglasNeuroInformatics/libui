@@ -9,7 +9,7 @@ const mockNotificationsStore = {
   addNotification: vi.fn()
 };
 
-vi.mock('./useNotificationsStore', () => ({
+vi.mock('../useNotificationsStore', () => ({
   useNotificationsStore: () => mockNotificationsStore
 }));
 

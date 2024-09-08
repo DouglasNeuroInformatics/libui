@@ -2,9 +2,8 @@ import { useContext } from 'react';
 
 import { get } from 'lodash-es';
 
-import { TranslationContext } from '../context/TranslationContext';
-
-import type { I18N } from '../i18n';
+import { TranslationContext } from '@/context/TranslationContext';
+import type { I18N } from '@/i18n';
 
 export function useTranslation<TNamespace extends I18N.TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace

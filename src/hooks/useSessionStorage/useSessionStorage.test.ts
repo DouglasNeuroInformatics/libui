@@ -1,13 +1,14 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { mockStorage } from '../testing/mocks';
-import { isBrowser } from '../utils';
+import { mockStorage } from '@/testing/mocks';
+import { isBrowser } from '@/utils';
+
 import { useSessionStorage } from './useSessionStorage';
 
 mockStorage('sessionStorage');
 
-vi.mock('../utils', () => ({ isBrowser: vi.fn(() => true) }));
+vi.mock('@/utils', () => ({ isBrowser: vi.fn(() => true) }));
 
 describe('useSessionStorage()', () => {
   beforeEach(() => {

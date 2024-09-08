@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { isBrowser } from '../utils';
+import { isBrowser } from '@/utils';
 
 type Theme = 'dark' | 'light';
 

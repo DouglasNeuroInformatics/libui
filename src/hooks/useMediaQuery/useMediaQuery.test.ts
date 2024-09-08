@@ -1,11 +1,12 @@
 import { renderHook } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { mockMatchMedia } from '../testing/mocks';
-import { isBrowser } from '../utils';
+import { mockMatchMedia } from '@/testing/mocks';
+import { isBrowser } from '@/utils';
+
 import { useMediaQuery } from './useMediaQuery';
 
-vi.mock('../utils', () => ({ isBrowser: vi.fn(() => true) }));
+vi.mock('@/utils', () => ({ isBrowser: vi.fn(() => true) }));
 
 describe('useMediaQuery', () => {
   afterEach(() => {
