@@ -51,11 +51,11 @@ export function createResources<T extends TranslationsDef>(translations: T) {
 export const resources = createResources({ libui });
 
 const i18n = createInstance({
-  fallbackLng: 'en' satisfies Language,
+  fallbackLng: 'en',
   interpolation: {
     escapeValue: false
   },
-  lng: 'en' satisfies Language,
+  lng: 'en',
   resources,
   returnObjects: true,
   supportedLngs

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { DownloadIcon } from 'lucide-react';
 
@@ -17,7 +15,7 @@ export default {
     layout: 'centered'
   },
   tags: ['autodocs']
-} satisfies Meta<typeof Button>;
+} as Meta<typeof Button>; // satisfies Meta<typeof Button>
 
 export const Primary: Story = {
   args: {

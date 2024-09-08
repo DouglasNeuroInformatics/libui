@@ -1,5 +1,3 @@
-import type React from 'react';
-
 import { Group, Menu, Portal, RadioGroup, Sub } from '@radix-ui/react-menubar';
 import type { MenubarMenuProps } from '@radix-ui/react-menubar';
 

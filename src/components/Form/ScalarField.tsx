@@ -34,6 +34,7 @@ export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {
     case 'set':
       return <SetField {...field} {...(props as SetFieldProps)} />;
     default:
-      throw new Error(`Unexpected value for kind: ${Reflect.get(field, 'kind') satisfies never}`);
+      throw new Error(`Unexpected value for kind: ${Reflect.get(field, 'kind')}`);
+    // throw new Error(`Unexpected value for kind: ${Reflect.get(field, 'kind') satisfies never}`);
   }
 };
