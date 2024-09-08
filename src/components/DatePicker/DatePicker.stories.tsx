@@ -4,7 +4,7 @@ import { DatePicker } from './DatePicker.js';
 
 type Story = StoryObj<typeof DatePicker>;
 
-export default { component: DatePicker, tags: ['autodocs'] } as Meta<typeof DatePicker>; // satisfies Meta<typeof DatePicker>;
+export default { component: DatePicker, tags: ['autodocs'] } satisfies Meta<typeof DatePicker>;
 
 export const Default: Story = {
   args: {

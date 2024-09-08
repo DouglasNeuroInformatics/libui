@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { CircleHelpIcon } from 'lucide-react';
@@ -21,7 +21,7 @@ export default {
 export const Form: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <Popover.Trigger asChild>
           <Button variant="outline">Open popover</Button>
         </Popover.Trigger>
@@ -51,7 +51,7 @@ export const Form: Story = {
             </div>
           </div>
         </Popover.Content>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };
@@ -59,14 +59,14 @@ export const Form: Story = {
 export const Icon: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <Popover.Trigger asChild>
           <Button size="icon" variant="ghost">
             <CircleHelpIcon />
           </Button>
         </Popover.Trigger>
         <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };

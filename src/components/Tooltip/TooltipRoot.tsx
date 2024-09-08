@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Provider, Root } from '@radix-ui/react-tooltip';
 

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import type { BooleanFormField } from '@douglasneuroinformatics/libui-form-types';
 import { useTranslation } from 'react-i18next';

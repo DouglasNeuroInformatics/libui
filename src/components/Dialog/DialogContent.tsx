@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
@@ -6,7 +6,7 @@ import { XIcon } from 'lucide-react';
 import { cn } from '../../utils.js';
 import { DialogOverlay } from './DialogOverlay.js';
 
-export const DialogContent = React.forwardRef<
+export const DialogContent = forwardRef<
   React.ElementRef<typeof Content>,
   React.ComponentPropsWithoutRef<typeof Content>
 >(function DialogContent({ children, className, ...props }, ref) {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SearchIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

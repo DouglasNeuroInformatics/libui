@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { AnimatePresence, motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';

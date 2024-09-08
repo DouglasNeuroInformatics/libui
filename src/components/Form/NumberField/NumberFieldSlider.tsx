@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 

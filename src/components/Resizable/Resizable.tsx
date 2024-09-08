@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Panel, type PanelProps } from 'react-resizable-panels';
 

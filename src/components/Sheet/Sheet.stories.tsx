@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -14,7 +14,7 @@ export default { component: Sheet } as Meta<typeof Sheet>;
 export const Default: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <Sheet.Trigger asChild>
           <Button variant="outline">Open</Button>
         </Sheet.Trigger>
@@ -43,7 +43,7 @@ export const Default: Story = {
             </Sheet.Close>
           </Sheet.Footer>
         </Sheet.Content>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };

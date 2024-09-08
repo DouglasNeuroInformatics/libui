@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Close, Content, Overlay, Portal } from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';

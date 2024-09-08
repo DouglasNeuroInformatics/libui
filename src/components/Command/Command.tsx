@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
 import type { Simplify } from 'type-fest';

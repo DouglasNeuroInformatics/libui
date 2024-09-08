@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Checkbox } from '../../Checkbox/Checkbox.js';
 import { Label } from '../../Label/Label.js';
 import { FieldGroup } from '../FieldGroup/FieldGroup.js';

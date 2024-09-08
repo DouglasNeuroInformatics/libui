@@ -1,4 +1,5 @@
-import React, { useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
+import * as React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';

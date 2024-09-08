@@ -1,7 +1,5 @@
 /* eslint-disable perfectionist/sort-objects */
 
-import React from 'react';
-
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';

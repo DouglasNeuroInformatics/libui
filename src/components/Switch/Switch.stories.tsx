@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Label } from '@radix-ui/react-label';
 import type { Meta, StoryObj } from '@storybook/react';
 

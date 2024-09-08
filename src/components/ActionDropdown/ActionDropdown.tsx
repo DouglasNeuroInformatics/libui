@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DropdownButton } from '../DropdownButton/DropdownButton.js';
 import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
 

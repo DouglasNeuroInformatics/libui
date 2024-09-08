@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
 import { IconButton } from '@storybook/components';
 import { addons, types } from '@storybook/manager-api';
@@ -8,7 +8,7 @@ import { match } from 'ts-pattern';
 import { useTheme } from '../src/hooks/useTheme.js';
 import theme from './theme.js';
 
-const ExampleToolbar = React.memo(function ExampleToolbar() {
+const ExampleToolbar = memo(function ExampleToolbar() {
   const [theme, setTheme] = useTheme();
 
   useEffect(() => {

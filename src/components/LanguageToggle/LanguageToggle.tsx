@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { LanguagesIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

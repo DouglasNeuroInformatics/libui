@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { range } from 'lodash-es';
@@ -12,7 +12,7 @@ export type CalendarProps = {
   year: number;
 };
 
-export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function Calendar(props, ref) {
+export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calendar(props, ref) {
   const { t } = useTranslation('libui');
   const firstDay = new Date(props.year, props.month).getDay();
   const lastDay = new Date(props.year, props.month + 1, 0).getDate();

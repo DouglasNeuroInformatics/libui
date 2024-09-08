@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Content } from '@radix-ui/react-tooltip';
 

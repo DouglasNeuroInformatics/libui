@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
 import { Label } from '../../Label/Label.js';

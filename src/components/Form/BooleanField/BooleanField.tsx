@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { match } from 'ts-pattern';
 
 import { BooleanFieldCheckbox, type BooleanFieldCheckboxProps } from './BooleanFieldCheckbox.js';

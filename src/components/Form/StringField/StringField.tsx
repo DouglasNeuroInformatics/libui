@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { match } from 'ts-pattern';
 
 import { StringFieldInput, type StringFieldInputProps } from './StringFieldInput.js';

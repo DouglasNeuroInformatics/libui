@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Content, Portal } from '@radix-ui/react-popover';
 
