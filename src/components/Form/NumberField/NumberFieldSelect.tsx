@@ -1,9 +1,9 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../../Label/Label';
-import { Select } from '../../Select/Select';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Label } from '../../Label';
+import { Select } from '../../Select';
+import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
 export type NumberFieldSelectProps<T extends number = number> = Simplify<

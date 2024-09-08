@@ -7,11 +7,11 @@ import type {
   StringFormField
 } from '@douglasneuroinformatics/libui-form-types';
 
-import { BooleanField, type BooleanFieldProps } from './BooleanField/BooleanField';
-import { DateField, type DateFieldProps } from './DateField/DateField';
-import { NumberField, type NumberFieldProps } from './NumberField/NumberField';
-import { SetField, type SetFieldProps } from './SetField/SetField';
-import { StringField, type StringFieldProps } from './StringField/StringField';
+import { BooleanField, type BooleanFieldProps } from './BooleanField';
+import { DateField, type DateFieldProps } from './DateField';
+import { NumberField, type NumberFieldProps } from './NumberField';
+import { SetField, type SetFieldProps } from './SetField';
+import { StringField, type StringFieldProps } from './StringField';
 
 import type { BaseFieldComponentProps } from './types';
 

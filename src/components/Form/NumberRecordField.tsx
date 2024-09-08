@@ -7,8 +7,8 @@ import type {
 } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Heading } from '../Heading/Heading';
-import { NumberField } from './NumberField/NumberField';
+import { Heading } from '../Heading';
+import { NumberField } from './NumberField';
 
 import type { BaseFieldComponentProps } from './types';
 

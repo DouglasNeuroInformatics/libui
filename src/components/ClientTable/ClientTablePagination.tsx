@@ -1,5 +1,5 @@
 import { useTranslation } from '../../hooks';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 export type ClientPagePaginationProps = {
   currentPage: number;

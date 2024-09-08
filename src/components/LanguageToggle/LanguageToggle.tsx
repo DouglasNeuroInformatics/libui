@@ -1,8 +1,8 @@
 import { LanguagesIcon } from 'lucide-react';
 
 import { useTranslation } from '../../hooks';
-import { Button, type ButtonProps } from '../Button/Button';
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu';
+import { Button, type ButtonProps } from '../Button';
+import { DropdownMenu } from '../DropdownMenu';
 
 import type { I18N } from '../../i18n';
 

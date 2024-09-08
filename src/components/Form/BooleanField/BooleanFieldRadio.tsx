@@ -5,9 +5,9 @@ import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
 import { useTranslation } from '../../../hooks';
-import { Label } from '../../Label/Label';
-import { RadioGroup } from '../../RadioGroup/RadioGroup';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Label } from '../../Label';
+import { RadioGroup } from '../../RadioGroup';
+import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 

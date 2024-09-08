@@ -3,9 +3,9 @@ import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CircleHelpIcon } from 'lucide-react';
 
-import { Button } from '../Button/Button';
-import { Input } from '../Input/Input';
-import { Label } from '../Label/Label';
+import { Button } from '../Button';
+import { Input } from '../Input';
+import { Label } from '../Label';
 import { Popover } from './Popover';
 
 type Story = StoryObj<typeof Popover>;

@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { useTranslation } from '../../hooks';
 import { cn } from '../../utils';
-import { ArrowToggle } from '../ArrowToggle/ArrowToggle';
-import { Card } from '../Card/Card';
+import { ArrowToggle } from '../ArrowToggle';
+import { Card } from '../Card';
 import { Calendar, CALENDAR_ANIMATION_DURATION } from './Calendar';
 import { YearSelector } from './YearSelector';
 

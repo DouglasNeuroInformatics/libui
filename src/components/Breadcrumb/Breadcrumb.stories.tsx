@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu';
+import { DropdownMenu } from '../DropdownMenu';
 import { Breadcrumb } from './Breadcrumb';
 
 type Story = StoryObj<typeof Breadcrumb>;

@@ -1,9 +1,9 @@
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../../Label/Label';
-import { Select } from '../../Select/Select';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Label } from '../../Label';
+import { Select } from '../../Select';
+import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
 export type StringFieldSelectProps<T extends string = string> = Simplify<

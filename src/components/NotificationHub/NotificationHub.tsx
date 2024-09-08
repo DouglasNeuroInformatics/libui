@@ -3,7 +3,7 @@ import { XIcon } from 'lucide-react';
 
 import { useTranslation } from '../../hooks';
 import { useNotificationsStore } from '../../hooks/useNotificationsStore';
-import { Card } from '../Card/Card';
+import { Card } from '../Card';
 import { NotificationIcon } from './NotificationIcon';
 
 type NotificationHubProps = {

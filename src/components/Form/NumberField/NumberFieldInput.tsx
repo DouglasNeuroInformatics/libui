@@ -5,9 +5,9 @@ import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Input } from '../../Input/Input';
-import { Label } from '../../Label/Label';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Input } from '../../Input';
+import { Label } from '../../Label';
+import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 

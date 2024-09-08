@@ -4,11 +4,11 @@ import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { DatePicker } from '../../DatePicker/DatePicker';
-import { Input } from '../../Input/Input';
-import { Label } from '../../Label/Label';
-import { Popover } from '../../Popover/Popover';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { DatePicker } from '../../DatePicker';
+import { Input } from '../../Input';
+import { Label } from '../../Label';
+import { Popover } from '../../Popover';
+import { FieldGroup } from '../FieldGroup';
 import { type BaseFieldComponentProps } from '../types';
 
 const isValidDateString = (s: string) => /^(\d{4})-((0[1-9])|(1[0-2]))-((0[1-9])|([12])[0-9]|3[01])$/.test(s);

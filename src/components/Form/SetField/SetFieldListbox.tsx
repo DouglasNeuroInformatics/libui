@@ -1,6 +1,6 @@
-import { Checkbox } from '../../Checkbox/Checkbox';
-import { Label } from '../../Label/Label';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Checkbox } from '../../Checkbox';
+import { Label } from '../../Label';
+import { FieldGroup } from '../FieldGroup';
 
 import type { SetFieldProps } from './SetField';
 

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import { Label } from '../Label/Label';
+import { Label } from '../Label';
 import { RadioGroup, type RadioGroupProps } from './RadioGroup';
 
 const TEST_ID = 'radio-group';

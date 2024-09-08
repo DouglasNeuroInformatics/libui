@@ -1,9 +1,9 @@
 import { cva } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../Label/Label';
-import { RadioGroup } from '../RadioGroup/RadioGroup';
-import { FieldGroup } from './FieldGroup/FieldGroup';
+import { Label } from '../Label';
+import { RadioGroup } from '../RadioGroup';
+import { FieldGroup } from './FieldGroup';
 
 import type { BaseFieldComponentProps } from './types';
 

@@ -1,8 +1,8 @@
-import { Badge } from '../../Badge/Badge';
-import { DropdownButton } from '../../DropdownButton/DropdownButton';
-import { DropdownMenu } from '../../DropdownMenu/DropdownMenu';
-import { Label } from '../../Label/Label';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Badge } from '../../Badge';
+import { DropdownButton } from '../../DropdownButton';
+import { DropdownMenu } from '../../DropdownMenu';
+import { Label } from '../../Label';
+import { FieldGroup } from '../FieldGroup';
 
 import type { SetFieldProps } from './SetField';
 

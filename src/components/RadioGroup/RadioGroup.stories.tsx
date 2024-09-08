@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from '../Label/Label';
+import { Label } from '../Label';
 import { RadioGroup } from './RadioGroup';
 
 type Story = StoryObj<typeof RadioGroup>;

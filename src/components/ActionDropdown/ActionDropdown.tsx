@@ -1,5 +1,5 @@
-import { DropdownButton } from '../DropdownButton/DropdownButton';
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu';
+import { DropdownButton } from '../DropdownButton';
+import { DropdownMenu } from '../DropdownMenu';
 
 import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent';
 

@@ -2,9 +2,9 @@ import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types'
 import type { Simplify } from 'type-fest';
 
 import { cn } from '../../../utils';
-import { Label } from '../../Label/Label';
-import { RadioGroup } from '../../RadioGroup/RadioGroup';
-import { FieldGroup } from '../FieldGroup/FieldGroup';
+import { Label } from '../../Label';
+import { RadioGroup } from '../../RadioGroup';
+import { FieldGroup } from '../FieldGroup';
 
 import type { BaseFieldComponentProps } from '../types';
 

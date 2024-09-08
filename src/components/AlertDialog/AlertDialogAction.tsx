@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { Action } from '@radix-ui/react-alert-dialog';
 
 import { cn } from '../../utils';
-import { buttonVariants } from '../Button/Button';
+import { buttonVariants } from '../Button';
 
 export const AlertDialogAction = forwardRef<
   React.ElementRef<typeof Action>,

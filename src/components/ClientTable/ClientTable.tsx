@@ -6,8 +6,8 @@ import { range } from 'lodash-es';
 import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '../../utils';
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu';
-import { Table } from '../Table/Table';
+import { DropdownMenu } from '../DropdownMenu';
+import { Table } from '../Table';
 import { ClientTablePagination } from './ClientTablePagination';
 
 /** Coerces the value in a cell to a string for consistant display purposes */

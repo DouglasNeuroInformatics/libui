@@ -14,8 +14,8 @@ import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
 import { useTranslation } from '../../hooks';
-import { Button } from '../Button/Button';
-import { Heading } from '../Heading/Heading';
+import { Button } from '../Button';
+import { Heading } from '../Heading';
 import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';

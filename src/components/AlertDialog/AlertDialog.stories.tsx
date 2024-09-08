@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 import { AlertDialog } from './AlertDialog';
 
 type Story = StoryObj<typeof AlertDialog>;
