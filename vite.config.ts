@@ -24,13 +24,13 @@ export default defineConfig({
     coverage: {
       exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', 'src/testing/*'],
       include: ['src/**/*'],
-      provider: 'v8'
-      // thresholds: {
-      //   branches: 80,
-      //   functions: 80,
-      //   lines: 80,
-      //   statements: 80
-      // }
+      provider: 'v8',
+      thresholds: {
+        branches: 75,
+        functions: 30,
+        lines: 50,
+        statements: 50
+      }
     },
     environment: 'happy-dom',
     root: import.meta.dirname,

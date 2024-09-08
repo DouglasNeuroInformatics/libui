@@ -20,7 +20,7 @@
     "src/**/*",
     "eslint.config.js",
     "prettier.config.js",
-    "tailwind.config.ts",
+    "tailwind.config.cts",
     "tsup.config.ts",
     "vite.config.ts"
   ]

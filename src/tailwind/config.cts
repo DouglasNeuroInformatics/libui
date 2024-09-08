@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
-import fs = require('fs');
-import path = require('path');
+import fs = require('node:fs');
+import path = require('node:path');
 
 import animate = require('tailwindcss-animate');
 import containerQueries = require('@tailwindcss/container-queries');
