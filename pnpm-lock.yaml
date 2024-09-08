@@ -100,12 +100,6 @@ importers:
       framer-motion:
         specifier: ^11.5.2
         version: 11.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      i18next:
-        specifier: 23.x
-        version: 23.11.5
-      i18next-browser-languagedetector:
-        specifier: ^8.0.0
-        version: 8.0.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -121,9 +115,6 @@ importers:
       react-error-boundary:
         specifier: ^4.0.13
         version: 4.0.13(react@18.3.1)
-      react-i18next:
-        specifier: ^14.1.2
-        version: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-resizable-panels:
         specifier: ^2.1.2
         version: 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -260,9 +251,6 @@ importers:
       storybook:
         specifier: ^8.2.9
         version: 8.2.9(@babel/preset-env@7.24.7(@babel/core@7.24.7))
-      storybook-react-i18next:
-        specifier: ^3.1.7
-        version: 3.1.7(i18next-browser-languagedetector@8.0.0)(i18next-http-backend@2.5.2)(i18next@23.11.5)(react-i18next@14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       tailwindcss:
         specifier: ^3.4.10
         version: 3.4.10
@@ -4029,10 +4017,6 @@ packages:
       typescript:
         optional: true
 
-  cross-fetch@4.0.0:
-    resolution:
-      { integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g== }
-
   cross-spawn@7.0.3:
     resolution:
       { integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w== }
@@ -5087,10 +5071,6 @@ packages:
     resolution:
       { integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg== }
 
-  html-parse-stringify@3.0.1:
-    resolution:
-      { integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg== }
-
   html-tags@3.3.1:
     resolution:
       { integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ== }
@@ -5136,18 +5116,6 @@ packages:
       { integrity: sha512-rowAVRUBfI0b4+niA4SJMhfQwc107VLkBUgEYYAOQAbqDCnra1nYh83hF/MDmhYs9t9n1E3DuKOrs2LYNC+0Ag== }
     engines: { node: '>=18' }
     hasBin: true
-
-  i18next-browser-languagedetector@8.0.0:
-    resolution:
-      { integrity: sha512-zhXdJXTTCoG39QsrOCiOabnWj2jecouOqbchu3EfhtSHxIB5Uugnm9JaizenOy39h7ne3+fLikIjeW88+rgszw== }
-
-  i18next-http-backend@2.5.2:
-    resolution:
-      { integrity: sha512-+K8HbDfrvc1/2X8jpb7RLhI9ZxBDpx3xogYkQwGKlWAUXLSEGXzgdt3EcUjLlBCdMwdQY+K+EUF6oh8oB6rwHw== }
-
-  i18next@23.11.5:
-    resolution:
-      { integrity: sha512-41pvpVbW9rhZPk5xjCX2TPJi2861LEig/YRhUkY+1FQ2IQPS0bKUDYnEqY8XPPbB48h1uIwLnP9iiEfuSl20CA== }
 
   iconv-lite@0.4.24:
     resolution:
@@ -6022,16 +5990,6 @@ packages:
     resolution:
       { integrity: sha512-IhOigYzAKHd244OC0JIMIUrjzctirCmPkaIfhDeGcEETWof5zKYUW7e7MYvChGWh/4CJeXEgsRyGzuF334rOOQ== }
 
-  node-fetch@2.7.0:
-    resolution:
-      { integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A== }
-    engines: { node: 4.x || >=6.0.0 }
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-
   node-releases@2.0.14:
     resolution:
       { integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw== }
@@ -6746,20 +6704,6 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
 
-  react-i18next@14.1.2:
-    resolution:
-      { integrity: sha512-FSIcJy6oauJbGEXfhUgVeLzvWBhIBIS+/9c6Lj4niwKZyGaGb4V4vUbATXSlsHJDXXB+ociNxqFNiFuV1gmoqg== }
-    peerDependencies:
-      i18next: '>= 23.2.3'
-      react: '>= 16.8.0'
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-
   react-is@16.13.1:
     resolution:
       { integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ== }
@@ -7248,19 +7192,6 @@ packages:
       { integrity: sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ== }
     engines: { node: '>= 0.4' }
 
-  storybook-i18n@3.1.1:
-    resolution:
-      { integrity: sha512-k1/lS+Rx6l5mJEYAHQWEgXuwU5IyWk7kjcJtm2FDIn1UqZwbEraGlrp/fEZKK2e/7+SXEQdKeCaTz7+63WTQxw== }
-
-  storybook-react-i18next@3.1.7:
-    resolution:
-      { integrity: sha512-y5wwZ2ROtKxESoiDw1Ct4yOdAQxsRh4mYqsCqV9rvcPzUsQExsTsxEUkEc1GCeITrQPYWdAZtI1sCXC3NzMD8A== }
-    peerDependencies:
-      i18next: ^22.0.0 || ^23.0.0 || ^24.0.0
-      i18next-browser-languagedetector: ^7.0.0 || ^8.0.0
-      i18next-http-backend: ^2.0.0
-      react-i18next: ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
-
   storybook@8.2.9:
     resolution:
       { integrity: sha512-S7Q/Yt4A+nu1O23rg39lQvBqL2Vg+PKXbserDWUR4LFJtfmoZ2xGO8oFIhJmvvhjUBvolw1q7QDeswPq2i0sGw== }
@@ -7543,10 +7474,6 @@ packages:
     resolution:
       { integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag== }
     engines: { node: '>=6' }
-
-  tr46@0.0.3:
-    resolution:
-      { integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw== }
 
   tr46@5.0.0:
     resolution:
@@ -7903,11 +7830,6 @@ packages:
       jsdom:
         optional: true
 
-  void-elements@3.1.0:
-    resolution:
-      { integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w== }
-    engines: { node: '>=0.10.0' }
-
   w3c-xmlserializer@5.0.0:
     resolution:
       { integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA== }
@@ -7920,10 +7842,6 @@ packages:
   wcwidth@1.0.1:
     resolution:
       { integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg== }
-
-  webidl-conversions@3.0.1:
-    resolution:
-      { integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ== }
 
   webidl-conversions@7.0.0:
     resolution:
@@ -7958,10 +7876,6 @@ packages:
     resolution:
       { integrity: sha512-1lfMEm2IEr7RIV+f4lUNPOqfFL+pO+Xw3fJSqmjX9AbXcXcYOkCe1P6+9VBZB6n94af16NfZf+sSk0JCBZC9aw== }
     engines: { node: '>=18' }
-
-  whatwg-url@5.0.0:
-    resolution:
-      { integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw== }
 
   which-boxed-primitive@1.0.2:
     resolution:
@@ -11718,12 +11632,6 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.4
 
-  cross-fetch@4.0.0:
-    dependencies:
-      node-fetch: 2.7.0
-    transitivePeerDependencies:
-      - encoding
-
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -12796,10 +12704,6 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  html-parse-stringify@3.0.1:
-    dependencies:
-      void-elements: 3.1.0
-
   html-tags@3.3.1: {}
 
   http-errors@2.0.0:
@@ -12838,20 +12742,6 @@ snapshots:
   human-signals@7.0.0: {}
 
   husky@9.1.5: {}
-
-  i18next-browser-languagedetector@8.0.0:
-    dependencies:
-      '@babel/runtime': 7.24.7
-
-  i18next-http-backend@2.5.2:
-    dependencies:
-      cross-fetch: 4.0.0
-    transitivePeerDependencies:
-      - encoding
-
-  i18next@23.11.5:
-    dependencies:
-      '@babel/runtime': 7.24.7
 
   iconv-lite@0.4.24:
     dependencies:
@@ -13479,10 +13369,6 @@ snapshots:
 
   node-fetch-native@1.6.4: {}
 
-  node-fetch@2.7.0:
-    dependencies:
-      whatwg-url: 5.0.0
-
   node-releases@2.0.14: {}
 
   node-releases@2.0.18: {}
@@ -13924,15 +13810,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.7
       react: 18.3.1
-
-  react-i18next@14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      '@babel/runtime': 7.24.7
-      html-parse-stringify: 3.0.1
-      i18next: 23.11.5
-      react: 18.3.1
-    optionalDependencies:
-      react-dom: 18.3.1(react@18.3.1)
 
   react-is@16.13.1: {}
 
@@ -14423,16 +14300,6 @@ snapshots:
     dependencies:
       internal-slot: 1.0.7
 
-  storybook-i18n@3.1.1: {}
-
-  storybook-react-i18next@3.1.7(i18next-browser-languagedetector@8.0.0)(i18next-http-backend@2.5.2)(i18next@23.11.5)(react-i18next@14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
-    dependencies:
-      i18next: 23.11.5
-      i18next-browser-languagedetector: 8.0.0
-      i18next-http-backend: 2.5.2
-      react-i18next: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      storybook-i18n: 3.1.1
-
   storybook@8.2.9(@babel/preset-env@7.24.7(@babel/core@7.24.7)):
     dependencies:
       '@babel/core': 7.24.7
@@ -14729,8 +14596,6 @@ snapshots:
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
-
-  tr46@0.0.3: {}
 
   tr46@5.0.0:
     dependencies:
@@ -15034,8 +14899,6 @@ snapshots:
       - supports-color
       - terser
 
-  void-elements@3.1.0: {}
-
   w3c-xmlserializer@5.0.0:
     dependencies:
       xml-name-validator: 5.0.0
@@ -15045,8 +14908,6 @@ snapshots:
   wcwidth@1.0.1:
     dependencies:
       defaults: 1.0.4
-
-  webidl-conversions@3.0.1: {}
 
   webidl-conversions@7.0.0: {}
 
@@ -15066,11 +14927,6 @@ snapshots:
     dependencies:
       tr46: 5.0.0
       webidl-conversions: 7.0.0
-
-  whatwg-url@5.0.0:
-    dependencies:
-      tr46: 0.0.3
-      webidl-conversions: 3.0.1
 
   which-boxed-primitive@1.0.2:
     dependencies:
