@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-import libui from '../translations/libui.json';
+import libui from '@/i18n/translations/libui.json';
 
 import type { I18N } from '../i18n';
 

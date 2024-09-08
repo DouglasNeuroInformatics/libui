@@ -6,7 +6,8 @@ export default defineConfig({
   entry: {
     components: 'src/components/index.ts',
     hooks: 'src/hooks/index.ts',
-    utils: 'src/utils.ts'
+    i18n: 'src/i18n/index.d.ts',
+    utils: 'src/utils/index.ts'
   },
   format: 'esm',
   outDir: 'dist',
