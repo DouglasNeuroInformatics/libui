@@ -4,7 +4,9 @@ export default defineConfig({
   clean: true,
   dts: true,
   entry: {
-    index: 'src/index.ts'
+    components: 'src/components/index.ts',
+    hooks: 'src/hooks/index.ts',
+    utils: 'src/utils.ts'
   },
   format: 'esm',
   outDir: 'dist',
