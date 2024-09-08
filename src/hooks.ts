@@ -8,4 +8,5 @@ export * from './hooks/useNotificationsStore.js';
 export * from './hooks/useOnClickOutside.js';
 export * from './hooks/useSessionStorage.js';
 export * from './hooks/useTheme.js';
+export * from './hooks/useTranslation.js';
 export * from './hooks/useWindowSize.js';
