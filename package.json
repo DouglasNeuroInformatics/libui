@@ -44,7 +44,7 @@
     "/tailwind.config.d.cts"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc -b tsconfig.build.json && cp -r src/styles dist",
+    "build": "tsup && cp -r src/styles dist",
     "format": "prettier --write src",
     "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
@@ -141,6 +141,7 @@
     "sort-json": "^2.0.1",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.10",
+    "tsup": "^8.2.4",
     "typescript": "~5.5.4",
     "vite": "5.4.3",
     "vitest": "^2.0.5"
