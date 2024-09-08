@@ -2,8 +2,8 @@ import { useReducer, useState } from 'react';
 import * as React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '../../hooks.js';
 import { cn } from '../../utils.js';
 import { ArrowToggle } from '../ArrowToggle/ArrowToggle.js';
 import { Card } from '../Card/Card.js';

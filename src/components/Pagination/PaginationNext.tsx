@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { ChevronRightIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '../../hooks.js';
 import { cn } from '../../utils.js';
 import { PaginationLink } from './PaginationLink.js';
 

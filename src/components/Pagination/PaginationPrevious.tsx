@@ -1,6 +1,6 @@
 import { ChevronLeftIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '../../hooks.js';
 import { cn } from '../../utils.js';
 import { PaginationLink, type PaginationLinkProps } from './PaginationLink.js';
 

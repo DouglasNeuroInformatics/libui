@@ -2,9 +2,9 @@ import { memo, useEffect } from 'react';
 
 import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import type { Simplify } from 'type-fest';
 
+import { useTranslation } from '../../hooks.js';
 import { Button } from '../Button/Button.js';
 import { Heading } from '../Heading/Heading.js';
 import { Label } from '../Label/Label.js';

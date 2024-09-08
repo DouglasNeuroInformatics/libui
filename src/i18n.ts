@@ -134,5 +134,5 @@ export declare namespace I18N {
   type TranslationKey<TNamespace> = TNamespace extends TranslationNamespace
     ? ExtractTranslationKey<Translations[TNamespace]>
     : ExtractTranslationKey<Translations>;
-  type TranslateFunction<TNamespace> = (key: TranslationKey<TNamespace>) => any;
+  type TranslateFunction<TNamespace> = (key: TranslationKey<TNamespace>) => string;
 }

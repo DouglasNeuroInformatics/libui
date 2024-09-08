@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 
 import type { BooleanFormField } from '@douglasneuroinformatics/libui-form-types';
-import { useTranslation } from 'react-i18next';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
+import { useTranslation } from '../../../hooks.js';
 import { Label } from '../../Label/Label.js';
 import { RadioGroup } from '../../RadioGroup/RadioGroup.js';
 import { FieldGroup } from '../FieldGroup/FieldGroup.js';

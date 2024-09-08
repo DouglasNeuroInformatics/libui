@@ -2,7 +2,8 @@ import { forwardRef } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { range } from 'lodash-es';
-import { useTranslation } from 'react-i18next';
+
+import { useTranslation } from '../../hooks.js';
 
 export const CALENDAR_ANIMATION_DURATION = 0.2; // seconds
 

@@ -1,15 +1,17 @@
 import { LanguagesIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '../../hooks.js';
 import { Button, type ButtonProps } from '../Button/Button.js';
 import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
+
+import type { I18N } from '../../i18n.js';
 
 export type LanguageToggleProps = {
   align?: 'center' | 'end' | 'start';
   contentClassName?: string;
   itemClassName?: string;
   options: {
-    [key: string]: string;
+    [L in I18N.Language]?: string;
   };
   triggerClassName?: string;
   variant?: ButtonProps['variant'];
@@ -23,7 +25,7 @@ export const LanguageToggle = ({
   triggerClassName,
   variant = 'outline'
 }: LanguageToggleProps) => {
-  const { i18n } = useTranslation('libui');
+  const { changeLanguage } = useTranslation('libui');
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
@@ -33,8 +35,12 @@ export const LanguageToggle = ({
       </DropdownMenu.Trigger>
       <DropdownMenu.Content align={align} className={contentClassName}>
         {Object.keys(options).map((option) => (
-          <DropdownMenu.Item className={itemClassName} key={option} onClick={() => void i18n.changeLanguage(option)}>
-            {options[option]}
+          <DropdownMenu.Item
+            className={itemClassName}
+            key={option}
+            onClick={() => void changeLanguage(option as I18N.Language)}
+          >
+            {options[option as I18N.Language]}
           </DropdownMenu.Item>
         ))}
       </DropdownMenu.Content>

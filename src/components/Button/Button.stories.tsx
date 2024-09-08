@@ -15,7 +15,7 @@ export default {
     layout: 'centered'
   },
   tags: ['autodocs']
-} as Meta<typeof Button> satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>;
 
 export const Primary: Story = {
   args: {

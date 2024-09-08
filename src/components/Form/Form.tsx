@@ -9,11 +9,11 @@ import type {
   PartialNullableFormDataType
 } from '@douglasneuroinformatics/libui-form-types';
 import { get, set } from 'lodash-es';
-import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
+import { useTranslation } from '../../hooks.js';
 import { Button } from '../Button/Button.js';
 import { Heading } from '../Heading/Heading.js';
 import { ErrorMessage } from './ErrorMessage.js';
@@ -53,7 +53,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
-  const { i18n, t } = useTranslation('libui');
+  const { resolvedLanguage, t } = useTranslation('libui');
   const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(
@@ -118,7 +118,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   useEffect(() => {
     revalidate();
-  }, [i18n.resolvedLanguage]);
+  }, [resolvedLanguage]);
 
   return (
     <form

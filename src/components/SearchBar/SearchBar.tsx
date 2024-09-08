@@ -1,6 +1,6 @@
 import { SearchIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '../../hooks.js';
 import { cn } from '../../utils.js';
 import { Input } from '../Input/Input.js';
 

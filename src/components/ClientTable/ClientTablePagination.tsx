@@ -1,5 +1,4 @@
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from '../../hooks.js';
 import { Button } from '../Button/Button.js';
 
 export type ClientPagePaginationProps = {
@@ -23,13 +22,7 @@ export const ClientTablePagination = ({
   return (
     <div className="flex items-center justify-between py-3">
       <div className="hidden sm:block">
-        <p className="text-sm font-medium text-muted-foreground">
-          {t('pagination.info', {
-            first: firstEntry,
-            last: lastEntry,
-            total: totalEntries
-          })}
-        </p>
+        <p className="text-sm font-medium text-muted-foreground">{`${firstEntry} - ${lastEntry} / ${totalEntries}`}</p>
       </div>
       <div className="flex flex-1 justify-between gap-3 sm:justify-end">
         <Button
