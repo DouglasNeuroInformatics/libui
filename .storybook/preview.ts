@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 
 import theme from './theme';
 
-import '../src/styles/globals.css';
+import '../src/tailwind/globals.css';
 
 const preview: Preview = {
   globals: {

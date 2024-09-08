@@ -57,7 +57,7 @@ module.exports = {
 **main.tsx**
 
 ```js
-import '@douglasneuroinformatics/libui/styles/globals.css';
+import '@douglasneuroinformatics/libui/tailwind/globals.css';
 ```
 
 ## Contributing
