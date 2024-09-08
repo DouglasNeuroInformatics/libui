@@ -1,10 +1,11 @@
 {
   "extends": ["@douglasneuroinformatics/tsconfig"],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "module": "Preserve",
     "moduleResolution": "Bundler",
     "noEmit": true,
     "paths": {
@@ -16,10 +17,11 @@
   "include": [
     "__mocks__/**/*",
     ".storybook/**/*",
+    "src/**/*",
     "eslint.config.js",
     "prettier.config.js",
-    "tailwind.config.js",
-    "vite.config.js",
-    "src/**/*"
+    "tailwind.config.ts",
+    "tsup.config.ts",
+    "vite.config.ts"
   ]
 }

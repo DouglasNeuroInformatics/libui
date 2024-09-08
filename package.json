@@ -44,7 +44,7 @@
     "/tailwind.config.d.cts"
   ],
   "scripts": {
-    "build": "tsup && cp -r src/styles dist",
+    "build": "rm -rf dist && tsup",
     "format": "prettier --write src",
     "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
