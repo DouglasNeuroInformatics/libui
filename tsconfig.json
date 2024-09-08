@@ -21,7 +21,7 @@
     "eslint.config.js",
     "prettier.config.js",
     "tailwind.config.cts",
-    "tsup.config.ts",
-    "vite.config.ts"
+    "tsup.config.mts",
+    "vite.config.mts"
   ]
 }
