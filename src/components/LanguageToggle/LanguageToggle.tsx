@@ -1,7 +1,7 @@
 import { LanguagesIcon } from 'lucide-react';
 
 import { useTranslation } from '@/hooks';
-import type { I18N } from '@/i18n';
+import type { Language } from '@/i18n';
 
 import { Button, type ButtonProps } from '../Button';
 import { DropdownMenu } from '../DropdownMenu';
@@ -11,7 +11,7 @@ export type LanguageToggleProps = {
   contentClassName?: string;
   itemClassName?: string;
   options: {
-    [L in I18N.Language]?: string;
+    [L in Language]?: string;
   };
   triggerClassName?: string;
   variant?: ButtonProps['variant'];
@@ -38,9 +38,9 @@ export const LanguageToggle = ({
           <DropdownMenu.Item
             className={itemClassName}
             key={option}
-            onClick={() => void changeLanguage(option as I18N.Language)}
+            onClick={() => void changeLanguage(option as Language)}
           >
-            {options[option as I18N.Language]}
+            {options[option as Language]}
           </DropdownMenu.Item>
         ))}
       </DropdownMenu.Content>

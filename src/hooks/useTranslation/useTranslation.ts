@@ -3,14 +3,14 @@ import { useContext } from 'react';
 import { get } from 'lodash-es';
 
 import { TranslationContext } from '@/context/TranslationContext';
-import type { I18N } from '@/i18n';
+import type { TranslateFunction, TranslationNamespace } from '@/i18n';
 
-export function useTranslation<TNamespace extends I18N.TranslationNamespace | undefined = undefined>(
+export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace
 ) {
   const ctx = useContext(TranslationContext);
   const translations = namespace ? ctx.translations[namespace] : ctx.translations;
-  const t: I18N.TranslateFunction<TNamespace> = (key) => {
+  const t: TranslateFunction<TNamespace> = (key) => {
     const value = get(translations, key, key) as { [key: string]: string } | string;
     if (typeof value === 'string') {
       return value;

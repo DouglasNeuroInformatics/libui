@@ -2,13 +2,13 @@ import { createContext, useState } from 'react';
 
 import libui from '@/i18n/translations/libui.json';
 
-import type { I18N } from '../i18n';
+import type { Language, Translations } from '../i18n';
 
 type TranslationContextType = {
-  changeLanguage: (language: I18N.Language) => void;
-  defaultLanguage: I18N.Language;
-  resolvedLanguage: I18N.Language;
-  translations: I18N.Translations;
+  changeLanguage: (language: Language) => void;
+  defaultLanguage: Language;
+  resolvedLanguage: Language;
+  translations: Translations;
 };
 
 export const TranslationContext = createContext<TranslationContextType>({
@@ -24,7 +24,7 @@ export const TranslationContext = createContext<TranslationContextType>({
 });
 
 export const TranslationContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [resolvedLanguage, setResolvedLanguage] = useState<I18N.Language>('en');
+  const [resolvedLanguage, setResolvedLanguage] = useState<Language>('en');
   return (
     <TranslationContext.Provider
       value={{
