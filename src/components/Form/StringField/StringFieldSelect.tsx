@@ -1,12 +1,11 @@
-import React from 'react';
-
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../../Label/Label.js';
-import { Select } from '../../Select/Select.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
-import { type BaseFieldComponentProps } from '../types.js';
+import { Label } from '@/components/Label';
+import { Select } from '@/components/Select';
+
+import { FieldGroup } from '../FieldGroup';
+import { type BaseFieldComponentProps } from '../types';
 
 export type StringFieldSelectProps<T extends string = string> = Simplify<
   BaseFieldComponentProps<T> & Extract<StringFormField<T>, { options: object }>

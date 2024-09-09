@@ -1,11 +1,11 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const SelectItem = React.forwardRef<
+export const SelectItem = forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(function SelectItem({ children, className, ...props }, ref) {

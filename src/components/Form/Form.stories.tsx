@@ -1,14 +1,12 @@
 /* eslint-disable perfectionist/sort-objects */
 
-import React from 'react';
-
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';
 import { z } from 'zod';
 
-import { Heading } from '../Heading/Heading.js';
-import { Form } from './Form.js';
+import { Heading } from '../Heading';
+import { Form } from './Form';
 
 const DISABLED = false;
 

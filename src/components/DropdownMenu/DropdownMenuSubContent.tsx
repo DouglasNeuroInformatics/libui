@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const DropdownMenuSubContent = React.forwardRef<
+export const DropdownMenuSubContent = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
 >(function DropdownMenuSubContent({ className, ...props }, ref) {

@@ -1,8 +1,8 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Table } from './Table.js';
+import { Table } from './Table';
 
 const invoices = [
   {
@@ -56,7 +56,7 @@ export default { component: Table } as Meta<typeof Table>;
 export const Default: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <Table.Caption>A list of your recent invoices.</Table.Caption>
         <Table.Header>
           <Table.Row>
@@ -82,7 +82,7 @@ export const Default: Story = {
             <Table.Cell className="text-right">$2,500.00</Table.Cell>
           </Table.Row>
         </Table.Footer>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };

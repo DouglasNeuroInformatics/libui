@@ -1,19 +1,17 @@
-import type React from 'react';
-
 import { Group, Menu, Portal, RadioGroup, Sub } from '@radix-ui/react-menubar';
 import type { MenubarMenuProps } from '@radix-ui/react-menubar';
 
-import { MenuBarCheckboxItem } from './MenuBarCheckboxItem.js';
-import { MenuBarContent } from './MenuBarContent.js';
-import { MenuBarItem } from './MenuBarItem.js';
-import { MenuBarLabel } from './MenuBarLabel.js';
-import { MenuBarRadioItem } from './MenuBarRadioItem.js';
-import { MenuBarRoot } from './MenuBarRoot.js';
-import { MenuBarSeparator } from './MenuBarSeparator.js';
-import { MenuBarShortcut } from './MenuBarShortcut.js';
-import { MenuBarSubContent } from './MenuBarSubContent.js';
-import { MenuBarSubTrigger } from './MenuBarSubTrigger.js';
-import { MenuBarTrigger } from './MenuBarTrigger.js';
+import { MenuBarCheckboxItem } from './MenuBarCheckboxItem';
+import { MenuBarContent } from './MenuBarContent';
+import { MenuBarItem } from './MenuBarItem';
+import { MenuBarLabel } from './MenuBarLabel';
+import { MenuBarRadioItem } from './MenuBarRadioItem';
+import { MenuBarRoot } from './MenuBarRoot';
+import { MenuBarSeparator } from './MenuBarSeparator';
+import { MenuBarShortcut } from './MenuBarShortcut';
+import { MenuBarSubContent } from './MenuBarSubContent';
+import { MenuBarSubTrigger } from './MenuBarSubTrigger';
+import { MenuBarTrigger } from './MenuBarTrigger';
 
 export const MenuBar = Object.assign(MenuBarRoot, {
   CheckboxItem: MenuBarCheckboxItem,

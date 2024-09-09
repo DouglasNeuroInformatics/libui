@@ -1,12 +1,12 @@
 import { Close, Portal, Root, Trigger } from '@radix-ui/react-dialog';
 
-import { SheetBody } from './SheetBody.js';
-import { SheetContent } from './SheetContent.js';
-import { SheetDescription } from './SheetDescription.js';
-import { SheetFooter } from './SheetFooter.js';
-import { SheetHeader } from './SheetHeader.js';
-import { SheetOverlay } from './SheetOverlay.js';
-import { SheetTitle } from './SheetTitle.js';
+import { SheetBody } from './SheetBody';
+import { SheetContent } from './SheetContent';
+import { SheetDescription } from './SheetDescription';
+import { SheetFooter } from './SheetFooter';
+import { SheetHeader } from './SheetHeader';
+import { SheetOverlay } from './SheetOverlay';
+import { SheetTitle } from './SheetTitle';
 
 export const Sheet = Object.assign(Root.bind(null), {
   Body: SheetBody,

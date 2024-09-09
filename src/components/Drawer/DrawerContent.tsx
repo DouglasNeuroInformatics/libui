@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Drawer as DrawerPrimitive } from 'vaul';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const DrawerContent = React.forwardRef<
+export const DrawerContent = forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
 >(function DrawerContent({ children, className, ...props }, ref) {

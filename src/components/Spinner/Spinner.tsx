@@ -1,7 +1,6 @@
-import React from 'react';
 import type { HTMLProps } from 'react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
 export const Spinner = ({ className, ...props }: HTMLProps<HTMLDivElement>) => {
   return (

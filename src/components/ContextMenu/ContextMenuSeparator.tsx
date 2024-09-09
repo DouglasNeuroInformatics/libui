@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ContextMenuSeparator = React.forwardRef<
+export const ContextMenuSeparator = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>
 >(function ContextMenuSeparator({ className, ...props }, ref) {

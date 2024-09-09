@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const DropdownMenuLabel = React.forwardRef<
+export const DropdownMenuLabel = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
   {
     inset?: boolean;

@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Accordion } from './Accordion.js';
+import { Accordion } from './Accordion';
 
 const TEST_ID = 'accordion';
 

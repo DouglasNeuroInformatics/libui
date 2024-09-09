@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ContextMenuContent = React.forwardRef<
+export const ContextMenuContent = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>
 >(function ContextMenuContent({ className, ...props }, ref) {

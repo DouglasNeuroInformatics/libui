@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as SwitchPrimitives from '@radix-ui/react-switch';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const Switch = React.forwardRef<
+export const Switch = forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(function Switch({ className, ...props }, ref) {

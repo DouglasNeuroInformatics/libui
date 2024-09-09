@@ -1,12 +1,13 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '../../utils.js';
-import { SelectScrollDownButton } from './SelectScrollDownButton.js';
-import { SelectScrollUpButton } from './SelectScrollUpButton.js';
+import { cn } from '@/utils';
 
-export const SelectContent = React.forwardRef<
+import { SelectScrollDownButton } from './SelectScrollDownButton';
+import { SelectScrollUpButton } from './SelectScrollUpButton';
+
+export const SelectContent = forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
 >(function SelectContent({ children, className, position = 'popper', ...props }, ref) {

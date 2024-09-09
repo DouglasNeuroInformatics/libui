@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
 const CardRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function CardRoot(
   { className, ...props },

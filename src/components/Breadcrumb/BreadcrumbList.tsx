@@ -1,8 +1,8 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const BreadcrumbList = React.forwardRef<HTMLOListElement, React.ComponentPropsWithoutRef<'ol'>>(
+export const BreadcrumbList = forwardRef<HTMLOListElement, React.ComponentPropsWithoutRef<'ol'>>(
   function BreadcrumbList({ className, ...props }, ref) {
     return (
       <ol

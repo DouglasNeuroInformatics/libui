@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
 export type HeadingProps = {
   children: string;

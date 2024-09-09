@@ -1,6 +1,6 @@
-import { AvatarFallback } from './AvatarFallback.js';
-import { AvatarImage } from './AvatarImage.js';
-import { AvatarRoot } from './AvatarRoot.js';
+import { AvatarFallback } from './AvatarFallback';
+import { AvatarImage } from './AvatarImage';
+import { AvatarRoot } from './AvatarRoot';
 
 export const Avatar = Object.assign(AvatarRoot, {
   Fallback: AvatarFallback,

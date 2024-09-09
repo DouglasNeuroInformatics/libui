@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ContextMenuItem = React.forwardRef<
+export const ContextMenuItem = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
   {
     inset?: boolean;

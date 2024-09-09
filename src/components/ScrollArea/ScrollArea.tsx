@@ -1,11 +1,12 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Corner, Root, Viewport } from '@radix-ui/react-scroll-area';
 
-import { cn } from '../../utils.js';
-import { ScrollBar } from './ScrollBar.js';
+import { cn } from '@/utils';
 
-export const ScrollArea = React.forwardRef<React.ElementRef<typeof Root>, React.ComponentPropsWithoutRef<typeof Root>>(
+import { ScrollBar } from './ScrollBar';
+
+export const ScrollArea = forwardRef<React.ElementRef<typeof Root>, React.ComponentPropsWithoutRef<typeof Root>>(
   function ScrollArea({ children, className, ...props }, ref) {
     return (
       <Root className={cn('relative overflow-hidden', className)} data-testid="scroll-area" ref={ref} {...props}>

@@ -1,12 +1,10 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { Input } from '../Input/Input.js';
-import { Label } from '../Label/Label.js';
-import { Select } from '../Select/Select.js';
-import { Card } from './Card.js';
+import { Button } from '../Button';
+import { Input } from '../Input';
+import { Label } from '../Label';
+import { Select } from '../Select';
+import { Card } from './Card';
 
 type Story = StoryObj<typeof Card>;
 

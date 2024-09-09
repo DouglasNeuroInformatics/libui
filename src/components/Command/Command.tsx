@@ -1,16 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '../../utils.js';
-import { CommandEmpty } from './CommandEmpty.js';
-import { CommandGroup } from './CommandGroup.js';
-import { CommandInput } from './CommandInput.js';
-import { CommandItem } from './CommandItem.js';
-import { CommandList } from './CommandList.js';
-import { CommandSeparator } from './CommandSeparator.js';
-import { CommandShortcut } from './CommandShortcut.js';
+import { cn } from '@/utils';
+
+import { CommandEmpty } from './CommandEmpty';
+import { CommandGroup } from './CommandGroup';
+import { CommandInput } from './CommandInput';
+import { CommandItem } from './CommandItem';
+import { CommandList } from './CommandList';
+import { CommandSeparator } from './CommandSeparator';
+import { CommandShortcut } from './CommandShortcut';
 
 type CommandRootProps = Simplify<React.ComponentPropsWithoutRef<typeof CommandPrimitive>>;
 

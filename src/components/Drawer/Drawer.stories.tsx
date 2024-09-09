@@ -1,9 +1,7 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { Drawer } from './Drawer.js';
+import { Button } from '../Button';
+import { Drawer } from './Drawer';
 
 type Story = StoryObj<typeof Drawer>;
 

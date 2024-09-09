@@ -1,7 +1,7 @@
-import { ErrorMessage } from '../ErrorMessage.js';
-import { FieldGroupDescription } from './FieldGroupDescription.js';
-import { FieldGroupRoot } from './FieldGroupRoot.js';
-import { FieldGroupRow } from './FieldGroupRow.js';
+import { ErrorMessage } from '../ErrorMessage';
+import { FieldGroupDescription } from './FieldGroupDescription';
+import { FieldGroupRoot } from './FieldGroupRoot';
+import { FieldGroupRow } from './FieldGroupRow';
 
 export const FieldGroup = Object.assign(FieldGroupRoot, {
   Description: FieldGroupDescription,

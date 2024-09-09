@@ -1,8 +1,8 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
 
-export const CommandEmpty = React.forwardRef<
+export const CommandEmpty = forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >(function CommandEmpty(props, ref) {

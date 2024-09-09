@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Command as CommandPrimitive } from 'cmdk';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const CommandSeparator = React.forwardRef<
+export const CommandSeparator = forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
 >(function CommandSeparator({ className, ...props }, ref) {

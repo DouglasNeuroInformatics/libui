@@ -1,9 +1,7 @@
-import React from 'react';
+import { DropdownButton } from '../DropdownButton';
+import { DropdownMenu } from '../DropdownMenu';
 
-import { DropdownButton } from '../DropdownButton/DropdownButton.js';
-import { DropdownMenu } from '../DropdownMenu/DropdownMenu.js';
-
-import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent.js';
+import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent';
 
 type ActionDropdownOptions = { [key: string]: string } | readonly string[];
 

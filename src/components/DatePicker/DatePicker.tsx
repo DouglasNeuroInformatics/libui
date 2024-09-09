@@ -1,13 +1,15 @@
-import React, { useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
+import * as React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
-import { cn } from '../../utils.js';
-import { ArrowToggle } from '../ArrowToggle/ArrowToggle.js';
-import { Card } from '../Card/Card.js';
-import { Calendar, CALENDAR_ANIMATION_DURATION } from './Calendar.js';
-import { YearSelector } from './YearSelector.js';
+import { useTranslation } from '@/hooks';
+import { cn } from '@/utils';
+
+import { ArrowToggle } from '../ArrowToggle';
+import { Card } from '../Card';
+import { Calendar, CALENDAR_ANIMATION_DURATION } from './Calendar';
+import { YearSelector } from './YearSelector';
 
 const MONTHS = [
   'january',

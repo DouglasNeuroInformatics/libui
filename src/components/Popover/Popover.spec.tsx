@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
-import { Popover } from './Popover.js';
+import { Popover } from './Popover';
 
 const TestPopover = () => (
   <Popover>

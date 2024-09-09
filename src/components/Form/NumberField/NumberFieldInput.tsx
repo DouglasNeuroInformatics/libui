@@ -1,14 +1,16 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import * as React from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Input } from '../../Input/Input.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import { FieldGroup } from '../FieldGroup';
+
+import type { BaseFieldComponentProps } from '../types';
 
 export type NumberFieldInputProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'input' }>

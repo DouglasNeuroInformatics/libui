@@ -1,14 +1,13 @@
-import React from 'react';
-
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '../../../utils.js';
-import { Label } from '../../Label/Label.js';
-import { RadioGroup } from '../../RadioGroup/RadioGroup.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Label } from '@/components/Label';
+import { RadioGroup } from '@/components/RadioGroup';
+import { cn } from '@/utils';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import { FieldGroup } from '../FieldGroup';
+
+import type { BaseFieldComponentProps } from '../types';
 
 export type NumberFieldRadioProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { options: object }>

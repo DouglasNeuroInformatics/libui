@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { match } from 'ts-pattern';
 
-import { BooleanFieldCheckbox, type BooleanFieldCheckboxProps } from './BooleanFieldCheckbox.js';
-import { BooleanFieldRadio, type BooleanFieldRadioProps } from './BooleanFieldRadio.js';
+import { BooleanFieldCheckbox, type BooleanFieldCheckboxProps } from './BooleanFieldCheckbox';
+import { BooleanFieldRadio, type BooleanFieldRadioProps } from './BooleanFieldRadio';
 
 export type BooleanFieldProps = BooleanFieldCheckboxProps | BooleanFieldRadioProps;
 

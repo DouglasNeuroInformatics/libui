@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { DatePicker } from '../../DatePicker/DatePicker.js';
-import { Input } from '../../Input/Input.js';
-import { Label } from '../../Label/Label.js';
-import { Popover } from '../../Popover/Popover.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
-import { type BaseFieldComponentProps } from '../types.js';
+import { DatePicker } from '@/components/DatePicker';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { Popover } from '@/components/Popover';
+
+import { FieldGroup } from '../FieldGroup';
+import { type BaseFieldComponentProps } from '../types';
 
 const isValidDateString = (s: string) => /^(\d{4})-((0[1-9])|(1[0-2]))-((0[1-9])|([12])[0-9]|3[01])$/.test(s);
 

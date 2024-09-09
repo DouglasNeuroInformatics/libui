@@ -1,8 +1,6 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Checkbox } from './Checkbox.js';
+import { Checkbox } from './Checkbox';
 
 type Story = StoryObj<typeof Checkbox>;
 

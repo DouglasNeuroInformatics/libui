@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const SelectLabel = React.forwardRef<
+export const SelectLabel = forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(function SelectLabel({ className, ...props }, ref) {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type {
   BooleanFormField,
   DateFormField,
@@ -9,13 +7,13 @@ import type {
   StringFormField
 } from '@douglasneuroinformatics/libui-form-types';
 
-import { BooleanField, type BooleanFieldProps } from './BooleanField/BooleanField.js';
-import { DateField, type DateFieldProps } from './DateField/DateField.js';
-import { NumberField, type NumberFieldProps } from './NumberField/NumberField.js';
-import { SetField, type SetFieldProps } from './SetField/SetField.js';
-import { StringField, type StringFieldProps } from './StringField/StringField.js';
+import { BooleanField, type BooleanFieldProps } from './BooleanField';
+import { DateField, type DateFieldProps } from './DateField';
+import { NumberField, type NumberFieldProps } from './NumberField';
+import { SetField, type SetFieldProps } from './SetField';
+import { StringField, type StringFieldProps } from './StringField';
 
-import type { BaseFieldComponentProps } from './types.js';
+import type { BaseFieldComponentProps } from './types';
 
 export type ScalarFieldProps = {
   field: BooleanFormField | DateFormField | NumberFormField | SetFormField | StringFormField;

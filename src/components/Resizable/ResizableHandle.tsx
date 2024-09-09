@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 
 import { GripVertical } from 'lucide-react';
 import { PanelResizeHandle } from 'react-resizable-panels';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
 export type ResizableHandleProps = {
   withHandle?: boolean;

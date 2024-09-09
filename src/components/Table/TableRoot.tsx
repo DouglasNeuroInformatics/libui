@@ -1,8 +1,8 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const TableRoot = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(function TableRoot(
+export const TableRoot = forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(function TableRoot(
   { className, ...props },
   ref
 ) {

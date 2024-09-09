@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Avatar } from './Avatar.js';
+import { Avatar } from './Avatar';
 
 const TEST_ID = 'avatar';
 

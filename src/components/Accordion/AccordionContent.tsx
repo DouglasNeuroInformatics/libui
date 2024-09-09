@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const AccordionContent = React.forwardRef<
+export const AccordionContent = forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(function AccordionContent({ children, className, ...props }, ref) {

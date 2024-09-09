@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BooleanField } from './BooleanField.js';
+import { BooleanField } from './BooleanField';
 
 type Story = StoryObj<typeof BooleanField>;
 

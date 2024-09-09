@@ -1,11 +1,11 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CircleIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const DropdownMenuRadioItem = React.forwardRef<
+export const DropdownMenuRadioItem = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
 >(function DropdownMenuRadioItem({ children, className, ...props }, ref) {

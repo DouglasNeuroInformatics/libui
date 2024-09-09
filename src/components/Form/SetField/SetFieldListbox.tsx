@@ -1,10 +1,9 @@
-import React from 'react';
+import { Checkbox } from '@/components/Checkbox';
+import { Label } from '@/components/Label';
 
-import { Checkbox } from '../../Checkbox/Checkbox.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { FieldGroup } from '../FieldGroup';
 
-import type { SetFieldProps } from './SetField.js';
+import type { SetFieldProps } from './SetField';
 
 export type SetFieldListboxProps<T extends string = string> = {
   onCheckedChange: (option: T, isChecked: boolean) => void;

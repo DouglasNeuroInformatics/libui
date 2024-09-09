@@ -1,11 +1,11 @@
 import { Root, Trigger } from '@radix-ui/react-dialog';
 
-import { DialogBody } from './DialogBody.js';
-import { DialogContent } from './DialogContent.js';
-import { DialogDescription } from './DialogDescription.js';
-import { DialogFooter } from './DialogFooter.js';
-import { DialogHeader } from './DialogHeader.js';
-import { DialogTitle } from './DialogTitle.js';
+import { DialogBody } from './DialogBody';
+import { DialogContent } from './DialogContent';
+import { DialogDescription } from './DialogDescription';
+import { DialogFooter } from './DialogFooter';
+import { DialogHeader } from './DialogHeader';
+import { DialogTitle } from './DialogTitle';
 
 export const Dialog = Object.assign(Root.bind(null), {
   Body: DialogBody,

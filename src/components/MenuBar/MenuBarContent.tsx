@@ -1,9 +1,9 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Content, Portal } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
-export const MenuBarContent = React.forwardRef<
+import { cn } from '@/utils';
+export const MenuBarContent = forwardRef<
   React.ElementRef<typeof Content>,
   React.ComponentPropsWithoutRef<typeof Content>
 >(function MenuBarContent({ align = 'start', alignOffset = -4, className, sideOffset = 8, ...props }, ref) {

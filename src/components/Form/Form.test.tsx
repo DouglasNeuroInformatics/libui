@@ -1,11 +1,9 @@
-import React from 'react';
-
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { z } from 'zod';
 
-import { Form } from './Form.js';
+import { Form } from './Form';
 
 describe('Form', () => {
   const testid = 'test-form';

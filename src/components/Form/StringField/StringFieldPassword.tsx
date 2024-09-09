@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 import { motion } from 'framer-motion';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-import { cn } from '../../../utils.js';
-import { Input } from '../../Input/Input.js';
-import { Label } from '../../Label/Label.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Input } from '@/components/Input';
+import { Label } from '@/components/Label';
+import { cn } from '@/utils';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import { FieldGroup } from '../FieldGroup';
+
+import type { BaseFieldComponentProps } from '../types';
 
 export type PasswordStrengthValue = 0 | 1 | 2 | 3 | 4;
 

@@ -1,11 +1,11 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { ItemIndicator, RadioItem } from '@radix-ui/react-menubar';
 import { CircleIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const MenuBarRadioItem = React.forwardRef<
+export const MenuBarRadioItem = forwardRef<
   React.ElementRef<typeof RadioItem>,
   React.ComponentPropsWithoutRef<typeof RadioItem>
 >(function MenuBarRadioItem({ children, className, ...props }, ref) {

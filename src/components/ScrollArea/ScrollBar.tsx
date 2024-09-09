@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { ScrollAreaScrollbar, ScrollAreaThumb } from '@radix-ui/react-scroll-area';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ScrollBar = React.forwardRef<
+export const ScrollBar = forwardRef<
   React.ElementRef<typeof ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaScrollbar>
 >(function ScrollBar({ className, orientation = 'vertical', ...props }, ref) {

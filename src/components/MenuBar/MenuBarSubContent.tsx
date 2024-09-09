@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { SubContent } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const MenuBarSubContent = React.forwardRef<
+export const MenuBarSubContent = forwardRef<
   React.ElementRef<typeof SubContent>,
   React.ComponentPropsWithoutRef<typeof SubContent>
 >(function MenuBarSubContent({ className, ...props }, ref) {

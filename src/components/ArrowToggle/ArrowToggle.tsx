@@ -1,10 +1,12 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
+import * as React from 'react';
 
 import { ChevronUpIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '../../utils.js';
-import { Button, type ButtonProps } from '../Button/Button.js';
+import { cn } from '@/utils';
+
+import { Button, type ButtonProps } from '../Button';
 
 export type ArrowToggleProps = Simplify<
   {

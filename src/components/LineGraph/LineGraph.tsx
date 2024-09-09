@@ -1,7 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
-import { useTranslation } from 'react-i18next';
 import {
   CartesianGrid,
   ErrorBar,
@@ -17,7 +16,8 @@ import {
 } from 'recharts';
 import type { ConditionalKeys } from 'type-fest';
 
-import { type Theme, useTheme } from '../../hooks/useTheme.js';
+import { useTranslation } from '@/hooks';
+import { type Theme, useTheme } from '@/hooks/useTheme';
 
 /** An array of arbitrary objects with data to graph  */
 
@@ -64,7 +64,7 @@ function LineGraphComponent<const T extends LineGraphData>({
     label?: string;
   };
 }) {
-  const { i18n } = useTranslation('libui');
+  const { resolvedLanguage } = useTranslation('libui');
   const [theme] = useTheme();
 
   return (
@@ -99,7 +99,7 @@ function LineGraphComponent<const T extends LineGraphData>({
           contentStyle={tooltipStyles[theme]}
           labelFormatter={(time: number) => {
             const date = new Date(time);
-            return new Intl.DateTimeFormat(i18n.resolvedLanguage, {
+            return new Intl.DateTimeFormat(resolvedLanguage, {
               dateStyle: 'full',
               timeStyle: 'medium'
             }).format(date);

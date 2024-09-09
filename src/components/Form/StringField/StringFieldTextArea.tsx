@@ -1,12 +1,11 @@
-import React from 'react';
-
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
-import { Label } from '../../Label/Label.js';
-import { TextArea } from '../../TextArea/TextArea.js';
-import { FieldGroup } from '../FieldGroup/FieldGroup.js';
+import { Label } from '@/components/Label';
+import { TextArea } from '@/components/TextArea';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import { FieldGroup } from '../FieldGroup';
+
+import type { BaseFieldComponentProps } from '../types';
 
 export type StringFieldTextAreaProps = BaseFieldComponentProps<string> &
   Extract<StringFormField, { variant: 'input' | 'textarea' }>;

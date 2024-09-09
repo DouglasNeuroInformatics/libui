@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import type { SetFormField } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 import type { Simplify } from 'type-fest';
 
-import { SetFieldListbox } from './SetFieldListbox.js';
-import { SetFieldSelect } from './SetFieldSelect.js';
+import { SetFieldListbox } from './SetFieldListbox';
+import { SetFieldSelect } from './SetFieldSelect';
 
-import type { BaseFieldComponentProps } from '../types.js';
+import type { BaseFieldComponentProps } from '../types';
 
 export type SetFieldProps<T extends string = string> = Simplify<BaseFieldComponentProps<Set<T>> & SetFormField<Set<T>>>;
 

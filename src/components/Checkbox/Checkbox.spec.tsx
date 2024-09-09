@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import { Checkbox } from './Checkbox.js';
+import { Checkbox } from './Checkbox';
 
 const TEST_ID = 'checkbox';
 

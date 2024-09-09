@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { DropdownButton } from './DropdownButton.js';
+import { DropdownButton } from './DropdownButton';
 
 type Story = StoryObj<typeof DropdownButton>;
 

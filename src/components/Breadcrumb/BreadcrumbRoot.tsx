@@ -1,6 +1,6 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
-export const BreadcrumbRoot = React.forwardRef<
+export const BreadcrumbRoot = forwardRef<
   HTMLElement,
   {
     separator?: React.ReactNode;

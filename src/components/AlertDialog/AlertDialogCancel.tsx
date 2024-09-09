@@ -1,11 +1,12 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Cancel } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '../../utils.js';
-import { buttonVariants } from '../Button/Button.js';
+import { cn } from '@/utils';
 
-export const AlertDialogCancel = React.forwardRef<
+import { buttonVariants } from '../Button';
+
+export const AlertDialogCancel = forwardRef<
   React.ElementRef<typeof Cancel>,
   React.ComponentPropsWithoutRef<typeof Cancel>
 >(function AlertDialogCancel({ className, ...props }, ref) {

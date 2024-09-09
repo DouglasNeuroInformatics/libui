@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as React from 'react';
 
 import type {
   FormContent,
@@ -8,18 +9,19 @@ import type {
   PartialNullableFormDataType
 } from '@douglasneuroinformatics/libui-form-types';
 import { get, set } from 'lodash-es';
-import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
-import { Button } from '../Button/Button.js';
-import { Heading } from '../Heading/Heading.js';
-import { ErrorMessage } from './ErrorMessage.js';
-import { FieldsComponent } from './FieldsComponent.js';
-import { getInitialValues } from './utils.js';
+import { useTranslation } from '@/hooks';
 
-import type { FormErrors } from './types.js';
+import { Button } from '../Button';
+import { Heading } from '../Heading';
+import { ErrorMessage } from './ErrorMessage';
+import { FieldsComponent } from './FieldsComponent';
+import { getInitialValues } from './utils';
+
+import type { FormErrors } from './types';
 
 type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>> = {
   [key: `data-${string}`]: unknown;
@@ -52,7 +54,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
-  const { i18n, t } = useTranslation('libui');
+  const { resolvedLanguage, t } = useTranslation('libui');
   const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(
@@ -117,7 +119,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   useEffect(() => {
     revalidate();
-  }, [i18n.resolvedLanguage]);
+  }, [resolvedLanguage]);
 
   return (
     <form

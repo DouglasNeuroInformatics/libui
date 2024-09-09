@@ -1,11 +1,11 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { CircleIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ContextMenuRadioItem = React.forwardRef<
+export const ContextMenuRadioItem = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
 >(function ContextMenuRadioItem({ children, className, ...props }, ref) {

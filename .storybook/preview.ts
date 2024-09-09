@@ -1,11 +1,11 @@
 import type { Preview } from '@storybook/react';
 
-import { i18n } from '../src/i18n.js';
-import theme from './theme.js';
+import { init } from '../src/i18n';
+import theme from './theme';
 
-import '../src/styles/globals.css';
+import '../src/tailwind/globals.css';
 
-await i18n.init();
+init();
 
 const preview: Preview = {
   globals: {
@@ -26,8 +26,7 @@ const preview: Preview = {
     docs: {
       theme,
       toc: true
-    },
-    i18n
+    }
   }
 };
 

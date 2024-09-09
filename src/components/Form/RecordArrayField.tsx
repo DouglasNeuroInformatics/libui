@@ -1,16 +1,17 @@
-import React, { memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
 import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import type { Simplify } from 'type-fest';
 
-import { Button } from '../Button/Button.js';
-import { Heading } from '../Heading/Heading.js';
-import { Label } from '../Label/Label.js';
-import { ScalarField } from './ScalarField.js';
+import { useTranslation } from '@/hooks';
 
-import type { BaseFieldComponentProps } from './types.js';
+import { Button } from '../Button';
+import { Heading } from '../Heading';
+import { Label } from '../Label';
+import { ScalarField } from './ScalarField';
+
+import type { BaseFieldComponentProps } from './types';
 
 export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 

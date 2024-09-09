@@ -1,19 +1,28 @@
 {
   "extends": ["@douglasneuroinformatics/tsconfig"],
   "compilerOptions": {
-    "jsx": "react",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
     "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "resolveJsonModule": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "vitest"]
   },
   "include": [
     "__mocks__/**/*",
     ".storybook/**/*",
+    "src/**/*",
     "eslint.config.js",
     "prettier.config.js",
-    "tailwind.config.js",
-    "vite.config.js",
-    "src/**/*"
+    "tailwind.config.cjs",
+    "tsup.config.mts",
+    "vite.config.mts"
   ]
 }

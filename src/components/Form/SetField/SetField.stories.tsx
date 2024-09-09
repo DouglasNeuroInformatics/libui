@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SetField } from './SetField.js';
+import { SetField } from './SetField';
 
 type Fruit = 'apple' | 'banana' | 'blueberry' | 'mango';
 

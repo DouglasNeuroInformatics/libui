@@ -1,12 +1,11 @@
-import React from 'react';
-
 import { AnimatePresence, motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
-import { useNotificationsStore } from '../../hooks/useNotificationsStore.js';
-import { Card } from '../Card/Card.js';
-import { NotificationIcon } from './NotificationIcon.js';
+import { useTranslation } from '@/hooks';
+import { useNotificationsStore } from '@/hooks/useNotificationsStore';
+
+import { Card } from '../Card';
+import { NotificationIcon } from './NotificationIcon';
 
 type NotificationHubProps = {
   /** The number of milliseconds before the notification is automatically cleared */

@@ -1,9 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 
 import type { Simplify } from 'type-fest';
 
-import { cn } from '../../utils.js';
-import { type ButtonProps, buttonVariants } from '../Button/Button.js';
+import { cn } from '@/utils';
+
+import { type ButtonProps, buttonVariants } from '../Button';
 
 export type PaginationLinkProps = Simplify<
   {

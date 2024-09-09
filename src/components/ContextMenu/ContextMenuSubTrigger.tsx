@@ -1,11 +1,11 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import { ChevronRightIcon } from 'lucide-react';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const ContextMenuSubTrigger = React.forwardRef<
+export const ContextMenuSubTrigger = forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
   {
     inset?: boolean;

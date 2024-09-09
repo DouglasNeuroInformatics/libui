@@ -44,20 +44,42 @@ pnpm install @douglasneuroinformatics/libui
 
 **tailwind.config.cjs**
 
-```javascript
-const baseConfig = require('@douglasneuroinformatics/libui/tailwind.config.cjs');
+```js
+const config = require('@douglasneuroinformatics/libui/tailwind/config');
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [...baseConfig.content, './src/**/*.{js,ts,jsx,tsx}'],
-  presets: [baseConfig]
-};
+module.exports = config({
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']
+});
+```
+
+**i18n.ts**
+
+```ts
+import { init } from '@douglasneuroinformatics/libui/i18n';
+
+import common from './common.json';
+
+declare module '@douglasneuroinformatics/libui/i18n' {
+  export namespace UserConfig {
+    export interface LanguageOptions {
+      en: true;
+      es: true;
+      fr: true;
+    }
+    export interface Translations {
+      common: typeof common;
+    }
+  }
+}
+
+init({ translations: { common } });
 ```
 
 **main.tsx**
 
 ```js
-import '@douglasneuroinformatics/libui/styles/globals.css';
+import '@douglasneuroinformatics/libui/tailwind/globals.css';
+import './i18n';
 ```
 
 ## Contributing
@@ -69,4 +91,4 @@ We welcome contributions! If you're interested in improving the library or addin
 Copyright (C) 2024 Douglas Neuroinformatics Platform
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the Apache License, Version 2.0.
+it under the terms of the Apache License 2.0.

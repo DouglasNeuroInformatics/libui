@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Item } from '@radix-ui/react-menubar';
 
-import { cn } from '../../utils.js';
+import { cn } from '@/utils';
 
-export const MenuBarItem = React.forwardRef<
+export const MenuBarItem = forwardRef<
   React.ElementRef<typeof Item>,
   {
     inset?: boolean;

@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
+import * as React from 'react';
 
 import type {
   FormDataType,
@@ -12,11 +13,11 @@ import type {
 } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 
-import { NumberRecordField } from './NumberRecordField.js';
-import { RecordArrayField } from './RecordArrayField.js';
-import { ScalarField, type ScalarFieldProps } from './ScalarField.js';
+import { NumberRecordField } from './NumberRecordField';
+import { RecordArrayField } from './RecordArrayField';
+import { ScalarField, type ScalarFieldProps } from './ScalarField';
 
-import type { FieldError, FormErrors } from './types.js';
+import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;

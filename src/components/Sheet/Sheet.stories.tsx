@@ -1,11 +1,11 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { Input } from '../Input/Input.js';
-import { Label } from '../Label/Label.js';
-import { Sheet } from './Sheet.js';
+import { Button } from '../Button';
+import { Input } from '../Input';
+import { Label } from '../Label';
+import { Sheet } from './Sheet';
 
 type Story = StoryObj<typeof Sheet>;
 
@@ -14,7 +14,7 @@ export default { component: Sheet } as Meta<typeof Sheet>;
 export const Default: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <Sheet.Trigger asChild>
           <Button variant="outline">Open</Button>
         </Sheet.Trigger>
@@ -43,7 +43,7 @@ export const Default: Story = {
             </Sheet.Close>
           </Sheet.Footer>
         </Sheet.Content>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };

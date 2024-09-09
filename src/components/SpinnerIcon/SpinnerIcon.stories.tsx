@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SpinnerIcon } from './SpinnerIcon.js';
+import { SpinnerIcon } from './SpinnerIcon';
 
 type Story = StoryObj<typeof SpinnerIcon>;
 

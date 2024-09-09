@@ -1,11 +1,12 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import { Content, Portal } from '@radix-ui/react-alert-dialog';
 
-import { cn } from '../../utils.js';
-import { AlertDialogOverlay } from './AlertDialogOverlay.js';
+import { cn } from '@/utils';
 
-export const AlertDialogContent = React.forwardRef<
+import { AlertDialogOverlay } from './AlertDialogOverlay';
+
+export const AlertDialogContent = forwardRef<
   React.ElementRef<typeof Content>,
   React.ComponentPropsWithoutRef<typeof Content>
 >(function AlertDialogContent({ className, ...props }, ref) {

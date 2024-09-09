@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Drawer as DrawerPrimitive } from 'vaul';
 
-import { DrawerContent } from './DrawerContent.js';
-import { DrawerDescription } from './DrawerDescription.js';
-import { DrawerFooter } from './DrawerFooter.js';
-import { DrawerHeader } from './DrawerHeader.js';
-import { DrawerTitle } from './DrawerTitle.js';
+import { DrawerContent } from './DrawerContent';
+import { DrawerDescription } from './DrawerDescription';
+import { DrawerFooter } from './DrawerFooter';
+import { DrawerHeader } from './DrawerHeader';
+import { DrawerTitle } from './DrawerTitle';
 
 const DrawerRoot = ({ shouldScaleBackground = true, ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
   <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />

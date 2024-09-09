@@ -1,9 +1,9 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../Button/Button.js';
-import { AlertDialog } from './AlertDialog.js';
+import { Button } from '../Button';
+import { AlertDialog } from './AlertDialog';
 
 type Story = StoryObj<typeof AlertDialog>;
 
@@ -12,7 +12,7 @@ export default { component: AlertDialog } as Meta<typeof AlertDialog>;
 export const Default: Story = {
   args: {
     children: (
-      <React.Fragment>
+      <Fragment>
         <AlertDialog.Trigger asChild>
           <Button variant="outline">Show Dialog</Button>
         </AlertDialog.Trigger>
@@ -29,7 +29,7 @@ export const Default: Story = {
             <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
           </AlertDialog.Footer>
         </AlertDialog.Content>
-      </React.Fragment>
+      </Fragment>
     )
   }
 };
