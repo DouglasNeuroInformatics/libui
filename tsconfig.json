@@ -3,6 +3,7 @@
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
+    "checkJs": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "Preserve",
@@ -20,7 +21,7 @@
     "src/**/*",
     "eslint.config.js",
     "prettier.config.js",
-    "tailwind.config.cts",
+    "tailwind.config.cjs",
     "tsup.config.mts",
     "vite.config.mts"
   ]

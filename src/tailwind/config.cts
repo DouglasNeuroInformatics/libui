@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import type { PluginsConfig } from 'tailwindcss/types/config';
 
 import fs = require('node:fs');
 import path = require('node:path');
@@ -7,7 +8,6 @@ import animate = require('tailwindcss-animate');
 import containerQueries = require('@tailwindcss/container-queries');
 import headlessui = require('@headlessui/tailwindcss');
 import plugin = require('tailwindcss/plugin');
-import type { PluginsConfig } from 'tailwindcss/types/config';
 
 const packageRoot = path.dirname(require.resolve('@douglasneuroinformatics/libui/package.json'));
 
