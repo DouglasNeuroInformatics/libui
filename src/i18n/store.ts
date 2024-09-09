@@ -8,7 +8,7 @@ import type { Language, Translations } from './types';
 type InitOptions = {
   defaultLanguage?: Language;
   fallbackLanguage?: Language;
-  translations: SetOptional<Translations, 'libui'>;
+  translations?: SetOptional<Translations, 'libui'>;
 };
 
 export type TranslationStore = {
@@ -29,7 +29,7 @@ export const translationStore = createStore<TranslationStore>((set) => ({
   translations: { libui }
 }));
 
-export const init = ({ defaultLanguage, fallbackLanguage, translations }: InitOptions) => {
+export const init = ({ defaultLanguage, fallbackLanguage, translations }: InitOptions = {}) => {
   const state = translationStore.getState();
   if (state.isInitialized) {
     console.error('Cannot reinitialize translations store');
