@@ -1,14 +1,14 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+/* eslint-disable @typescript-eslint/no-namespace */
+
 import type { OmitIndexSignature, Simplify } from 'type-fest';
 
 import type libuiTranslations from './translations/libui.json';
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export declare namespace UserConfig {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface LanguageOptions {
     [key: string]: boolean;
   }
-  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Translations {
     [key: string]:
       | {
