@@ -20,6 +20,7 @@ export default defineConfig([
     target: 'es2020'
   },
   {
+    cjsInterop: true,
     dts: true,
     entry: {
       'tailwind/config': 'src/tailwind/config.cts'
