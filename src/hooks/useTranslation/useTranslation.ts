@@ -25,12 +25,9 @@ export function useTranslation<TNamespace extends TranslationNamespace | undefin
   });
 
   const t: TranslateFunction<TNamespace> = useCallback(
-    (key) => {
-      const value = get(translations, key, key) as { [key: string]: string } | string;
-      if (typeof value === 'string') {
-        return value;
-      }
-      return value[resolvedLanguage] ?? value[fallbackLanguage] ?? key;
+    (arg) => {
+      const value = typeof arg === 'string' ? (get(translations, arg, arg) as { [key: string]: string }) : arg;
+      return value[resolvedLanguage] ?? value[fallbackLanguage];
     },
     [fallbackLanguage, resolvedLanguage, translations]
   );
