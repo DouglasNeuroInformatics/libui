@@ -44,14 +44,12 @@ pnpm install @douglasneuroinformatics/libui
 
 **tailwind.config.cjs**
 
-```javascript
-const baseConfig = require('@douglasneuroinformatics/libui/tailwind.config.cjs');
+```js
+const config = require('@douglasneuroinformatics/libui/tailwind/config');
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [...baseConfig.content, './src/**/*.{js,ts,jsx,tsx}'],
-  presets: [baseConfig]
-};
+module.exports = config({
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']
+});
 ```
 
 **main.tsx**
@@ -69,4 +67,4 @@ We welcome contributions! If you're interested in improving the library or addin
 Copyright (C) 2024 Douglas Neuroinformatics Platform
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the Apache License, Version 2.0.
+it under the terms of the Apache License 2.0.
