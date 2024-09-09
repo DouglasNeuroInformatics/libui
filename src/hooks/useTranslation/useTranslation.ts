@@ -6,11 +6,6 @@ import { useStore } from 'zustand';
 import { translationStore } from '@/i18n';
 import type { TranslateFunction, TranslationNamespace } from '@/i18n';
 
-// const { isInitialized } = translationStore.getState();
-// if (!isInitialized) {
-//   throw new Error('Cannot access useTranslation hook before i18n initialization');
-// }
-
 export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace
 ) {

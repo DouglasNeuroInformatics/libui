@@ -52,10 +52,34 @@ module.exports = config({
 });
 ```
 
+**i18n.ts**
+
+```ts
+import { init } from '@douglasneuroinformatics/libui/i18n';
+
+import common from './common.json';
+
+declare module '@douglasneuroinformatics/libui/i18n' {
+  export namespace UserConfig {
+    export interface LanguageOptions {
+      en: true;
+      es: true;
+      fr: true;
+    }
+    export interface Translations {
+      common: typeof common;
+    }
+  }
+}
+
+init({ translations: { common } });
+```
+
 **main.tsx**
 
 ```js
 import '@douglasneuroinformatics/libui/tailwind/globals.css';
+import './i18n';
 ```
 
 ## Contributing
