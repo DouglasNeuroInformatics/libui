@@ -29,7 +29,7 @@
     },
     "./package.json": "./package.json",
     "./tailwind/config": {
-      "types": "./dist/tailwind.config.d.cts",
+      "types": "./dist/tailwind/config.d.cts",
       "require": "./dist/tailwind/config.cjs"
     },
     "./tailwind/globals.css": "./dist/tailwind/globals.css",
