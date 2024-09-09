@@ -35,5 +35,7 @@ export function useTranslation<TNamespace extends TranslationNamespace | undefin
     [fallbackLanguage, resolvedLanguage, translations]
   );
 
+  console.log(resolvedLanguage);
+
   return { changeLanguage, resolvedLanguage, t };
 }
