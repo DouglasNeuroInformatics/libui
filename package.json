@@ -27,8 +27,12 @@
       "types": "./dist/hooks.d.ts",
       "import": "./dist/hooks.js"
     },
-    "./styles/*": "./dist/styles/*",
-    "./tailwind.config.cjs": "./tailwind.config.cjs",
+    "./package.json": "./package.json",
+    "./tailwind/config": {
+      "types": "./dist/tailwind.config.d.cts",
+      "require": "./dist/tailwind/config.cjs"
+    },
+    "./tailwind/globals.css": "./dist/tailwind/globals.css",
     "./utils": {
       "types": "./dist/utils.d.ts",
       "import": "./dist/utils.js"

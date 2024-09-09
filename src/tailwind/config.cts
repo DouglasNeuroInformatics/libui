@@ -8,10 +8,12 @@ import containerQueries = require('@tailwindcss/container-queries');
 import headlessui = require('@headlessui/tailwindcss');
 import plugin = require('tailwindcss/plugin');
 
-const isDev = fs.existsSync(path.resolve(__dirname, 'src'));
+const packageRoot = path.dirname(require.resolve('@douglasneuroinformatics/libui/package.json'));
+
+const isDev = fs.existsSync(path.resolve(packageRoot, 'src'));
 
 const config: Config = {
-  content: [isDev ? path.resolve(__dirname, 'src/**/*.{js,jsx,ts,tsx}') : path.resolve(__dirname, 'dist/**/*.js')],
+  content: [isDev ? path.resolve(packageRoot, 'src/**/*.{js,jsx,ts,tsx}') : path.resolve(packageRoot, 'dist/**/*.js')],
   darkMode: ['class', '[data-mode="dark"]'],
   plugins: [
     animate,
