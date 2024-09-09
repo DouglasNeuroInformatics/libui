@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.11.0...v3.0.0) (2024-09-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* v3.0
+
+### Features
+
+* v3.0 ([62087a4](https://github.com/DouglasNeuroInformatics/libui/commit/62087a4a430456e59cd46430a551586c8b7679f1))
+
 ## [2.11.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.10.0...v2.11.0) (2024-09-05)
 
 
