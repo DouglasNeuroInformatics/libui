@@ -28,7 +28,8 @@
       "import": "./dist/hooks.js"
     },
     "./i18n": {
-      "types": "./dist/i18n.d.ts"
+      "types": "./dist/i18n.d.ts",
+      "import": "./dist/i18n.js"
     },
     "./package.json": "./package.json",
     "./tailwind/config": {
