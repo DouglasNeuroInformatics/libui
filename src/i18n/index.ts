@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
-export interface LanguageOptions {
-  [key: string]: boolean;
+export declare namespace UserConfig {
+  interface AdditionalLanguages {
+    [key: string]: boolean;
+  }
+}
+
+export interface LanguageOptions extends UserConfig.AdditionalLanguages {
   en: true;
   fr: true;
 }
