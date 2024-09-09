@@ -6,27 +6,34 @@ import type { Language, Translations } from './types';
 
 type InitOptions = {
   defaultLanguage?: Language;
+  fallbackLanguage?: Language;
   translations: Translations;
 };
 
 export type TranslationStore = {
-  defaultLanguage: Language;
+  changeLanguage: (language: Language) => void;
+  fallbackLanguage: Language;
   init: (options: InitOptions) => void;
   isInitialized: boolean;
+  resolvedLanguage: Language;
   translations: Translations;
 };
 
 export const translationStore = createStore<TranslationStore>((set) => ({
-  defaultLanguage: 'en',
-  init({ defaultLanguage, translations }) {
+  changeLanguage(language) {
+    set({ resolvedLanguage: language });
+  },
+  fallbackLanguage: 'en',
+  init({ defaultLanguage, fallbackLanguage, translations }) {
     if (this.isInitialized) {
       console.error('Cannot reinitialize translations store');
       return;
     }
     set((state) => {
       return {
-        defaultLanguage: defaultLanguage,
+        fallbackLanguage,
         isInitialized: true,
+        resolvedLanguage: defaultLanguage,
         translations: {
           ...state.translations,
           ...translations
@@ -35,5 +42,6 @@ export const translationStore = createStore<TranslationStore>((set) => ({
     });
   },
   isInitialized: false,
+  resolvedLanguage: 'en',
   translations: { libui }
 }));

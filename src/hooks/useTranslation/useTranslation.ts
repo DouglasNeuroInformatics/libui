@@ -1,21 +1,34 @@
-import { useContext } from 'react';
+import { useCallback } from 'react';
 
 import { get } from 'lodash-es';
+import { useStore } from 'zustand';
 
-import { TranslationContext } from '@/context/TranslationContext';
+import { translationStore } from '@/i18n';
 import type { TranslateFunction, TranslationNamespace } from '@/i18n';
 
 export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace
 ) {
-  const ctx = useContext(TranslationContext);
-  const translations = namespace ? ctx.translations[namespace] : ctx.translations;
-  const t: TranslateFunction<TNamespace> = (key) => {
-    const value = get(translations, key, key) as { [key: string]: string } | string;
-    if (typeof value === 'string') {
-      return value;
+  const changeLanguage = useStore(translationStore, (store) => store.changeLanguage);
+  const fallbackLanguage = useStore(translationStore, (store) => store.fallbackLanguage);
+  const resolvedLanguage = useStore(translationStore, (store) => store.resolvedLanguage);
+  const translations = useStore(translationStore, (store) => {
+    if (namespace) {
+      return store.translations[namespace];
     }
-    return value[ctx.resolvedLanguage] ?? value[ctx.defaultLanguage] ?? key;
-  };
-  return { ...ctx, t };
+    return store.translations;
+  });
+
+  const t: TranslateFunction<TNamespace> = useCallback(
+    (key) => {
+      const value = get(translations, key, key) as { [key: string]: string } | string;
+      if (typeof value === 'string') {
+        return value;
+      }
+      return value[resolvedLanguage] ?? value[fallbackLanguage] ?? key;
+    },
+    [fallbackLanguage, resolvedLanguage, translations]
+  );
+
+  return { changeLanguage, resolvedLanguage, t };
 }
