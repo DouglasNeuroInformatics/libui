@@ -27,6 +27,9 @@
       "types": "./dist/hooks.d.ts",
       "import": "./dist/hooks.js"
     },
+    "./i18n": {
+      "types": "./dist/i18n.d.ts"
+    },
     "./package.json": "./package.json",
     "./tailwind/config": {
       "types": "./dist/tailwind/config.d.cts",
