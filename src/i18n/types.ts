@@ -45,7 +45,7 @@ export type TranslationKey<TNamespace> = TNamespace extends TranslationNamespace
   ? ExtractTranslationKey<Translations[TNamespace]>
   : ExtractTranslationKey<Translations>;
 
-export interface TranslateFunction<TNamespace> {
+export interface TranslateFunction<TNamespace = undefined> {
   (key: TranslationKey<TNamespace>): string;
   (translations: { [L in Language]: string }): string;
 }
