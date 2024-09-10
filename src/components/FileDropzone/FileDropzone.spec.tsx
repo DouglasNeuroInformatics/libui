@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { FileDropzone } from './FileDropzone';
 
 describe('FileDropzone', () => {
-  const testfile = new File([new Blob()], 'testfile.txt');
+  const testfile = new File([new Blob()], 'testfile.csv');
   it('should render', () => {
     render(
       <FileDropzone
@@ -25,7 +25,7 @@ describe('FileDropzone', () => {
         }}
       />
     );
-    expect(screen.getByText('testfile.txt')).toBeInTheDocument();
+    expect(screen.getByText('testfile.csv')).toBeInTheDocument();
   });
   it('drag active should work', () => {
     render(
@@ -45,6 +45,12 @@ describe('FileDropzone', () => {
       }
     });
 
-    expect(screen.getByText('File to upload')).toBeInTheDocument();
+    fireEvent.drop(fileDropzoneElement, {
+      dataTransfer: {
+        files: [testfile]
+      }
+    });
+
+    expect(screen.getByText('testfile.csv')).toBeInTheDocument();
   });
 });
