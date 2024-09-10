@@ -39,7 +39,7 @@ describe('FileDropzone', () => {
 
     const fileDropzoneElement = screen.getByText("Drag'n'drop files or click on box to upload");
 
-    fireEvent.dragEnter(fileDropzoneElement, {
+    fireEvent.dragOver(fileDropzoneElement, {
       dataTransfer: {
         files: [testfile]
       }
