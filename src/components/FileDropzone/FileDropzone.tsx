@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 
 import { type FileRejection, useDropzone } from 'react-dropzone';
-import { useTranslation } from 'react-i18next';
+
+import { useTranslation } from '@/hooks/useTranslation';
 
 export type FileDropzoneProps = {
   file: File | null;
@@ -9,7 +10,7 @@ export type FileDropzoneProps = {
 };
 
 export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
-  const { t } = useTranslation('libui');
+  const { t } = useTranslation();
 
   const handleDrop = useCallback(
     (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
@@ -32,7 +33,17 @@ export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
   return (
     <div {...getRootProps()}>
       <p className="mt-1 border border-dashed p-4 text-center text-sm">
-        {file ? file.name : isDragActive ? t('fileDropzone.fileToUpload') : t('fileDropzone.dropHere')}
+        {file
+          ? file.name
+          : isDragActive
+            ? t({
+                en: 'File to upload',
+                fr: 'fichier à télécharger'
+              })
+            : t({
+                en: "Drag'n'drop files or click on box to upload",
+                fr: 'Glissez-déposez les fichiers ou cliquez sur la case pour les télécharger'
+              })}
       </p>
 
       <input {...getInputProps()} />

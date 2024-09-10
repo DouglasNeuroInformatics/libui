@@ -150,15 +150,5 @@
       "en": "Search...",
       "fr": "Rechercher..."
     }
-  },
-  "fileDropzone": {
-    "fileToUpload": {
-      "en": "File to upload",
-      "fr": "fichier à télécharger"
-    },
-    "dropHere": {
-      "en": "Drag'n'drop files or click on box to upload",
-      "fr": "Glissez-déposez les fichiers ou cliquez sur la case pour les télécharger"
-    }
   }
 }
