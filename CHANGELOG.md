@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.0.0...v3.0.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* export i18n ([66b550e](https://github.com/DouglasNeuroInformatics/libui/commit/66b550e4bb43831986dce0d62936dc438ffcf39a))
+
 ## [3.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.11.0...v3.0.0) (2024-09-09)
 
 
