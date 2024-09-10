@@ -1,11 +1,11 @@
 import type { Preview } from '@storybook/react';
 
-import { init } from '../src/i18n';
+import { i18n } from '../src/i18n';
 import theme from './theme';
 
 import '../src/tailwind/globals.css';
 
-init();
+i18n.init();
 
 const preview: Preview = {
   globals: {

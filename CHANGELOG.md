@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.0.1...v3.1.0) (2024-09-10)
+
+
+### Features
+
+* accept args in translate ([01f6d57](https://github.com/DouglasNeuroInformatics/libui/commit/01f6d57e508ab4dfc54e2c151252a443a6f0ad81))
+
+## [3.0.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.0.0...v3.0.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* export i18n ([66b550e](https://github.com/DouglasNeuroInformatics/libui/commit/66b550e4bb43831986dce0d62936dc438ffcf39a))
+
 ## [3.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v2.11.0...v3.0.0) (2024-09-09)
 
 

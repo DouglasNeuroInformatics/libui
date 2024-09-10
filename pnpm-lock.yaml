@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       '@douglasneuroinformatics/libjs':
-        specifier: ^0.6.0
-        version: 0.6.0(typescript@5.5.4)
+        specifier: ^0.7.0
+        version: 0.7.0(typescript@5.5.4)
       '@douglasneuroinformatics/libui-form-types':
         specifier: ^0.11.0
         version: 0.11.0
@@ -1138,9 +1138,9 @@ packages:
       typescript:
         optional: true
 
-  '@douglasneuroinformatics/libjs@0.6.0':
+  '@douglasneuroinformatics/libjs@0.7.0':
     resolution:
-      { integrity: sha512-TEWc4/KUv2eiC4tN1enMnTTmRlZyBjFxQYsPR42RjCV+9KhkhfZYNZjRMLAc7NnO6q+HoeR/Ul5wVrPGHtI+0A== }
+      { integrity: sha512-zFyydv9nwLbqx2yABELL5eTyYMNqIts2W5yMlqTLF82IFH6inQBfSuVDhX7PjZWekeVmNHoiNdK9Pm1rFE7pew== }
     peerDependencies:
       typescript: ^5.1.0
 
@@ -9320,7 +9320,7 @@ snapshots:
       - ts-node
       - vue-eslint-parser
 
-  '@douglasneuroinformatics/libjs@0.6.0(typescript@5.5.4)':
+  '@douglasneuroinformatics/libjs@0.7.0(typescript@5.5.4)':
     dependencies:
       type-fest: 4.26.0
       typescript: 5.5.4

@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 
-import { get } from 'lodash-es';
 import { useStore } from 'zustand';
 
 import { translationStore } from '@/i18n';
 import type { TranslateFunction, TranslationNamespace } from '@/i18n';
+import { getTranslation } from '@/i18n/internal';
 
 export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace
@@ -20,9 +20,8 @@ export function useTranslation<TNamespace extends TranslationNamespace | undefin
   });
 
   const t: TranslateFunction<TNamespace> = useCallback(
-    (arg) => {
-      const value = typeof arg === 'string' ? (get(translations, arg, arg) as { [key: string]: string }) : arg;
-      return value[resolvedLanguage] ?? value[fallbackLanguage];
+    (target, ...args) => {
+      return getTranslation(target, { fallbackLanguage, resolvedLanguage, translations }, ...args);
     },
     [fallbackLanguage, resolvedLanguage, translations]
   );
