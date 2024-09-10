@@ -20,6 +20,7 @@ export * from './DropdownButton';
 export * from './DropdownMenu';
 export * from './ErrorBoundary';
 export * from './ErrorFallback';
+export * from './FileDropzone';
 export * from './Form';
 export * from './Heading';
 export * from './HoverCard';
