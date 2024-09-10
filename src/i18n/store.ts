@@ -1,8 +1,9 @@
-import { get } from 'lodash-es';
 import type { SetOptional } from 'type-fest';
 import { createStore } from 'zustand/vanilla';
 
 import libui from '@/i18n/translations/libui.json';
+
+import { getTranslation } from './internal';
 
 import type { Language, TranslateFunction, Translations } from './types';
 
@@ -52,9 +53,8 @@ export const i18n: I18N = {
       }
     });
   },
-  t: (arg) => {
-    const { fallbackLanguage, resolvedLanguage, translations } = translationStore.getState();
-    const value = typeof arg === 'string' ? (get(translations, arg, arg) as { [key: string]: string }) : arg;
-    return value[resolvedLanguage] ?? value[fallbackLanguage];
+  t: (target, ...args) => {
+    const state = translationStore.getState();
+    return getTranslation(target, state, ...args);
   }
 };

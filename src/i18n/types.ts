@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-namespace */
 
-import type { OmitIndexSignature, Simplify } from 'type-fest';
+import type { OmitIndexSignature, Primitive, Simplify } from 'type-fest';
 
 import type libuiTranslations from './translations/libui.json';
 
@@ -46,6 +46,6 @@ export type TranslationKey<TNamespace> = TNamespace extends TranslationNamespace
   : ExtractTranslationKey<Translations>;
 
 export interface TranslateFunction<TNamespace = undefined> {
-  (key: TranslationKey<TNamespace>): string;
-  (translations: { [L in Language]: string }): string;
+  (key: TranslationKey<TNamespace>, ...args: Exclude<Primitive, symbol>[]): string;
+  (translations: { [L in Language]: string }, ...args: Exclude<Primitive, symbol>[]): string;
 }
