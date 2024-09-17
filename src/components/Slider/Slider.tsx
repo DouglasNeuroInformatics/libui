@@ -16,12 +16,14 @@ export const Slider = forwardRef<React.ElementRef<typeof Root>, React.ComponentP
         <Track
           aria-disabled={disabled}
           className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary opacity-15 aria-disabled:cursor-not-allowed aria-disabled:opacity-10"
+          data-testid="slider-track"
         >
           <Range className="absolute h-full bg-primary" />
         </Track>
         <Thumb
           aria-disabled={disabled}
           className="block h-4 w-4 rounded-full border border-slate-500 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring aria-disabled:cursor-not-allowed"
+          data-testid="slider-thumb"
         />
       </Root>
     );
