@@ -53,6 +53,7 @@ export type ClientTableColumnProps<T extends ClientTableEntry> = {
 };
 
 export type ClientTableProps<T extends ClientTableEntry> = {
+  [key: `data-${string}`]: unknown;
   className?: string;
   columnDropdownOptions?: ClientTableDropdownOptions<T>;
   columns: ClientTableColumn<T>[];
@@ -71,7 +72,8 @@ export const ClientTable = <T extends ClientTableEntry>({
   entriesPerPage = 10,
   minRows,
   noWrap,
-  onEntryClick
+  onEntryClick,
+  ...props
 }: ClientTableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -83,7 +85,7 @@ export const ClientTable = <T extends ClientTableEntry>({
   const nRows = Math.max(currentEntries.length, minRows ?? -1);
 
   return (
-    <div className={className}>
+    <div className={className} {...props}>
       <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow-sm">
         <Table>
           <Table.Header>
