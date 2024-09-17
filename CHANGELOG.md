@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.3...v3.1.4) (2024-09-17)
+
+
+### Bug Fixes
+
+* pass through data props to action dropdown ([ed1b5e6](https://github.com/DouglasNeuroInformatics/libui/commit/ed1b5e6a3642e95d314d450d4b70a6da7f084290))
+
 ## [3.1.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.2...v3.1.3) (2024-09-17)
 
 
