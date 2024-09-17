@@ -38,7 +38,7 @@ export const StringFieldSelect = <T extends string = string>({
         </Select.Trigger>
         <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>
           {Object.keys(options).map((option) => (
-            <Select.Item key={option} value={option}>
+            <Select.Item data-cy={`${name}-select-item`} key={option} value={option}>
               {options[option as T]}
             </Select.Item>
           ))}
