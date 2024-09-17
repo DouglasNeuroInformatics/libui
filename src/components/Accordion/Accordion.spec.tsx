@@ -5,8 +5,8 @@ import { Accordion } from './Accordion';
 
 const TEST_ID = 'accordion';
 
-const TestAccordion = () => (
-  <Accordion collapsible type="single">
+const TestAccordion: React.FC<{ [key: string]: any }> = (props) => (
+  <Accordion collapsible type="single" {...props}>
     <Accordion.Item value="item-1">
       <Accordion.Trigger>T1</Accordion.Trigger>
       <Accordion.Content>C1</Accordion.Content>
@@ -19,16 +19,17 @@ describe('Accordion', () => {
     render(<TestAccordion />);
     expect(screen.getByTestId(TEST_ID)).toBeDefined();
   });
+  it('should include custom data attributes', () => {
+    render(<TestAccordion data-foo="bar" />);
+    expect(screen.getByTestId(TEST_ID)).toHaveAttribute('data-foo', 'bar');
+  });
   it('should open and close an item', () => {
     render(<TestAccordion />);
-
     const toggle = screen.getByText('T1');
     expect(toggle).toBeInTheDocument();
     expect(() => screen.getByText('C1')).toThrow();
-
     fireEvent.click(toggle);
     expect(screen.getByText('C1')).toBeInTheDocument();
-
     fireEvent.click(toggle);
     expect(() => screen.getByText('C1')).toThrow();
   });
