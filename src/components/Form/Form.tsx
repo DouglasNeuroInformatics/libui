@@ -167,19 +167,12 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       )}
       <div className="flex w-full gap-3">
         {/** Note - aria-label is used for testing in downstream packages */}
-        <Button
-          aria-label="Submit Button"
-          className="block w-full"
-          data-cy="submit-form"
-          disabled={readOnly}
-          type="submit"
-          variant="primary"
-        >
+        <Button aria-label="Submit" className="block w-full" disabled={readOnly} type="submit" variant="primary">
           {submitBtnLabel ?? t('form.submit')}
         </Button>
         {resetBtn && (
           <Button
-            aria-label="Reset Button"
+            aria-label="Reset"
             className="block w-full"
             disabled={readOnly}
             type="button"
