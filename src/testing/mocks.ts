@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { vi } from 'vitest';
 
 /**
@@ -50,4 +51,12 @@ export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
   Object.defineProperty(window, name, {
     value: new StorageMock()
   });
+};
+
+export const mockTranslationStore = () => {
+  vi.mock('@/hooks/useTranslation', () => ({
+    useTranslation: () => ({
+      t: () => faker.word.sample()
+    })
+  }));
 };
