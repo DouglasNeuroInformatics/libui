@@ -119,6 +119,7 @@
     "@douglasneuroinformatics/prettier-config": "^0.0.1",
     "@douglasneuroinformatics/semantic-release": "^0.0.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.2",
+    "@faker-js/faker": "^9.0.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
