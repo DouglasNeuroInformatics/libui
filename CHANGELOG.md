@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.0...v3.1.1) (2024-09-17)
+
+
+### Bug Fixes
+
+* add data-cy prop for select item ([6f00959](https://github.com/DouglasNeuroInformatics/libui/commit/6f009592b5f5e8c37e3d631fb67fab115074e6de))
+
 ## [3.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.0.1...v3.1.0) (2024-09-10)
 
 

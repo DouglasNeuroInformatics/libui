@@ -1,7 +1,7 @@
 {
   "name": "@douglasneuroinformatics/libui",
   "type": "module",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "packageManager": "pnpm@9.3.0",
   "description": "Generic UI components for DNP projects, built using React and Tailwind CSS",
   "author": "Joshua Unrau",
