@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.2...v3.1.3) (2024-09-17)
+
+
+### Bug Fixes
+
+* allow passing data props to client table ([d9ff83e](https://github.com/DouglasNeuroInformatics/libui/commit/d9ff83ecca210e8e2f7bdb8b16546f845a883a40))
+
 ## [3.1.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.1...v3.1.2) (2024-09-17)
 
 
