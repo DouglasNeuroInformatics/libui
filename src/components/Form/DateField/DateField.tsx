@@ -43,7 +43,6 @@ export const DateField = ({ disabled, error, label, name, readOnly, setValue, va
         <Popover.Trigger>
           <Input
             autoComplete="off"
-            data-cy="date-input"
             data-testid="date-input"
             disabled={disabled || readOnly}
             name={name}

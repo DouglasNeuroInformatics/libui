@@ -30,19 +30,15 @@ export const NumberFieldSelect = <T extends number = number>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value?.toString() ?? ''} onValueChange={(value) => setValue(parseFloat(value) as T)}>
-        <Select.Trigger
-          data-cy={`${name}-select-trigger`}
-          data-testid={`${name}-select-trigger`}
-          disabled={disabled || readOnly}
-        >
+        <Select.Trigger data-testid={`${name}-select-trigger`} disabled={disabled || readOnly}>
           <Select.Value />
         </Select.Trigger>
-        <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>
+        <Select.Content data-testid={`${name}-select-content`}>
           {Object.keys(options).map((option) => {
             // Option needs to be type number (this was a design flaw), but is actually always coerced to string anyways
             const text = (disableAutoPrefix ? '' : `${option} - `) + options[option as any as T];
             return (
-              <Select.Item data-cy={`${name}-select-item-${option}`} key={option} value={option}>
+              <Select.Item data-testid={`${name}-select-item-${option}`} key={option} value={option}>
                 {text}
               </Select.Item>
             );
