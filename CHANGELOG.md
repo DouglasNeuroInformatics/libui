@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.4...v3.1.5) (2024-09-17)
+
+
+### Bug Fixes
+
+* add slider props ([1a5e64c](https://github.com/DouglasNeuroInformatics/libui/commit/1a5e64ce4055a64f7c38b6236f6e20c79df2adda))
+
 ## [3.1.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.3...v3.1.4) (2024-09-17)
 
 
