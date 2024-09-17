@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.1...v3.1.2) (2024-09-17)
+
+
+### Bug Fixes
+
+* add option to data-cy in select field ([a0b03f4](https://github.com/DouglasNeuroInformatics/libui/commit/a0b03f42d82f4c5d8bd000ac8455b57001970a92))
+
 ## [3.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.0...v3.1.1) (2024-09-17)
 
 
