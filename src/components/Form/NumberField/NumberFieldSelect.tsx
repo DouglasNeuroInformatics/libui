@@ -42,7 +42,7 @@ export const NumberFieldSelect = <T extends number = number>({
             // Option needs to be type number (this was a design flaw), but is actually always coerced to string anyways
             const text = (disableAutoPrefix ? '' : `${option} - `) + options[option as any as T];
             return (
-              <Select.Item data-cy={`${name}-select-item`} key={option} value={option}>
+              <Select.Item data-cy={`${name}-select-item-${option}`} key={option} value={option}>
                 {text}
               </Select.Item>
             );
