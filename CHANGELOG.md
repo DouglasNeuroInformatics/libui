@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.5...v3.2.0) (2024-09-18)
+
+
+### Features
+
+* add useLocalStorage ([74a0a75](https://github.com/DouglasNeuroInformatics/libui/commit/74a0a7599216ee9e26e856fd27c655cc530c82bf))
+
 ## [3.1.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.4...v3.1.5) (2024-09-17)
 
 
