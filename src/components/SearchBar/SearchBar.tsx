@@ -6,8 +6,11 @@ import { cn } from '@/utils';
 import { Input } from '../Input';
 
 export type BaseSearchBarProps = {
+  [key: `data-${string}`]: unknown;
   /** Additional CSS classes to add to the wrapper form component, potentially overriding default styling */
   className?: string;
+  /** The ID to pass to the HTMLFormElement  */
+  id?: string;
   /** An optional callback invoked when the user clicks the search bar */
   onClick?: () => void;
   /** Custom placeholder to use instead of the default */
@@ -30,10 +33,18 @@ type UncontrolledSearchBarProps = {
 
 export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 
-export const SearchBar = ({ className, onClick, onValueChange, placeholder, readOnly, value }: SearchBarProps) => {
+export const SearchBar = ({
+  className,
+  onClick,
+  onValueChange,
+  placeholder,
+  readOnly,
+  value,
+  ...props
+}: SearchBarProps) => {
   const { t } = useTranslation('libui');
   return (
-    <form className={cn('relative', className)}>
+    <form className={cn('relative', className)} {...props}>
       <SearchIcon className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
       <Input
         className="pl-8"
