@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.2.0...v3.3.0) (2024-09-20)
+
+
+### Features
+
+* add tailwind theme extend feature ([6c342dd](https://github.com/DouglasNeuroInformatics/libui/commit/6c342dd9062cf7e033d519020c1c6bcf79c15660))
+
+
+### Bug Fixes
+
+* add data props ([80b20d9](https://github.com/DouglasNeuroInformatics/libui/commit/80b20d9e10cbdf45746443d06d2510003c008834))
+
 ## [3.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.5...v3.2.0) (2024-09-18)
 
 
