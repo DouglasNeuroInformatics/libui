@@ -27,6 +27,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   [key: `data-${string}`]: unknown;
   className?: string;
   content: FormContent<TData>;
+  fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<TData>;
   onError?: (error: z.ZodError<TData>) => void;
@@ -42,6 +43,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   className,
   content,
+  fieldsFooter,
   id,
   initialValues,
   onError,
@@ -165,6 +167,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           values={values}
         />
       )}
+      {fieldsFooter}
       <div className="flex w-full gap-3">
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button aria-label="Submit" className="block w-full" disabled={readOnly} type="submit" variant="primary">
