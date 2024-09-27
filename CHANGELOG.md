@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.0...v3.4.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* use flex for field group ([cf4d0fc](https://github.com/DouglasNeuroInformatics/libui/commit/cf4d0fcc5865ef51d916d666ffd965875583666c))
+
 ## [3.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.3.0...v3.4.0) (2024-09-27)
 
 
