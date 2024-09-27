@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.3.0...v3.4.0) (2024-09-27)
+
+
+### Features
+
+* add data-field-group prop to form ([5712a35](https://github.com/DouglasNeuroInformatics/libui/commit/5712a354f3680d9451521fe06e1915c7b993e3ed))
+* add fieldsFooter option ([05e3999](https://github.com/DouglasNeuroInformatics/libui/commit/05e399998e3a02f0138862c269fee3914058ec49))
+
 ## [3.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.2.0...v3.3.0) (2024-09-20)
 
 
