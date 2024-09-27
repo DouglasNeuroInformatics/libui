@@ -37,7 +37,7 @@ export const DateField = ({ disabled, error, label, name, readOnly, setValue, va
   }, [value]);
 
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <Label htmlFor={name}>{label}</Label>
       <Popover open={isDatePickerOpen} onOpenChange={setIsDatePickerOpen}>
         <Popover.Trigger>

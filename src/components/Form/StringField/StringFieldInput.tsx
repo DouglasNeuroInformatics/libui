@@ -22,7 +22,7 @@ export const StringFieldInput = ({
   value
 }: StringFieldInputProps) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />

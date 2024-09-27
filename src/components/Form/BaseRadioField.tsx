@@ -43,7 +43,7 @@ export const BaseRadioField = <T extends string>({
 }: BaseRadioFieldProps<T>) => {
   const optionsCount = Object.keys(options).length;
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

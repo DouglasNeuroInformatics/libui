@@ -23,7 +23,7 @@ export const StringFieldSelect = <T extends string = string>({
   value
 }: StringFieldSelectProps<T>) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

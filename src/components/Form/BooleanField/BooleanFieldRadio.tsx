@@ -47,7 +47,7 @@ export const BooleanFieldRadio = ({
   );
 
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <Label>{label}</Label>
       <RadioGroup
         disabled={disabled || readOnly}

@@ -24,7 +24,7 @@ export const NumberFieldSelect = <T extends number = number>({
   value
 }: NumberFieldSelectProps<T>) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

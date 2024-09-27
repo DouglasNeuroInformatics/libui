@@ -21,7 +21,7 @@ export const SetFieldListbox = <T extends string = string>({
   value
 }: SetFieldListboxProps<T>) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

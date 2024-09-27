@@ -28,7 +28,7 @@ export const NumberFieldRadio = ({
   const optionsCount = Object.keys(options).length;
 
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />
