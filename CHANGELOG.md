@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.1...v3.4.2) (2024-09-30)
+
+
+### Bug Fixes
+
+* issue where ActionDropdown is not disabled ([9a8e2ce](https://github.com/DouglasNeuroInformatics/libui/commit/9a8e2ce3d5bea46b822037b6a0f4e6aa7574af9e))
+
 ## [3.4.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.0...v3.4.1) (2024-09-27)
 
 
