@@ -55,10 +55,8 @@ export function ActionDropdown<const T extends ActionDropdownOptions>({
   return (
     <DropdownMenu>
       <div className={cn('w-full', className)} {...props}>
-        <DropdownMenu.Trigger asChild>
-          <DropdownButton className={triggerClassName} disabled={disabled}>
-            {title}
-          </DropdownButton>
+        <DropdownMenu.Trigger asChild disabled={disabled}>
+          <DropdownButton className={triggerClassName}>{title}</DropdownButton>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content align={align} className={contentClassName} widthFull={widthFull}>
           <DropdownMenu.Group>
