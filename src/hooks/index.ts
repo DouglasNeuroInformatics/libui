@@ -6,7 +6,7 @@ export * from './useIsomorphicLayoutEffect';
 export * from './useMediaQuery';
 export * from './useNotificationsStore';
 export * from './useOnClickOutside';
-export * from './useSessionStorage';
+export * from './useStorage';
 export * from './useTheme';
 export * from './useTranslation';
 export * from './useWindowSize';

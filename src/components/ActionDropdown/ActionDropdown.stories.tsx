@@ -15,3 +15,14 @@ export const Default: Story = {
     title: 'Action Dropdown'
   }
 };
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    onSelection(option) {
+      alert(option);
+    },
+    options: ['Option 1', 'Option 2'],
+    title: 'Action Dropdown'
+  }
+};

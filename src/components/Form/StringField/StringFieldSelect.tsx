@@ -23,22 +23,18 @@ export const StringFieldSelect = <T extends string = string>({
   value
 }: StringFieldSelectProps<T>) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Select name={name} value={value ?? ''} onValueChange={(value: T) => setValue(value)}>
-        <Select.Trigger
-          data-cy={`${name}-select-trigger`}
-          data-testid={`${name}-select-trigger`}
-          disabled={disabled || readOnly}
-        >
+        <Select.Trigger data-testid={`${name}-select-trigger`} disabled={disabled || readOnly}>
           <Select.Value />
         </Select.Trigger>
-        <Select.Content data-cy={`${name}-select-content`} data-testid={`${name}-select-content`}>
+        <Select.Content data-testid={`${name}-select-content`}>
           {Object.keys(options).map((option) => (
-            <Select.Item key={option} value={option}>
+            <Select.Item data-testid={`${name}-select-item-${option}`} key={option} value={option}>
               {options[option as T]}
             </Select.Item>
           ))}

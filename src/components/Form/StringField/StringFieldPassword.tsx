@@ -37,7 +37,7 @@ export const StringFieldPassword = ({
   }, [value]);
 
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />

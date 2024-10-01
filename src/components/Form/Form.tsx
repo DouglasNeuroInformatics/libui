@@ -27,6 +27,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   [key: `data-${string}`]: unknown;
   className?: string;
   content: FormContent<TData>;
+  fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<TData>;
   onError?: (error: z.ZodError<TData>) => void;
@@ -42,6 +43,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   className,
   content,
+  fieldsFooter,
   id,
   initialValues,
   onError,
@@ -133,7 +135,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
-            <div className="space-y-6 [&:not(:first-child)]:pt-8" key={i}>
+            <div className="flex flex-col space-y-6 [&:not(:first-child)]:pt-8" key={i}>
               <div className="space-y-1">
                 {fieldGroup.title && (
                   <Heading className="text-base" variant="h4">
@@ -165,21 +167,15 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           values={values}
         />
       )}
+      {fieldsFooter}
       <div className="flex w-full gap-3">
         {/** Note - aria-label is used for testing in downstream packages */}
-        <Button
-          aria-label="Submit Button"
-          className="block w-full"
-          data-cy="submit-form"
-          disabled={readOnly}
-          type="submit"
-          variant="primary"
-        >
+        <Button aria-label="Submit" className="block w-full" disabled={readOnly} type="submit" variant="primary">
           {submitBtnLabel ?? t('form.submit')}
         </Button>
         {resetBtn && (
           <Button
-            aria-label="Reset Button"
+            aria-label="Reset"
             className="block w-full"
             disabled={readOnly}
             type="button"

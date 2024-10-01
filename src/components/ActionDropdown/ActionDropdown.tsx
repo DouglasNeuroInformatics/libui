@@ -1,3 +1,5 @@
+import { cn } from '@/utils';
+
 import { DropdownButton } from '../DropdownButton';
 import { DropdownMenu } from '../DropdownMenu';
 
@@ -12,7 +14,11 @@ type ActionDropdownOptionKey<T> = T extends readonly string[]
     : never;
 
 export type ActionDropdownProps<T extends ActionDropdownOptions> = {
+  [key: `data-${string}`]: unknown;
+
   align?: DropdownMenuContentProps['align'];
+
+  className?: string;
 
   contentClassName?: string;
 
@@ -35,22 +41,22 @@ export type ActionDropdownProps<T extends ActionDropdownOptions> = {
 // eslint-disable-next-line react/function-component-definition
 export function ActionDropdown<const T extends ActionDropdownOptions>({
   align = 'start',
+  className,
   contentClassName,
   disabled,
   onSelection,
   options,
   title,
   triggerClassName,
-  widthFull
+  widthFull,
+  ...props
 }: ActionDropdownProps<T>) {
   const optionKeys: readonly string[] = options instanceof Array ? options : Object.keys(options);
   return (
     <DropdownMenu>
-      <div className="w-full">
-        <DropdownMenu.Trigger asChild>
-          <DropdownButton className={triggerClassName} disabled={disabled}>
-            {title}
-          </DropdownButton>
+      <div className={cn('w-full', className)} {...props}>
+        <DropdownMenu.Trigger asChild disabled={disabled}>
+          <DropdownButton className={triggerClassName}>{title}</DropdownButton>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content align={align} className={contentClassName} widthFull={widthFull}>
           <DropdownMenu.Group>

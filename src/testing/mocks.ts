@@ -1,4 +1,7 @@
+import { faker } from '@faker-js/faker';
 import { vi } from 'vitest';
+
+import type { StorageName } from '@/hooks';
 
 /**
  * Mocks the matchMedia API
@@ -21,12 +24,9 @@ export const mockMatchMedia = (matches: ((query: string) => boolean) | boolean):
 
 /**
  * Mocks the Storage API
- * @param {'localStorage' | 'sessionStorage'} name - The name of the storage to mock
- * @example
- * mockStorage('localStorage')
- * // Then use window.localStorage as usual (it will be mocked)
+ * @param name - The name of the storage to mock
  */
-export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
+export const mockStorage = (name: StorageName): void => {
   class StorageMock implements Omit<Storage, 'key' | 'length'> {
     store: { [key: string]: string } = {};
 
@@ -50,4 +50,12 @@ export const mockStorage = (name: 'localStorage' | 'sessionStorage'): void => {
   Object.defineProperty(window, name, {
     value: new StorageMock()
   });
+};
+
+export const mockTranslationStore = () => {
+  vi.mock('@/hooks/useTranslation', () => ({
+    useTranslation: () => ({
+      t: () => faker.word.sample()
+    })
+  }));
 };

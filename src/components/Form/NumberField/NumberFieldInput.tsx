@@ -51,7 +51,7 @@ export const NumberFieldInput = ({
   };
 
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

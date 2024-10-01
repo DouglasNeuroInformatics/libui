@@ -22,7 +22,7 @@ export const BooleanFieldCheckbox = ({
   value
 }: BooleanFieldCheckboxProps) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Checkbox
           checked={value}

@@ -16,13 +16,14 @@ export const SetFieldSelect = <T extends string = string>({
   disabled,
   error,
   label,
+  name,
   onCheckedChange,
   options,
   readOnly,
   value
 }: SetFieldSelectProps<T>) => {
   return value ? (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

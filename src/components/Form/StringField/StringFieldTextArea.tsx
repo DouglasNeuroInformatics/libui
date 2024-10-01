@@ -22,7 +22,7 @@ export const StringFieldTextArea = ({
   value
 }: StringFieldTextAreaProps) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label htmlFor={name}>{label}</Label>
         <FieldGroup.Description description={description} />

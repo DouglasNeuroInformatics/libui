@@ -1,8 +1,8 @@
 {
   "name": "@douglasneuroinformatics/libui",
   "type": "module",
-  "version": "3.1.0",
-  "packageManager": "pnpm@9.3.0",
+  "version": "3.4.2",
+  "packageManager": "pnpm@9.11.0",
   "description": "Generic UI components for DNP projects, built using React and Tailwind CSS",
   "author": "Joshua Unrau",
   "license": "Apache-2.0",
@@ -120,6 +120,7 @@
     "@douglasneuroinformatics/prettier-config": "^0.0.1",
     "@douglasneuroinformatics/semantic-release": "^0.0.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.2",
+    "@faker-js/faker": "^9.0.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",

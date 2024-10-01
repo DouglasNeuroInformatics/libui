@@ -25,7 +25,7 @@ export const NumberFieldSlider = ({
   value
 }: NumberFieldSliderProps) => {
   return (
-    <FieldGroup>
+    <FieldGroup name={name}>
       <FieldGroup.Row>
         <Label>{label}</Label>
         <FieldGroup.Description description={description} />

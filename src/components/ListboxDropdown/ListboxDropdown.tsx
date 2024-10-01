@@ -47,7 +47,7 @@ export const ListboxDropdown = <T extends ListboxDropdownOption>({
             <DropdownMenu.CheckboxItem
               checked={checked}
               className="flex w-full items-center whitespace-nowrap bg-slate-50 p-2 text-sm hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
-              data-cy="select-dropdown-option"
+              data-testid="select-dropdown-option"
               key={option.key}
               onSelect={(event) => {
                 event.preventDefault();

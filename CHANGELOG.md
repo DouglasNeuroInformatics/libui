@@ -1,5 +1,81 @@
 # Changelog
 
+## [3.4.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.1...v3.4.2) (2024-09-30)
+
+
+### Bug Fixes
+
+* issue where ActionDropdown is not disabled ([9a8e2ce](https://github.com/DouglasNeuroInformatics/libui/commit/9a8e2ce3d5bea46b822037b6a0f4e6aa7574af9e))
+
+## [3.4.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.0...v3.4.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* use flex for field group ([cf4d0fc](https://github.com/DouglasNeuroInformatics/libui/commit/cf4d0fcc5865ef51d916d666ffd965875583666c))
+
+## [3.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.3.0...v3.4.0) (2024-09-27)
+
+
+### Features
+
+* add data-field-group prop to form ([5712a35](https://github.com/DouglasNeuroInformatics/libui/commit/5712a354f3680d9451521fe06e1915c7b993e3ed))
+* add fieldsFooter option ([05e3999](https://github.com/DouglasNeuroInformatics/libui/commit/05e399998e3a02f0138862c269fee3914058ec49))
+
+## [3.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.2.0...v3.3.0) (2024-09-20)
+
+
+### Features
+
+* add tailwind theme extend feature ([6c342dd](https://github.com/DouglasNeuroInformatics/libui/commit/6c342dd9062cf7e033d519020c1c6bcf79c15660))
+
+
+### Bug Fixes
+
+* add data props ([80b20d9](https://github.com/DouglasNeuroInformatics/libui/commit/80b20d9e10cbdf45746443d06d2510003c008834))
+
+## [3.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.5...v3.2.0) (2024-09-18)
+
+
+### Features
+
+* add useLocalStorage ([74a0a75](https://github.com/DouglasNeuroInformatics/libui/commit/74a0a7599216ee9e26e856fd27c655cc530c82bf))
+
+## [3.1.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.4...v3.1.5) (2024-09-17)
+
+
+### Bug Fixes
+
+* add slider props ([1a5e64c](https://github.com/DouglasNeuroInformatics/libui/commit/1a5e64ce4055a64f7c38b6236f6e20c79df2adda))
+
+## [3.1.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.3...v3.1.4) (2024-09-17)
+
+
+### Bug Fixes
+
+* pass through data props to action dropdown ([ed1b5e6](https://github.com/DouglasNeuroInformatics/libui/commit/ed1b5e6a3642e95d314d450d4b70a6da7f084290))
+
+## [3.1.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.2...v3.1.3) (2024-09-17)
+
+
+### Bug Fixes
+
+* allow passing data props to client table ([d9ff83e](https://github.com/DouglasNeuroInformatics/libui/commit/d9ff83ecca210e8e2f7bdb8b16546f845a883a40))
+
+## [3.1.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.1...v3.1.2) (2024-09-17)
+
+
+### Bug Fixes
+
+* add option to data-cy in select field ([a0b03f4](https://github.com/DouglasNeuroInformatics/libui/commit/a0b03f42d82f4c5d8bd000ac8455b57001970a92))
+
+## [3.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.1.0...v3.1.1) (2024-09-17)
+
+
+### Bug Fixes
+
+* add data-cy prop for select item ([6f00959](https://github.com/DouglasNeuroInformatics/libui/commit/6f009592b5f5e8c37e3d631fb67fab115074e6de))
+
 ## [3.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.0.1...v3.1.0) (2024-09-10)
 
 
