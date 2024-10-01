@@ -19,6 +19,10 @@ export const Default: Story = {
       return (
         <Story
           args={{
+            acceptedFileTypes: {
+              'text/csv': ['.csv'],
+              'text/plain': ['.csv', '.tsv']
+            },
             file,
             setFile
           }}

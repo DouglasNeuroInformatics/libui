@@ -5,11 +5,14 @@ import { type FileRejection, useDropzone } from 'react-dropzone';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export type FileDropzoneProps = {
+  acceptedFileTypes: {
+    [key: string]: string[];
+  };
   file: File | null;
   setFile: (file: File) => void;
 };
 
-export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
+export const FileDropzone = ({ acceptedFileTypes, file, setFile }: FileDropzoneProps) => {
   const { t } = useTranslation();
 
   const handleDrop = useCallback(
@@ -22,10 +25,7 @@ export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
     [setFile]
   );
   const { getInputProps, getRootProps, isDragActive } = useDropzone({
-    accept: {
-      'text/csv': ['.csv'],
-      'text/plain': ['.csv', '.tsv']
-    },
+    accept: acceptedFileTypes,
     maxFiles: 1,
     onDrop: handleDrop
   });

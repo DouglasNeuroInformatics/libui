@@ -8,6 +8,10 @@ describe('FileDropzone', () => {
   it('should render', () => {
     render(
       <FileDropzone
+        acceptedFileTypes={{
+          'text/csv': ['.csv'],
+          'text/plain': ['.csv', '.tsv']
+        }}
         file={null}
         setFile={function (file: File): void {
           throw new Error('Function not implemented. File name is ' + file.name);
@@ -20,6 +24,10 @@ describe('FileDropzone', () => {
   it('should have file', () => {
     render(
       <FileDropzone
+        acceptedFileTypes={{
+          'text/csv': ['.csv'],
+          'text/plain': ['.csv', '.tsv']
+        }}
         file={testfile}
         setFile={function (file: File): void {
           throw new Error('Function not implemented. File name is ' + file.name);
@@ -31,6 +39,10 @@ describe('FileDropzone', () => {
   it('drag active should work', () => {
     render(
       <FileDropzone
+        acceptedFileTypes={{
+          'text/csv': ['.csv'],
+          'text/plain': ['.csv', '.tsv']
+        }}
         file={null}
         setFile={function (file: File): void {
           throw new Error('Function not implemented. File name is ' + file.name);
