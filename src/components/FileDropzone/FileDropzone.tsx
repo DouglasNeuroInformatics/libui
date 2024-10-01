@@ -31,8 +31,8 @@ export const FileDropzone = ({ file, setFile }: FileDropzoneProps) => {
   });
 
   return (
-    <div data-testid="Dropzone" {...getRootProps()}>
-      <p className="mt-1 border border-dashed p-4 text-center text-sm" data-testid="DropzoneText">
+    <div data-testid="dropzone" {...getRootProps()}>
+      <p className="mt-1 border border-dashed p-4 text-center text-sm" data-testid="dropzoneText">
         {file
           ? file.name
           : isDragActive

@@ -14,7 +14,7 @@ describe('FileDropzone', () => {
         }}
       />
     );
-    expect(screen.getByTestId('DropzoneText')).contains(String, "Drag'n'drop files or click on box to upload");
+    expect(screen.getByTestId('dropzoneText')).contains(String, "Drag'n'drop files or click on box to upload");
   });
 
   it('should have file', () => {
@@ -38,7 +38,7 @@ describe('FileDropzone', () => {
       />
     );
 
-    const fileDropzoneElement = screen.getByTestId('Dropzone');
+    const fileDropzoneElement = screen.getByTestId('dropzone');
 
     fireEvent.dragOver(fileDropzoneElement, {
       dataTransfer: {
@@ -52,6 +52,6 @@ describe('FileDropzone', () => {
       }
     });
 
-    expect(screen.getByTestId('DropzoneText')).contain(String, 'testfile.csv');
+    expect(screen.getByTestId('dropzoneText')).contain(String, 'testfile.csv');
   });
 });
