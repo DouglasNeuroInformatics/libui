@@ -1,5 +1,28 @@
 # Changelog
 
+## [3.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.2...v3.5.0) (2024-10-01)
+
+
+### Features
+
+* add acceptedFileTypes arg to fileDropzone ([71533e6](https://github.com/DouglasNeuroInformatics/libui/commit/71533e6f862b2a173a6710bc7b0d1d1a3211ef96))
+* add default story for fileDropzone ([07bc06b](https://github.com/DouglasNeuroInformatics/libui/commit/07bc06bb7d2168a25413ee71701b4b647231b264))
+* add FileDropzone ([b11a8f6](https://github.com/DouglasNeuroInformatics/libui/commit/b11a8f65589528cd9760b69070adcc1479ae3f6b))
+* added dashed border ([648da8e](https://github.com/DouglasNeuroInformatics/libui/commit/648da8eed322fa965c513518f7b81988d291c5e6))
+* added dropzone translations to libui ([e0e27d6](https://github.com/DouglasNeuroInformatics/libui/commit/e0e27d652cce8bff7b8631b483e2732527effaeb))
+* being fileDropzone creation ([9b1806e](https://github.com/DouglasNeuroInformatics/libui/commit/9b1806ea089c514d61567e30dd11776e427534b2))
+* create basic story for fileDropzone ([56268e2](https://github.com/DouglasNeuroInformatics/libui/commit/56268e2938e3a4e053698a872fdbce7a6fef90f0))
+* fileDropzone implementation from databank ([2c92dcb](https://github.com/DouglasNeuroInformatics/libui/commit/2c92dcbd76577cb3b4c6b5cf4bae7e3724bae3a6))
+* switch dashed border styling to fileDropzone component from story ([e8b9b90](https://github.com/DouglasNeuroInformatics/libui/commit/e8b9b909e6e4d85542f3f625a7796398c88486fb))
+
+
+### Bug Fixes
+
+* change testids to camel case ([bda5626](https://github.com/DouglasNeuroInformatics/libui/commit/bda56264a5613ae6710ce0449d6bb952d2f9d282))
+* fix capitilization of FileDropzone component ([de0c905](https://github.com/DouglasNeuroInformatics/libui/commit/de0c90581bae6bb123ac69afbb5d70cb147659a4))
+* update lucide react ([c90aa9d](https://github.com/DouglasNeuroInformatics/libui/commit/c90aa9da16000b14b01e59cecfe628f138e03e8b))
+* use new translation system ([9724f6a](https://github.com/DouglasNeuroInformatics/libui/commit/9724f6a62e57ec6843ad082723c9ca8a04c28ee8))
+
 ## [3.4.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.1...v3.4.2) (2024-09-30)
 
 
