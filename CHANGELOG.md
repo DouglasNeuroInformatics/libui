@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.1...v3.5.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* sheet overlay ([0af7433](https://github.com/DouglasNeuroInformatics/libui/commit/0af74333a0ffca7d6ee0b428eadb7ce6a51230c6))
+
 ## [3.5.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.0...v3.5.1) (2024-10-02)
 
 
