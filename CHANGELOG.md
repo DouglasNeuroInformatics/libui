@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.0...v3.5.1) (2024-10-02)
+
+
+### Bug Fixes
+
+* add controlled option to tooltip ([b1d13a9](https://github.com/DouglasNeuroInformatics/libui/commit/b1d13a99e32eb88e47871ea13fcd18ec639c204a))
+
 ## [3.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.4.2...v3.5.0) (2024-10-01)
 
 
