@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.2...v3.5.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* bump deps ([90db362](https://github.com/DouglasNeuroInformatics/libui/commit/90db362a89f8afa16b032ee34a10674cf8361378))
+
 ## [3.5.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.1...v3.5.2) (2024-10-07)
 
 
