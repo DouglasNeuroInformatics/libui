@@ -6,9 +6,8 @@ import path = require('node:path');
 
 import animate = require('tailwindcss-animate');
 import containerQueries = require('@tailwindcss/container-queries');
-import headlessui = require('@headlessui/tailwindcss');
 import plugin = require('tailwindcss/plugin');
-import { merge } from 'lodash-es';
+import _ = require('lodash-es');
 
 const packageRoot = path.dirname(require.resolve('@douglasneuroinformatics/libui/package.json'));
 
@@ -48,7 +47,6 @@ const config = ({
     plugins: [
       animate,
       containerQueries,
-      headlessui,
       plugin((api) => {
         api.addUtilities({
           '.scrollbar-none': {
@@ -71,7 +69,7 @@ const config = ({
           xl: '3rem'
         }
       },
-      extend: merge(
+      extend: _.merge(
         {
           animation: {
             'accordion-down': 'accordion-down 0.2s ease-out',
