@@ -37,6 +37,7 @@ export const Default: Story = {
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <Chart.Tooltip content={<Chart.TooltipContent />} />
+        <Chart.Legend content={<Chart.LegendContent />} />
         <XAxis
           axisLine={false}
           dataKey="month"
