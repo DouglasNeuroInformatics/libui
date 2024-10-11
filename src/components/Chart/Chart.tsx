@@ -10,26 +10,9 @@ import * as React from 'react';
 import { cn } from '@douglasneuroinformatics/libui/utils';
 import * as RechartsPrimitive from 'recharts';
 
+import { ChartConfig } from './types';
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { dark: '.dark', light: '' } as const;
-
-export type ChartConfig = {
-  [key: string]: {
-    icon?: React.ComponentType;
-    label?: React.ReactNode;
-  } & (
-    | {
-        color?: never;
-        theme: {
-          [K in keyof typeof THEMES]: string;
-        };
-      }
-    | {
-        color?: string;
-        theme?: never;
-      }
-  );
-};
 
 type ChartContextProps = {
   config: ChartConfig;
