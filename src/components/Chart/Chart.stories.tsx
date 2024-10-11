@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Bar, BarChart, CartesianGrid } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
-import { Chart, type ChartConfig } from './Chart';
+import { Chart } from './Chart';
+
+import type { ChartConfig } from './types';
 
 const chartData = [
   { desktop: 186, mobile: 80, month: 'January' },
@@ -34,6 +36,14 @@ export const Default: Story = {
     children: (
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
+        <Chart.Tooltip content={<Chart.TooltipContent />} />
+        <XAxis
+          axisLine={false}
+          dataKey="month"
+          tickFormatter={(value: string) => value.slice(0, 3)}
+          tickLine={false}
+          tickMargin={10}
+        />
         <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
         <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
       </BarChart>
