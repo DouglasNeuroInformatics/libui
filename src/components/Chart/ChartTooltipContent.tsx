@@ -17,7 +17,6 @@ export const ChartTooltipContent = forwardRef<
     nameKey?: string;
   } & React.ComponentProps<'div'> &
     React.ComponentProps<typeof Tooltip>
-  // eslint-disable-next-line max-lines-per-function
 >(function ChartLegendContent(
   {
     active,
