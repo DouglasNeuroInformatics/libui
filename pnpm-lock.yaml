@@ -150,8 +150,8 @@ importers:
         specifier: ^19.5.0
         version: 19.5.0
       '@douglasneuroinformatics/eslint-config':
-        specifier: ^5.2.0
-        version: 5.2.0(astro-eslint-parser@1.0.3(typescript@5.5.4))(eslint@9.12.0(jiti@1.21.6))(svelte-eslint-parser@0.41.1)(typescript@5.5.4)
+        specifier: ^5.2.1
+        version: 5.2.1(astro-eslint-parser@1.0.3(typescript@5.5.4))(eslint@9.12.0(jiti@1.21.6))(svelte-eslint-parser@0.41.1)(typescript@5.5.4)
       '@douglasneuroinformatics/prettier-config':
         specifier: ^0.0.1
         version: 0.0.1(husky@9.1.6)(prettier-plugin-tailwindcss@0.6.8(prettier@3.3.3))(prettier@3.3.3)
@@ -478,9 +478,9 @@ packages:
       { integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg== }
     engines: { node: '>=v18' }
 
-  '@douglasneuroinformatics/eslint-config@5.2.0':
+  '@douglasneuroinformatics/eslint-config@5.2.1':
     resolution:
-      { integrity: sha512-CpmoGbDiKG0nl7iP3qmVVgO2/NtcjhKG2DhRDtjWUlsT2Bz7j0f+R4vZnuBfmyP8L6CUJfmmstjWwOvAL5hiSA== }
+      { integrity: sha512-VGY815hswUvcXJBqKxrWjgmKTX+RBvs1XEw6rq3taPlaAz+1RTLHg9cm6CfUm+eM2mxli+YWaSE1bV7QZB0d9w== }
     peerDependencies:
       eslint: 9.x
       typescript: 5.x
@@ -7270,7 +7270,7 @@ snapshots:
       '@types/conventional-commits-parser': 5.0.0
       chalk: 5.3.0
 
-  '@douglasneuroinformatics/eslint-config@5.2.0(astro-eslint-parser@1.0.3(typescript@5.5.4))(eslint@9.12.0(jiti@1.21.6))(svelte-eslint-parser@0.41.1)(typescript@5.5.4)':
+  '@douglasneuroinformatics/eslint-config@5.2.1(astro-eslint-parser@1.0.3(typescript@5.5.4))(eslint@9.12.0(jiti@1.21.6))(svelte-eslint-parser@0.41.1)(typescript@5.5.4)':
     dependencies:
       eslint: 9.12.0(jiti@1.21.6)
       eslint-plugin-astro: 1.2.4(eslint@9.12.0(jiti@1.21.6))(typescript@5.5.4)
