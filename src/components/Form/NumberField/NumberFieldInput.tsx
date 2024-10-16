@@ -30,19 +30,26 @@ export const NumberFieldInput = ({
 }: NumberFieldInputProps) => {
   const [inputValue, setInputValue] = useState(value?.toString() ?? '');
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    let newValue: number | undefined = value;
-    if (/^[+-]?$/.test(event.target.value)) {
-      newValue = undefined;
-      setInputValue(event.target.value);
+  const parseInputValue = (value: string) => {
+    const isSignOrEmpty = /^[+-]?$/.test(value);
+    if (isSignOrEmpty) {
+      return undefined;
     } else {
-      const parsedValue = parseNumber(event.target.value);
+      const parsedValue = parseNumber(value);
       if (parsedValue >= min && parsedValue <= max) {
-        newValue = parsedValue;
-        setInputValue(event.target.value);
+        return parsedValue;
       }
     }
-    setValue(newValue);
+    return NaN;
+  };
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const updatedValue = parseInputValue(event.target.value);
+    if (Number.isNaN(updatedValue)) {
+      return;
+    }
+    setInputValue(event.target.value);
+    setValue(updatedValue);
   };
 
   return (
