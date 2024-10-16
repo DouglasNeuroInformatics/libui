@@ -1,5 +1,7 @@
 /* eslint-disable perfectionist/sort-objects */
 
+import { useEffect, useState } from 'react';
+
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';
@@ -382,23 +384,37 @@ export const ReadOnly: StoryObj<typeof Form<ExampleFormSchemaType>> = {
 };
 
 export const WithInitialValue: StoryObj<typeof Form> = {
-  args: {
-    content: {
-      numberInput: {
-        kind: 'number',
-        label: 'Number Input',
-        variant: 'input'
-      }
-    },
-    initialValues: {
-      numberInput: 44
-    },
-    onSubmit: (data) => {
-      alert(JSON.stringify(data, null, 2));
-    },
-    preventResetValuesOnReset: true,
-    validationSchema: z.object({
-      numberInput: z.number()
-    })
-  }
+  decorators: [
+    (Story) => {
+      const [initialValues, setInitialValues] = useState({});
+
+      useEffect(() => {
+        setInitialValues({
+          numberInput: 44
+        });
+      }, []);
+
+      return (
+        <Story
+          args={{
+            content: {
+              numberInput: {
+                kind: 'number',
+                label: 'Number Input',
+                variant: 'input'
+              }
+            },
+            initialValues,
+            onSubmit: (data) => {
+              alert(JSON.stringify(data, null, 2));
+            },
+            preventResetValuesOnReset: true,
+            validationSchema: z.object({
+              numberInput: z.number()
+            })
+          }}
+        />
+      );
+    }
+  ]
 };
