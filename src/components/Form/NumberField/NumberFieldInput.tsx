@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
@@ -28,27 +27,40 @@ export const NumberFieldInput = ({
   setValue,
   value
 }: NumberFieldInputProps) => {
-  const inputValueRef = useRef(value?.toString() ?? '');
-  const [inputKey, setInputKey] = useState(0);
+  const [inputValue, setInputValue] = useState(value?.toString() ?? '');
+  const valueRef = useRef<number | undefined>(value);
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    let newValue: number | undefined = value;
-    if (/^[+-]?$/.test(event.target.value)) {
-      newValue = undefined;
-      inputValueRef.current = event.target.value;
+  const parseInputValue = (value: string) => {
+    const isSignOrEmpty = /^[+-]?$/.test(value);
+    if (isSignOrEmpty) {
+      return undefined;
     } else {
-      const parsedValue = parseNumber(event.target.value);
+      const parsedValue = parseNumber(value);
       if (parsedValue >= min && parsedValue <= max) {
-        newValue = parsedValue;
-        inputValueRef.current = event.target.value;
+        return parsedValue;
       }
     }
-    if (value === newValue) {
-      setInputKey(inputKey + 1);
-    } else {
-      setValue(newValue);
-    }
+    return NaN;
   };
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const updatedValue = parseInputValue(event.target.value);
+    if (Number.isNaN(updatedValue)) {
+      return;
+    }
+    setInputValue(event.target.value);
+    setValue(updatedValue);
+    valueRef.current = updatedValue;
+  };
+
+  useEffect(() => {
+    if (valueRef.current === value) {
+      return;
+    }
+    const updatedInputValue = value?.toString() ?? '';
+    setInputValue(updatedInputValue);
+    valueRef.current = value;
+  }, [value]);
 
   return (
     <FieldGroup name={name}>
@@ -62,7 +74,7 @@ export const NumberFieldInput = ({
         min={min}
         name={name}
         type="text"
-        value={inputValueRef.current}
+        value={inputValue}
         onChange={handleChange}
       />
       <FieldGroup.Error error={error} />

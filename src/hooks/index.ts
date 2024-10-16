@@ -1,3 +1,4 @@
+export * from './useChart';
 export * from './useDownload';
 export * from './useEventCallback';
 export * from './useEventListener';
