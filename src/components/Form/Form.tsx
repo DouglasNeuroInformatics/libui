@@ -40,6 +40,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   validationSchema: z.ZodType<TData>;
 };
 
+// eslint-disable-next-line max-lines-per-function
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   className,
   content,
@@ -59,9 +60,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const { resolvedLanguage, t } = useTranslation('libui');
   const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
-  const [values, setValues] = useState<PartialFormDataType<TData>>(
-    initialValues ? getInitialValues(initialValues) : {}
-  );
+  const [values, setValues] = useState<PartialFormDataType<TData>>({});
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
@@ -122,6 +121,12 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   useEffect(() => {
     revalidate();
   }, [resolvedLanguage]);
+
+  useEffect(() => {
+    if (initialValues) {
+      setValues(getInitialValues(initialValues));
+    }
+  }, [initialValues]);
 
   return (
     <form
