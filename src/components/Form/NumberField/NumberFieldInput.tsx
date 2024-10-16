@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
@@ -29,6 +28,7 @@ export const NumberFieldInput = ({
   value
 }: NumberFieldInputProps) => {
   const [inputValue, setInputValue] = useState(value?.toString() ?? '');
+  const valueRef = useRef<number | undefined>(value);
 
   const parseInputValue = (value: string) => {
     const isSignOrEmpty = /^[+-]?$/.test(value);
@@ -50,7 +50,17 @@ export const NumberFieldInput = ({
     }
     setInputValue(event.target.value);
     setValue(updatedValue);
+    valueRef.current = updatedValue;
   };
+
+  useEffect(() => {
+    if (valueRef.current === value) {
+      return;
+    }
+    const updatedInputValue = value?.toString() ?? '';
+    setInputValue(updatedInputValue);
+    valueRef.current = value;
+  }, [value]);
 
   return (
     <FieldGroup name={name}>
