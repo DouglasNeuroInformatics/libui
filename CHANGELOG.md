@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.3...v3.6.0) (2024-10-16)
+
+
+### Features
+
+* add chart ([3ce94e6](https://github.com/DouglasNeuroInformatics/libui/commit/3ce94e6a6bce34ae4906b4eaeddf947de5a758a5))
+
+
+### Bug Fixes
+
+* issue where initialValues change does not trigger rerender of form ([77a6dc2](https://github.com/DouglasNeuroInformatics/libui/commit/77a6dc2062cfd2e5e82573657cb1918317cd0174))
+* set initial values on change ([e160616](https://github.com/DouglasNeuroInformatics/libui/commit/e160616a03c0f372d716ff965749bc3bcecad3d2))
+
 ## [3.5.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.2...v3.5.3) (2024-10-09)
 
 
