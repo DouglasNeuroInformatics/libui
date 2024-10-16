@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import * as React from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
@@ -28,26 +28,21 @@ export const NumberFieldInput = ({
   setValue,
   value
 }: NumberFieldInputProps) => {
-  const inputValueRef = useRef(value?.toString() ?? '');
-  const [inputKey, setInputKey] = useState(0);
+  const [inputValue, setInputValue] = useState(value?.toString() ?? '');
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     let newValue: number | undefined = value;
     if (/^[+-]?$/.test(event.target.value)) {
       newValue = undefined;
-      inputValueRef.current = event.target.value;
+      setInputValue(event.target.value);
     } else {
       const parsedValue = parseNumber(event.target.value);
       if (parsedValue >= min && parsedValue <= max) {
         newValue = parsedValue;
-        inputValueRef.current = event.target.value;
+        setInputValue(event.target.value);
       }
     }
-    if (value === newValue) {
-      setInputKey(inputKey + 1);
-    } else {
-      setValue(newValue);
-    }
+    setValue(newValue);
   };
 
   return (
@@ -62,7 +57,7 @@ export const NumberFieldInput = ({
         min={min}
         name={name}
         type="text"
-        value={inputValueRef.current}
+        value={inputValue}
         onChange={handleChange}
       />
       <FieldGroup.Error error={error} />
