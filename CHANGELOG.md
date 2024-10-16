@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.0...v3.6.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* useLayoutEffect for form initial values ([47d9e65](https://github.com/DouglasNeuroInformatics/libui/commit/47d9e65e089b6c755dd5a665d337b1bf64110e4a))
+
 ## [3.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.5.3...v3.6.0) (2024-10-16)
 
 
