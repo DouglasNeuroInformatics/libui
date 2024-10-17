@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.6.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.1...v3.6.2) (2024-10-17)
+
+
+### Bug Fixes
+
+* add className option to FileDropzone ([7a9619d](https://github.com/DouglasNeuroInformatics/libui/commit/7a9619d24b82f659b758bfb2cdba371524d7fd31))
+* adjust dropzone styles and add options ([91f7e24](https://github.com/DouglasNeuroInformatics/libui/commit/91f7e2408fc9f4b6268f2c952d5dfc60e3654bd4))
+
 ## [3.6.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.0...v3.6.1) (2024-10-16)
 
 
