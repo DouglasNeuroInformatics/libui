@@ -60,8 +60,15 @@ export const FileDropzone = ({
     });
 
   return (
-    <div className={cn('border border-dashed p-4', className)} data-testid="dropzone" {...getRootProps()}>
-      <div className="flex flex-col items-center gap-3">
+    <div
+      className={cn(
+        'flex flex-col items-center justify-center rounded-md border border-dashed border-slate-400 p-4 dark:border-slate-600',
+        className
+      )}
+      data-testid="dropzone"
+      {...getRootProps()}
+    >
+      <div className="flex flex-col items-center justify-center gap-3">
         <UploadIcon style={{ height: 24, strokeWidth: 2, width: 24 }} />
         <div className="flex flex-col items-center gap-1 text-center">
           <h3 className="text-lg font-semibold tracking-tight" data-testid="dropzone-title">
