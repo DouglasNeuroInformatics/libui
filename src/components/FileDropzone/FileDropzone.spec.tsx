@@ -18,7 +18,7 @@ describe('FileDropzone', () => {
         }}
       />
     );
-    expect(screen.getByTestId('dropzoneText')).contains(String, "Drag'n'drop files or click on box to upload");
+    expect(screen.getByTestId('dropzone-title')).contains(String, 'Drag and drop files or click on box to upload');
   });
 
   it('should have file', () => {
@@ -64,6 +64,6 @@ describe('FileDropzone', () => {
       }
     });
 
-    expect(screen.getByTestId('dropzoneText')).contain(String, 'testfile.csv');
+    expect(screen.getByTestId('dropzone-title')).contain(String, 'testfile.csv');
   });
 });
