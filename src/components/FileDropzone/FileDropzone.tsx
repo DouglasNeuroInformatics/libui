@@ -8,11 +8,12 @@ export type FileDropzoneProps = {
   acceptedFileTypes: {
     [key: string]: string[];
   };
+  className?: string;
   file: File | null;
   setFile: (file: File) => void;
 };
 
-export const FileDropzone = ({ acceptedFileTypes, file, setFile }: FileDropzoneProps) => {
+export const FileDropzone = ({ acceptedFileTypes, className, file, setFile }: FileDropzoneProps) => {
   const { t } = useTranslation();
 
   const handleDrop = useCallback(
@@ -31,7 +32,7 @@ export const FileDropzone = ({ acceptedFileTypes, file, setFile }: FileDropzoneP
   });
 
   return (
-    <div data-testid="dropzone" {...getRootProps()}>
+    <div className={className} data-testid="dropzone" {...getRootProps()}>
       <p className="mt-1 border border-dashed p-4 text-center text-sm" data-testid="dropzoneText">
         {file
           ? file.name
@@ -45,7 +46,6 @@ export const FileDropzone = ({ acceptedFileTypes, file, setFile }: FileDropzoneP
                 fr: 'Glissez-déposez les fichiers ou cliquez sur la case pour les télécharger'
               })}
       </p>
-
       <input {...getInputProps()} />
     </div>
   );
