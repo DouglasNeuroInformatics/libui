@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.2...v3.6.3) (2024-10-17)
+
+
+### Bug Fixes
+
+* center items in dropzone ([f598988](https://github.com/DouglasNeuroInformatics/libui/commit/f5989885e44f08db39f4a034c37e747287a402df))
+
 ## [3.6.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.1...v3.6.2) (2024-10-17)
 
 
