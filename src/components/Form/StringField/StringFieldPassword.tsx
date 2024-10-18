@@ -64,9 +64,9 @@ export const StringFieldPassword = ({
       </FieldGroup.Row>
       {strength !== null && (
         <motion.div
-          animate={{ width: `${Math.max(strength, value?.length ? 1 : 0) * 25}%` }}
+          animate={{ width: `${Math.max(strength * 25, 5)}%` }}
           className="h-1 w-full overflow-hidden rounded"
-          initial={{ width: '0%' }}
+          initial={{ width: '5%' }}
           transition={{ duration: 0.5 }}
         >
           <div
