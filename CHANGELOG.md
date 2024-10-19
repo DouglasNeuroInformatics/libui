@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.3...v3.6.4) (2024-10-18)
+
+
+### Bug Fixes
+
+* add min width for strength bar password ([86fb839](https://github.com/DouglasNeuroInformatics/libui/commit/86fb839dc3ee0e7314c6f44fb97c55ad94647d20))
+
 ## [3.6.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.2...v3.6.3) (2024-10-17)
 
 
