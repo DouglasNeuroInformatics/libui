@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.4...v3.6.5) (2024-10-19)
+
+
+### Bug Fixes
+
+* add use client directive ([15e6ce5](https://github.com/DouglasNeuroInformatics/libui/commit/15e6ce56b031f4e5fab361b96b2bdb23bcf9f128))
+
 ## [3.6.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.3...v3.6.4) (2024-10-18)
 
 
