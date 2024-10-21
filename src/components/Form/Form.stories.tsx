@@ -26,7 +26,11 @@ const $ExampleFormData = z.object({
   date: z.date().optional(),
   numberInput: z.number().optional(),
   numberSlider: z.number().optional(),
-  numberRecord: z.record(z.number()),
+  numberRecord: z.object({
+    q1: z.number(),
+    q2: z.number(),
+    q3: z.number()
+  }),
   numberRadio: z.number().min(1).max(5).int().optional(),
   numberSelect: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
@@ -405,8 +409,9 @@ export const WithInitialValues: StoryObj<typeof Form> = {
             numberInput: 44,
             numberSlider: 45,
             numberRecord: {
-              v1: 1,
-              v2: 2
+              q1: 1,
+              q2: 2,
+              q3: 3
             },
             numberRadio: 3,
             numberSelect: 4,
