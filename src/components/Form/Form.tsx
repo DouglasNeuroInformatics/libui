@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type {
   FormContent,
@@ -121,7 +121,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
     revalidate();
   }, [resolvedLanguage]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (initialValues) {
       setValues(getInitialValues(initialValues));
     }
