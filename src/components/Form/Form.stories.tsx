@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
+import type FormTypes from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';
 import { z } from 'zod';
@@ -383,35 +384,54 @@ export const ReadOnly: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   }
 };
 
-export const WithInitialValue: StoryObj<typeof Form> = {
+export const WithInitialValues: StoryObj<typeof Form> = {
   decorators: [
     (Story) => {
-      const [initialValues, setInitialValues] = useState({});
+      const [initialValues, setInitialValues] = useState<FormTypes.PartialNullableData<ExampleFormData>>({});
 
       useEffect(() => {
-        setInitialValues({
-          numberInput: 44
-        });
+        setTimeout(() => {
+          setInitialValues({
+            booleanCheck: true,
+            booleanRadio: true,
+            recordArray: [
+              {
+                recordArrayStringInput: 'Value 1',
+                showRecordArrayDynamicField: true,
+                recordArrayDynamicField: 'Value 2'
+              }
+            ],
+            date: new Date(),
+            numberInput: 44,
+            numberSlider: 45,
+            numberRecord: {
+              v1: 1,
+              v2: 2
+            },
+            numberRadio: 3,
+            numberSelect: 4,
+            stringSelect: 'a',
+            setListbox: new Set(['a', 'b']),
+            setSelect: new Set(['c', 'd']),
+            showDynamicField: true,
+            dynamicField: 'Foo',
+            stringTextArea: 'Lorem ipsum',
+            stringPassword: 'Password',
+            stringInput: 'Input',
+            stringRadio: 'b'
+          } satisfies ExampleFormData);
+        }, 50);
       }, []);
 
       return (
         <Story
           args={{
-            content: {
-              numberInput: {
-                kind: 'number',
-                label: 'Number Input',
-                variant: 'input'
-              }
-            },
+            content: ungroupedContent,
             initialValues,
             onSubmit: (data) => {
               alert(JSON.stringify(data, null, 2));
             },
-            preventResetValuesOnReset: true,
-            validationSchema: z.object({
-              numberInput: z.number()
-            })
+            validationSchema: $ExampleFormData
           }}
         />
       );
