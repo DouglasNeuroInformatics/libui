@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.5...v3.6.6) (2024-10-21)
+
+
+### Bug Fixes
+
+* useEffect for initialValues ([5b89d3d](https://github.com/DouglasNeuroInformatics/libui/commit/5b89d3d5ede1b070ffc9aacdf9b471dfeb9fbeb6))
+
 ## [3.6.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.4...v3.6.5) (2024-10-19)
 
 
