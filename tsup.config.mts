@@ -3,6 +3,21 @@ import path from 'node:path';
 
 import { defineConfig } from 'tsup';
 
+// async function resolveEntries(targetDir: string) {
+//   const baseDir = path.join('src', targetDir);
+//   const entries: { [key: string]: string } = {
+//     [targetDir]: path.join(baseDir, 'index.ts')
+//   };
+//   for (const dirname of await fs.readdir(baseDir, 'utf-8')) {
+//     const dirpath = path.join(baseDir, dirname);
+//     if (!(await fs.lstat(dirpath)).isDirectory()) {
+//       continue;
+//     }
+//     entries[`${targetDir}/${dirname}`] = path.join(dirpath, 'index.ts');
+//   }
+//   return entries;
+// }
+
 export default defineConfig([
   {
     banner: {
