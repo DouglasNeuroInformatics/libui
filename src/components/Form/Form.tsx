@@ -24,6 +24,10 @@ import type { FormErrors } from './types';
 
 type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>> = {
   [key: `data-${string}`]: unknown;
+  additionalButtons?: {
+    left?: React.ReactNode;
+    right?: React.ReactNode;
+  };
   className?: string;
   content: FormContent<TData>;
   fieldsFooter?: React.ReactNode;
@@ -41,6 +45,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 
 // eslint-disable-next-line max-lines-per-function
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
+  additionalButtons,
   className,
   content,
   fieldsFooter,
@@ -173,6 +178,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       )}
       {fieldsFooter}
       <div className="flex w-full gap-3">
+        {additionalButtons?.left}
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button aria-label="Submit" className="block w-full" disabled={readOnly} type="submit" variant="primary">
           {submitBtnLabel ?? t('form.submit')}
@@ -189,6 +195,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
             {t('form.reset')}
           </Button>
         )}
+        {additionalButtons?.right}
       </div>
       {Boolean(rootErrors.length) && <ErrorMessage error={rootErrors} />}
     </form>
