@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.6...v3.7.0) (2024-10-29)
+
+
+### Features
+
+* add additional button option to form ([23d20de](https://github.com/DouglasNeuroInformatics/libui/commit/23d20de6517add801c1ecbc15cd204ce16fc37a4))
+
 ## [3.6.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.5...v3.6.6) (2024-10-21)
 
 
