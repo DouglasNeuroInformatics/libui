@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.0...v3.7.1) (2024-11-16)
+
+
+### Bug Fixes
+
+* add libui include ([c8c7e71](https://github.com/DouglasNeuroInformatics/libui/commit/c8c7e71cdf67e8d9aab17be34135cd2433302a50))
+
 ## [3.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.6.6...v3.7.0) (2024-10-29)
 
 
