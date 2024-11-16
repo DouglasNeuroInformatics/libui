@@ -20,7 +20,7 @@ type ConfigOptions = {
   plugins?: PluginsConfig;
   root?: string;
   extend?: {
-    theme?: Partial<CustomThemeConfig>;
+    theme?: Partial<CustomThemeConfig> | Partial<CustomThemeConfig>[];
   };
 };
 
@@ -43,6 +43,15 @@ const config = ({
   for (const id of include) {
     const baseDir = path.dirname(require.resolve(`${id}/package.json`, { paths: root ? [root] : undefined }));
     content.push(path.resolve(baseDir, 'src/**/*.{js,ts,jsx,tsx}'));
+  }
+
+  let userTheme: Partial<CustomThemeConfig>[];
+  if (Array.isArray(extend.theme)) {
+    userTheme = extend.theme;
+  } else if (_.isPlainObject(extend.theme)) {
+    userTheme = [extend.theme!];
+  } else {
+    userTheme = [];
   }
 
   return {
@@ -156,8 +165,8 @@ const config = ({
             '2xl': '1400px'
           }
         },
-        extend.theme
-      )
+        ...userTheme
+      ) as Partial<CustomThemeConfig>
     }
   };
 };
