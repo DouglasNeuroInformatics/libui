@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.7.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.1...v3.7.2) (2024-11-16)
+
+
+### Bug Fixes
+
+* allow array of themes ([461e138](https://github.com/DouglasNeuroInformatics/libui/commit/461e1383590df905d51a2c1718ff2fb5cb722012))
+* rename libuiInclude ([045ecfd](https://github.com/DouglasNeuroInformatics/libui/commit/045ecfd39e4a84a376ec62a18c2aff5c61f0ccce))
+
 ## [3.7.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.0...v3.7.1) (2024-11-16)
 
 
