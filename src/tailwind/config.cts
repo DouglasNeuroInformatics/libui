@@ -16,9 +16,9 @@ const isDev = fs.existsSync(path.resolve(packageRoot, 'src'));
 type ConfigOptions = {
   content?: string[];
   include?: string[];
+  includeOwnContent?: boolean;
   plugins?: PluginsConfig;
   root?: string;
-  libuiInclude?: boolean;
   extend?: {
     theme?: Partial<CustomThemeConfig>;
   };
@@ -27,12 +27,12 @@ type ConfigOptions = {
 const config = ({
   content = [],
   include = [],
+  includeOwnContent = true,
   root = undefined,
-  libuiInclude = true,
   plugins = [],
   extend = {}
 }: ConfigOptions = {}): Config => {
-  if (libuiInclude) {
+  if (includeOwnContent) {
     if (isDev) {
       content.push(path.resolve(packageRoot, 'src/**/*.{js,jsx,ts,tsx}'));
     } else {
