@@ -18,6 +18,7 @@ type ConfigOptions = {
   include?: string[];
   plugins?: PluginsConfig;
   root?: string;
+  libuiInclude?: boolean;
   extend?: {
     theme?: Partial<CustomThemeConfig>;
   };
@@ -27,13 +28,16 @@ const config = ({
   content = [],
   include = [],
   root = undefined,
+  libuiInclude = true,
   plugins = [],
   extend = {}
 }: ConfigOptions = {}): Config => {
-  if (isDev) {
-    content.push(path.resolve(packageRoot, 'src/**/*.{js,jsx,ts,tsx}'));
-  } else {
-    content.push(path.resolve(packageRoot, 'dist/**/*.js'));
+  if (libuiInclude) {
+    if (isDev) {
+      content.push(path.resolve(packageRoot, 'src/**/*.{js,jsx,ts,tsx}'));
+    } else {
+      content.push(path.resolve(packageRoot, 'dist/**/*.js'));
+    }
   }
 
   for (const id of include) {
