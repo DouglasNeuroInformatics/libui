@@ -394,21 +394,9 @@ export const WithInitialValues: StoryObj<typeof Form> = {
     initialValues: {
       booleanCheck: true,
       booleanRadio: true,
-      recordArray: [
-        {
-          recordArrayStringInput: 'Value 1',
-          showRecordArrayDynamicField: true,
-          recordArrayDynamicField: 'Value 2'
-        }
-      ],
       date: new Date(),
       numberInput: 44,
       numberSlider: 45,
-      numberRecord: {
-        q1: 1,
-        q2: 2,
-        q3: 3
-      },
       numberRadio: 3,
       numberSelect: 4,
       stringSelect: 'a',
