@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.2...v3.7.3) (2024-11-28)
+
+
+### Bug Fixes
+
+* record array initial values issue ([e1e9201](https://github.com/DouglasNeuroInformatics/libui/commit/e1e9201424835953c5553ca4fceb158000310c87))
+
 ## [3.7.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.1...v3.7.2) (2024-11-16)
 
 
