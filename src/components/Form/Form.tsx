@@ -65,6 +65,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>({});
+  const [isInitialSetValuesComplete, setIsInitialSetValuesComplete] = useState(false);
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
@@ -130,7 +131,12 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
     if (initialValues) {
       setValues(getInitialValues(initialValues));
     }
+    setIsInitialSetValuesComplete(true);
   }, [initialValues]);
+
+  if (!isInitialSetValuesComplete) {
+    return null;
+  }
 
   return (
     <form
