@@ -46,6 +46,11 @@ const $ExampleFormData = z.object({
 type ExampleFormSchemaType = typeof $ExampleFormData;
 type ExampleFormData = z.TypeOf<typeof $ExampleFormData>;
 
+const $SimpleExampleFormData = z.object({
+  name: z.string()
+});
+type SimpleExampleFormSchemaType = typeof $SimpleExampleFormData;
+
 export default {
   component: Form,
   decorators: [
@@ -470,4 +475,21 @@ export const WithDynamicInitialValues: StoryObj<typeof Form> = {
       );
     }
   ]
+};
+
+export const WithPreventReset: StoryObj<typeof Form<SimpleExampleFormSchemaType>> = {
+  args: {
+    content: {
+      name: {
+        kind: 'string',
+        label: 'Name',
+        variant: 'input'
+      }
+    },
+    preventResetValuesOnReset: true,
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+    },
+    validationSchema: $SimpleExampleFormData
+  }
 };
