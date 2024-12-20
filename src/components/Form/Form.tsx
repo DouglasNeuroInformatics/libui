@@ -64,8 +64,9 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const { resolvedLanguage, t } = useTranslation('libui');
   const [rootErrors, setRootErrors] = useState<string[]>([]);
   const [errors, setErrors] = useState<FormErrors<TData>>({});
-  const [values, setValues] = useState<PartialFormDataType<TData>>({});
-  const [isInitialSetValuesComplete, setIsInitialSetValuesComplete] = useState(false);
+  const [values, setValues] = useState<PartialFormDataType<TData>>(
+    initialValues ? getInitialValues(initialValues) : {}
+  );
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
@@ -126,17 +127,6 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   useEffect(() => {
     revalidate();
   }, [resolvedLanguage]);
-
-  useEffect(() => {
-    if (initialValues) {
-      setValues(getInitialValues(initialValues));
-    }
-    setIsInitialSetValuesComplete(true);
-  }, [initialValues]);
-
-  if (!isInitialSetValuesComplete) {
-    return null;
-  }
 
   return (
     <form
