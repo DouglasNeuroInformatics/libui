@@ -25,7 +25,7 @@ export const BooleanFieldCheckbox = ({
     <FieldGroup name={name}>
       <FieldGroup.Row>
         <Checkbox
-          checked={value}
+          checked={Boolean(value)}
           disabled={disabled || readOnly}
           id={name}
           name={name}
