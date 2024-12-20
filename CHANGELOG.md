@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.7.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.3...v3.7.4) (2024-12-20)
+
+
+### Bug Fixes
+
+* boolean field not being unchecked on reset ([e29d2ea](https://github.com/DouglasNeuroInformatics/libui/commit/e29d2ea036a2a9249cf9d6406af3fa2cf9f5e798))
+* initial values no longer resets form ([a2c443e](https://github.com/DouglasNeuroInformatics/libui/commit/a2c443ef5d1b2342a6e37682087edac01fa10863))
+
 ## [3.7.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.2...v3.7.3) (2024-11-28)
 
 
