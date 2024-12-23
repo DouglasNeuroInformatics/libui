@@ -18,9 +18,9 @@ const $ExampleFormData = z.object({
   booleanRadio: z.boolean().optional(),
   recordArray: z.array(
     z.object({
-      recordArrayStringInput: z.string().optional(),
-      showRecordArrayDynamicField: z.boolean().optional(),
-      recordArrayDynamicField: z.string().optional()
+      recordArrayStringInput: z.string(),
+      showRecordArrayDynamicField: z.boolean(),
+      recordArrayDynamicField: z.string()
     })
   ),
   date: z.date().optional(),
