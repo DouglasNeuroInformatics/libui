@@ -405,6 +405,11 @@ export const WithInitialValues: StoryObj<typeof Form> = {
       numberSlider: 45,
       numberRadio: 3,
       numberSelect: 4,
+      numberRecord: {
+        q1: 1,
+        q2: 2,
+        q3: 3
+      },
       recordArray: [
         {
           recordArrayStringInput: 'A',
