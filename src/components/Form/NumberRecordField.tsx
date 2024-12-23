@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import type {
   NumberRecordFieldValue,
@@ -27,8 +27,13 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
   setValue: setRecordValue,
   value: recordValue
 }: NumberRecordFieldProps<T>) => {
+  const isFirstRenderRef = useRef(true);
+
   useEffect(() => {
-    setRecordValue({});
+    if ((isFirstRenderRef.current && !recordValue) || !isFirstRenderRef.current) {
+      setRecordValue({});
+    }
+    isFirstRenderRef.current = false;
   }, [options]);
 
   if (!recordValue) {

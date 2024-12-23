@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useRef } from 'react';
 
 import type { RecordArrayFieldValue, RecordArrayFormField } from '@douglasneuroinformatics/libui-form-types';
 import { MinusCircleIcon, PlusCircleIcon } from 'lucide-react';
@@ -25,12 +25,16 @@ export const RecordArrayField = memo(function RecordArrayField({
   setValue: setArrayValue,
   value: arrayValue
 }: RecordArrayFieldProps) {
+  const isFirstRenderRef = useRef(true);
   const { t } = useTranslation('libui');
 
   const createNewRecord = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));
 
   useEffect(() => {
-    setArrayValue([createNewRecord()]);
+    if ((isFirstRenderRef.current && !arrayValue) || !isFirstRenderRef.current) {
+      setArrayValue([createNewRecord()]);
+    }
+    isFirstRenderRef.current = false;
   }, [fieldset]);
 
   if (!arrayValue) {

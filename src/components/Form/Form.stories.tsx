@@ -21,7 +21,7 @@ const $ExampleFormData = z.object({
     z.object({
       recordArrayStringInput: z.string(),
       showRecordArrayDynamicField: z.boolean(),
-      recordArrayDynamicField: z.string()
+      recordArrayDynamicField: z.string().optional()
     })
   ),
   date: z.date().optional(),
