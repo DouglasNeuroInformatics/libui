@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.4...v3.7.5) (2024-12-23)
+
+
+### Bug Fixes
+
+* issue where initial values are not set for composite fields ([816e5a6](https://github.com/DouglasNeuroInformatics/libui/commit/816e5a6fdbabc36dfe6ca0e4fed4deeec2293788))
+
 ## [3.7.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.3...v3.7.4) (2024-12-20)
 
 
