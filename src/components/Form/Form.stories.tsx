@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable perfectionist/sort-objects */
 
 import { useEffect, useState } from 'react';
@@ -404,6 +405,13 @@ export const WithInitialValues: StoryObj<typeof Form> = {
       numberSlider: 45,
       numberRadio: 3,
       numberSelect: 4,
+      recordArray: [
+        {
+          recordArrayStringInput: 'A',
+          showRecordArrayDynamicField: true,
+          recordArrayDynamicField: 'B'
+        }
+      ],
       stringSelect: 'a',
       setListbox: new Set(['a', 'b']),
       setSelect: new Set(['c', 'd']),
@@ -425,7 +433,6 @@ export const WithDynamicInitialValues: StoryObj<typeof Form> = {
   decorators: [
     (Story) => {
       const [initialValues, setInitialValues] = useState<FormTypes.PartialNullableData<ExampleFormData>>({});
-
       useEffect(() => {
         setTimeout(() => {
           setInitialValues({
