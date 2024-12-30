@@ -19,7 +19,7 @@ export type DateFieldProps = Simplify<BaseFieldComponentProps<Date> & Omit<DateF
 export const DateField = ({ disabled, error, label, name, readOnly, setValue, value }: DateFieldProps) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(value ? toBasicISOString(value) : '');
 
   useEffect(() => {
     const isSelecting = isDatePickerOpen || isInputFocused;
