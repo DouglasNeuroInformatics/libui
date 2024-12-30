@@ -25,16 +25,22 @@ export const RecordArrayField = memo(function RecordArrayField({
   setValue: setArrayValue,
   value: arrayValue
 }: RecordArrayFieldProps) {
-  const isFirstRenderRef = useRef(true);
+  const fieldsetRef = useRef(fieldset);
   const { t } = useTranslation('libui');
 
   const createNewRecord = () => Object.fromEntries(Object.keys(fieldset).map((fieldName) => [fieldName, undefined]));
 
   useEffect(() => {
-    if ((isFirstRenderRef.current && !arrayValue) || !isFirstRenderRef.current) {
+    if (!arrayValue) {
       setArrayValue([createNewRecord()]);
     }
-    isFirstRenderRef.current = false;
+  }, []);
+
+  useEffect(() => {
+    if (fieldsetRef.current !== fieldset) {
+      setArrayValue([createNewRecord()]);
+      fieldsetRef.current = fieldset;
+    }
   }, [fieldset]);
 
   if (!arrayValue) {
