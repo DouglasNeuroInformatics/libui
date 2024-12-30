@@ -27,13 +27,19 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
   setValue: setRecordValue,
   value: recordValue
 }: NumberRecordFieldProps<T>) => {
-  const isFirstRenderRef = useRef(true);
+  const optionsRef = useRef(options);
 
   useEffect(() => {
-    if ((isFirstRenderRef.current && !recordValue) || !isFirstRenderRef.current) {
+    if (!recordValue) {
       setRecordValue({});
     }
-    isFirstRenderRef.current = false;
+  }, []);
+
+  useEffect(() => {
+    if (optionsRef.current !== options) {
+      setRecordValue({});
+      optionsRef.current = options;
+    }
   }, [options]);
 
   if (!recordValue) {
