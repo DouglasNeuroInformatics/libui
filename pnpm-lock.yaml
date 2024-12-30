@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       '@douglasneuroinformatics/libjs':
-        specifier: ^0.8.0
-        version: 0.8.0(typescript@5.5.4)
+        specifier: ^1.1.0
+        version: 1.1.0(typescript@5.5.4)
       '@douglasneuroinformatics/libui-form-types':
         specifier: ^0.11.0
         version: 0.11.0
@@ -488,11 +488,11 @@ packages:
       typescript:
         optional: true
 
-  '@douglasneuroinformatics/libjs@0.8.0':
+  '@douglasneuroinformatics/libjs@1.1.0':
     resolution:
-      { integrity: sha512-UyBnaeoJLaEqWi1whgAjgVdB4Ckkl2yVxP9wNHa/2o1ARyGQg/gwDepGYUkWCoQ6C+QUeEBg7GaX894HHK4mjg== }
+      { integrity: sha512-wVVrhB+QKiPqZDLH/4skYQZmOroHCq2YgJe44YssN4ZtGhCwZR20REWgcqlkhtJFtJkjanZyF0RQmFJih5beTw== }
     peerDependencies:
-      typescript: ^5.1.0
+      typescript: ^5.5.0
 
   '@douglasneuroinformatics/libui-form-types@0.11.0':
     resolution:
@@ -6570,6 +6570,11 @@ packages:
       { integrity: sha512-yOGpmOAL7CkKe/91I5O3gPICmJNLJ1G4zFYVAsRHg7M64biSnPtRj0WNQt++bRkjYOqjWXrhnUw1utzmVErAdg== }
     engines: { node: '>=16' }
 
+  type-fest@4.31.0:
+    resolution:
+      { integrity: sha512-yCxltHW07Nkhv/1F6wWBr8kz+5BGMfP+RbRSYFnegVb0qV/UMT0G0ElBloPVerqn4M2ZV80Ir1FtCcYv1cT6vQ== }
+    engines: { node: '>=16' }
+
   type-is@1.6.18:
     resolution:
       { integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g== }
@@ -7292,9 +7297,9 @@ snapshots:
       - ts-node
       - vue-eslint-parser
 
-  '@douglasneuroinformatics/libjs@0.8.0(typescript@5.5.4)':
+  '@douglasneuroinformatics/libjs@1.1.0(typescript@5.5.4)':
     dependencies:
-      type-fest: 4.26.1
+      type-fest: 4.31.0
       typescript: 5.5.4
 
   '@douglasneuroinformatics/libui-form-types@0.11.0':
@@ -12521,6 +12526,8 @@ snapshots:
   type-fest@2.19.0: {}
 
   type-fest@4.26.1: {}
+
+  type-fest@4.31.0: {}
 
   type-is@1.6.18:
     dependencies:
