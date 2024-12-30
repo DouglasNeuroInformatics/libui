@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.7.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.5...v3.7.6) (2024-12-30)
+
+
+### Bug Fixes
+
+* initial value in date field ([e23791b](https://github.com/DouglasNeuroInformatics/libui/commit/e23791b76c8f205b38626f6428fca2da157418ec))
+* issues with number record field ([76a4c5b](https://github.com/DouglasNeuroInformatics/libui/commit/76a4c5b01432ea333f3c88d729a50294f30e5fbb))
+* issues with record array field ([731457b](https://github.com/DouglasNeuroInformatics/libui/commit/731457bf21d3cf020352a9f2a9da9575b1f84f57))
+
 ## [3.7.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.4...v3.7.5) (2024-12-23)
 
 
