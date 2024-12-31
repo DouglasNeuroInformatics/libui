@@ -191,7 +191,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button
           aria-label="Submit"
-          className="flex w-32 items-center justify-center gap-2"
+          className="flex w-full items-center justify-center gap-2"
           disabled={readOnly || isSuspended}
           type="submit"
           variant="primary"
