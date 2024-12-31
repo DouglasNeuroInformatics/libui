@@ -18,20 +18,24 @@ const $ExampleFormData = z.object({
   booleanCheck: z.boolean().optional(),
   booleanRadio: z.boolean().optional(),
   recordArray: z.array(
-    z.object({
-      recordArrayStringInput: z.string(),
-      showRecordArrayDynamicField: z.boolean(),
-      recordArrayDynamicField: z.string().optional()
-    })
+    z
+      .object({
+        recordArrayStringInput: z.string(),
+        showRecordArrayDynamicField: z.boolean(),
+        recordArrayDynamicField: z.string()
+      })
+      .partial()
   ),
   date: z.date().optional(),
   numberInput: z.number().optional(),
   numberSlider: z.number().optional(),
-  numberRecord: z.object({
-    q1: z.number(),
-    q2: z.number(),
-    q3: z.number()
-  }),
+  numberRecord: z
+    .object({
+      q1: z.number(),
+      q2: z.number(),
+      q3: z.number()
+    })
+    .partial(),
   numberRadio: z.number().min(1).max(5).int().optional(),
   numberSelect: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
