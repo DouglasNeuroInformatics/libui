@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.0...v3.8.1) (2024-12-31)
+
+
+### Bug Fixes
+
+* button width in form ([f1ae125](https://github.com/DouglasNeuroInformatics/libui/commit/f1ae1252e6339df92c5091a3774182762bae9223))
+
 ## [3.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.6...v3.8.0) (2024-12-31)
 
 
