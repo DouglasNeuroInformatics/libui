@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.1...v3.8.2) (2024-12-31)
+
+
+### Bug Fixes
+
+* set minSubmitTime to 0 if !suspendWhileSubmitting ([c6fe59f](https://github.com/DouglasNeuroInformatics/libui/commit/c6fe59f418a7720834410488a288ef9912da0658))
+
 ## [3.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.0...v3.8.1) (2024-12-31)
 
 
