@@ -13,6 +13,7 @@ import type { Promisable } from 'type-fest';
 import { z } from 'zod';
 
 import { useTranslation } from '@/hooks';
+import { cn } from '@/utils';
 
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -40,6 +41,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   resetBtn?: boolean;
   revalidateOnBlur?: boolean;
   submitBtnLabel?: string;
+  suspendWhileSubmitting?: boolean;
   validationSchema: z.ZodType<TData>;
 };
 
@@ -58,6 +60,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   resetBtn,
   revalidateOnBlur,
   submitBtnLabel,
+  suspendWhileSubmitting,
   validationSchema,
   ...props
 }: FormProps<TSchema, TData>) => {
@@ -67,6 +70,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const [values, setValues] = useState<PartialFormDataType<TData>>(
     initialValues ? getInitialValues(initialValues) : {}
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
@@ -97,14 +101,21 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const result = await validationSchema.safeParseAsync(values);
-    if (result.success) {
-      reset();
-      await onSubmit(result.data);
-    } else {
-      console.error(result.error.issues);
-      handleError(result.error);
+    const minSubmitTime = new Promise((resolve) => setTimeout(resolve, 500));
+    try {
+      setIsSubmitting(true);
+      event.preventDefault();
+      const result = await validationSchema.safeParseAsync(values);
+      if (result.success) {
+        reset();
+        await onSubmit(result.data);
+      } else {
+        console.error(result.error.issues);
+        handleError(result.error);
+      }
+    } finally {
+      await minSubmitTime;
+      setIsSubmitting(false);
     }
   };
 
@@ -127,6 +138,8 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   useEffect(() => {
     revalidate();
   }, [resolvedLanguage]);
+
+  const isSuspended = Boolean(suspendWhileSubmitting && isSubmitting);
 
   return (
     <form
@@ -176,8 +189,28 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
         {/** Note - aria-label is used for testing in downstream packages */}
-        <Button aria-label="Submit" className="block w-full" disabled={readOnly} type="submit" variant="primary">
+        <Button
+          aria-label="Submit"
+          className="flex w-32 items-center justify-center gap-2"
+          disabled={readOnly || isSuspended}
+          type="submit"
+          variant="primary"
+        >
           {submitBtnLabel ?? t('form.submit')}
+          <svg
+            className={cn('hidden h-4 w-4 animate-spin', isSuspended && 'block')}
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+          </svg>
         </Button>
         {resetBtn && (
           <Button
