@@ -101,7 +101,9 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    const minSubmitTime = new Promise((resolve) => setTimeout(resolve, 500));
+    const minSubmitTime = new Promise<void>((resolve) =>
+      suspendWhileSubmitting ? setTimeout(resolve, 500) : resolve()
+    );
     try {
       setIsSubmitting(true);
       event.preventDefault();
