@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.6...v3.8.0) (2024-12-31)
+
+
+### Features
+
+* add suspendOnSubmitting ([9172867](https://github.com/DouglasNeuroInformatics/libui/commit/9172867f11a53bd26f12ee74dc886c4dbebf4d5a))
+
 ## [3.7.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.7.5...v3.7.6) (2024-12-30)
 
 
