@@ -147,12 +147,13 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   return (
     <form
       autoComplete="off"
-      className={twMerge('w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
+      className={twMerge('relative w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
       id={id}
       onBlur={revalidateOnBlur ? revalidate : undefined}
       onSubmit={(event) => void handleSubmit(event)}
       {...props}
     >
+      {isSubmitting && <div className="absolute z-10 h-full w-full cursor-wait" />}
       {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
