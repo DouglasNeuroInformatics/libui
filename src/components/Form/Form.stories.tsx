@@ -521,7 +521,8 @@ export const WithSuspend: StoryObj<typeof Form<SimpleExampleFormSchemaType>> = {
     },
     suspendWhileSubmitting: true,
     onSubmit: (data) => {
-      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+      // eslint-disable-next-line no-console
+      console.log(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
     validationSchema: $SimpleExampleFormData
   }
