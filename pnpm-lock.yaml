@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       '@douglasneuroinformatics/libjs':
-        specifier: ^1.1.0
-        version: 1.1.0(typescript@5.5.4)
+        specifier: ^1.2.0
+        version: 1.2.0(typescript@5.5.4)
       '@douglasneuroinformatics/libui-form-types':
         specifier: ^0.11.0
         version: 0.11.0
@@ -488,9 +488,9 @@ packages:
       typescript:
         optional: true
 
-  '@douglasneuroinformatics/libjs@1.1.0':
+  '@douglasneuroinformatics/libjs@1.2.0':
     resolution:
-      { integrity: sha512-wVVrhB+QKiPqZDLH/4skYQZmOroHCq2YgJe44YssN4ZtGhCwZR20REWgcqlkhtJFtJkjanZyF0RQmFJih5beTw== }
+      { integrity: sha512-oK5HgwsFiHFGwT0TeHH9QnTqYoXgg+PvTrxt5LWylo2500/a87XpWzGseLyqbwATjUW44/27EAYUElrE2adoIA== }
     peerDependencies:
       typescript: ^5.5.0
 
@@ -7297,7 +7297,7 @@ snapshots:
       - ts-node
       - vue-eslint-parser
 
-  '@douglasneuroinformatics/libjs@1.1.0(typescript@5.5.4)':
+  '@douglasneuroinformatics/libjs@1.2.0(typescript@5.5.4)':
     dependencies:
       type-fest: 4.31.0
       typescript: 5.5.4
@@ -11522,7 +11522,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.25.7
       index-to-position: 0.1.2
-      type-fest: 4.26.1
+      type-fest: 4.31.0
 
   parse-ms@4.0.0: {}
 
@@ -11857,7 +11857,7 @@ snapshots:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.26.1
+      type-fest: 4.31.0
       unicorn-magic: 0.1.0
 
   readable-stream@2.3.8:
