@@ -20,17 +20,19 @@ interface DownloadFunction {
   (filename: string, data: () => Promisable<string>, options?: DownloadTextOptions): Promise<void>;
 }
 
+type Downloadable = {
+  blobType: string;
+  data: Blob | string;
+  filename: string;
+};
+
 /**
  * Used to trigger downloads of arbitrary data to the client
  * @returns A function to invoke the download
  */
 export function useDownload(): DownloadFunction {
   const notifications = useNotificationsStore();
-  const [state, setState] = useState<{
-    blobType: string;
-    data: Blob | string;
-    filename: string;
-  } | null>(null);
+  const [state, setState] = useState<Downloadable | null>(null);
 
   useEffect(() => {
     if (state) {
