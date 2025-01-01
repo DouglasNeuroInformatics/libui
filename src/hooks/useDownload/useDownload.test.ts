@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useDownload } from './useDownload';
 
@@ -14,10 +14,7 @@ vi.mock('../useNotificationsStore', () => ({
 describe('useDownload', () => {
   let download: ReturnType<typeof useDownload>;
 
-  let createElement: MockInstance;
-
   beforeEach(() => {
-    createElement = vi.spyOn(document, 'createElement');
     const { result } = renderHook(() => useDownload());
     download = result.current;
   });
@@ -41,6 +38,7 @@ describe('useDownload', () => {
     expect(mockNotificationsStore.addNotification).toHaveBeenCalledOnce();
     expect(mockNotificationsStore.addNotification.mock.lastCall?.[0]).toMatchObject({ message: 'An error occurred!' });
   });
+
   it('should attempt at add a notification if the fetch data function throws a non-error', async () => {
     await act(() =>
       download('hello.txt', () => {
@@ -50,10 +48,13 @@ describe('useDownload', () => {
     );
     expect(mockNotificationsStore.addNotification).toHaveBeenCalledOnce();
   });
-  it('should attempt to create one anchor element, if called once', async () => {
-    await act(() => download('hello.txt', () => 'hello world'));
-    expect(createElement).toHaveBeenLastCalledWith('a');
+
+  it('should click an anchor element', async () => {
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click');
+    await act(() => download('hello.txt', 'hello world'));
+    expect(click).toHaveBeenCalledOnce();
   });
+
   it('should invoke the fetch data a gather an image', async () => {
     const fetchData = vi.fn(() => new Blob());
     await download('testdiv.png', fetchData, { blobType: 'image/png' });
