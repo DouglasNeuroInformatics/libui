@@ -509,3 +509,20 @@ export const WithPreventReset: StoryObj<typeof Form<SimpleExampleFormSchemaType>
     validationSchema: $SimpleExampleFormData
   }
 };
+
+export const WithSuspend: StoryObj<typeof Form<SimpleExampleFormSchemaType>> = {
+  args: {
+    content: {
+      name: {
+        kind: 'string',
+        label: 'Name',
+        variant: 'input'
+      }
+    },
+    suspendWhileSubmitting: true,
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+    },
+    validationSchema: $SimpleExampleFormData
+  }
+};
