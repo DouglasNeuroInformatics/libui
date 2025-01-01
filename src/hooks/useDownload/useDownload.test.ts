@@ -26,15 +26,12 @@ describe('useDownload', () => {
     vi.clearAllMocks();
   });
 
-  it('should render', () => {
-    expect(download).toBeDefined();
-  });
-
   it('should invoke the fetch data function', async () => {
     const fetchData = vi.fn(() => 'hello world');
     await download('hello.txt', fetchData);
     expect(fetchData).toHaveBeenCalledOnce();
   });
+
   it('should attempt at add a notification if the fetch data function throws an error', async () => {
     await act(() =>
       download('hello.txt', () => {
