@@ -101,22 +101,23 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    const minSubmitTime = new Promise<void>((resolve) =>
-      suspendWhileSubmitting ? setTimeout(resolve, 500) : resolve()
-    );
+    event.preventDefault();
+    const result = await validationSchema.safeParseAsync(values);
+    if (!result.success) {
+      console.error(result.error.issues);
+      handleError(result.error);
+      return;
+    }
     try {
       setIsSubmitting(true);
-      event.preventDefault();
-      const result = await validationSchema.safeParseAsync(values);
-      if (result.success) {
-        await onSubmit(result.data);
-        reset();
-      } else {
-        console.error(result.error.issues);
-        handleError(result.error);
-      }
+      await Promise.all([
+        onSubmit(result.data),
+        new Promise<void>((resolve) => {
+          return suspendWhileSubmitting ? setTimeout(resolve, 500) : resolve();
+        })
+      ]);
+      reset();
     } finally {
-      await minSubmitTime;
       setIsSubmitting(false);
     }
   };
