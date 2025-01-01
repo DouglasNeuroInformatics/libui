@@ -1,4 +1,4 @@
-import { toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { toBasicISOString, toLocalISOString } from '@douglasneuroinformatics/libjs';
 import { getByText, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -84,14 +84,14 @@ describe('DateField', () => {
     datepicker = screen.getByTestId('datepicker');
     await userEvent.click(getByText(datepicker, '1'));
     expectedDate = new Date(new Date().setDate(1));
-    expectedDateString = toBasicISOString(expectedDate);
+    expectedDateString = toLocalISOString(expectedDate).split('T')[0]!;
     expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
 
     await userEvent.click(input);
     datepicker = screen.getByTestId('datepicker');
     await userEvent.click(getByText(datepicker, '2'));
     expectedDate = new Date(new Date().setDate(2));
-    expectedDateString = toBasicISOString(expectedDate);
+    expectedDateString = toLocalISOString(expectedDate).split('T')[0]!;
     expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
   });
   it('should render the value provided as a prop', () => {
