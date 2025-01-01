@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.8.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.3...v3.8.4) (2025-01-01)
+
+
+### Bug Fixes
+
+* add wait cursor overlay for suspend ([814355d](https://github.com/DouglasNeuroInformatics/libui/commit/814355d80071bfdde171b6c4f35798212691fec5))
+* delay ([96486ce](https://github.com/DouglasNeuroInformatics/libui/commit/96486cefe233e99102e068c6b9a22640adadfcc1))
+
 ## [3.8.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.2...v3.8.3) (2025-01-01)
 
 
