@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.8.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.4...v3.8.5) (2025-01-01)
+
+
+### Bug Fixes
+
+* closes [#42](https://github.com/DouglasNeuroInformatics/libui/issues/42) ([0731080](https://github.com/DouglasNeuroInformatics/libui/commit/07310805ff1c08e165f2597c226194166797d468))
+* closes [#43](https://github.com/DouglasNeuroInformatics/libui/issues/43) ([234d854](https://github.com/DouglasNeuroInformatics/libui/commit/234d854f6f6201aba85ecc008a9653a529553891))
+
 ## [3.8.4](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.3...v3.8.4) (2025-01-01)
 
 
