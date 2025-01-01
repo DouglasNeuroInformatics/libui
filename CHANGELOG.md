@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.3](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.2...v3.8.3) (2025-01-01)
+
+
+### Bug Fixes
+
+* reset form after submit ([ce8497c](https://github.com/DouglasNeuroInformatics/libui/commit/ce8497cc09ec5e046468b12c0c320852db9296e5))
+
 ## [3.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.1...v3.8.2) (2024-12-31)
 
 
