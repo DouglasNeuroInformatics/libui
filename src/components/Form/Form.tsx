@@ -109,8 +109,8 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       event.preventDefault();
       const result = await validationSchema.safeParseAsync(values);
       if (result.success) {
-        reset();
         await onSubmit(result.data);
+        reset();
       } else {
         console.error(result.error.issues);
         handleError(result.error);
