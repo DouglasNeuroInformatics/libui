@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { act, renderHook } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 
 import { useDownload } from './useDownload';
 
@@ -16,9 +14,10 @@ vi.mock('../useNotificationsStore', () => ({
 describe('useDownload', () => {
   let download: ReturnType<typeof useDownload>;
 
+  let createElement: MockInstance;
+
   beforeEach(() => {
-    vi.spyOn(document, 'createElement');
-    vi.spyOn(React, 'useState');
+    createElement = vi.spyOn(document, 'createElement');
     const { result } = renderHook(() => useDownload());
     download = result.current;
   });
@@ -54,10 +53,9 @@ describe('useDownload', () => {
     );
     expect(mockNotificationsStore.addNotification).toHaveBeenCalledOnce();
   });
-  it('should attempt to create one anchor element', async () => {
+  it('should attempt to create one anchor element, if called once', async () => {
     await act(() => download('hello.txt', () => 'hello world'));
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    expect(document.createElement).toHaveBeenLastCalledWith('a');
+    expect(createElement).toHaveBeenLastCalledWith('a');
   });
   it('should invoke the fetch data a gather an image', async () => {
     const fetchData = vi.fn(() => new Blob());
