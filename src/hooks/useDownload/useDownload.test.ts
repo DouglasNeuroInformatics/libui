@@ -49,10 +49,16 @@ describe('useDownload', () => {
     expect(mockNotificationsStore.addNotification).toHaveBeenCalledOnce();
   });
 
-  it('should click an anchor element', async () => {
+  it('should invoke HTMLAnchorElement.prototype.click once', async () => {
     const click = vi.spyOn(HTMLAnchorElement.prototype, 'click');
     await act(() => download('hello.txt', 'hello world'));
     expect(click).toHaveBeenCalledOnce();
+  });
+
+  it('should allow multiple simultaneous downloads', async () => {
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click');
+    await act(() => Promise.all([download('foo.txt', 'foo'), download('bar.txt', 'bar')]));
+    expect(click).toHaveBeenCalledTimes(2);
   });
 
   it('should invoke the fetch data a gather an image', async () => {
