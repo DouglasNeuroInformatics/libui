@@ -1,7 +1,7 @@
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { getByText, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DateField } from './DateField';
 
@@ -10,6 +10,12 @@ describe('DateField', () => {
   const setValue = vi.fn();
 
   beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date(2025, 0, 1, 22));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
     vi.clearAllMocks();
   });
 
