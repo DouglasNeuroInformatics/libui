@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 
+import { sleep } from '@douglasneuroinformatics/libjs';
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type FormTypes from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -510,20 +511,23 @@ export const WithPreventReset: StoryObj<typeof Form<SimpleExampleFormSchemaType>
   }
 };
 
-export const WithSuspend: StoryObj<typeof Form<SimpleExampleFormSchemaType>> = {
+export const WithSuspend: StoryObj<typeof Form<z.ZodType<FormTypes.Data>, { delay?: number }>> = {
   args: {
     content: {
-      name: {
-        kind: 'string',
-        label: 'Name',
+      delay: {
+        kind: 'number',
+        label: 'Delay (Seconds)',
         variant: 'input'
       }
     },
     suspendWhileSubmitting: true,
-    onSubmit: (data) => {
+    onSubmit: async (data) => {
+      await sleep(data.delay!);
       // eslint-disable-next-line no-console
       console.log(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
     },
-    validationSchema: $SimpleExampleFormData
+    validationSchema: z.object({
+      delay: z.number().nonnegative().default(0)
+    })
   }
 };
