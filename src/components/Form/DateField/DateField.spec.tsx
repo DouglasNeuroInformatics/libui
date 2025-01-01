@@ -1,7 +1,7 @@
-import { toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { toBasicISOString, toLocalISOString } from '@douglasneuroinformatics/libjs';
 import { getByText, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DateField } from './DateField';
 
@@ -10,6 +10,12 @@ describe('DateField', () => {
   const setValue = vi.fn();
 
   beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date(2025, 0, 1, 22));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
     vi.clearAllMocks();
   });
 
@@ -78,14 +84,14 @@ describe('DateField', () => {
     datepicker = screen.getByTestId('datepicker');
     await userEvent.click(getByText(datepicker, '1'));
     expectedDate = new Date(new Date().setDate(1));
-    expectedDateString = toBasicISOString(expectedDate);
+    expectedDateString = toLocalISOString(expectedDate).split('T')[0]!;
     expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
 
     await userEvent.click(input);
     datepicker = screen.getByTestId('datepicker');
     await userEvent.click(getByText(datepicker, '2'));
     expectedDate = new Date(new Date().setDate(2));
-    expectedDateString = toBasicISOString(expectedDate);
+    expectedDateString = toLocalISOString(expectedDate).split('T')[0]!;
     expect(toBasicISOString(setValue.mock.lastCall?.[0])).toBe(expectedDateString);
   });
   it('should render the value provided as a prop', () => {

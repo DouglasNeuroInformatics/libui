@@ -20,35 +20,36 @@ interface DownloadFunction {
   (filename: string, data: () => Promisable<string>, options?: DownloadTextOptions): Promise<void>;
 }
 
+type Downloadable = {
+  blobType: string;
+  data: Blob | string;
+  filename: string;
+  id: string;
+};
+
 /**
  * Used to trigger downloads of arbitrary data to the client
  * @returns A function to invoke the download
  */
 export function useDownload(): DownloadFunction {
   const notifications = useNotificationsStore();
-  const [state, setState] = useState<{
-    blobType: string;
-    data: Blob | string;
-    filename: string;
-  } | null>(null);
+  const [downloads, setDownloads] = useState<Downloadable[]>([]);
 
   useEffect(() => {
-    if (state) {
-      const { blobType, data, filename } = state;
+    if (downloads.length) {
+      const { blobType, data, filename, id } = downloads.at(-1)!;
       const anchor = document.createElement('a');
       document.body.appendChild(anchor);
-
       const blob = new Blob([data], { type: blobType });
-
       const url = URL.createObjectURL(blob);
       anchor.href = url;
       anchor.download = filename;
       anchor.click();
       URL.revokeObjectURL(url);
       anchor.remove();
-      setState(null);
+      setDownloads((prevDownloads) => prevDownloads.filter((item) => item.id !== id));
     }
-  }, [state]);
+  }, [downloads]);
 
   return async (filename, _data, options) => {
     try {
@@ -56,7 +57,10 @@ export function useDownload(): DownloadFunction {
       if (typeof data !== 'string' && !options?.blobType) {
         throw new Error("argument 'blobType' must be defined when download is called with a Blob object");
       }
-      setState({ blobType: options?.blobType ?? 'text/plain', data, filename });
+      setDownloads((prevDownloads) => [
+        ...prevDownloads,
+        { blobType: options?.blobType ?? 'text/plain', data, filename, id: crypto.randomUUID() }
+      ]);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'An unknown error occurred';
       notifications.addNotification({
