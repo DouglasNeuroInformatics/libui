@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.5...v3.8.6) (2025-01-03)
+
+
+### Bug Fixes
+
+* use NoInfer in Form for certain props ([58f5597](https://github.com/DouglasNeuroInformatics/libui/commit/58f5597e7dfb9c830f79a974dbaba8bc1e992160))
+
 ## [3.8.5](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.4...v3.8.5) (2025-01-01)
 
 
