@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
-import { motion } from 'framer-motion';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
+import { motion } from 'motion/react';
 
 import { Input } from '@/components/Input';
 import { Label } from '@/components/Label';

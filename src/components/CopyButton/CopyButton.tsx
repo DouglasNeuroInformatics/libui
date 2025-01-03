@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import { ClipboardCheckIcon, ClipboardListIcon } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { match } from 'ts-pattern';
 
 import { Button, type ButtonProps } from '../Button';

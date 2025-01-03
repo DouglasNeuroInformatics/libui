@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react';
 import * as React from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils';

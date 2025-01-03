@@ -33,9 +33,9 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   content: FormContent<TData>;
   fieldsFooter?: React.ReactNode;
   id?: string;
-  initialValues?: PartialNullableFormDataType<TData>;
-  onError?: (error: z.ZodError<TData>) => void;
-  onSubmit: (data: TData) => Promisable<void>;
+  initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
+  onError?: (error: z.ZodError<NoInfer<TData>>) => void;
+  onSubmit: (data: NoInfer<TData>) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
   readOnly?: boolean;
   resetBtn?: boolean;

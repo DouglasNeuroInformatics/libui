@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import { range } from 'lodash-es';
+import { AnimatePresence, motion } from 'motion/react';
 
 import { useTranslation } from '@/hooks';
 
