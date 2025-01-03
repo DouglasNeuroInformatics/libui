@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import { XIcon } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 import { useTranslation } from '@/hooks';
 import { useNotificationsStore } from '@/hooks/useNotificationsStore';
