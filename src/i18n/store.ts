@@ -1,5 +1,6 @@
 import type { SetOptional } from 'type-fest';
 import { createStore } from 'zustand/vanilla';
+import { subscribeWithSelector } from 'zustand/middleware';
 
 import libui from '@/i18n/translations/libui.json';
 
@@ -26,15 +27,17 @@ export type TranslationStore = {
   translations: Translations;
 };
 
-export const translationStore = createStore<TranslationStore>((set) => ({
-  changeLanguage(language) {
-    set({ resolvedLanguage: language });
-  },
-  fallbackLanguage: 'en',
-  isInitialized: false,
-  resolvedLanguage: 'en',
-  translations: { libui }
-}));
+export const translationStore = createStore(
+  subscribeWithSelector<TranslationStore>((set) => ({
+    changeLanguage(language) {
+      set({ resolvedLanguage: language });
+    },
+    fallbackLanguage: 'en',
+    isInitialized: false,
+    resolvedLanguage: 'en',
+    translations: { libui }
+  }))
+);
 
 export const i18n: I18N = {
   init: ({ defaultLanguage, fallbackLanguage, translations }: InitOptions = {}) => {
@@ -43,6 +46,12 @@ export const i18n: I18N = {
       console.error('Cannot reinitialize translations store');
       return;
     }
+    translationStore.subscribe(
+      (state) => state.resolvedLanguage,
+      (resolvedLanguage) => {
+        document.documentElement.lang = resolvedLanguage;
+      }
+    );
     translationStore.setState({
       fallbackLanguage: fallbackLanguage ?? state.fallbackLanguage,
       isInitialized: true,
