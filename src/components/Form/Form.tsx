@@ -45,7 +45,6 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   validationSchema: z.ZodType<TData>;
 };
 
-// eslint-disable-next-line max-lines-per-function
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   additionalButtons,
   className,

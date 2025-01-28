@@ -7,9 +7,9 @@ import { cn } from '@/utils';
 
 export const MenuBarSubTrigger = forwardRef<
   React.ElementRef<typeof SubTrigger>,
-  {
+  React.ComponentPropsWithoutRef<typeof SubTrigger> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof SubTrigger>
+  }
 >(function MenuBarSubTrigger({ children, className, inset, ...props }, ref) {
   return (
     <SubTrigger

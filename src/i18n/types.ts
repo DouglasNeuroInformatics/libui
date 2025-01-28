@@ -18,17 +18,17 @@ export declare namespace UserConfig {
   }
 }
 
-export type LanguageOptions = {
+export type LanguageOptions = UserConfig.LanguageOptions & {
   en: true;
   fr: true;
-} & UserConfig.LanguageOptions;
+};
 
 export type Language = keyof { [L in keyof LanguageOptions as LanguageOptions[L] extends true ? L : never]: any };
 
 export type Translations = Simplify<
-  {
+  OmitIndexSignature<UserConfig.Translations> & {
     libui: typeof libuiTranslations;
-  } & OmitIndexSignature<UserConfig.Translations>
+  }
 >;
 
 export type ExtractTranslationKey<T extends { [key: string]: any }, Key = keyof T> = Key extends string

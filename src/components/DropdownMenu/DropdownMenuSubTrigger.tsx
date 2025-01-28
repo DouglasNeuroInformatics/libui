@@ -7,9 +7,9 @@ import { cn } from '@/utils';
 
 export const DropdownMenuSubTrigger = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-  {
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger>
+  }
 >(function DropdownMenuSubTrigger({ children, className, inset, ...props }, ref) {
   return (
     <DropdownMenuPrimitive.SubTrigger
