@@ -1,0 +1,25 @@
+import { defineConfig, mergeConfig } from 'vitest/config';
+import viteConfig from './vite.config.mjs';
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      coverage: {
+        exclude: ['**/*.d.ts', '**/index.ts', '**/*.stories.tsx', 'src/testing/*'],
+        include: ['src/**/*'],
+        provider: 'v8',
+        thresholds: {
+          branches: 75,
+          functions: 30,
+          lines: 50,
+          statements: 50
+        }
+      },
+      environment: 'happy-dom',
+      root: import.meta.dirname,
+      setupFiles: ['src/testing/setup-tests.ts'],
+      watch: false
+    }
+  })
+);

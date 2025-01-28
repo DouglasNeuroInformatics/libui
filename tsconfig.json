@@ -23,6 +23,7 @@
     "prettier.config.js",
     "tailwind.config.cjs",
     "tsup.config.mts",
-    "vite.config.mts"
+    "vite.config.mts",
+    "vitest.config.mts"
   ]
 }
