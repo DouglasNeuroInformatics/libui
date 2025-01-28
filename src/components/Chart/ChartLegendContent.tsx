@@ -9,11 +9,11 @@ import { getPayloadConfigFromPayload } from './utils';
 
 export const ChartLegendContent = forwardRef<
   HTMLDivElement,
-  {
-    hideIcon?: boolean;
-    nameKey?: string;
-  } & Pick<LegendProps, 'payload' | 'verticalAlign'> &
-    React.ComponentProps<'div'>
+  Pick<LegendProps, 'payload' | 'verticalAlign'> &
+    React.ComponentProps<'div'> & {
+      hideIcon?: boolean;
+      nameKey?: string;
+    }
 >(function ChartLegendContent({ className, hideIcon = false, nameKey, payload, verticalAlign = 'bottom' }, ref) {
   const { config } = useChart();
 

@@ -9,14 +9,14 @@ import { getPayloadConfigFromPayload } from './utils';
 
 export const ChartTooltipContent = forwardRef<
   HTMLDivElement,
-  {
-    hideIndicator?: boolean;
-    hideLabel?: boolean;
-    indicator?: 'dashed' | 'dot' | 'line';
-    labelKey?: string;
-    nameKey?: string;
-  } & React.ComponentProps<'div'> &
-    React.ComponentProps<typeof Tooltip>
+  React.ComponentProps<'div'> &
+    React.ComponentProps<typeof Tooltip> & {
+      hideIndicator?: boolean;
+      hideLabel?: boolean;
+      indicator?: 'dashed' | 'dot' | 'line';
+      labelKey?: string;
+      nameKey?: string;
+    }
 >(function ChartLegendContent(
   {
     active,

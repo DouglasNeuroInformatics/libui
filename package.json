@@ -114,7 +114,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@douglasneuroinformatics/eslint-config": "^5.2.1",
+    "@douglasneuroinformatics/eslint-config": "^5.2.4",
     "@douglasneuroinformatics/prettier-config": "^0.0.1",
     "@douglasneuroinformatics/semantic-release": "^0.0.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.2",
@@ -140,7 +140,7 @@
     "@vitejs/plugin-react-swc": "^3.7.1",
     "@vitest/coverage-v8": "^2.1.2",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.12.0",
+    "eslint": "^9.19.0",
     "happy-dom": "^14.12.0",
     "husky": "^9.1.6",
     "jsdom": "25.0.1",

@@ -11,10 +11,10 @@ import type { ChartConfig } from './types';
 
 export const ChartContainer = forwardRef<
   HTMLDivElement,
-  {
+  React.ComponentProps<'div'> & {
     children: React.ComponentProps<typeof ResponsiveContainer>['children'];
     config: ChartConfig;
-  } & React.ComponentProps<'div'>
+  }
 >(function ChartContainer({ children, className, config, id, ...props }, ref) {
   const uniqueId = useId();
   const chartId = `chart-${id ?? uniqueId.replace(/:/g, '')}`;

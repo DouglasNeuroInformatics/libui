@@ -1,6 +1,6 @@
 import type { SetOptional } from 'type-fest';
-import { createStore } from 'zustand/vanilla';
 import { subscribeWithSelector } from 'zustand/middleware';
+import { createStore } from 'zustand/vanilla';
 
 import libui from '@/i18n/translations/libui.json';
 

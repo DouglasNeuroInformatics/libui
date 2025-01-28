@@ -6,9 +6,9 @@ import { cn } from '@/utils';
 
 export const DropdownMenuLabel = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  {
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>
+  }
 >(function DropdownMenuLabel({ className, inset, ...props }, ref) {
   return (
     <DropdownMenuPrimitive.Label

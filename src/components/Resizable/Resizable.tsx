@@ -6,11 +6,11 @@ import { ResizableHandle, type ResizableHandleProps } from './ResizableHandle';
 import { ResizablePanelGroup, type ResizablePanelGroupProps } from './ResizablePanelGroup';
 
 type ResizableRootType = React.FC<{ children: React.ReactNode }>;
-type ResizableType = {
+type ResizableType = ResizableRootType & {
   Handle: React.FC<ResizableHandleProps>;
   Panel: React.FC<PanelProps>;
   PanelGroup: React.FC<ResizablePanelGroupProps>;
-} & ResizableRootType;
+};
 
 // This is only for storybook and is unnecessary for real-world use
 const ResizableRoot: ResizableRootType = ({ children }) => <>{children}</>;

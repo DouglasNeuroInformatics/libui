@@ -26,11 +26,14 @@ type LineGraphData = readonly { [key: string]: any }[];
 /** Extract string keys from items in `T` where the value of `T[K]` extends `K` */
 type ExtractValidKeys<T extends LineGraphData, K> = Extract<ConditionalKeys<T[number], K>, string>;
 
-type LineGraphLine<T extends LineGraphData = { [key: string]: any }[]> = {
+type LineGraphLine<T extends LineGraphData = { [key: string]: any }[]> = Pick<
+  LineProps,
+  'legendType' | 'stroke' | 'strokeDasharray' | 'strokeWidth' | 'type'
+> & {
   err?: ExtractValidKeys<T, number>;
   name: string;
   val: ExtractValidKeys<T, number>;
-} & Pick<LineProps, 'legendType' | 'stroke' | 'strokeDasharray' | 'strokeWidth' | 'type'>;
+};
 
 const strokeColors = {
   dark: '#cbd5e1', // slate-300

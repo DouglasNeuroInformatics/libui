@@ -9,7 +9,7 @@ import { cn } from '@/utils';
 import { Button, type ButtonProps } from '../Button';
 
 export type ArrowToggleProps = Simplify<
-  {
+  React.HTMLAttributes<HTMLButtonElement> & {
     /** Whether or not the arrow is currently toggled */
     isToggled?: boolean;
 
@@ -23,7 +23,7 @@ export type ArrowToggleProps = Simplify<
 
     /** The variant of button to use */
     variant?: Extract<ButtonProps['variant'], 'ghost' | 'outline'>;
-  } & React.HTMLAttributes<HTMLButtonElement>
+  }
 >;
 
 export const ArrowToggle = React.forwardRef<HTMLButtonElement, ArrowToggleProps>(function ArrowToggle(

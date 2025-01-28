@@ -19,17 +19,17 @@ export type BaseSearchBarProps = {
   readOnly?: boolean;
 };
 
-type ControlledSearchBarProps = {
+type ControlledSearchBarProps = BaseSearchBarProps & {
   /** Event handler called when the value changes */
   onValueChange: (value: string) => void;
   /** The controlled value of the search bar, which should be used in conjunction with onValueChange */
   value: string;
-} & BaseSearchBarProps;
+};
 
-type UncontrolledSearchBarProps = {
+type UncontrolledSearchBarProps = BaseSearchBarProps & {
   onValueChange?: never;
   value?: never;
-} & BaseSearchBarProps;
+};
 
 export type SearchBarProps = ControlledSearchBarProps | UncontrolledSearchBarProps;
 
