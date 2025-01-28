@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.7](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.6...v3.8.7) (2025-01-28)
+
+
+### Bug Fixes
+
+* sync language document attribute ([a3bd994](https://github.com/DouglasNeuroInformatics/libui/commit/a3bd994e5c4e547fb856db1996ce87e1ae9c531c))
+
 ## [3.8.6](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.5...v3.8.6) (2025-01-03)
 
 
