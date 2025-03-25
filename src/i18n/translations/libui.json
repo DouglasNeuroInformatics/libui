@@ -143,6 +143,14 @@
     "previous": {
       "en": "Previous",
       "fr": "Précédent"
+    },
+    "firstPage": {
+      "en": "First",
+      "fr": "Première"
+    },
+    "lastPage": {
+      "en": "Last",
+      "fr": "Dernière"
     }
   },
   "searchBar": {
