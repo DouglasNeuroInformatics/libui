@@ -19,7 +19,6 @@ export const ClientTablePagination = ({
   setCurrentPage,
   totalEntries
 }: ClientPagePaginationProps) => {
-  console.log(pageCount);
   const { t } = useTranslation('libui');
   return (
     <div className="flex items-center justify-between py-3">
