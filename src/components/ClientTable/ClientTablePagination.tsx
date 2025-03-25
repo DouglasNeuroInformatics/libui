@@ -19,6 +19,7 @@ export const ClientTablePagination = ({
   setCurrentPage,
   totalEntries
 }: ClientPagePaginationProps) => {
+  console.log(pageCount);
   const { t } = useTranslation('libui');
   return (
     <div className="flex items-center justify-between py-3">
@@ -26,6 +27,16 @@ export const ClientTablePagination = ({
         <p className="text-sm font-medium text-muted-foreground">{`${firstEntry} - ${lastEntry} / ${totalEntries}`}</p>
       </div>
       <div className="flex flex-1 justify-between gap-3 sm:justify-end">
+        <Button
+          disabled={currentPage === 1}
+          type="button"
+          variant="outline"
+          onClick={() => {
+            setCurrentPage(1);
+          }}
+        >
+          {t('pagination.firstPage')}
+        </Button>
         <Button
           disabled={currentPage === 1}
           type="button"
@@ -45,6 +56,16 @@ export const ClientTablePagination = ({
           }}
         >
           {t('pagination.next')}
+        </Button>
+        <Button
+          disabled={currentPage === pageCount}
+          type="button"
+          variant="outline"
+          onClick={() => {
+            setCurrentPage(pageCount);
+          }}
+        >
+          {t('pagination.lastPage')}
         </Button>
       </div>
     </div>
