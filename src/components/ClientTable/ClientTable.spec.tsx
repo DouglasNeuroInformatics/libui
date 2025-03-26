@@ -1,51 +1,21 @@
-import { range } from '@douglasneuroinformatics/libjs';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { ClientTable } from './ClientTable';
 
 const TEST_ID = 'ClientTable';
+const FIRST_BUTTON_ID = 'first-page-button';
+const PREVIOUS_BUTTON_ID = 'previous-page-button';
+const NEXT_BUTTON_ID = 'next-page-button';
+const LAST_BUTTON_ID = 'last-page-button';
 
 describe('ClientTable', () => {
   it('should render', () => {
-    render(
-      <ClientTable
-        columnDropdownOptions={[
-          {
-            label: 'Delete',
-            onSelection: (column) => {
-              return column.label;
-            }
-          }
-        ]}
-        columns={[
-          {
-            field: 'f1',
-            label: 'Field 1'
-          },
-          {
-            field: 'f2',
-            label: 'Field 2'
-          },
-          {
-            field: 'f3',
-            label: 'Field 3'
-          }
-        ]}
-        data={[
-          {
-            f1: 1,
-            f2: range(1000).join(', '),
-            f3: 3
-          }
-        ]}
-        minRows={10}
-        noWrap={true}
-        onEntryClick={(entry) => {
-          return entry;
-        }}
-      />
-    );
+    render(<ClientTable columns={[]} data={[]} minRows={10} noWrap={true} />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(FIRST_BUTTON_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(PREVIOUS_BUTTON_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(NEXT_BUTTON_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(LAST_BUTTON_ID)).toBeInTheDocument();
   });
 });
