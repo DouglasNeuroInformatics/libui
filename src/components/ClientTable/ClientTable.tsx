@@ -104,6 +104,7 @@ export const ClientTable = <T extends ClientTableEntry>({
                             const Icon = option.icon;
                             return (
                               <DropdownMenu.Item
+                                data-testid={option.label + '-test-id'}
                                 key={option.label}
                                 onClick={() => {
                                   option.onSelection(column);
