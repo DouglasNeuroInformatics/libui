@@ -1,7 +1,6 @@
-import { randomInt, range } from '@douglasneuroinformatics/libjs';
+import { range } from '@douglasneuroinformatics/libjs';
 import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { ClientTable } from './ClientTable';
 import { type ClientTableColumn } from './ClientTable';
