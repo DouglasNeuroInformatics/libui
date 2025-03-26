@@ -112,11 +112,9 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
     "@douglasneuroinformatics/eslint-config": "^5.2.4",
     "@douglasneuroinformatics/prettier-config": "^0.0.1",
-    "@douglasneuroinformatics/semantic-release": "^0.0.1",
+    "@douglasneuroinformatics/semantic-release": "^0.2.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.2",
     "@faker-js/faker": "^9.0.3",
     "@storybook/addon-essentials": "^8.3.5",
@@ -156,7 +154,7 @@
   },
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional"
+      "@douglasneuroinformatics/semantic-release/commitlint-config"
     ]
   },
   "release": {
