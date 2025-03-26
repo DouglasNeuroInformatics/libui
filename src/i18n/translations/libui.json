@@ -145,12 +145,12 @@
       "fr": "Précédent"
     },
     "firstPage": {
-      "en": "First",
-      "fr": "Première"
+      "en": "<< First",
+      "fr": "<< Première"
     },
     "lastPage": {
-      "en": "Last",
-      "fr": "Dernière"
+      "en": "Last >>",
+      "fr": "Dernière >>"
     }
   },
   "searchBar": {
