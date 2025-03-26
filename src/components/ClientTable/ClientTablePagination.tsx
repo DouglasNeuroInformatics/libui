@@ -23,7 +23,10 @@ export const ClientTablePagination = ({
   return (
     <div className="flex items-center justify-between py-3">
       <div className="hidden sm:block">
-        <p className="text-sm font-medium text-muted-foreground">{`${firstEntry} - ${lastEntry} / ${totalEntries}`}</p>
+        <p
+          className="text-sm font-medium text-muted-foreground"
+          data-testid="page-numbers"
+        >{`${firstEntry} - ${lastEntry} / ${totalEntries}`}</p>
       </div>
       <div className="flex flex-1 justify-between gap-3 sm:justify-end">
         <Button
