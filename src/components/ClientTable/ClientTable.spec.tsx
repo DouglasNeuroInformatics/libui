@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { ClientTable } from './ClientTable';
 const TEST_ID = 'ClientTable';
@@ -23,6 +23,7 @@ describe('ClientTable', () => {
     expect(screen.getByTestId(TEST_ID)).toHaveClass('foo');
   });
   it('should function correctly', async () => {
+    const handleClientTableItemClick = vi.fn();
     render(
       <ClientTable
         columns={[
@@ -47,20 +48,28 @@ describe('ClientTable', () => {
         ]}
         entriesPerPage={1}
         minRows={3}
+        onEntryClick={handleClientTableItemClick}
       />
     );
     expect(screen.getByTestId(PAGE_NUMBER_ID)).toBeInTheDocument();
     await userEvent.click(screen.getByTestId(NEXT_BUTTON_ID));
     await userEvent.click(await screen.findByText('23.00'));
+    expect(handleClientTableItemClick).toBeCalled();
+
     expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('2 - 2 / 2');
     await userEvent.click(screen.getByTestId(PREVIOUS_BUTTON_ID));
     await userEvent.click(await screen.findByText('1.00'));
+    expect(handleClientTableItemClick).toBeCalled();
+
     expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('1 - 1 / 2');
     await userEvent.click(screen.getByTestId(LAST_BUTTON_ID));
     await userEvent.click(await screen.findByText('23.00'));
+    expect(handleClientTableItemClick).toBeCalled();
+
     expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('2 - 2 / 2');
     await userEvent.click(screen.getByTestId(FIRST_BUTTON_ID));
     await userEvent.click(await screen.findByText('1.00'));
+    expect(handleClientTableItemClick).toBeCalled();
     expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('1 - 1 / 2');
   });
 });
