@@ -85,7 +85,7 @@ export const ClientTable = <T extends ClientTableEntry>({
   const nRows = Math.max(currentEntries.length, minRows ?? -1);
 
   return (
-    <div className={className} {...props}>
+    <div className={className} {...props} data-testid="ClientTable">
       <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow-sm">
         <Table>
           <Table.Header>

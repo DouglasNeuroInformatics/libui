@@ -27,6 +27,18 @@ export const ClientTablePagination = ({
       </div>
       <div className="flex flex-1 justify-between gap-3 sm:justify-end">
         <Button
+          data-testid="first-page-button"
+          disabled={currentPage === 1}
+          type="button"
+          variant="outline"
+          onClick={() => {
+            setCurrentPage(1);
+          }}
+        >
+          {t('pagination.firstPage')}
+        </Button>
+        <Button
+          data-testid="previous-page-button"
           disabled={currentPage === 1}
           type="button"
           variant="outline"
@@ -37,6 +49,7 @@ export const ClientTablePagination = ({
           {t('pagination.previous')}
         </Button>
         <Button
+          data-testid="next-page-button"
           disabled={currentPage === pageCount}
           type="button"
           variant="outline"
@@ -45,6 +58,17 @@ export const ClientTablePagination = ({
           }}
         >
           {t('pagination.next')}
+        </Button>
+        <Button
+          data-testid="last-page-button"
+          disabled={currentPage === pageCount}
+          type="button"
+          variant="outline"
+          onClick={() => {
+            setCurrentPage(pageCount);
+          }}
+        >
+          {t('pagination.lastPage')}
         </Button>
       </div>
     </div>
