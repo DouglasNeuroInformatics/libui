@@ -8,7 +8,7 @@ const FIRST_BUTTON_ID = 'first-page-button';
 const PREVIOUS_BUTTON_ID = 'previous-page-button';
 const NEXT_BUTTON_ID = 'next-page-button';
 const LAST_BUTTON_ID = 'last-page-button';
-const PAGE_NUMBER_ID = 'page-numbers';
+const PAGE_NUMBER_TEST_ID = 'page-numbers';
 describe('ClientTable', () => {
   it('should render', () => {
     render(<ClientTable columns={[]} data={[]} minRows={10} />);
@@ -51,25 +51,25 @@ describe('ClientTable', () => {
         onEntryClick={handleClientTableItemClick}
       />
     );
-    expect(screen.getByTestId(PAGE_NUMBER_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(PAGE_NUMBER_TEST_ID)).toBeInTheDocument();
     await userEvent.click(screen.getByTestId(NEXT_BUTTON_ID));
     await userEvent.click(await screen.findByText('23.00'));
     expect(handleClientTableItemClick).toBeCalled();
 
-    expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('2 - 2 / 2');
+    expect(screen.getByTestId(PAGE_NUMBER_TEST_ID).textContent).toBe('2 - 2 / 2');
     await userEvent.click(screen.getByTestId(PREVIOUS_BUTTON_ID));
     await userEvent.click(await screen.findByText('1.00'));
     expect(handleClientTableItemClick).toBeCalled();
 
-    expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('1 - 1 / 2');
+    expect(screen.getByTestId(PAGE_NUMBER_TEST_ID).textContent).toBe('1 - 1 / 2');
     await userEvent.click(screen.getByTestId(LAST_BUTTON_ID));
     await userEvent.click(await screen.findByText('23.00'));
     expect(handleClientTableItemClick).toBeCalled();
 
-    expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('2 - 2 / 2');
+    expect(screen.getByTestId(PAGE_NUMBER_TEST_ID).textContent).toBe('2 - 2 / 2');
     await userEvent.click(screen.getByTestId(FIRST_BUTTON_ID));
     await userEvent.click(await screen.findByText('1.00'));
     expect(handleClientTableItemClick).toBeCalled();
-    expect(screen.getByTestId(PAGE_NUMBER_ID).textContent).toBe('1 - 1 / 2');
+    expect(screen.getByTestId(PAGE_NUMBER_TEST_ID).textContent).toBe('1 - 1 / 2');
   });
 });
