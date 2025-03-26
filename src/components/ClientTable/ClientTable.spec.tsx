@@ -11,11 +11,15 @@ const LAST_BUTTON_ID = 'last-page-button';
 
 describe('ClientTable', () => {
   it('should render', () => {
-    render(<ClientTable columns={[]} data={[]} minRows={10} noWrap={true} />);
+    render(<ClientTable columns={[]} data={[]} minRows={10} />);
     expect(screen.getByTestId(TEST_ID)).toBeInTheDocument();
     expect(screen.getByTestId(FIRST_BUTTON_ID)).toBeInTheDocument();
     expect(screen.getByTestId(PREVIOUS_BUTTON_ID)).toBeInTheDocument();
     expect(screen.getByTestId(NEXT_BUTTON_ID)).toBeInTheDocument();
     expect(screen.getByTestId(LAST_BUTTON_ID)).toBeInTheDocument();
+  });
+  it('should contain a custom class name', () => {
+    render(<ClientTable className="foo" columns={[]} data={[]} minRows={10} />);
+    expect(screen.getByTestId(TEST_ID)).toHaveClass('foo');
   });
 });
