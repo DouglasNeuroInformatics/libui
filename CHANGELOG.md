@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.7...v3.9.0) (2025-03-26)
+
+### Features
+
+* add arrows to first and last page buttons ([3b24cec](https://github.com/DouglasNeuroInformatics/libui/commit/3b24cecb9fedab7919cd03a2630750449eec1300))
+* add first and last page buttons ([049f484](https://github.com/DouglasNeuroInformatics/libui/commit/049f484d3d5630f513b4814020abfdcb2d357d1c))
+* add first and last page buttons translations ([f7e9c49](https://github.com/DouglasNeuroInformatics/libui/commit/f7e9c49e060e095e9799733efc49d7033281f7d0))
+
+### Bug Fixes
+
+* remove console log ([e7523a4](https://github.com/DouglasNeuroInformatics/libui/commit/e7523a43de57d10e0b37cd5e81947bb366d7390f))
+
 ## [3.8.7](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.6...v3.8.7) (2025-01-28)
 
 
