@@ -79,5 +79,9 @@ describe('ClientTable', () => {
     await userEvent.click(await screen.findByText('1.00'));
     expect(handleClientTableItemClick).toBeCalled();
     expect(screen.getByTestId(PAGE_NUMBER_TEST_ID).textContent).toBe('1 - 1 / 2');
+
+    await userEvent.click(await screen.findByText('Field 1'));
+    await userEvent.click(screen.getByTestId('delete-test-id'));
+    expect(handleClientTableDropdownClick).toBeCalled();
   });
 });
