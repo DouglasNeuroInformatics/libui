@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import { ClientTable } from './ClientTable';
+
 const TEST_ID = 'ClientTable';
 const FIRST_BUTTON_ID = 'first-page-button';
 const PREVIOUS_BUTTON_ID = 'previous-page-button';
@@ -24,8 +25,15 @@ describe('ClientTable', () => {
   });
   it('should function correctly', async () => {
     const handleClientTableItemClick = vi.fn();
+    const handleClientTableDropdownClick = vi.fn();
     render(
       <ClientTable
+        columnDropdownOptions={[
+          {
+            label: 'delete',
+            onSelection: handleClientTableDropdownClick
+          }
+        ]}
         columns={[
           {
             field: 'f1',
