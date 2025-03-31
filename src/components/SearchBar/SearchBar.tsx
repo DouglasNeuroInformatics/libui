@@ -5,7 +5,7 @@ import { cn } from '@/utils';
 
 import { Input } from '../Input';
 
-export type BaseSearchBarProps = {
+type BaseSearchBarProps = {
   [key: `data-${string}`]: unknown;
   /** Additional CSS classes to add to the wrapper form component, potentially overriding default styling */
   className?: string;
@@ -60,3 +60,5 @@ export const SearchBar = ({
     </form>
   );
 };
+
+export type { BaseSearchBarProps };

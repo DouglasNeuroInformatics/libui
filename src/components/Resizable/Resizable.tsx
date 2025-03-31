@@ -1,9 +1,13 @@
 import * as React from 'react';
 
-import { Panel, type PanelProps } from 'react-resizable-panels';
+import { Panel } from 'react-resizable-panels';
+import type { PanelProps } from 'react-resizable-panels';
 
-import { ResizableHandle, type ResizableHandleProps } from './ResizableHandle';
-import { ResizablePanelGroup, type ResizablePanelGroupProps } from './ResizablePanelGroup';
+import { ResizableHandle } from './ResizableHandle';
+import { ResizablePanelGroup } from './ResizablePanelGroup';
+
+import type { ResizableHandleProps } from './ResizableHandle';
+import type { ResizablePanelGroupProps } from './ResizablePanelGroup';
 
 type ResizableRootType = React.FC<{ children: React.ReactNode }>;
 type ResizableType = ResizableRootType & {

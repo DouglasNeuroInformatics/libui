@@ -8,16 +8,17 @@ import {
   Legend,
   Line,
   LineChart,
-  type LineProps,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis
 } from 'recharts';
+import type { LineProps } from 'recharts';
 import type { ConditionalKeys } from 'type-fest';
 
 import { useTranslation } from '@/hooks';
-import { type Theme, useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/useTheme';
+import type { Theme } from '@/hooks/useTheme';
 
 /** An array of arbitrary objects with data to graph  */
 

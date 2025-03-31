@@ -3,7 +3,9 @@ import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Label } from '../Label';
-import { RadioGroup, type RadioGroupProps } from './RadioGroup';
+import { RadioGroup } from './RadioGroup';
+
+import type { RadioGroupProps } from './RadioGroup';
 
 const TEST_ID = 'radio-group';
 

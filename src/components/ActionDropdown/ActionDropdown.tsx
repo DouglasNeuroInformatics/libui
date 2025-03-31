@@ -5,7 +5,7 @@ import { DropdownMenu } from '../DropdownMenu';
 
 import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent';
 
-type ActionDropdownOptions = { [key: string]: string } | readonly string[];
+type ActionDropdownOptions = readonly string[] | { [key: string]: string };
 
 type ActionDropdownOptionKey<T> = T extends readonly string[]
   ? T[number]

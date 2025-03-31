@@ -1,6 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
 
-import { useStorage, type UseStorageOptions } from './useStorage';
+import { useStorage } from './useStorage';
+
+import type { UseStorageOptions } from './useStorage';
 
 /** Custom hook that uses local storage to persist state across page reloads */
 export function useLocalStorage<T>(

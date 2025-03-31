@@ -15,8 +15,9 @@ import { match } from 'ts-pattern';
 
 import { NumberRecordField } from './NumberRecordField';
 import { RecordArrayField } from './RecordArrayField';
-import { ScalarField, type ScalarFieldProps } from './ScalarField';
+import { ScalarField } from './ScalarField';
 
+import type { ScalarFieldProps } from './ScalarField';
 import type { FieldError, FormErrors } from './types';
 
 export type StaticFieldProps<TData extends FormDataType> = {

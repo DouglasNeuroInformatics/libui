@@ -85,9 +85,7 @@ export const RecordArrayField = memo(function RecordArrayField({
                   readOnly={disabled || readOnly}
                   setError={(error) => {
                     const newArrayError = arrayError ? [...arrayError] : [];
-                    if (!newArrayError[i]) {
-                      newArrayError[i] = {};
-                    }
+                    newArrayError[i] ??= {};
                     newArrayError[i][name] = error;
                     setArrayError(newArrayError);
                   }}

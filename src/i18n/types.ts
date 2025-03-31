@@ -11,10 +11,10 @@ export declare namespace UserConfig {
   }
   interface Translations {
     [key: string]:
+      | Translations
       | {
           [L in Language]?: string;
-        }
-      | Translations;
+        };
   }
 }
 

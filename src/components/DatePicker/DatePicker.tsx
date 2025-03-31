@@ -44,11 +44,11 @@ type ReducerAction = DecrementAction | IncrementAction | SetYearAction;
 const reducer = (previousDate: Date, action: ReducerAction) => {
   const newDate = new Date(previousDate.valueOf());
   switch (action.type) {
-    case 'increment':
-      newDate.setMonth(newDate.getMonth() + 1);
-      break;
     case 'decrement':
       newDate.setMonth(newDate.getMonth() - 1);
+      break;
+    case 'increment':
+      newDate.setMonth(newDate.getMonth() + 1);
       break;
     case 'set-year':
       newDate.setFullYear(action.value);

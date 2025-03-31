@@ -2,7 +2,9 @@ import { forwardRef } from 'react';
 
 import { Trigger } from '@radix-ui/react-tooltip';
 
-import { Button, type ButtonProps } from '../Button';
+import { Button } from '../Button';
+
+import type { ButtonProps } from '../Button';
 
 export type TooltipTriggerProps = Omit<ButtonProps, 'asChild'>;
 

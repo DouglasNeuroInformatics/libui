@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import { cn } from '@/utils';
 
-import { type ButtonProps } from '../Button';
 import { DropdownButton } from '../DropdownButton';
 import { DropdownMenu } from '../DropdownMenu';
+
+import type { ButtonProps } from '../Button';
 
 export type ListboxDropdownOption = {
   key: string;

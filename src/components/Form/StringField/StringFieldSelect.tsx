@@ -5,7 +5,8 @@ import { Label } from '@/components/Label';
 import { Select } from '@/components/Select';
 
 import { FieldGroup } from '../FieldGroup';
-import { type BaseFieldComponentProps } from '../types';
+
+import type { BaseFieldComponentProps } from '../types';
 
 export type StringFieldSelectProps<T extends string = string> = Simplify<
   BaseFieldComponentProps<T> & Extract<StringFormField<T>, { options: object }>
