@@ -51,6 +51,9 @@
     "/tailwind.config.cjs",
     "/tailwind.config.d.cts"
   ],
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "build": "rm -rf dist && tsup --config tsup.config.mts",
     "format": "prettier --write src",
