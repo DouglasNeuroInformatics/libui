@@ -56,21 +56,6 @@ const $SimpleExampleFormData = z.object({
 });
 type SimpleExampleFormSchemaType = typeof $SimpleExampleFormData;
 
-export default {
-  component: Form,
-  decorators: [
-    (Story) => (
-      <div className="container mx-auto max-w-5xl">
-        <Heading className="my-8 text-center" variant="h1">
-          Example Form
-        </Heading>
-        <Story />
-      </div>
-    )
-  ],
-  tags: ['autodocs']
-} as Meta<typeof Form>;
-
 const booleanFields: FormFields<Pick<ExampleFormData, 'booleanCheck' | 'booleanRadio'>> = {
   booleanRadio: {
     disabled: DISABLED,
@@ -315,6 +300,21 @@ const ungroupedContent = {
   ...numberRecordFields,
   ...recordArrayFields
 } as const;
+
+export default {
+  component: Form,
+  decorators: [
+    (Story) => (
+      <div className="container mx-auto max-w-5xl">
+        <Heading className="my-8 text-center" variant="h1">
+          Example Form
+        </Heading>
+        <Story />
+      </div>
+    )
+  ],
+  tags: ['autodocs']
+} as Meta<typeof Form>;
 
 export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
   args: {

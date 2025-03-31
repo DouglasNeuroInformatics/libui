@@ -4,7 +4,9 @@ import type { Simplify } from 'type-fest';
 
 import { cn } from '@/utils';
 
-import { type ButtonProps, buttonVariants } from '../Button';
+import { buttonVariants } from '../Button';
+
+import type { ButtonProps } from '../Button';
 
 export type PaginationLinkProps = Simplify<
   Pick<ButtonProps, 'size'> &

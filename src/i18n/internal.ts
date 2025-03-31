@@ -5,7 +5,7 @@ import type { Primitive } from 'type-fest';
 import type { Language } from './types';
 
 export function getTranslation(
-  target: { [L in Language]?: string } | string,
+  target: string | { [L in Language]?: string },
   state: {
     fallbackLanguage: Language;
     resolvedLanguage: Language;

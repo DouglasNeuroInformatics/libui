@@ -6,10 +6,6 @@ import { ListboxDropdown } from './ListboxDropdown';
 
 type Story = StoryObj<typeof ListboxDropdown>;
 
-const meta: Meta<typeof ListboxDropdown> = { component: ListboxDropdown };
-
-export default meta;
-
 const options = [
   {
     key: 'o1',
@@ -24,6 +20,10 @@ const options = [
     label: 'Option 3'
   }
 ];
+
+export default {
+  component: ListboxDropdown
+} satisfies Meta<typeof ListboxDropdown>;
 
 export const Default: Story = {
   decorators: [

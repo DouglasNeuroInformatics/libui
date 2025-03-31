@@ -10,7 +10,8 @@ import { Label } from '@/components/Label';
 import { Popover } from '@/components/Popover';
 
 import { FieldGroup } from '../FieldGroup';
-import { type BaseFieldComponentProps } from '../types';
+
+import type { BaseFieldComponentProps } from '../types';
 
 const isValidDateString = (s: string) => /^(\d{4})-((0[1-9])|(1[0-2]))-((0[1-9])|([12])[0-9]|3[01])$/.test(s);
 
