@@ -28,12 +28,12 @@ export const buttonVariants = cva(
         sm: 'h-8 rounded-md px-3 text-xs'
       },
       variant: {
-        danger: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+        danger: 'bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
-        outline: 'border border-input bg-inherit shadow-sm',
+        outline: 'border border-input bg-inherit shadow-xs',
         primary: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
-        secondary: 'bg-secondary border text-secondary-foreground shadow-sm hover:bg-secondary/80'
+        secondary: 'bg-secondary border text-secondary-foreground shadow-xs hover:bg-secondary/80'
       }
     }
   }

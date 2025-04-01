@@ -8,7 +8,7 @@ export const MenuBarRoot = forwardRef<React.ElementRef<typeof Root>, React.Compo
   function MenuBarRoot({ className, ...props }, ref) {
     return (
       <Root
-        className={cn('flex h-9 items-center space-x-1 rounded-md border bg-background p-1 shadow-sm', className)}
+        className={cn('bg-background flex h-9 items-center space-x-1 rounded-md border p-1 shadow-xs', className)}
         ref={ref}
         {...props}
       />

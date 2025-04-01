@@ -27,10 +27,10 @@ export const Default: Story = {
                     </Button>
                   </Collapsible.Trigger>
                 </div>
-                <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">@radix-ui/primitives</div>
+                <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">@radix-ui/primitives</div>
                 <Collapsible.Content className="space-y-2">
-                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">@radix-ui/colors</div>
-                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">@stitches/react</div>
+                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">@radix-ui/colors</div>
+                  <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-xs">@stitches/react</div>
                 </Collapsible.Content>
               </Fragment>
             ),
