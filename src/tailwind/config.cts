@@ -57,22 +57,7 @@ const config = ({
   return {
     content,
     darkMode: ['class', '[data-mode="dark"]'],
-    plugins: [
-      animate,
-      containerQueries,
-      plugin((api) => {
-        api.addUtilities({
-          '.scrollbar-none': {
-            '&::-webkit-scrollbar': {
-              display: 'none'
-            },
-            '-ms-overflow-style': 'none',
-            'scrollbar-width': 'none'
-          }
-        });
-      }),
-      ...plugins
-    ],
+    plugins: [animate, containerQueries],
     theme: {
       container: {
         center: true,
