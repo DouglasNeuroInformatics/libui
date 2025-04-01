@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import type { ReactElement } from 'react';
 
 import { motion, useSpring, useTransform } from 'motion/react';
 
@@ -9,7 +10,7 @@ import { Card } from '../Card';
 type StatisticCardProps = {
   [key: `data-${string}`]: unknown;
   className?: string;
-  icon?: JSX.Element;
+  icon?: ReactElement;
   label: string;
   value: number;
 };
