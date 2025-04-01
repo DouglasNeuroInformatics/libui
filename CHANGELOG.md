@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.9.0...v4.0.0) (2025-04-01)
+
+### ⚠ BREAKING CHANGES
+
+* Tailwind v4 is now a peer dep
+* React 19 now peer dependency
+
+### Bug Fixes
+
+* issue with storybook oklch color ([284ea2b](https://github.com/DouglasNeuroInformatics/libui/commit/284ea2b2bcd6fb92fb58d1bfb24e87308872bbec))
+
+### Miscellaneous Chores
+
+* update react to v19 ([6323136](https://github.com/DouglasNeuroInformatics/libui/commit/63231364295400fc838f47fb2264f416fb94d20e))
+* update tailwindcss to v4 ([2f3580d](https://github.com/DouglasNeuroInformatics/libui/commit/2f3580d4745271515a0edde690215854f2937d5b))
+
 ## [3.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.8.7...v3.9.0) (2025-03-26)
 
 ### Features
