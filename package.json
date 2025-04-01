@@ -32,10 +32,6 @@
       "import": "./dist/i18n.js"
     },
     "./package.json": "./package.json",
-    "./tailwind/config": {
-      "types": "./dist/tailwind/config.d.cts",
-      "require": "./dist/tailwind/config.cjs"
-    },
     "./tailwind/globals.css": "./dist/tailwind/globals.css",
     "./utils": {
       "types": "./dist/utils.d.ts",
