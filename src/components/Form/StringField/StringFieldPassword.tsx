@@ -52,26 +52,26 @@ export const StringFieldPassword = ({
           onChange={(event) => setValue(event.target.value)}
         />
         <button
-          className="absolute right-0 flex h-full w-8 items-center justify-center text-muted-foreground"
+          className="text-muted-foreground absolute right-0 flex h-full w-8 items-center justify-center"
           disabled={disabled || readOnly}
           tabIndex={-1}
           type="button"
           onClick={() => setShow(!show)}
         >
-          <EyeIcon className={cn('absolute transition-all', show ? '-rotate-90 scale-0' : 'rotate-0 scale-100')} />
-          <EyeOffIcon className={cn('absolute transition-all', !show ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
+          <EyeIcon className={cn('absolute transition-all', show ? 'scale-0 -rotate-90' : 'scale-100 rotate-0')} />
+          <EyeOffIcon className={cn('absolute transition-all', !show ? 'scale-0 rotate-90' : 'scale-100 rotate-0')} />
         </button>
       </FieldGroup.Row>
       {strength !== null && (
         <motion.div
           animate={{ width: `${Math.max(strength * 25, 5)}%` }}
-          className="h-1 w-full overflow-hidden rounded"
+          className="h-1 w-full overflow-hidden rounded-sm"
           initial={{ width: '5%' }}
           transition={{ duration: 0.5 }}
         >
           <div
             className={cn(
-              'h-full w-full bg-destructive transition-colors duration-500',
+              'bg-destructive h-full w-full transition-colors duration-500',
               strength === 2 && 'bg-yellow-500 dark:bg-yellow-700',
               strength === 3 && 'bg-sky-500 dark:bg-sky-700',
               strength === 4 && 'bg-green-500 dark:bg-green-700'

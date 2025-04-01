@@ -38,13 +38,15 @@ for (let i = 1; i < 16; i++) {
   });
 }
 
-const data: ExampleItem[] = range(25).map((i) => {
-  const item: { [key: string]: unknown } = { id: i };
-  for (let i = 1; i < 16; i++) {
-    item[`c${i}`] = randomInt(1, 10);
-  }
-  return item as ExampleItem;
-});
+const data: ExampleItem[] = range(25)
+  ._unsafeUnwrap()
+  .map((i) => {
+    const item: { [key: string]: unknown } = { id: i };
+    for (let i = 1; i < 16; i++) {
+      item[`c${i}`] = randomInt(1, 10);
+    }
+    return item as ExampleItem;
+  });
 
 const meta: Meta<typeof ClientTable> = {
   component: ClientTable,
@@ -112,7 +114,7 @@ export const WithNoWrap: StoryObj<typeof ClientTable> = {
     data: [
       {
         f1: 1,
-        f2: range(1000).join(', '),
+        f2: range(1000)._unsafeUnwrap().join(', '),
         f3: 3
       }
     ],

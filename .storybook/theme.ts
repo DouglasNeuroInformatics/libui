@@ -1,48 +1,49 @@
 import { create } from '@storybook/theming/create';
+import { formatRgb } from 'culori';
 import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 import logo from '../src/assets/libui-logo.svg';
 
 export default create({
-  appBg: colors.slate['800'],
+  appBg: formatRgb(colors.slate['800']),
 
-  appBorderColor: colors.slate['700'],
+  appBorderColor: formatRgb(colors.slate['700']),
   appBorderRadius: 4,
 
-  appContentBg: colors.slate['800'],
-  appPreviewBg: colors.slate['800'],
-  barBg: colors.slate['700'],
-  barHoverColor: colors.sky['500'],
+  appContentBg: formatRgb(colors.slate['800']),
+  appPreviewBg: formatRgb(colors.slate['800']),
+  barBg: formatRgb(colors.slate['700']),
+  barHoverColor: formatRgb(colors.sky['500']),
 
-  barSelectedColor: colors.slate['300'],
-  barTextColor: colors.slate['300'],
+  barSelectedColor: formatRgb(colors.slate['300']),
+  barTextColor: formatRgb(colors.slate['300']),
 
   base: 'dark',
-  booleanBg: colors.sky['700'],
-  booleanSelectedBg: colors.sky['500'],
+  booleanBg: formatRgb(colors.sky['700']),
+  booleanSelectedBg: formatRgb(colors.sky['500']),
   brandImage: logo,
   brandTarget: '_self',
 
   brandTitle: 'libui',
   brandUrl: 'https://github.com/DouglasNeuroInformatics/libui',
-  buttonBg: colors.sky['700'],
+  buttonBg: formatRgb(colors.sky['700']),
 
-  buttonBorder: colors.sky['500'],
-  colorPrimary: colors.slate['800'],
-  colorSecondary: colors.slate['400'],
+  buttonBorder: formatRgb(colors.sky['500']),
+  colorPrimary: formatRgb(colors.slate['800']),
+  colorSecondary: formatRgb(colors.slate['400']),
   fontBase: defaultTheme.fontFamily.sans.join(','),
 
   fontCode: defaultTheme.fontFamily.mono.join(', '),
   gridCellSize: 5,
 
-  inputBg: colors.slate['700'],
-  inputBorder: colors.slate['600'],
+  inputBg: formatRgb(colors.slate['700']),
+  inputBorder: formatRgb(colors.slate['600']),
 
   inputBorderRadius: 4,
-  inputTextColor: colors.slate['100'],
-  textColor: colors.slate['100'],
-  textInverseColor: colors.slate['900'],
+  inputTextColor: formatRgb(colors.slate['100']),
+  textColor: formatRgb(colors.slate['100']),
+  textInverseColor: formatRgb(colors.slate['900']),
 
-  textMutedColor: colors.slate['500']
+  textMutedColor: formatRgb(colors.slate['500'])
 });

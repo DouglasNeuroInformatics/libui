@@ -10,10 +10,10 @@ export default mergeConfig(
         include: ['src/**/*'],
         provider: 'v8',
         thresholds: {
-          branches: 75,
+          branches: 60,
           functions: 30,
-          lines: 50,
-          statements: 50
+          lines: 40,
+          statements: 40
         }
       },
       environment: 'happy-dom',

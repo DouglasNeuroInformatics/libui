@@ -86,12 +86,12 @@ export const ClientTable = <T extends ClientTableEntry>({
 
   return (
     <div className={className} {...props} data-testid="ClientTable">
-      <div className="rounded-md border bg-card tracking-tight text-muted-foreground shadow-sm">
+      <div className="bg-card text-muted-foreground rounded-md border tracking-tight shadow-xs">
         <Table>
           <Table.Header>
             <Table.Row>
               {columns.map((column, i) => (
-                <Table.Head className="whitespace-nowrap text-foreground" key={i}>
+                <Table.Head className="text-foreground whitespace-nowrap" key={i}>
                   {columnDropdownOptions ? (
                     <DropdownMenu>
                       <DropdownMenu.Trigger className="flex items-center justify-between gap-3">
@@ -148,7 +148,7 @@ export const ClientTable = <T extends ClientTableEntry>({
                     return (
                       <Table.Cell
                         className={cn(
-                          'text-ellipsis leading-none',
+                          'leading-none text-ellipsis',
                           !entry && 'opacity-0', // safari does not include borders if invisible
                           noWrap && 'max-w-3xl overflow-hidden text-ellipsis whitespace-nowrap'
                         )}

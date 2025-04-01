@@ -8,7 +8,7 @@ import '../src/tailwind/globals.css';
 i18n.init();
 
 const preview: Preview = {
-  globals: {
+  initialGlobals: {
     locale: 'en',
     locales: {
       en: 'English',
