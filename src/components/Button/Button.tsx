@@ -32,7 +32,7 @@ export const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         outline: 'border border-input bg-inherit shadow-xs',
-        primary: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+        primary: 'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
         secondary: 'bg-secondary border text-secondary-foreground shadow-xs hover:bg-secondary/80'
       }
     }
