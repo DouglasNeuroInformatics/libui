@@ -1,67 +1,200 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is([data-mode="dark"] *));
+
+@theme {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-spinner: spinner-spin 1.7s infinite ease, round 1.7s infinite ease;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-background: var(--background);
+  --color-border: var(--border);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-foreground: var(--foreground);
+  --color-input: var(--input);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-ring: var(--ring);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --breakpoint-2xl: 1400px;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes round {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spinner-spin {
+    0%,
+    5%,
+    95%,
+    100% {
+      box-shadow:
+        0 -0.83em 0 -0.4em,
+        0 -0.83em 0 -0.42em,
+        0 -0.83em 0 -0.44em,
+        0 -0.83em 0 -0.46em,
+        0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow:
+        0 -0.83em 0 -0.4em,
+        -0.087em -0.825em 0 -0.42em,
+        -0.173em -0.812em 0 -0.44em,
+        -0.256em -0.789em 0 -0.46em,
+        -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow:
+        0 -0.83em 0 -0.4em,
+        -0.338em -0.758em 0 -0.42em,
+        -0.555em -0.617em 0 -0.44em,
+        -0.671em -0.488em 0 -0.46em,
+        -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow:
+        0 -0.83em 0 -0.4em,
+        -0.377em -0.74em 0 -0.42em,
+        -0.645em -0.522em 0 -0.44em,
+        -0.775em -0.297em 0 -0.46em,
+        -0.82em -0.09em 0 -0.477em;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= theme(--breakpoint-md)) {
+    padding-inline: 2rem;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    padding-inline: 3rem;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   :root {
-    --background: theme(colors.slate.100);
-    --foreground: theme(colors.slate.900);
+    --background: var(--color-slate-100);
+    --foreground: var(--color-slate-900);
 
-    --muted: theme(colors.slate.200);
-    --muted-foreground: theme(colors.slate.700);
+    --muted: var(--color-slate-200);
+    --muted-foreground: var(--color-slate-700);
 
-    --accent: theme(colors.slate.200);
-    --accent-foreground: theme(colors.slate.700);
+    --accent: var(--color-slate-200);
+    --accent-foreground: var(--color-slate-700);
 
-    --popover: theme(colors.white);
-    --popover-foreground: theme(colors.slate.900);
+    --popover: var(--color-white);
+    --popover-foreground: var(--color-slate-900);
 
-    --border: theme(colors.slate.300);
-    --input: theme(colors.slate.300);
+    --border: var(--color-slate-300);
+    --input: var(--color-slate-300);
 
-    --card: theme(colors.white);
-    --card-foreground: theme(colors.slate.900);
+    --card: var(--color-white);
+    --card-foreground: var(--color-slate-900);
 
-    --primary: theme(colors.slate.800);
-    --primary-foreground: theme(colors.slate.100);
+    --primary: var(--color-slate-800);
+    --primary-foreground: var(--color-slate-100);
 
-    --secondary: theme(colors.slate.50);
-    --secondary-foreground: theme(colors.slate.900);
+    --secondary: var(--color-slate-50);
+    --secondary-foreground: var(--color-slate-900);
 
-    --destructive: theme(colors.red.600);
-    --destructive-foreground: theme(colors.white);
+    --destructive: var(--color-red-600);
+    --destructive-foreground: var(--color-white);
 
-    --ring: theme(colors.sky.500);
+    --ring: var(--color-sky-500);
 
     --radius: 0.5rem;
   }
 
   [data-mode='dark'] {
-    --background: theme(colors.slate.900);
-    --foreground: theme(colors.slate.100);
+    --background: var(--color-slate-900);
+    --foreground: var(--color-slate-100);
 
-    --muted: theme(colors.slate.800);
-    --muted-foreground: theme(colors.slate.300);
+    --muted: var(--color-slate-800);
+    --muted-foreground: var(--color-slate-300);
 
-    --accent: theme(colors.slate.800);
-    --accent-foreground: theme(colors.slate.300);
+    --accent: var(--color-slate-800);
+    --accent-foreground: var(--color-slate-300);
 
-    --popover: theme(colors.slate.800);
-    --popover-foreground: theme(colors.slate.100);
+    --popover: var(--color-slate-800);
+    --popover-foreground: var(--color-slate-100);
 
-    --border: theme(colors.slate.700);
-    --input: theme(colors.slate.700);
+    --border: var(--color-slate-700);
+    --input: var(--color-slate-700);
 
-    --card: theme(colors.slate.800);
-    --card-foreground: theme(colors.slate.100);
+    --card: var(--color-slate-800);
+    --card-foreground: var(--color-slate-100);
 
-    --primary: theme(colors.sky.700);
-    --primary-foreground: theme(colors.slate.100);
+    --primary: var(--color-sky-700);
+    --primary-foreground: var(--color-slate-100);
 
-    --secondary: theme(colors.slate.800);
-    --secondary-foreground: theme(colors.slate.100);
+    --secondary: var(--color-slate-800);
+    --secondary-foreground: var(--color-slate-100);
 
-    --ring: theme(colors.slate.800);
+    --ring: var(--color-slate-800);
 
     --radius: 0.5rem;
   }
