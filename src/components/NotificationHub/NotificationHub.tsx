@@ -33,11 +33,11 @@ const NotificationHub = ({ timeout = 5000 }: NotificationHubProps) => {
                 <div className="p-4">
                   <div className="mb-2 flex items-center">
                     <NotificationIcon type={item.type} />
-                    <h5 className="ml-3 flex-grow font-medium text-slate-900 dark:text-slate-100">
+                    <h5 className="ml-3 grow font-medium text-slate-900 dark:text-slate-100">
                       {item.title ?? t(`notifications.types.${item.type}`)}
                     </h5>
                     <button
-                      className="inline-flex rounded-md text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:focus:ring-sky-600"
+                      className="inline-flex rounded-md text-slate-400 hover:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none dark:focus:ring-sky-600"
                       type="button"
                       onClick={() => {
                         dismissNotification(item.id);
@@ -46,7 +46,7 @@ const NotificationHub = ({ timeout = 5000 }: NotificationHubProps) => {
                       <XIcon aria-hidden="true" className="h-5 w-5" />
                     </button>
                   </div>
-                  <p className="my-2 text-muted-foreground">{item.message}</p>
+                  <p className="text-muted-foreground my-2">{item.message}</p>
                 </div>
                 <motion.div
                   animate={{ width: '100%' }}
