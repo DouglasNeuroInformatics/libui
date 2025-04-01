@@ -37,7 +37,7 @@ const NotificationHub = ({ timeout = 5000 }: NotificationHubProps) => {
                       {item.title ?? t(`notifications.types.${item.type}`)}
                     </h5>
                     <button
-                      className="inline-flex rounded-md text-slate-400 hover:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none dark:focus:ring-sky-600"
+                      className="inline-flex rounded-md text-slate-400 hover:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-hidden dark:focus:ring-sky-600"
                       type="button"
                       onClick={() => {
                         dismissNotification(item.id);

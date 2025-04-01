@@ -22,7 +22,7 @@ export const Slider = forwardRef<React.ElementRef<typeof Root>, React.ComponentP
         </Track>
         <Thumb
           aria-disabled={disabled}
-          className="bg-background focus-visible:ring-ring block h-4 w-4 rounded-full border border-slate-500 shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-none aria-disabled:cursor-not-allowed"
+          className="bg-background focus-visible:ring-ring block h-4 w-4 rounded-full border border-slate-500 shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-hidden aria-disabled:cursor-not-allowed"
           data-testid="slider-thumb"
         />
       </Root>
