@@ -2,7 +2,7 @@
   "name": "@douglasneuroinformatics/libui",
   "type": "module",
   "version": "3.9.0",
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.7.1",
   "description": "Generic UI components for DNP projects, built using React and Tailwind CSS",
   "author": "Joshua Unrau",
   "license": "Apache-2.0",
@@ -110,7 +110,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "ts-pattern": "^5.7.0",
-    "type-fest": "^4.38.0",
+    "type-fest": "^4.39.0",
     "vaul": "^0.9.9",
     "zustand": "^5.0.3"
   },
