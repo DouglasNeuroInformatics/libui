@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { mockMatchMedia, mockStorage } from '@/testing/mocks';
@@ -47,29 +47,32 @@ describe('useTheme', () => {
   it('should change the theme when updated', async () => {
     window.localStorage.setItem(THEME_KEY, 'light');
     const { result } = renderHook(() => useTheme());
-    await act(async () => {
+    expect(result.current[0]).toBe('light');
+    act(() => {
       result.current[1]('dark');
-      return Promise.resolve();
     });
-    expect(result.current[0]).toBe('dark');
+    await waitFor(() => {
+      expect(result.current[0]).toBe('dark');
+    });
   });
 
   it('should save the theme to localStorage', async () => {
     window.localStorage.setItem(THEME_KEY, 'light');
     const { result } = renderHook(() => useTheme());
-    await act(async () => {
+    act(() => {
       result.current[1]('dark');
-      return Promise.resolve();
     });
-    expect(window.localStorage.getItem(THEME_KEY)).toBe('dark');
+    await waitFor(() => {
+      expect(window.localStorage.getItem(THEME_KEY)).toBe('dark');
+    });
   });
+
   it('should print to stderr if there is an unexpected theme mutation', async () => {
     renderHook(() => useTheme());
     vi.spyOn(console, 'error');
-    await act(async () => {
-      document.documentElement.setAttribute(THEME_ATTRIBUTE, 'INVALID_THEME');
-      return Promise.resolve();
+    document.documentElement.setAttribute(THEME_ATTRIBUTE, 'INVALID_THEME');
+    await waitFor(() => {
+      expect(console.error).toHaveBeenLastCalledWith(expect.stringContaining('INVALID_THEME'));
     });
-    expect(console.error).toHaveBeenLastCalledWith(expect.stringContaining('INVALID_THEME'));
   });
 });
