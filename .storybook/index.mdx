@@ -8,10 +8,51 @@ This library includes generic UI components built using shadcn/ui with React and
 
 ## 🚀 Getting Started
 
-#### **Step 1: Install the Package**
+## Installation
 
 ```sh
 pnpm install @douglasneuroinformatics/libui
+```
+
+## Usage
+
+**globals.css**
+
+```css
+@import '@douglasneuroinformatics/libui/tailwind/globals.css';
+
+// adjust as required
+@source "../node_modules/@douglasneuroinformatics/libui";
+```
+
+**i18n.ts**
+
+```ts
+import { init } from '@douglasneuroinformatics/libui/i18n';
+
+import common from './common.json';
+
+declare module '@douglasneuroinformatics/libui/i18n' {
+  export namespace UserConfig {
+    export interface LanguageOptions {
+      en: true;
+      es: true;
+      fr: true;
+    }
+    export interface Translations {
+      common: typeof common;
+    }
+  }
+}
+
+init({ translations: { common } });
+```
+
+**main.tsx**
+
+```js
+import './globals.css';
+import './i18n';
 ```
 
 ## 📚 Available Components
