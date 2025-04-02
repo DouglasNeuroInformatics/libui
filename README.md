@@ -33,52 +33,9 @@
 
 A React component library built by the Douglas Neuroinformatics Platform (DNP) using [shadcn/ui](https://github.com/shadcn-ui/ui) with [React](https://react.dev/) and [TailwindCSS](https://tailwindcss.com/). Although primarily intended for internal use in our platforms, it is designed as a generic implementation.
 
-## Installation
+## Documentation
 
-```sh
-pnpm install @douglasneuroinformatics/libui
-```
-
-## Usage
-
-**globals.css**
-
-```css
-@import '@douglasneuroinformatics/libui/tailwind/globals.css';
-
-// adjust as required
-@source "../node_modules/@douglasneuroinformatics/libui";
-```
-
-**i18n.ts**
-
-```ts
-import { init } from '@douglasneuroinformatics/libui/i18n';
-
-import common from './common.json';
-
-declare module '@douglasneuroinformatics/libui/i18n' {
-  export namespace UserConfig {
-    export interface LanguageOptions {
-      en: true;
-      es: true;
-      fr: true;
-    }
-    export interface Translations {
-      common: typeof common;
-    }
-  }
-}
-
-init({ translations: { common } });
-```
-
-**main.tsx**
-
-```js
-import './globals.css';
-import './i18n';
-```
+For detailed installation, configuration, and usage instructions, please refer to [the documentation](https://douglasneuroinformatics.github.io/libui).
 
 ## Contributing
 

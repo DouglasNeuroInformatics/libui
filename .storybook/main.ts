@@ -1,7 +1,12 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+  addons: [
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions'
+  ],
   core: {
     disableTelemetry: true
   },
@@ -14,7 +19,7 @@ const config: StorybookConfig = {
       strictMode: true
     }
   },
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['./index.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     reactDocgen: 'react-docgen-typescript'
   }
