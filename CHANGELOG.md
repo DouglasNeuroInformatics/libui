@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.0.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.0.0...v4.0.1) (2025-04-03)
+
+### Bug Fixes
+
+* more obvious hover effect for button ([d2779f4](https://github.com/DouglasNeuroInformatics/libui/commit/d2779f45b194a97914c8ceac4966e0dc8fb16729))
+
 ## [4.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v3.9.0...v4.0.0) (2025-04-01)
 
 ### ⚠ BREAKING CHANGES
