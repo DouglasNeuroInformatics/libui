@@ -53,6 +53,14 @@ export const Icon: Story = {
   }
 };
 
+export const Large: Story = {
+  args: {
+    children: 'Large Button',
+    size: 'lg',
+    variant: 'primary'
+  }
+};
+
 export const AsChild: Story = {
   args: {
     asChild: true,
