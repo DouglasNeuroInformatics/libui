@@ -47,5 +47,5 @@ export type TranslationKey<TNamespace> = TNamespace extends TranslationNamespace
 
 export interface TranslateFunction<TNamespace = undefined> {
   (key: TranslationKey<TNamespace>, ...args: Exclude<Primitive, symbol>[]): string;
-  (translations: { [L in Language]: string }, ...args: Exclude<Primitive, symbol>[]): string;
+  (translations: { [L in Language]?: string }, ...args: Exclude<Primitive, symbol>[]): string;
 }
