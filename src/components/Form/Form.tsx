@@ -31,6 +31,10 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   };
   className?: string;
   content: FormContent<TData>;
+  customStyles?: {
+    resetBtn?: string;
+    submitBtn?: string;
+  };
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
@@ -49,6 +53,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   additionalButtons,
   className,
   content,
+  customStyles,
   fieldsFooter,
   id,
   initialValues,
@@ -164,7 +169,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
                   </Heading>
                 )}
                 {fieldGroup.description && (
-                  <p className="text-sm italic leading-tight text-muted-foreground">{fieldGroup.description}</p>
+                  <p className="text-muted-foreground text-sm leading-tight italic">{fieldGroup.description}</p>
                 )}
               </div>
               <FieldsComponent
@@ -194,7 +199,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button
           aria-label="Submit"
-          className="flex w-full items-center justify-center gap-2"
+          className={cn('flex w-full items-center justify-center gap-2', customStyles?.submitBtn)}
           disabled={readOnly || isSuspended}
           type="submit"
           variant="primary"
@@ -218,7 +223,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         {resetBtn && (
           <Button
             aria-label="Reset"
-            className="block w-full"
+            className={cn('block w-full', customStyles?.resetBtn)}
             disabled={readOnly}
             type="button"
             variant="secondary"
