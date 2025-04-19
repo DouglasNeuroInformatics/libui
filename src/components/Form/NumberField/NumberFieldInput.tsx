@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
@@ -27,6 +27,7 @@ export const NumberFieldInput = ({
   setValue,
   value
 }: NumberFieldInputProps) => {
+  const id = useId();
   const [inputValue, setInputValue] = useState(value?.toString() ?? '');
   const valueRef = useRef<number | undefined>(value);
 
@@ -65,11 +66,12 @@ export const NumberFieldInput = ({
   return (
     <FieldGroup name={name}>
       <FieldGroup.Row>
-        <Label>{label}</Label>
+        <Label htmlFor={id}>{label}</Label>
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <Input
         disabled={disabled || readOnly}
+        id={id}
         max={max}
         min={min}
         name={name}

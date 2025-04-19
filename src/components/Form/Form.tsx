@@ -29,8 +29,13 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
     left?: React.ReactNode;
     right?: React.ReactNode;
   };
+  beforeSubmit?: (data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>;
   className?: string;
   content: FormContent<TData>;
+  customStyles?: {
+    resetBtn?: string;
+    submitBtn?: string;
+  };
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
@@ -47,8 +52,10 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   additionalButtons,
+  beforeSubmit,
   className,
   content,
+  customStyles,
   fieldsFooter,
   id,
   initialValues,
@@ -73,6 +80,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
+    const rootErrors: string[] = [];
     for (const issue of error.issues) {
       if (issue.path.length > 0) {
         const current = get(fieldErrors, issue.path) as string[] | undefined;
@@ -82,10 +90,11 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           set(fieldErrors, issue.path, [issue.message]);
         }
       } else {
-        setRootErrors((prevErrors) => [...prevErrors, issue.message]);
+        rootErrors.push(issue.message);
       }
     }
     setErrors(fieldErrors);
+    setRootErrors(rootErrors);
     if (onError) {
       onError(error);
     }
@@ -107,6 +116,15 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       handleError(result.error);
       return;
     }
+    if (beforeSubmit) {
+      const beforeSubmitResult = await beforeSubmit(result.data);
+      if (!beforeSubmitResult.success) {
+        setErrors({});
+        setRootErrors([beforeSubmitResult.errorMessage]);
+        return;
+      }
+    }
+
     try {
       setIsSubmitting(true);
       await Promise.all([
@@ -164,7 +182,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
                   </Heading>
                 )}
                 {fieldGroup.description && (
-                  <p className="text-sm italic leading-tight text-muted-foreground">{fieldGroup.description}</p>
+                  <p className="text-muted-foreground text-sm leading-tight italic">{fieldGroup.description}</p>
                 )}
               </div>
               <FieldsComponent
@@ -188,13 +206,14 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           values={values}
         />
       )}
+      {Boolean(rootErrors.length) && <ErrorMessage className="-mt-3" error={rootErrors} />}
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
         {/** Note - aria-label is used for testing in downstream packages */}
         <Button
           aria-label="Submit"
-          className="flex w-full items-center justify-center gap-2"
+          className={cn('flex w-full items-center justify-center gap-2', customStyles?.submitBtn)}
           disabled={readOnly || isSuspended}
           type="submit"
           variant="primary"
@@ -218,7 +237,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         {resetBtn && (
           <Button
             aria-label="Reset"
-            className="block w-full"
+            className={cn('block w-full', customStyles?.resetBtn)}
             disabled={readOnly}
             type="button"
             variant="secondary"
@@ -229,7 +248,6 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         )}
         {additionalButtons?.right}
       </div>
-      {Boolean(rootErrors.length) && <ErrorMessage error={rootErrors} />}
     </form>
   );
 };

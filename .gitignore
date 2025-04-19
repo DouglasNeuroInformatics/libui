@@ -132,5 +132,8 @@ dist
 # Storybook
 storybook-static
 
-#VScode
+# VScode
 .vscode
+
+# Local Scripts
+local/

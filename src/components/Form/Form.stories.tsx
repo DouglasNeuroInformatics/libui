@@ -530,3 +530,27 @@ export const WithSuspend: StoryObj<typeof Form<z.ZodType<FormTypes.Data>, { dela
     })
   }
 };
+
+export const WithError: StoryObj<typeof Form> = {
+  args: {
+    content: {
+      name: {
+        kind: 'string',
+        label: 'Name',
+        variant: 'input'
+      }
+    },
+    beforeSubmit: (data) => {
+      if (data.name === 'Winston') {
+        return { success: true };
+      }
+      return { success: false, errorMessage: "Name must be 'Winston'" };
+    },
+    onSubmit: () => {
+      alert('Success!');
+    },
+    validationSchema: $SimpleExampleFormData.extend({
+      name: z.string().min(3)
+    })
+  }
+};
