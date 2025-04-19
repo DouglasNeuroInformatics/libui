@@ -116,14 +116,13 @@ describe('Form', () => {
     });
   });
 
-  describe('custom beforeSubmit error', () => {
-    let beforeSubmit: Mock;
+  describe('custom onBeforeSubmit error', () => {
+    let onBeforeSubmit: Mock;
 
     beforeEach(() => {
-      beforeSubmit = vi.fn();
+      onBeforeSubmit = vi.fn();
       render(
         <Form
-          beforeSubmit={beforeSubmit}
           content={{
             value: {
               kind: 'number',
@@ -135,6 +134,7 @@ describe('Form', () => {
           validationSchema={z.object({
             value: z.number({ message: 'Please enter a number' })
           })}
+          onBeforeSubmit={onBeforeSubmit}
           onError={onError}
           onSubmit={onSubmit}
         />
@@ -156,12 +156,12 @@ describe('Form', () => {
           'Please enter a number'
         ])
       );
-      expect(beforeSubmit).not.toHaveBeenCalled();
+      expect(onBeforeSubmit).not.toHaveBeenCalled();
       expect(onSubmit).not.toHaveBeenCalled();
     });
 
-    it('should not allow submitting the form with the beforeSubmit error', async () => {
-      beforeSubmit.mockResolvedValueOnce({ errorMessage: 'Invalid!', success: false });
+    it('should not allow submitting the form with the onBeforeSubmit error', async () => {
+      onBeforeSubmit.mockResolvedValueOnce({ errorMessage: 'Invalid!', success: false });
       const field: HTMLInputElement = screen.getByLabelText('Value');
       await userEvent.type(field, '-1');
       fireEvent.submit(screen.getByTestId(testid));
@@ -171,8 +171,8 @@ describe('Form', () => {
       expect(onSubmit).not.toHaveBeenCalled();
     });
 
-    it('should allow submitting the form if beforeSubmit returns true', async () => {
-      beforeSubmit.mockResolvedValueOnce({ success: true });
+    it('should allow submitting the form if onBeforeSubmit returns true', async () => {
+      onBeforeSubmit.mockResolvedValueOnce({ success: true });
       const field: HTMLInputElement = screen.getByLabelText('Value');
       await userEvent.type(field, '-1');
       fireEvent.submit(screen.getByTestId(testid));

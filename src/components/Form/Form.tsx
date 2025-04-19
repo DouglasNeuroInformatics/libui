@@ -29,7 +29,6 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
     left?: React.ReactNode;
     right?: React.ReactNode;
   };
-  beforeSubmit?: (data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>;
   className?: string;
   content: FormContent<TData>;
   customStyles?: {
@@ -39,6 +38,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
+  onBeforeSubmit?: (data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>;
   onError?: (error: z.ZodError<NoInfer<TData>>) => void;
   onSubmit: (data: NoInfer<TData>) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
@@ -52,13 +52,13 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   additionalButtons,
-  beforeSubmit,
   className,
   content,
   customStyles,
   fieldsFooter,
   id,
   initialValues,
+  onBeforeSubmit,
   onError,
   onSubmit,
   preventResetValuesOnReset,
@@ -116,8 +116,8 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       handleError(result.error);
       return;
     }
-    if (beforeSubmit) {
-      const beforeSubmitResult = await beforeSubmit(result.data);
+    if (onBeforeSubmit) {
+      const beforeSubmitResult = await onBeforeSubmit(result.data);
       if (!beforeSubmitResult.success) {
         setErrors({});
         setRootErrors([beforeSubmitResult.errorMessage]);
