@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.1.0...v4.1.1) (2025-04-19)
+
+### Bug Fixes
+
+* rename beforeSubmit to onBeforeSubmit (forgot to follow convention) ([7a120df](https://github.com/DouglasNeuroInformatics/libui/commit/7a120dff7f8c782ca6687af1ff1b6ac4d6e17139))
+
 ## [4.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.0.2...v4.1.0) (2025-04-19)
 
 ### Features
