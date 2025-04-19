@@ -2,11 +2,13 @@ import * as React from 'react';
 
 import { CircleAlertIcon } from 'lucide-react';
 
-export const ErrorMessage: React.FC<{ error?: null | string[] }> = ({ error }) => {
+import { cn } from '@/utils';
+
+export const ErrorMessage: React.FC<{ className?: string; error?: null | string[] }> = ({ className, error }) => {
   return error ? (
     <div className="space-y-1.5">
       {error.map((message) => (
-        <div className="flex w-full items-center text-sm font-medium text-destructive" key={message}>
+        <div className={cn('text-destructive flex w-full items-center text-sm font-medium', className)} key={message}>
           <CircleAlertIcon className="mr-1" style={{ strokeWidth: '2px' }} />
           <span>{message}</span>
         </div>

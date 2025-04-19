@@ -29,6 +29,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
     left?: React.ReactNode;
     right?: React.ReactNode;
   };
+  beforeSubmit?: (data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>;
   className?: string;
   content: FormContent<TData>;
   customStyles?: {
@@ -51,6 +52,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
 
 const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
   additionalButtons,
+  beforeSubmit,
   className,
   content,
   customStyles,
@@ -78,6 +80,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
 
   const handleError = (error: z.ZodError<TData>) => {
     const fieldErrors: FormErrors<TData> = {};
+    const rootErrors: string[] = [];
     for (const issue of error.issues) {
       if (issue.path.length > 0) {
         const current = get(fieldErrors, issue.path) as string[] | undefined;
@@ -87,10 +90,11 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           set(fieldErrors, issue.path, [issue.message]);
         }
       } else {
-        setRootErrors((prevErrors) => [...prevErrors, issue.message]);
+        rootErrors.push(issue.message);
       }
     }
     setErrors(fieldErrors);
+    setRootErrors(rootErrors);
     if (onError) {
       onError(error);
     }
@@ -112,6 +116,15 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       handleError(result.error);
       return;
     }
+    if (beforeSubmit) {
+      const beforeSubmitResult = await beforeSubmit(result.data);
+      if (!beforeSubmitResult.success) {
+        setErrors({});
+        setRootErrors([beforeSubmitResult.errorMessage]);
+        return;
+      }
+    }
+
     try {
       setIsSubmitting(true);
       await Promise.all([
@@ -193,6 +206,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
           values={values}
         />
       )}
+      {Boolean(rootErrors.length) && <ErrorMessage className="-mt-3" error={rootErrors} />}
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
@@ -234,7 +248,6 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         )}
         {additionalButtons?.right}
       </div>
-      {Boolean(rootErrors.length) && <ErrorMessage error={rootErrors} />}
     </form>
   );
 };
