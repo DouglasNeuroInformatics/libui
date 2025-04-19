@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import type { Mock } from 'vitest';
 import { z } from 'zod';
 
 import { Form } from './Form';
@@ -112,6 +113,70 @@ describe('Form', () => {
       fireEvent.submit(screen.getByTestId(testid));
       await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onSubmit.mock.lastCall?.[0].b).toBeUndefined();
+    });
+  });
+
+  describe('custom beforeSubmit error', () => {
+    let beforeSubmit: Mock;
+
+    beforeEach(() => {
+      beforeSubmit = vi.fn();
+      render(
+        <Form
+          beforeSubmit={beforeSubmit}
+          content={{
+            value: {
+              kind: 'number',
+              label: 'Value',
+              variant: 'input'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({
+            value: z.number({ message: 'Please enter a number' })
+          })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+    });
+
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should render', () => {
+      expect(screen.getByTestId(testid)).toBeInTheDocument();
+    });
+
+    it('should not allow submitting the form with a zod error', async () => {
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() =>
+        expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject([
+          'Please enter a number'
+        ])
+      );
+      expect(beforeSubmit).not.toHaveBeenCalled();
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it('should not allow submitting the form with the beforeSubmit error', async () => {
+      beforeSubmit.mockResolvedValueOnce({ errorMessage: 'Invalid!', success: false });
+      const field: HTMLInputElement = screen.getByLabelText('Value');
+      await userEvent.type(field, '-1');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() =>
+        expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Invalid!'])
+      );
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it('should allow submitting the form if beforeSubmit returns true', async () => {
+      beforeSubmit.mockResolvedValueOnce({ success: true });
+      const field: HTMLInputElement = screen.getByLabelText('Value');
+      await userEvent.type(field, '-1');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
     });
   });
 });

@@ -10,7 +10,7 @@ export const ErrorMessage: React.FC<{ className?: string; error?: null | string[
       {error.map((message) => (
         <div className={cn('text-destructive flex w-full items-center text-sm font-medium', className)} key={message}>
           <CircleAlertIcon className="mr-1" style={{ strokeWidth: '2px' }} />
-          <span>{message}</span>
+          <span data-testid="error-message-text">{message}</span>
         </div>
       )) ?? null}
     </div>
