@@ -540,7 +540,7 @@ export const WithError: StoryObj<typeof Form> = {
         variant: 'input'
       }
     },
-    beforeSubmit: (data) => {
+    onBeforeSubmit: (data) => {
       if (data.name === 'Winston') {
         return { success: true };
       }
