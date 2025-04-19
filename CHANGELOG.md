@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.0.2...v4.1.0) (2025-04-19)
+
+### Features
+
+* add beforeSubmit callback to form ([67710bf](https://github.com/DouglasNeuroInformatics/libui/commit/67710bf474fc99a95f4ea2441a1b0e279a5c7380))
+
+### Bug Fixes
+
+* add customStyles option to Form ([c98db6c](https://github.com/DouglasNeuroInformatics/libui/commit/c98db6c5556effe107260370dadf0fe08375cf08))
+* add id to NumberFieldInput ([e311485](https://github.com/DouglasNeuroInformatics/libui/commit/e3114852566f9994f09a6afaa70cbd29839ba97d))
+* allow inline optional inline translations ([a03d6ce](https://github.com/DouglasNeuroInformatics/libui/commit/a03d6ceca0fd10128d948e4f802d212ac4c72586))
+* dialog styles ([b06902c](https://github.com/DouglasNeuroInformatics/libui/commit/b06902c7ae3751fd2d763067e7b5023686590fff))
+* remove border color interop ([b802dcd](https://github.com/DouglasNeuroInformatics/libui/commit/b802dcd8cfedd813979379f8821ab71d49cbfdef))
+* set cursor for Button ([2b122e5](https://github.com/DouglasNeuroInformatics/libui/commit/2b122e5be36ddd27767a1ff747d2f6d0e32aed20))
+
 ## [4.0.2](https://github.com/DouglasNeuroInformatics/libui/compare/v4.0.1...v4.0.2) (2025-04-04)
 
 ### Bug Fixes
