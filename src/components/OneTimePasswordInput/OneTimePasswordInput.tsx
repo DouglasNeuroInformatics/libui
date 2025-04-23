@@ -11,6 +11,7 @@ const CODE_LENGTH = 6;
 const EMPTY_CODE = Object.freeze(Array<null>(CODE_LENGTH).fill(null));
 
 type OneTimePasswordInputProps = {
+  [key: `data-${string}`]: unknown;
   className?: string;
   onComplete: (code: number) => Promisable<void>;
 };
@@ -21,7 +22,7 @@ function getUpdatedDigits(digits: (null | number)[], index: number, value: null 
   return updatedDigits;
 }
 
-export const OneTimePasswordInput = ({ className, onComplete }: OneTimePasswordInputProps) => {
+export const OneTimePasswordInput = ({ className, onComplete, ...props }: OneTimePasswordInputProps) => {
   const notifications = useNotificationsStore();
   const { t } = useTranslation('libui');
   const [digits, setDigits] = useState<(null | number)[]>([...EMPTY_CODE]);
@@ -85,7 +86,7 @@ export const OneTimePasswordInput = ({ className, onComplete }: OneTimePasswordI
   };
 
   return (
-    <div className={cn('flex gap-2', className)}>
+    <div className={cn('flex gap-2', className)} {...props}>
       {digits.map((_, index) => (
         <input
           className="w-1/6 rounded-md border border-slate-300 bg-transparent p-2 shadow-xs hover:border-slate-300 focus:border-sky-800 focus:outline-hidden dark:border-slate-600 dark:hover:border-slate-400 dark:focus:border-sky-500"
