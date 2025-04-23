@@ -89,7 +89,7 @@ export const OneTimePasswordInput = ({ className, onComplete, ...props }: OneTim
     <div className={cn('flex gap-2', className)} {...props}>
       {digits.map((_, index) => (
         <input
-          className="w-1/6 rounded-md border border-slate-300 bg-transparent p-2 shadow-xs hover:border-slate-300 focus:border-sky-800 focus:outline-hidden dark:border-slate-600 dark:hover:border-slate-400 dark:focus:border-sky-500"
+          className="w-1/6 rounded-md border border-slate-300 bg-transparent p-2 text-center shadow-xs hover:border-slate-300 focus:border-sky-800 focus:outline-hidden dark:border-slate-600 dark:hover:border-slate-400 dark:focus:border-sky-500"
           key={index}
           maxLength={1}
           ref={inputRefs[index]}
