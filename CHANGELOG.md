@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.1.1...v4.2.0) (2025-04-23)
+
+### Features
+
+* add OneTimePasswordInput ([44e4000](https://github.com/DouglasNeuroInformatics/libui/commit/44e400024d739e92d0566cc4cebf36f1301c4e17))
+
+### Bug Fixes
+
+* reset all error messages on language change ([3d1dd0e](https://github.com/DouglasNeuroInformatics/libui/commit/3d1dd0edf8572563ad6dfe27d7eb18ba6dd5c2c4))
+
 ## [4.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.1.0...v4.1.1) (2025-04-19)
 
 ### Bug Fixes
