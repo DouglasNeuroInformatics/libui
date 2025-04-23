@@ -142,7 +142,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   const isGrouped = Array.isArray(content);
 
   const revalidate = () => {
-    const hasErrors = Object.keys(errors).length > 0;
+    const hasErrors = Object.keys(errors).length > 0 || rootErrors.length;
     if (hasErrors) {
       validationSchema
         .safeParseAsync(values)
@@ -156,7 +156,8 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   };
 
   useEffect(() => {
-    revalidate();
+    setErrors({});
+    setRootErrors([]);
   }, [resolvedLanguage]);
 
   const isSuspended = Boolean(suspendWhileSubmitting && isSubmitting);
