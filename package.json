@@ -53,7 +53,7 @@
   "scripts": {
     "build": "rm -rf dist && tsup --config tsup.config.mts",
     "format": "prettier --write src",
-    "format:translations": "find src/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
+    "format:translations": "find src/i18n/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
     "prepare": "husky",
     "storybook": "storybook dev --no-open -p 6006",

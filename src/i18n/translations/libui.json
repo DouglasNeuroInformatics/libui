@@ -131,10 +131,24 @@
       }
     }
   },
+  "oneTimePasswordInput": {
+    "invalidCodeFormat": {
+      "en": "Invalid code format",
+      "fr": "Format de code invalide"
+    }
+  },
   "pagination": {
+    "firstPage": {
+      "en": "<< First",
+      "fr": "<< Première"
+    },
     "info": {
       "en": "Showing {{first}} to {{last}} of {{total}} results",
       "fr": "Affichage de {{first}} à {{last}} sur {{total}} résultats"
+    },
+    "lastPage": {
+      "en": "Last >>",
+      "fr": "Dernière >>"
     },
     "next": {
       "en": "Next",
@@ -143,14 +157,6 @@
     "previous": {
       "en": "Previous",
       "fr": "Précédent"
-    },
-    "firstPage": {
-      "en": "<< First",
-      "fr": "<< Première"
-    },
-    "lastPage": {
-      "en": "Last >>",
-      "fr": "Dernière >>"
     }
   },
   "searchBar": {

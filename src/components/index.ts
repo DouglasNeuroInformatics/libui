@@ -32,6 +32,7 @@ export * from './LineGraph';
 export * from './ListboxDropdown';
 export * from './MenuBar';
 export * from './NotificationHub';
+export * from './OneTimePasswordInput';
 export * from './Pagination';
 export * from './Popover';
 export * from './Progress';
