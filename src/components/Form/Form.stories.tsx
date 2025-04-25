@@ -302,6 +302,9 @@ const ungroupedContent = {
 } as const;
 
 export default {
+  args: {
+    onBeforeSubmit: null
+  },
   component: Form,
   decorators: [
     (Story) => (
