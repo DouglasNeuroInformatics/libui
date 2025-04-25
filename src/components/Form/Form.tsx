@@ -17,6 +17,7 @@ import { cn } from '@/utils';
 
 import { Button } from '../Button';
 import { Heading } from '../Heading';
+import { Separator } from '../Separator';
 import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';
@@ -165,7 +166,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   return (
     <form
       autoComplete="off"
-      className={twMerge('relative w-full', isGrouped ? 'space-y-8 divide-y' : 'space-y-6', className)}
+      className={twMerge('relative flex w-full flex-col', !isGrouped && 'gap-6', className)}
       id={id}
       onBlur={revalidateOnBlur ? revalidate : undefined}
       onSubmit={(event) => void handleSubmit(event)}
@@ -175,26 +176,29 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
       {isGrouped ? (
         content.map((fieldGroup, i) => {
           return (
-            <div className="flex flex-col space-y-6 [&:not(:first-child)]:pt-8" key={i}>
-              <div className="space-y-1">
-                {fieldGroup.title && (
-                  <Heading className="text-base" variant="h4">
-                    {fieldGroup.title}
-                  </Heading>
-                )}
-                {fieldGroup.description && (
-                  <p className="text-muted-foreground text-sm leading-tight italic">{fieldGroup.description}</p>
-                )}
+            <>
+              <div className="flex flex-col space-y-6 [&:not(:first-child)]:pt-8" key={i}>
+                <div className="space-y-1">
+                  {fieldGroup.title && (
+                    <Heading className="text-base" variant="h4">
+                      {fieldGroup.title}
+                    </Heading>
+                  )}
+                  {fieldGroup.description && (
+                    <p className="text-muted-foreground text-sm leading-tight italic">{fieldGroup.description}</p>
+                  )}
+                </div>
+                <FieldsComponent
+                  errors={errors}
+                  fields={fieldGroup.fields as FormFields<TData>}
+                  readOnly={readOnly}
+                  setErrors={setErrors}
+                  setValues={setValues}
+                  values={values}
+                />
               </div>
-              <FieldsComponent
-                errors={errors}
-                fields={fieldGroup.fields as FormFields<TData>}
-                readOnly={readOnly}
-                setErrors={setErrors}
-                setValues={setValues}
-                values={values}
-              />
-            </div>
+              <Separator className="mt-8" />
+            </>
           );
         })
       ) : (
