@@ -177,8 +177,8 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
         content.map((fieldGroup, i) => {
           return (
             <>
-              <div className="flex flex-col space-y-6 [&:not(:first-child)]:pt-8" key={i}>
-                <div className="space-y-1">
+              <div className="flex flex-col gap-6 [&:not(:first-child)]:pt-8" key={i}>
+                <div className="flex flex-col gap-1">
                   {fieldGroup.title && (
                     <Heading className="text-base" variant="h4">
                       {fieldGroup.title}

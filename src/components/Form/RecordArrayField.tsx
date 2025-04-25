@@ -59,13 +59,13 @@ export const RecordArrayField = memo(function RecordArrayField({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <Heading className="font-medium" variant="h5">
         {label}
       </Heading>
-      <div className="space-y-6">
+      <div className="flex flex-col gap-6">
         {arrayValue.map((fields, i) => (
-          <div className="space-y-4" key={i}>
+          <div className="flex flex-col gap-4" key={i}>
             <Label className="font-semibold italic">{label + ' ' + (i + 1)}</Label>
             {Object.keys(fields).map((name) => {
               const field = fieldset[name];
