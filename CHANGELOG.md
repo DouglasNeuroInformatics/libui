@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.2.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.2.0...v4.2.1) (2025-05-04)
+
+### Bug Fixes
+
+* allow html element ref to be null ([ef57237](https://github.com/DouglasNeuroInformatics/libui/commit/ef5723720601374085e0d5e0f0de6ce488879c64))
+* form group spacing ([54397ef](https://github.com/DouglasNeuroInformatics/libui/commit/54397efa51e5fdeee24249f35e8806870acf0a11))
+* form spacing ([8581bd9](https://github.com/DouglasNeuroInformatics/libui/commit/8581bd93cfb30c117a071eb72330ed5d3b2ded6d))
+* set default button cursor to pointer ([d00545f](https://github.com/DouglasNeuroInformatics/libui/commit/d00545fdfc00eaf3b50f868100ec50abf53226bd))
+* set onBeforeSubmit to null to prevent implicit handler in stories ([1318990](https://github.com/DouglasNeuroInformatics/libui/commit/13189902c77153c284036ae1d741a95596d1221b))
+* set text-align in otp ([3387d0d](https://github.com/DouglasNeuroInformatics/libui/commit/3387d0d3466dc1e4c6c2f42a0681ac775c09e943))
+
 ## [4.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.1.1...v4.2.0) (2025-04-23)
 
 ### Features
