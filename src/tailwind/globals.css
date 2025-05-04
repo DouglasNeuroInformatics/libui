@@ -181,6 +181,11 @@
 
     --radius: 0.5rem;
   }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @layer base {

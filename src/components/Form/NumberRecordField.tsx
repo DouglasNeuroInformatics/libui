@@ -47,11 +47,11 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
   }
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <Heading className="font-medium" variant="h5">
         {label}
       </Heading>
-      <div className="space-y-6">
+      <div className="flex flex-col gap-6">
         {Object.keys(items).map((name) => {
           const item = items[name]!;
           return (
