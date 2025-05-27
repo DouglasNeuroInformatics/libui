@@ -33,7 +33,6 @@ export * from './ListboxDropdown';
 export * from './MenuBar';
 export * from './NotificationHub';
 export * from './OneTimePasswordInput';
-export * from './Pagination';
 export * from './Popover';
 export * from './Progress';
 export * from './RadioGroup';

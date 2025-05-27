@@ -142,6 +142,10 @@
       "en": "<< First",
       "fr": "<< Première"
     },
+    "first": {
+      "en": "First",
+      "fr": "Première"
+    },
     "info": {
       "en": "Showing {{first}} to {{last}} of {{total}} results",
       "fr": "Affichage de {{first}} à {{last}} sur {{total}} résultats"
@@ -149,6 +153,10 @@
     "lastPage": {
       "en": "Last >>",
       "fr": "Dernière >>"
+    },
+    "last": {
+      "en": "Last",
+      "fr": "Dernière"
     },
     "next": {
       "en": "Next",
@@ -164,5 +172,13 @@
       "en": "Search...",
       "fr": "Rechercher..."
     }
+  },
+  "yes": {
+    "en": "Yes",
+    "fr": "Oui"
+  },
+  "no": {
+    "en": "No",
+    "fr": "Non"
   }
 }
