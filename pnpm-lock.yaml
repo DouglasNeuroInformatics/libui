@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       '@douglasneuroinformatics/libjs':
-        specifier: ^3.0.1
-        version: 3.0.1(neverthrow@8.2.0)(zod@3.25.32)
+        specifier: ^3.0.2
+        version: 3.0.2(neverthrow@8.2.0)(zod@3.25.32)
       '@douglasneuroinformatics/libui-form-types':
         specifier: ^0.11.0
         version: 0.11.0
@@ -470,9 +470,9 @@ packages:
       typescript:
         optional: true
 
-  '@douglasneuroinformatics/libjs@3.0.1':
+  '@douglasneuroinformatics/libjs@3.0.2':
     resolution:
-      { integrity: sha512-zdkYLe0JRRIfF446pBg8P8vffqiIs+uydnJB4OC8diDSsd35hQyVIf3hkarzLZR647ceRQD6OkA+IvciER/e1Q== }
+      { integrity: sha512-/eypX3TFn45qT4eo0xVqWoVdxwZv5q4pD5D9EmZFi1B5u9B1saaOcpIn69szPxfLbGWxn5Y/CRPqaE9DjTKHeA== }
     peerDependencies:
       neverthrow: ^8.2.0
       zod: ^3.25.x
@@ -6603,7 +6603,7 @@ snapshots:
       - svelte
       - ts-node
 
-  '@douglasneuroinformatics/libjs@3.0.1(neverthrow@8.2.0)(zod@3.25.32)':
+  '@douglasneuroinformatics/libjs@3.0.2(neverthrow@8.2.0)(zod@3.25.32)':
     dependencies:
       clean-stack: 5.2.0
       extract-stack: 3.0.0
