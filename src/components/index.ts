@@ -14,6 +14,7 @@ export * from './Collapsible';
 export * from './Command';
 export * from './ContextMenu';
 export * from './CopyButton';
+export * from './DataTable';
 export * from './DatePicker';
 export * from './Dialog';
 export * from './Drawer';
