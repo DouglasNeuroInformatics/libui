@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.4.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.4.0...v4.4.1) (2025-05-30)
+
+### Bug Fixes
+
+* export data table ([b23bfa1](https://github.com/DouglasNeuroInformatics/libui/commit/b23bfa13ba068f21c31ce900d6bb760f7133126b))
+
 ## [4.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.3.0...v4.4.0) (2025-05-30)
 
 ### Features
