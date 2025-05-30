@@ -7,10 +7,12 @@ import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type FormTypes from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { IntRange } from 'type-fest';
-import { z } from 'zod';
+import { z } from 'zod/v4';
 
 import { Heading } from '../Heading';
 import { Form } from './Form';
+
+import type { ZodTypeLike } from './types';
 
 const DISABLED = false;
 
@@ -49,7 +51,7 @@ const $ExampleFormData = z.object({
   stringRadio: z.enum(['a', 'b', 'c']).optional()
 });
 type ExampleFormSchemaType = typeof $ExampleFormData;
-type ExampleFormData = z.TypeOf<typeof $ExampleFormData>;
+type ExampleFormData = z.infer<typeof $ExampleFormData>;
 
 const $SimpleExampleFormData = z.object({
   name: z.string()
@@ -513,7 +515,7 @@ export const WithPreventReset: StoryObj<typeof Form<SimpleExampleFormSchemaType>
   }
 };
 
-export const WithSuspend: StoryObj<typeof Form<z.ZodType<FormTypes.Data>, { delay?: number }>> = {
+export const WithSuspend: StoryObj<typeof Form<ZodTypeLike<FormTypes.Data>, { delay?: number }>> = {
   args: {
     content: {
       delay: {

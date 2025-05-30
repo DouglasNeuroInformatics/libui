@@ -9,7 +9,7 @@ importers:
     dependencies:
       '@douglasneuroinformatics/libjs':
         specifier: ^2.8.0
-        version: 2.8.0(neverthrow@8.2.0)(zod@3.24.2)
+        version: 2.8.0(neverthrow@8.2.0)(zod@3.25.32)
       '@douglasneuroinformatics/libui-form-types':
         specifier: ^0.11.0
         version: 0.11.0
@@ -137,8 +137,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       zod:
-        specifier: ^3.23.6
-        version: 3.24.2
+        specifier: ^3.25.x
+        version: 3.25.32
       zustand:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@19.0.12)(react@19.1.0)
@@ -6327,9 +6327,9 @@ packages:
       { integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ== }
     engines: { node: '>=18' }
 
-  zod@3.24.2:
+  zod@3.25.32:
     resolution:
-      { integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ== }
+      { integrity: sha512-OSm2xTIRfW8CV5/QKgngwmQW/8aPfGdaQFlrGoErlgg/Epm7cjb6K6VEyExfe65a3VybUOnu381edLb0dfJl0g== }
 
   zustand@5.0.3:
     resolution:
@@ -6603,7 +6603,7 @@ snapshots:
       - svelte
       - ts-node
 
-  '@douglasneuroinformatics/libjs@2.8.0(neverthrow@8.2.0)(zod@3.24.2)':
+  '@douglasneuroinformatics/libjs@2.8.0(neverthrow@8.2.0)(zod@3.25.32)':
     dependencies:
       clean-stack: 5.2.0
       extract-stack: 3.0.0
@@ -6611,7 +6611,7 @@ snapshots:
       serialize-error: 12.0.0
       stringify-object: 5.0.0
       type-fest: 4.39.0
-      zod: 3.24.2
+      zod: 3.25.32
 
   '@douglasneuroinformatics/libui-form-types@0.11.0':
     dependencies:
@@ -11607,7 +11607,7 @@ snapshots:
 
   yoctocolors@2.1.1: {}
 
-  zod@3.24.2: {}
+  zod@3.25.32: {}
 
   zustand@5.0.3(@types/react@19.0.12)(react@19.1.0):
     optionalDependencies:

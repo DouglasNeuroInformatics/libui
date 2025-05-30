@@ -10,7 +10,6 @@ import type {
 import { get, set } from 'lodash-es';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
-import { z } from 'zod';
 
 import { useTranslation } from '@/hooks';
 import { cn } from '@/utils';
@@ -22,9 +21,9 @@ import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';
 
-import type { FormErrors } from './types';
+import type { FormErrors, ZodErrorLike, ZodTypeLike } from './types';
 
-type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>> = {
+type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_input'] = TSchema['_input']> = {
   [key: `data-${string}`]: unknown;
   additionalButtons?: {
     left?: React.ReactNode;
@@ -42,7 +41,7 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   onBeforeSubmit?:
     | ((data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>)
     | null;
-  onError?: (error: z.ZodError<NoInfer<TData>>) => void;
+  onError?: (error: ZodErrorLike) => void;
   onSubmit: (data: NoInfer<TData>) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
   readOnly?: boolean;
@@ -50,10 +49,10 @@ type FormProps<TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<T
   revalidateOnBlur?: boolean;
   submitBtnLabel?: string;
   suspendWhileSubmitting?: boolean;
-  validationSchema: z.ZodType<TData>;
+  validationSchema: ZodTypeLike<TData>;
 };
 
-const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TSchema> = z.TypeOf<TSchema>>({
+const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_input'] = TSchema['_input']>({
   additionalButtons,
   className,
   content,
@@ -81,7 +80,7 @@ const Form = <TSchema extends z.ZodType<FormDataType>, TData extends z.TypeOf<TS
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleError = (error: z.ZodError<TData>) => {
+  const handleError = (error: ZodErrorLike) => {
     const fieldErrors: FormErrors<TData> = {};
     const rootErrors: string[] = [];
     for (const issue of error.issues) {
