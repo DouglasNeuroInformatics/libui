@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { sleep } from '@douglasneuroinformatics/libjs';
+import type { ZodTypeLike } from '@douglasneuroinformatics/libjs';
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type FormTypes from '@douglasneuroinformatics/libui-form-types';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -11,8 +12,6 @@ import { z } from 'zod/v4';
 
 import { Heading } from '../Heading';
 import { Form } from './Form';
-
-import type { ZodTypeLike } from './types';
 
 const DISABLED = false;
 
