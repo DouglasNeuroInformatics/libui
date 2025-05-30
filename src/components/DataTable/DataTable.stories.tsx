@@ -1,4 +1,4 @@
-import { range, toBasicISOString } from '@douglasneuroinformatics/libjs';
+import { range, toBasicISOString, unwrap } from '@douglasneuroinformatics/libjs';
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -31,14 +31,12 @@ const columns: DataTableColumn<User>[] = [
   }
 ];
 
-const data: User[] = range(60)
-  .unwrap()
-  .map(() => ({
-    birthday: faker.date.birthdate(),
-    email: faker.internet.email(),
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName()
-  }));
+const data: User[] = unwrap(range(60)).map(() => ({
+  birthday: faker.date.birthdate(),
+  email: faker.internet.email(),
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName()
+}));
 
 export default { component: DataTable } as Meta<typeof DataTable<User>>;
 
@@ -46,12 +44,14 @@ export const Default: Story = {
   args: {
     columns,
     data,
-    headerAction: {
-      label: 'Do Something',
-      onClick: () => {
-        alert('Something!');
+    headerActions: [
+      {
+        label: 'Do Something',
+        onClick: () => {
+          alert('Something!');
+        }
       }
-    },
+    ],
     rowActions: [
       {
         destructive: true,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import type { ZodErrorLike, ZodTypeLike } from '@douglasneuroinformatics/libjs';
 import type {
   FormContent,
   FormDataType,
@@ -21,9 +22,9 @@ import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';
 
-import type { FormErrors, ZodErrorLike, ZodTypeLike } from './types';
+import type { FormErrors } from './types';
 
-type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_input'] = TSchema['_input']> = {
+type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_output'] = TSchema['_output']> = {
   [key: `data-${string}`]: unknown;
   additionalButtons?: {
     left?: React.ReactNode;
@@ -52,7 +53,7 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   validationSchema: ZodTypeLike<TData>;
 };
 
-const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_input'] = TSchema['_input']>({
+const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_output'] = TSchema['_output']>({
   additionalButtons,
   className,
   content,

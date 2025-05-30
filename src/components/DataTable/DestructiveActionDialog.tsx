@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable jsx-a11y/no-autofocus */
 
 import type React from 'react';
 
@@ -26,7 +25,7 @@ export const DestructiveActionDialog: React.FC<{
         }
       }}
     >
-      <Dialog.Content>
+      <Dialog.Content onOpenAutoFocus={(event) => event.preventDefault()}>
         <Dialog.Header>
           <Dialog.Title>
             {t({
@@ -44,9 +43,8 @@ export const DestructiveActionDialog: React.FC<{
         <Dialog.Footer>
           <Button
             className="min-w-16"
-            size="sm"
             type="button"
-            variant="outline"
+            variant="danger"
             onClick={async () => {
               await destructiveActionPending?.();
               setDestructiveActionPending(null);
@@ -55,9 +53,7 @@ export const DestructiveActionDialog: React.FC<{
             {t('libui.yes')}
           </Button>
           <Button
-            autoFocus={true}
             className="min-w-16"
-            size="sm"
             type="button"
             variant="primary"
             onClick={() => setDestructiveActionPending(null)}
