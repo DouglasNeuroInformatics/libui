@@ -46,12 +46,14 @@ export const Default: Story = {
   args: {
     columns,
     data,
-    headerAction: {
-      label: 'Do Something',
-      onClick: () => {
-        alert('Something!');
+    headerActions: [
+      {
+        label: 'Do Something',
+        onClick: () => {
+          alert('Something!');
+        }
       }
-    },
+    ],
     rowActions: [
       {
         destructive: true,

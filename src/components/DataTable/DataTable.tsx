@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import {
   flexRender,
@@ -45,10 +45,10 @@ type DataTableColumn<TData extends { [key: string]: unknown }> =
 type DataTableProps<TData extends { [key: string]: unknown }> = {
   columns: DataTableColumn<TData>[];
   data: TData[];
-  headerAction?: {
+  headerActions?: {
     label: string;
     onClick: () => void;
-  };
+  }[];
   rowActions?: RowAction<TData>[];
   search?: {
     key: Extract<keyof TData, string>;
@@ -65,7 +65,7 @@ function isStaticColumn<TData extends { [key: string]: unknown }>(
 export const DataTable = <TData extends { [key: string]: unknown }>({
   columns,
   data,
-  headerAction,
+  headerActions,
   rowActions,
   search
 }: DataTableProps<TData>) => {
@@ -173,7 +173,7 @@ export const DataTable = <TData extends { [key: string]: unknown }>({
   const pageIndexOptions = range(start, end);
 
   return (
-    <Fragment>
+    <div className="flex flex-col">
       <DestructiveActionDialog
         destructiveActionPending={destructiveActionPending}
         setDestructiveActionPending={setDestructiveActionPending}
@@ -186,10 +186,14 @@ export const DataTable = <TData extends { [key: string]: unknown }>({
             value={searchValue}
             onValueChange={setSearchValue}
           />
-          {headerAction && (
-            <Button type="button" variant="outline" onClick={headerAction.onClick}>
-              {headerAction.label}
-            </Button>
+          {headerActions && (
+            <div className="flex gap-2">
+              {headerActions.map(({ label, onClick }, i) => (
+                <Button key={i} type="button" variant="outline" onClick={onClick}>
+                  {label}
+                </Button>
+              ))}
+            </div>
           )}
         </div>
       )}
@@ -230,30 +234,29 @@ export const DataTable = <TData extends { [key: string]: unknown }>({
           </Table.Body>
         </Table>
       </div>
-      <div className="mx-auto flex w-min pt-6 pb-4">
+      <div className="flex w-min gap-0.5 py-4 [&>button]:h-9">
         <Button
-          className="flex gap-1"
           disabled={!table.getCanPreviousPage()}
+          size="icon"
           type="button"
           variant="ghost"
           onClick={() => table.firstPage()}
         >
-          <ChevronsLeftIcon className="-ml-1 h-4 w-4" />
-          <span>{t('pagination.first')}</span>
+          <ChevronsLeftIcon className="h-4 w-4" />
         </Button>
         <Button
-          className="mr-1 flex gap-1"
           disabled={!table.getCanPreviousPage()}
+          size="icon"
           type="button"
           variant="ghost"
           onClick={() => table.previousPage()}
         >
-          <ChevronLeftIcon className="-ml-1 h-4 w-4" />
-          <span>{t('pagination.previous')}</span>
+          <ChevronLeftIcon className="h-4 w-4" />
         </Button>
         {pageIndexOptions.map((index) => (
           <Button
             key={index}
+            size="icon"
             type="button"
             variant={index === pagination.pageIndex ? 'outline' : 'ghost'}
             onClick={() => table.setPageIndex(index)}
@@ -262,27 +265,25 @@ export const DataTable = <TData extends { [key: string]: unknown }>({
           </Button>
         ))}
         <Button
-          className="ml-1 flex gap-1"
           disabled={!table.getCanNextPage()}
+          size="icon"
           type="button"
           variant="ghost"
           onClick={() => table.nextPage()}
         >
-          <span>{t('pagination.next')}</span>
-          <ChevronRightIcon className="-mr-1 h-4 w-4" />
+          <ChevronRightIcon className="h-4 w-4" />
         </Button>
         <Button
-          className="flex gap-1"
           disabled={!table.getCanNextPage()}
+          size="icon"
           type="button"
           variant="ghost"
           onClick={() => table.lastPage()}
         >
-          <span>{t('pagination.last')}</span>
-          <ChevronsRightIcon className="-mr-1 h-4 w-4" />
+          <ChevronsRightIcon className="h-4 w-4" />
         </Button>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
