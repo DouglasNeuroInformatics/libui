@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.3.0...v4.4.0) (2025-05-30)
+
+### Features
+
+* support zod v4 ([87d54f8](https://github.com/DouglasNeuroInformatics/libui/commit/87d54f8f9698106d250f32029d04e3ba5af09117))
+
 ## [4.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.2.1...v4.3.0) (2025-05-27)
 
 ### Features
