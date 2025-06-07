@@ -1,5 +1,5 @@
-import { create } from '@storybook/theming/create';
 import { formatRgb } from 'culori';
+import { create } from 'storybook/theming/create';
 import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 

@@ -6,7 +6,7 @@ import { sleep } from '@douglasneuroinformatics/libjs';
 import type { ZodTypeLike } from '@douglasneuroinformatics/libjs';
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type FormTypes from '@douglasneuroinformatics/libui-form-types';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { IntRange } from 'type-fest';
 import { z } from 'zod/v4';
 

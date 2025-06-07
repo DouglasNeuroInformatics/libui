@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 
-import { IconButton } from '@storybook/components';
-import { addons, types } from '@storybook/manager-api';
 import { LanguagesIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { IconButton } from 'storybook/internal/components';
+import { addons, types } from 'storybook/manager-api';
 import { match } from 'ts-pattern';
 
 import { useTheme } from '../src/hooks/useTheme';

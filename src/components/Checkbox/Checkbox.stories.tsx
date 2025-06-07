@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Checkbox } from './Checkbox';
 
@@ -20,7 +20,7 @@ export const Default: Story = {
             id="terms"
           />
           <label
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             htmlFor="terms"
           >
             Accept terms and conditions

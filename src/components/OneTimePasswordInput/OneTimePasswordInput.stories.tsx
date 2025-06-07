@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { NotificationHub } from '../NotificationHub';
 import { OneTimePasswordInput } from './OneTimePasswordInput';

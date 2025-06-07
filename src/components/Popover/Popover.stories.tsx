@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CircleHelpIcon } from 'lucide-react';
 
 import { Button } from '../Button';
@@ -28,8 +28,8 @@ export const Form: Story = {
         <Popover.Content className="w-80 p-4">
           <div className="grid gap-4">
             <div className="space-y-2">
-              <h4 className="font-medium leading-none">Dimensions</h4>
-              <p className="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+              <h4 className="leading-none font-medium">Dimensions</h4>
+              <p className="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
             </div>
             <div className="grid gap-2">
               <div className="grid grid-cols-3 items-center gap-4">
@@ -65,7 +65,7 @@ export const Icon: Story = {
             <CircleHelpIcon />
           </Button>
         </Popover.Trigger>
-        <Popover.Content className="w-min whitespace-nowrap text-sm">Hello World</Popover.Content>
+        <Popover.Content className="w-min text-sm whitespace-nowrap">Hello World</Popover.Content>
       </Fragment>
     )
   }

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { UsersRoundIcon } from 'lucide-react';
 
 import { StatisticCard } from './StatisticCard';
