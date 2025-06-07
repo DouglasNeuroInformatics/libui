@@ -55,3 +55,8 @@ export type TranslateFormatArgs =
 export type TranslateOptions = {
   args?: TranslateFormatArgs;
 };
+
+export interface TranslateFunction<TKey extends string> {
+  (key: TKey, options?: TranslateOptions): string;
+  (translations: { [L in Language]?: string }, options?: TranslateOptions): string;
+}

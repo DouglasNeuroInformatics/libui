@@ -7,6 +7,7 @@ import libui from './translations/libui.json';
 import type {
   Language,
   TranslateFormatArgs,
+  TranslateFunction,
   TranslateOptions,
   TranslationKey,
   TranslationKeyForNamespace,
@@ -23,6 +24,10 @@ type TranslatorConfig = {
   translations: SetOptional<Translations, 'libui'>;
 };
 
+type TranslatorType = {
+  t: TranslateFunction<TranslationKey>;
+};
+
 function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(
   target: (this: T, ...args: TArgs) => TReturn,
   context: ClassGetterDecoratorContext<T> | ClassMethodDecoratorContext<T> | ClassSetterDecoratorContext<T>
@@ -37,7 +42,7 @@ function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(
   return replacementMethod;
 }
 
-export class Translator {
+export class Translator implements TranslatorType {
   #config: Required<TranslatorConfig>;
   #eventHandlers: {
     [K in keyof TranslatorEventMap]: Set<TranslatorEventMap[K]>;
