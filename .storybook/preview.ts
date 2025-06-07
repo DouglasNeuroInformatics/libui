@@ -5,7 +5,9 @@ import theme from './theme';
 
 import '../src/tailwind/globals.css';
 
-i18n.init();
+i18n.init({
+  translations: {}
+});
 
 const preview: Preview = {
   initialGlobals: {
