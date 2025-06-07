@@ -38,7 +38,7 @@ function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(
   return replacementMethod;
 }
 
-export class Translator implements TranslatorType {
+export class Translator implements TranslatorType<TranslationKey> {
   #config: Required<TranslatorConfig>;
   #eventHandlers: {
     [K in keyof TranslatorEventMap]: Set<TranslatorEventMap[K]>;
