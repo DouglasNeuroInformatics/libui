@@ -7,12 +7,12 @@ import libui from './translations/libui.json';
 import type {
   Language,
   TranslateFormatArgs,
-  TranslateFunction,
   TranslateOptions,
   TranslationKey,
   TranslationKeyForNamespace,
   TranslationNamespace,
-  Translations
+  Translations,
+  TranslatorType
 } from './types';
 
 type TranslatorEventMap = {
@@ -22,10 +22,6 @@ type TranslatorEventMap = {
 type TranslatorConfig = {
   defaultLanguage?: Language;
   translations: SetOptional<Translations, 'libui'>;
-};
-
-type TranslatorType = {
-  t: TranslateFunction<TranslationKey>;
 };
 
 function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(

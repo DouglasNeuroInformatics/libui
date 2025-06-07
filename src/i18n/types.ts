@@ -60,3 +60,7 @@ export interface TranslateFunction<TKey extends string> {
   (key: TKey, options?: TranslateOptions): string;
   (translations: { [L in Language]?: string }, options?: TranslateOptions): string;
 }
+
+export type TranslatorType = {
+  t: TranslateFunction<TranslationKey>;
+};
