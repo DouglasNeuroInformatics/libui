@@ -41,9 +41,10 @@ export type ExtractTranslationKey<T extends { [key: string]: any }, Key = keyof 
 
 export type TranslationNamespace = Extract<keyof Translations, string>;
 
-export type TranslationKey<TNamespace = undefined> = TNamespace extends TranslationNamespace
-  ? ExtractTranslationKey<Translations[TNamespace]>
-  : ExtractTranslationKey<Translations>;
+export type TranslationKey = ExtractTranslationKey<Translations>;
+
+export type TranslationKeyForNamespace<TNamespace extends TranslationNamespace> =
+  TranslationKey extends `${TNamespace}.${infer TKey}` ? TKey : never;
 
 export type TranslateFormatArgs =
   | Exclude<Primitive, symbol>[]
@@ -51,7 +52,7 @@ export type TranslateFormatArgs =
       [L in Language]?: Exclude<Primitive, symbol>[];
     };
 
-export type TranslateOptions<TNamespace extends TranslationNamespace | undefined = undefined> = {
+export type TranslateOptions<TNamespace extends TranslationNamespace | undefined> = {
   args?: TranslateFormatArgs;
   namespace?: TNamespace;
 };

@@ -88,4 +88,8 @@ describe('Translator', () => {
       )
     ).toBe('Bonjour, tout le monde');
   });
+
+  it('should allow translations from a namespace', () => {
+    expect(translator.t('days.friday', { namespace: 'libui' })).toBe('Vendredi');
+  });
 });

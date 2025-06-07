@@ -1,10 +1,18 @@
 import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
-import type { SetOptional } from 'type-fest';
+import type { SetOptional, SetRequired } from 'type-fest';
 
 import libui from './translations/libui.json';
 
-import type { Language, TranslateFormatArgs, TranslateOptions, TranslationKey, Translations } from './types';
+import type {
+  Language,
+  TranslateFormatArgs,
+  TranslateOptions,
+  TranslationKey,
+  TranslationKeyForNamespace,
+  TranslationNamespace,
+  Translations
+} from './types';
 
 type TranslatorEventMap = {
   languageChange: (...args: [language: Language]) => void;
@@ -83,12 +91,22 @@ export class Translator {
     return this.#eventHandlers[key].delete(handler);
   }
 
-  t(target: TranslationKey, options?: TranslateOptions): string;
-  t(translation: { [L in Language]?: string }, options?: TranslateOptions): string;
+  t(key: TranslationKey, options?: TranslateOptions<undefined>): string;
+  t<TNamespace extends TranslationNamespace>(
+    key: TranslationKeyForNamespace<NoInfer<TNamespace>>,
+    options: SetRequired<TranslateOptions<TNamespace>, 'namespace'>
+  ): string;
+  t(translation: { [L in Language]?: string }, options?: TranslateOptions<undefined>): string;
   @InitializedOnly
-  t(target: string | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
+  t(
+    target: string | { [L in Language]?: string },
+    { args, namespace }: TranslateOptions<TranslationNamespace | undefined> = {}
+  ): string {
     let obj: { [key: string]: string };
     if (typeof target === 'string') {
+      if (typeof namespace === 'string') {
+        target = `${namespace}.${target}`;
+      }
       obj = (get(this.#config.translations, target) ?? {}) as { [key: string]: string };
     } else {
       obj = target;
