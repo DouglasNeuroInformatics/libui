@@ -31,4 +31,14 @@ describe('Translator', () => {
       'Cannot reinitialize Translator'
     );
   });
+
+  it('should have set the document language to en', () => {
+    expect(document.documentElement.getAttribute('lang')).toBe('en');
+  });
+
+  it('should allow changing the language', () => {
+    translator.changeLanguage('fr');
+    expect(translator.resolvedLanguage).toBe('fr');
+    expect(document.documentElement.getAttribute('lang')).toBe('fr');
+  });
 });

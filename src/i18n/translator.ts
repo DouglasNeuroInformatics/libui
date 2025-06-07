@@ -45,6 +45,7 @@ export class Translator {
   @InitializedOnly
   changeLanguage(language: Language) {
     this.#resolvedLanguage = language;
+    document.documentElement.lang = language;
   }
 
   init(config: TranslatorConfig) {
@@ -52,6 +53,6 @@ export class Translator {
       throw new Error('Cannot reinitialize Translator');
     }
     this.#config = config;
-    this.#resolvedLanguage = config.defaultLanguage ?? 'en';
+    this.changeLanguage(config.defaultLanguage ?? 'en');
   }
 }
