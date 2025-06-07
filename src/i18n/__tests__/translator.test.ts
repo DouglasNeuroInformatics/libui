@@ -48,4 +48,13 @@ describe('Translator', () => {
     expect(translator.t('libui.days.monday')).toBe('Lundi');
     expect(translator.t({ en: 'Yes', fr: 'Oui' })).toBe('Oui');
   });
+
+  it('should return the language from the defaultLanguage, if the resolvedLanguage is unavailable', () => {
+    expect(translator.resolvedLanguage).toBe('fr');
+    expect(translator.t({ en: 'Yes' })).toBe('Yes');
+  });
+
+  it('should return an empty string if no translation is available', () => {
+    expect(translator.t({})).toBe('');
+  });
 });
