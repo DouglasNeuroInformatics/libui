@@ -2,7 +2,7 @@ import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
 import type { Primitive, SetOptional } from 'type-fest';
 
-import libui from '@/i18n/translations/libui.json';
+import libui from './translations/libui.json';
 
 import type { Language, TranslationKey, Translations } from './types';
 
