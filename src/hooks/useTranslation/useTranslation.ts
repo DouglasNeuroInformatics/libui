@@ -1,27 +1,32 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import type { Primitive } from 'type-fest';
-import { useStore } from 'zustand';
-
-import type { Language, TranslateFunction, TranslationKey, TranslationNamespace } from '@/i18n';
+import type {
+  TranslateFunction,
+  TranslationKey,
+  TranslationKeyForNamespace,
+  TranslationNamespace,
+  TranslatorType
+} from '@/i18n';
 
 // this is required since our storybook manager plugin cannot use vite aliases
 import { i18n } from '../../i18n';
 
-export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
-  namespace?: TNamespace
-) {
+export function useTranslation(): TranslatorType<TranslationKey>;
+export function useTranslation<TNamespace extends TranslationNamespace>(
+  namespace: TNamespace
+): TranslatorType<TranslationKeyForNamespace<TNamespace>>;
+export function useTranslation(namespace?: TranslationNamespace): any {
   const [resolvedLanguage, setResolvedLanguage] = useState(i18n.resolvedLanguage);
   const { changeLanguage, t } = useMemo(() => {
-    const _t = i18n.t.bind(i18n);
+    const t: TranslateFunction<string> = (target, options) => {
+      if (typeof target === 'object') {
+        return i18n.t(target, options);
+      }
+      return i18n.t((namespace ? `${namespace}.${target}` : target) as TranslationKey, options);
+    };
     return {
       changeLanguage: i18n.changeLanguage.bind(i18n),
-      t: (target: TranslationKey<TNamespace> | { [L in Language]?: string }, ...args: Exclude<Primitive, symbol>[]) => {
-        if (namespace && typeof target === 'string') {
-          const x = `${namespace}.${target}`;
-          return _t(`${namespace}.${target}`, ...args);
-        }
-      }
+      t
     };
   }, []);
 
@@ -37,21 +42,4 @@ export function useTranslation<TNamespace extends TranslationNamespace | undefin
     resolvedLanguage,
     t
   };
-
-  // const changeLanguage = useStore(translationStore, (store) => store.changeLanguage);
-  // const fallbackLanguage = useStore(translationStore, (store) => store.fallbackLanguage);
-  // const resolvedLanguage = useStore(translationStore, (store) => store.resolvedLanguage);
-  // const translations = useStore(translationStore, (store) => {
-  //   if (namespace) {
-  //     return store.translations[namespace];
-  //   }
-  //   return store.translations;
-  // });
-  // const t: TranslateFunction<TNamespace> = useCallback(
-  //   (target, ...args) => {
-  //     return getTranslation(target, { fallbackLanguage, resolvedLanguage, translations }, ...args);
-  //   },
-  //   [fallbackLanguage, resolvedLanguage, translations]
-  // );
-  // return { changeLanguage, resolvedLanguage, t };
 }
