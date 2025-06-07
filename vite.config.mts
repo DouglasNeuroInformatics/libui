@@ -6,9 +6,17 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    target: 'es2022'
+    target: 'esnext'
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react({
+      useAtYourOwnRisk_mutateSwcOptions: (options) => {
+        options.jsc!.parser!.decorators = true;
+        options.jsc!.transform!.decoratorVersion = '2022-03';
+      }
+    }),
+    tailwindcss()
+  ],
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, 'src')
