@@ -2,6 +2,8 @@ import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
 import type { Primitive, SetOptional } from 'type-fest';
 
+import libui from '@/i18n/translations/libui.json';
+
 import type { Language, TranslationKey, Translations } from './types';
 
 type LanguageChangeHandler = (this: void, language: Language) => void;
@@ -51,11 +53,17 @@ export class Translator {
     document.documentElement.lang = language;
   }
 
-  init(config: TranslatorConfig) {
+  init({ translations, ...config }: TranslatorConfig) {
     if (this.isInitialized) {
       throw new Error('Cannot reinitialize Translator');
     }
-    this.#config = config;
+    this.#config = {
+      translations: {
+        libui,
+        ...translations
+      },
+      ...config
+    };
     this.changeLanguage(config.defaultLanguage ?? 'en');
   }
 

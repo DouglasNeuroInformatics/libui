@@ -36,9 +36,16 @@ describe('Translator', () => {
     expect(document.documentElement.getAttribute('lang')).toBe('en');
   });
 
+  it('should allow accessing translations', () => {
+    expect(translator.t('libui.days.monday')).toBe('Monday');
+    expect(translator.t({ en: 'Yes', fr: 'Oui' })).toBe('Yes');
+  });
+
   it('should allow changing the language', () => {
     translator.changeLanguage('fr');
     expect(translator.resolvedLanguage).toBe('fr');
     expect(document.documentElement.getAttribute('lang')).toBe('fr');
+    expect(translator.t('libui.days.monday')).toBe('Lundi');
+    expect(translator.t({ en: 'Yes', fr: 'Oui' })).toBe('Oui');
   });
 });
