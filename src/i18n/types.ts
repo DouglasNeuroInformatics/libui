@@ -41,7 +41,7 @@ export type ExtractTranslationKey<T extends { [key: string]: any }, Key = keyof 
 
 export type TranslationNamespace = Extract<keyof Translations, string>;
 
-export type TranslationKey<TNamespace> = TNamespace extends TranslationNamespace
+export type TranslationKey<TNamespace = undefined> = TNamespace extends TranslationNamespace
   ? ExtractTranslationKey<Translations[TNamespace]>
   : ExtractTranslationKey<Translations>;
 

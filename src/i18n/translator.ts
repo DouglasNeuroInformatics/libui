@@ -1,6 +1,8 @@
-import type { SetOptional } from 'type-fest';
+import { format } from '@douglasneuroinformatics/libjs';
+import { get } from 'lodash-es';
+import type { Primitive, SetOptional } from 'type-fest';
 
-import type { Language, Translations } from './types';
+import type { Language, TranslationKey, Translations } from './types';
 
 type LanguageChangeHandler = (this: void, language: Language) => void;
 
@@ -25,12 +27,13 @@ function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(
 }
 
 export class Translator {
-  #config: null | TranslatorConfig;
-  #resolvedLanguage: Language | null;
+  #config: TranslatorConfig;
+  #resolvedLanguage: Language;
 
   constructor() {
-    this.#config = null;
-    this.#resolvedLanguage = null;
+    // in the implementation, these should only be accessed in methods decorated with @InitializedOnly
+    this.#config = null!;
+    this.#resolvedLanguage = null!;
   }
 
   get isInitialized() {
@@ -39,7 +42,7 @@ export class Translator {
 
   @InitializedOnly
   get resolvedLanguage() {
-    return this.#resolvedLanguage!;
+    return this.#resolvedLanguage;
   }
 
   @InitializedOnly
@@ -54,5 +57,16 @@ export class Translator {
     }
     this.#config = config;
     this.changeLanguage(config.defaultLanguage ?? 'en');
+  }
+
+  @InitializedOnly
+  t(target: TranslationKey | { [L in Language]?: string }, ...args: Exclude<Primitive, symbol>[]) {
+    let value: { [key: string]: string };
+    if (typeof target === 'string') {
+      value = get(this.#config.translations, target) as { [key: string]: string };
+    } else {
+      value = target;
+    }
+    return format(value[this.#resolvedLanguage]!, ...args);
   }
 }
