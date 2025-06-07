@@ -1,23 +1,36 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useStore } from 'zustand';
 
-import type { TranslateFunction, TranslationNamespace } from '@/i18n';
+import type { Language, TranslateFunction, TranslationNamespace } from '@/i18n';
 
 // this is required since our storybook manager plugin cannot use vite aliases
 import { i18n } from '../../i18n';
 
-console.log({ i18n });
-
 export function useTranslation<TNamespace extends TranslationNamespace | undefined = undefined>(
   namespace?: TNamespace
 ) {
+  const [resolvedLanguage, setResolvedLanguage] = useState(i18n.resolvedLanguage);
+  const { changeLanguage, t } = useMemo(
+    () => ({
+      changeLanguage: i18n.changeLanguage.bind(i18n),
+      t: i18n.t.bind(i18n)
+    }),
+    []
+  );
+
   useEffect(() => {
-    console.log(i18n.isInitialized);
-    i18n.addEventListener('languageChange', (language) => console.log(language));
+    i18n.addEventListener('languageChange', setResolvedLanguage);
+    return () => {
+      i18n.removeEventListener('languageChange', setResolvedLanguage);
+    };
   }, []);
 
-  return i18n;
+  return {
+    changeLanguage,
+    resolvedLanguage,
+    t
+  };
 
   // const changeLanguage = useStore(translationStore, (store) => store.changeLanguage);
   // const fallbackLanguage = useStore(translationStore, (store) => store.fallbackLanguage);
