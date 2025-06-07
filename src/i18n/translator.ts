@@ -7,7 +7,7 @@ import libui from './translations/libui.json';
 import type { Language, TranslationKey, Translations } from './types';
 
 type TranslatorEventMap = {
-  languageChange: (this: void, language: Language) => void;
+  languageChange: (...args: [language: Language]) => void;
 };
 
 type TranslatorConfig = {
@@ -62,6 +62,7 @@ export class Translator {
   changeLanguage(language: Language) {
     this.#resolvedLanguage = language;
     document.documentElement.lang = language;
+    this.emitEvent('languageChange', [language]);
   }
 
   init({ defaultLanguage, translations }: TranslatorConfig) {
@@ -96,5 +97,11 @@ export class Translator {
       return '';
     }
     return format(value, ...args);
+  }
+
+  private emitEvent<TKey extends keyof TranslatorEventMap>(key: TKey, payload: Parameters<TranslatorEventMap[TKey]>) {
+    this.#eventHandlers[key].forEach((fn: (...args: any[]) => any) => {
+      fn(...payload);
+    });
   }
 }

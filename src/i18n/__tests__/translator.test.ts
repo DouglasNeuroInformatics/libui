@@ -59,8 +59,15 @@ describe('Translator', () => {
   });
 
   it('should allow adding and removing event listeners', () => {
-    const handleLanguageChange = vi.fn();
-    translator.addEventListener('languageChange', handleLanguageChange);
-    expect(translator.removeEventListener('languageChange', handleLanguageChange)).toBe(true);
+    const handleLanguageChange1 = vi.fn();
+    const handleLanguageChange2 = vi.fn();
+    translator.addEventListener('languageChange', handleLanguageChange1);
+    translator.addEventListener('languageChange', handleLanguageChange2);
+    translator.changeLanguage('en');
+    expect(translator.removeEventListener('languageChange', handleLanguageChange1)).toBe(true);
+    translator.changeLanguage('fr');
+    expect(translator.removeEventListener('languageChange', handleLanguageChange2)).toBe(true);
+    expect(handleLanguageChange1).toHaveBeenCalledTimes(1);
+    expect(handleLanguageChange2).toHaveBeenCalledTimes(2);
   });
 });
