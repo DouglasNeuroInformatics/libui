@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Translator } from '../translator';
 
@@ -56,5 +56,11 @@ describe('Translator', () => {
 
   it('should return an empty string if no translation is available', () => {
     expect(translator.t({})).toBe('');
+  });
+
+  it('should allow adding and removing event listeners', () => {
+    const handleLanguageChange = vi.fn();
+    translator.addEventListener('languageChange', handleLanguageChange);
+    expect(translator.removeEventListener('languageChange', handleLanguageChange)).toBe(true);
   });
 });

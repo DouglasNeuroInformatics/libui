@@ -6,6 +6,10 @@ import libui from './translations/libui.json';
 
 import type { Language, TranslationKey, Translations } from './types';
 
+type TranslatorEventMap = {
+  languageChange: (this: void, language: Language) => void;
+};
+
 type TranslatorConfig = {
   defaultLanguage?: Language;
   translations: SetOptional<Translations, 'libui'>;
@@ -27,11 +31,17 @@ function InitializedOnly<T extends Translator, TArgs extends any[], TReturn>(
 
 export class Translator {
   #config: Required<TranslatorConfig>;
+  #eventHandlers: {
+    [K in keyof TranslatorEventMap]: Set<TranslatorEventMap[K]>;
+  };
   #resolvedLanguage: Language;
 
   constructor() {
     // in the implementation, these should only be accessed in methods decorated with @InitializedOnly
     this.#config = null!;
+    this.#eventHandlers = {
+      languageChange: new Set()
+    };
     this.#resolvedLanguage = null!;
   }
 
@@ -42,6 +52,10 @@ export class Translator {
   @InitializedOnly
   get resolvedLanguage() {
     return this.#resolvedLanguage;
+  }
+
+  addEventListener<TKey extends keyof TranslatorEventMap>(key: TKey, handler: TranslatorEventMap[TKey]) {
+    this.#eventHandlers[key].add(handler);
   }
 
   @InitializedOnly
@@ -62,6 +76,10 @@ export class Translator {
       }
     };
     this.changeLanguage(this.#config.defaultLanguage);
+  }
+
+  removeEventListener<TKey extends keyof TranslatorEventMap>(key: TKey, handler: TranslatorEventMap[TKey]) {
+    return this.#eventHandlers[key].delete(handler);
   }
 
   @InitializedOnly
