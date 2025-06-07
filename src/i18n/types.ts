@@ -61,7 +61,7 @@ export interface TranslateFunction<TKey extends string> {
   (translations: { [L in Language]?: string }, options?: TranslateOptions): string;
 }
 
-export type TranslatorType<TKey extends string = TranslationKey> = {
+export type TranslatorType<TKey extends string> = {
   changeLanguage: (language: Language) => void;
   resolvedLanguage: Language;
   t: TranslateFunction<TKey>;
