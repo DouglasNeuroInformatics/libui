@@ -15,6 +15,12 @@ describe('Translator', () => {
     );
   });
 
+  it('should not allow accessing the resolvedLanguage method before initialization', () => {
+    expect(() => translator.resolvedLanguage).toThrow(
+      "Cannot access getter 'resolvedLanguage' of Translator instance before initialization"
+    );
+  });
+
   it('should allow initialization', () => {
     translator.init({ defaultLanguage: 'en', translations: {} });
     expect(translator.isInitialized).toBe(true);

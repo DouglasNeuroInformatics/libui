@@ -37,8 +37,9 @@ export class Translator {
     return this.#config !== null;
   }
 
+  @InitializedOnly
   get resolvedLanguage() {
-    return this.#resolvedLanguage;
+    return this.#resolvedLanguage!;
   }
 
   @InitializedOnly
