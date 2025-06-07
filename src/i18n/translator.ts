@@ -1,6 +1,6 @@
 import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
-import type { SetOptional, SetRequired } from 'type-fest';
+import type { SetOptional } from 'type-fest';
 
 import libui from './translations/libui.json';
 
@@ -91,35 +91,40 @@ export class Translator {
     return this.#eventHandlers[key].delete(handler);
   }
 
-  t(key: TranslationKey, options?: TranslateOptions<undefined>): string;
+  t(translation: { [L in Language]?: string }, options?: TranslateOptions): string;
+  t(key: TranslationKey, options?: TranslateOptions): string;
   t<TNamespace extends TranslationNamespace>(
+    namespace: TNamespace,
     key: TranslationKeyForNamespace<NoInfer<TNamespace>>,
-    options: SetRequired<TranslateOptions<TNamespace>, 'namespace'>
+    options?: TranslateOptions
   ): string;
-  t(translation: { [L in Language]?: string }, options?: TranslateOptions<undefined>): string;
   @InitializedOnly
-  t(
-    target: string | { [L in Language]?: string },
-    { args, namespace }: TranslateOptions<TranslationNamespace | undefined> = {}
-  ): string {
+  t(...args: any[]): string {
     let obj: { [key: string]: string };
-    if (typeof target === 'string') {
-      if (typeof namespace === 'string') {
-        target = `${namespace}.${target}`;
+    let opts: TranslateOptions | undefined;
+    if (typeof args[0] === 'string') {
+      let target: string;
+      if (typeof args[1] === 'string') {
+        target = `${args[0]}.${args[1]}`;
+        opts = args[2] as TranslateOptions | undefined;
+      } else {
+        target = args[0];
+        opts = args[1] as TranslateOptions | undefined;
       }
       obj = (get(this.#config.translations, target) ?? {}) as { [key: string]: string };
     } else {
-      obj = target;
+      obj = args[0] as { [key: string]: string };
+      opts = args[1] as TranslateOptions | undefined;
     }
     const value = obj[this.#resolvedLanguage] ?? obj[this.#config.defaultLanguage];
     if (!value) {
       console.error(`Failed to extract translation from object '${JSON.stringify(obj)}'`);
       return '';
     }
-    if (!args) {
+    if (!opts?.args) {
       return value;
     }
-    return format(value, ...this.getFormatArgs(args));
+    return format(value, ...this.getFormatArgs(opts.args));
   }
 
   private emitEvent<TKey extends keyof TranslatorEventMap>(key: TKey, payload: Parameters<TranslatorEventMap[TKey]>) {

@@ -90,6 +90,6 @@ describe('Translator', () => {
   });
 
   it('should allow translations from a namespace', () => {
-    expect(translator.t('days.friday', { namespace: 'libui' })).toBe('Vendredi');
+    expect(translator.t('libui', 'days.friday')).toBe('Vendredi');
   });
 });

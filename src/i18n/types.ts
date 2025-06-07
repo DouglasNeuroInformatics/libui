@@ -52,7 +52,6 @@ export type TranslateFormatArgs =
       [L in Language]?: Exclude<Primitive, symbol>[];
     };
 
-export type TranslateOptions<TNamespace extends TranslationNamespace | undefined> = {
+export type TranslateOptions = {
   args?: TranslateFormatArgs;
-  namespace?: TNamespace;
 };
