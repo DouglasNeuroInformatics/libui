@@ -73,4 +73,19 @@ describe('Translator', () => {
     expect(handleLanguageChange1).toHaveBeenCalledTimes(1);
     expect(handleLanguageChange2).toHaveBeenCalledTimes(2);
   });
+
+  it('should apply arguments', () => {
+    expect(translator.t({ en: 'Hello, {}' }, { args: ['World'] })).toBe('Hello, World');
+    expect(
+      translator.t(
+        { en: 'Hello, {}', fr: 'Bonjour, {}' },
+        {
+          args: {
+            en: ['World'],
+            fr: ['tout le monde']
+          }
+        }
+      )
+    ).toBe('Bonjour, tout le monde');
+  });
 });

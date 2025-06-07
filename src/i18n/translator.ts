@@ -1,10 +1,10 @@
 import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
-import type { Primitive, SetOptional } from 'type-fest';
+import type { SetOptional } from 'type-fest';
 
 import libui from './translations/libui.json';
 
-import type { Language, TranslationKey, Translations } from './types';
+import type { Language, TranslateOptions, TranslationKey, Translations } from './types';
 
 type TranslatorEventMap = {
   languageChange: (...args: [language: Language]) => void;
@@ -83,8 +83,10 @@ export class Translator {
     return this.#eventHandlers[key].delete(handler);
   }
 
+  t(target: TranslationKey, options?: TranslateOptions): string;
+  t(translation: { [L in Language]?: string }, options?: TranslateOptions): string;
   @InitializedOnly
-  t(target: TranslationKey | { [L in Language]?: string }, ...args: Exclude<Primitive, symbol>[]) {
+  t(target: TranslationKey | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
     let obj: { [key: string]: string };
     if (typeof target === 'string') {
       obj = get(this.#config.translations, target) ?? {};
@@ -96,12 +98,27 @@ export class Translator {
       console.error(`Failed to extract translation from object '${JSON.stringify(obj)}'`);
       return '';
     }
-    return format(value, ...args);
+    if (!args) {
+      return value;
+    }
+    return format(value, ...this.getFormatArgs(args));
   }
 
   private emitEvent<TKey extends keyof TranslatorEventMap>(key: TKey, payload: Parameters<TranslatorEventMap[TKey]>) {
     this.#eventHandlers[key].forEach((fn: (...args: any[]) => any) => {
       fn(...payload);
     });
+  }
+
+  private getFormatArgs(args: NonNullable<TranslateOptions['args']>) {
+    if (Array.isArray(args)) {
+      return args;
+    }
+    const result = args[this.#resolvedLanguage] ?? args[this.#config.defaultLanguage];
+    if (!result) {
+      console.error(`Failed to extract args from object '${JSON.stringify(args)}'`);
+      return [];
+    }
+    return result;
   }
 }
