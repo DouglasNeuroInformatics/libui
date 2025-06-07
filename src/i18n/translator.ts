@@ -9,8 +9,6 @@ import type {
   TranslateFormatArgs,
   TranslateOptions,
   TranslationKey,
-  TranslationKeyForNamespace,
-  TranslationNamespace,
   Translations,
   TranslatorType
 } from './types';
@@ -92,40 +90,23 @@ export class Translator implements TranslatorType<TranslationKey> {
     return this.#eventHandlers[key].delete(handler);
   }
 
-  t(translation: { [L in Language]?: string }, options?: TranslateOptions): string;
-  t(key: TranslationKey, options?: TranslateOptions): string;
-  t<TNamespace extends TranslationNamespace>(
-    namespace: TNamespace,
-    key: TranslationKeyForNamespace<NoInfer<TNamespace>>,
-    options?: TranslateOptions
-  ): string;
   @InitializedOnly
-  t(...args: any[]): string {
+  t(target: TranslationKey | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
     let obj: { [key: string]: string };
-    let opts: TranslateOptions | undefined;
-    if (typeof args[0] === 'string') {
-      let target: string;
-      if (typeof args[1] === 'string') {
-        target = `${args[0]}.${args[1]}`;
-        opts = args[2] as TranslateOptions | undefined;
-      } else {
-        target = args[0];
-        opts = args[1] as TranslateOptions | undefined;
-      }
+    if (typeof target === 'string') {
       obj = (get(this.#config.translations, target) ?? {}) as { [key: string]: string };
     } else {
-      obj = args[0] as { [key: string]: string };
-      opts = args[1] as TranslateOptions | undefined;
+      obj = target;
     }
     const value = obj[this.#resolvedLanguage] ?? obj[this.#config.defaultLanguage];
     if (!value) {
       console.error(`Failed to extract translation from object '${JSON.stringify(obj)}'`);
       return '';
     }
-    if (!opts?.args) {
+    if (!args) {
       return value;
     }
-    return format(value, ...this.getFormatArgs(opts.args));
+    return format(value, ...this.getFormatArgs(args));
   }
 
   private emitEvent<TKey extends keyof TranslatorEventMap>(key: TKey, payload: Parameters<TranslatorEventMap[TKey]>) {
