@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    target: 'esnext'
+    target: 'es2022'
   },
   plugins: [
     react({
