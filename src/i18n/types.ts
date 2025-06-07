@@ -45,10 +45,13 @@ export type TranslationKey<TNamespace = undefined> = TNamespace extends Translat
   ? ExtractTranslationKey<Translations[TNamespace]>
   : ExtractTranslationKey<Translations>;
 
-export type TranslateOptions = {
-  args?:
-    | Exclude<Primitive, symbol>[]
-    | {
-        [L in Language]?: Exclude<Primitive, symbol>[];
-      };
+export type TranslateFormatArgs =
+  | Exclude<Primitive, symbol>[]
+  | {
+      [L in Language]?: Exclude<Primitive, symbol>[];
+    };
+
+export type TranslateOptions<TNamespace extends TranslationNamespace | undefined = undefined> = {
+  args?: TranslateFormatArgs;
+  namespace?: TNamespace;
 };

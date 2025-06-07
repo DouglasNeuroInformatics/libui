@@ -4,7 +4,7 @@ import type { SetOptional } from 'type-fest';
 
 import libui from './translations/libui.json';
 
-import type { Language, TranslateOptions, TranslationKey, Translations } from './types';
+import type { Language, TranslateFormatArgs, TranslateOptions, TranslationKey, Translations } from './types';
 
 type TranslatorEventMap = {
   languageChange: (...args: [language: Language]) => void;
@@ -86,10 +86,10 @@ export class Translator {
   t(target: TranslationKey, options?: TranslateOptions): string;
   t(translation: { [L in Language]?: string }, options?: TranslateOptions): string;
   @InitializedOnly
-  t(target: TranslationKey | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
+  t(target: string | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
     let obj: { [key: string]: string };
     if (typeof target === 'string') {
-      obj = get(this.#config.translations, target) ?? {};
+      obj = (get(this.#config.translations, target) ?? {}) as { [key: string]: string };
     } else {
       obj = target;
     }
@@ -110,7 +110,7 @@ export class Translator {
     });
   }
 
-  private getFormatArgs(args: NonNullable<TranslateOptions['args']>) {
+  private getFormatArgs(args: TranslateFormatArgs) {
     if (Array.isArray(args)) {
       return args;
     }
