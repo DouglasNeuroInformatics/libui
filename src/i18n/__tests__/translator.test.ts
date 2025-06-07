@@ -55,7 +55,10 @@ describe('Translator', () => {
   });
 
   it('should return an empty string if no translation is available', () => {
+    vi.spyOn(console, 'error').mockImplementationOnce(() => undefined);
     expect(translator.t({})).toBe('');
+    expect(console.error).toHaveBeenLastCalledWith("Failed to extract translation from object '{}'");
+    vi.restoreAllMocks();
   });
 
   it('should allow adding and removing event listeners', () => {
