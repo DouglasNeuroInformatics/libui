@@ -15,7 +15,7 @@ export function useTranslation(): TranslatorType<TranslationKey>;
 export function useTranslation<TNamespace extends TranslationNamespace>(
   namespace: TNamespace
 ): TranslatorType<TranslationKeyForNamespace<TNamespace>>;
-export function useTranslation(namespace?: TranslationNamespace): any {
+export function useTranslation(namespace?: TranslationNamespace): TranslatorType<string> {
   const [resolvedLanguage, setResolvedLanguage] = useState(i18n.resolvedLanguage);
   const { changeLanguage, t } = useMemo(() => {
     const t: TranslateFunction<string> = (target, options) => {
