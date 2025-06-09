@@ -24,6 +24,8 @@ import { getInitialValues } from './utils';
 
 import type { FormErrors } from './types';
 
+type FormSubmitResult = { errorMessage: string; success: false } | { success: true };
+
 type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_output'] = TSchema['_output']> = {
   [key: `data-${string}`]: unknown;
   additionalButtons?: {
@@ -39,9 +41,7 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
-  onBeforeSubmit?:
-    | ((data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>)
-    | null;
+  onBeforeSubmit?: ((data: NoInfer<TData>) => Promisable<FormSubmitResult>) | null;
   onError?: (error: ZodErrorLike) => void;
   onSubmit: (data: NoInfer<TData>) => Promisable<void>;
   preventResetValuesOnReset?: boolean;
