@@ -1,12 +1,13 @@
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 
-import { mockTranslationStore } from './mocks';
+import { i18n } from '@/i18n';
 
 import '@testing-library/jest-dom/vitest';
 
 vi.mock('zustand');
-mockTranslationStore();
+
+i18n.init({ translations: {} });
 
 // Since we're not using vitest globals, we need to explicitly call cleanup()
 // for testing-library. See:
