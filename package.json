@@ -68,7 +68,7 @@
     "zod": "^3.25.x"
   },
   "dependencies": {
-    "@douglasneuroinformatics/libjs": "^3.0.1",
+    "@douglasneuroinformatics/libjs": "^3.0.2",
     "@douglasneuroinformatics/libui-form-types": "^0.11.0",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -116,17 +116,10 @@
     "@douglasneuroinformatics/semantic-release": "^0.2.1",
     "@douglasneuroinformatics/tsconfig": "^1.0.3",
     "@faker-js/faker": "^9.6.0",
-    "@storybook/addon-docs": "^8.6.11",
-    "@storybook/addon-essentials": "^8.6.11",
-    "@storybook/addon-interactions": "^8.6.11",
-    "@storybook/addon-links": "^8.6.11",
-    "@storybook/blocks": "^8.6.11",
-    "@storybook/components": "^8.6.11",
+    "@storybook/addon-docs": "^9.0.6",
+    "@storybook/addon-links": "^9.0.6",
     "@storybook/icons": "^1.4.0",
-    "@storybook/manager-api": "^8.6.11",
-    "@storybook/react": "^8.6.11",
-    "@storybook/react-vite": "^8.6.11",
-    "@storybook/theming": "^8.6.11",
+    "@storybook/react-vite": "^9.0.6",
     "@tailwindcss/vite": "^4.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -137,7 +130,7 @@
     "@types/node": "22.x",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react-swc": "^3.8.1",
+    "@vitejs/plugin-react-swc": "^3.10.1",
     "@vitest/coverage-v8": "^3.1.1",
     "culori": "^4.0.1",
     "eslint": "^9.23.0",
@@ -147,10 +140,10 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "sort-json": "^2.0.1",
-    "storybook": "^8.6.11",
+    "storybook": "^9.0.6",
     "tsup": "^8.4.0",
     "typescript": "5.6.x",
-    "vite": "6.2.4",
+    "vite": "^6.3.5",
     "vitest": "^3.1.1"
   },
   "commitlint": {
@@ -166,6 +159,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@swc/core",
+      "@tailwindcss/oxide",
       "esbuild"
     ]
   }

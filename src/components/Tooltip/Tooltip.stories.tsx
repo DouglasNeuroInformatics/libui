@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { DownloadIcon } from 'lucide-react';
 
 import { Tooltip } from './Tooltip';

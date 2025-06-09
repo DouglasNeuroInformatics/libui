@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
-import { IconButton } from '@storybook/components';
-import { addons, types } from '@storybook/manager-api';
 import { MoonIcon, SunIcon } from 'lucide-react';
+import { IconButton } from 'storybook/internal/components';
+import { addons, types } from 'storybook/manager-api';
 import { match } from 'ts-pattern';
 
 import { useTheme } from '../src/hooks/useTheme';
 import theme from './theme';
 
-const ExampleToolbar = React.memo(function ExampleToolbar() {
+const Toolbar = React.memo(function Toolbar() {
   const [theme, setTheme] = useTheme();
 
   useEffect(() => {
@@ -17,17 +17,19 @@ const ExampleToolbar = React.memo(function ExampleToolbar() {
   }, [theme]);
 
   return (
-    <IconButton
-      title="TailwindCSS Theme"
-      onClick={() => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-      }}
-    >
-      {match(theme)
-        .with('dark', () => <SunIcon height={14} width={14} />)
-        .with('light', () => <MoonIcon height={14} width={14} />)
-        .exhaustive()}
-    </IconButton>
+    <Fragment>
+      <IconButton
+        title="TailwindCSS Theme"
+        onClick={() => {
+          setTheme(theme === 'light' ? 'dark' : 'light');
+        }}
+      >
+        {match(theme)
+          .with('dark', () => <SunIcon height={14} width={14} />)
+          .with('light', () => <MoonIcon height={14} width={14} />)
+          .exhaustive()}
+      </IconButton>
+    </Fragment>
   );
 });
 
@@ -36,8 +38,8 @@ addons.setConfig({ theme });
 addons.register('docs-theme', () => {
   addons.add('docs-theme-addon', {
     match: ({ viewMode }) => !!viewMode?.match(/^(story|docs)$/),
-    render: ExampleToolbar,
-    title: 'Addon to change docs story theme',
+    render: Toolbar,
+    title: 'Addon to change docs story theme and language',
     type: types.TOOL
   });
 });
