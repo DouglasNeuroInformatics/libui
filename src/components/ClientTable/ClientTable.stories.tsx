@@ -1,5 +1,5 @@
 import { randomInt, range } from '@douglasneuroinformatics/libjs';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { ClientTable } from './ClientTable';
 

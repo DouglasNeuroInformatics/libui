@@ -1,6 +1,6 @@
 import { range, toBasicISOString, unwrap } from '@douglasneuroinformatics/libjs';
 import { faker } from '@faker-js/faker';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { DataTable } from './DataTable';
 

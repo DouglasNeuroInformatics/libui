@@ -1,11 +1,13 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 
 import { i18n } from '../src/i18n';
 import theme from './theme';
 
 import '../src/tailwind/globals.css';
 
-i18n.init();
+i18n.init({
+  translations: {}
+});
 
 const preview: Preview = {
   initialGlobals: {
