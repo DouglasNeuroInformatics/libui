@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.4.1...v4.5.0) (2025-06-26)
+
+### Features
+
+* allow users to return an error from onSubmit in form ([496c956](https://github.com/DouglasNeuroInformatics/libui/commit/496c956bb8cb8971e4f63946c97c673da363f7be))
+
 ## [4.4.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.4.0...v4.4.1) (2025-05-30)
 
 ### Bug Fixes
