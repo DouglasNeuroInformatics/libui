@@ -24,6 +24,10 @@ import { getInitialValues } from './utils';
 
 import type { FormErrors } from './types';
 
+type FormSubmitResult = { errorMessage: string; success: false } | { success: true };
+
+type FormSubmitHandler<TData> = (data: NoInfer<TData>) => Promisable<FormSubmitResult | void>;
+
 type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_output'] = TSchema['_output']> = {
   [key: `data-${string}`]: unknown;
   additionalButtons?: {
@@ -39,11 +43,9 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
-  onBeforeSubmit?:
-    | ((data: NoInfer<TData>) => Promisable<{ errorMessage: string; success: false } | { success: true }>)
-    | null;
+  onBeforeSubmit?: FormSubmitHandler<NoInfer<TData>> | null;
   onError?: (error: ZodErrorLike) => void;
-  onSubmit: (data: NoInfer<TData>) => Promisable<void>;
+  onSubmit: FormSubmitHandler<NoInfer<TData>>;
   preventResetValuesOnReset?: boolean;
   readOnly?: boolean;
   resetBtn?: boolean;
@@ -121,7 +123,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
     }
     if (onBeforeSubmit) {
       const beforeSubmitResult = await onBeforeSubmit(result.data);
-      if (!beforeSubmitResult.success) {
+      if (beforeSubmitResult && !beforeSubmitResult.success) {
         setErrors({});
         setRootErrors([beforeSubmitResult.errorMessage]);
         return;
@@ -130,12 +132,17 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
 
     try {
       setIsSubmitting(true);
-      await Promise.all([
+      const [formSubmitResult] = await Promise.all([
         onSubmit(result.data),
         new Promise<void>((resolve) => {
           return suspendWhileSubmitting ? setTimeout(resolve, 500) : resolve();
         })
       ]);
+      if (formSubmitResult && !formSubmitResult.success) {
+        setErrors({});
+        setRootErrors([formSubmitResult.errorMessage]);
+        return;
+      }
       reset();
     } finally {
       setIsSubmitting(false);
