@@ -216,7 +216,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
           values={values}
         />
       )}
-      {formSubmitStatus?.type === 'SUCCESS' && (
+      {formSubmitStatus?.type === 'SUCCESS' && formSubmitStatus.message !== undefined && (
         <div className={cn('-mt-3 flex w-full items-center text-sm font-medium', className)}>
           <CircleAlertIcon className="mr-1" style={{ strokeWidth: '2px' }} />
           <span>{formSubmitStatus.message}</span>
