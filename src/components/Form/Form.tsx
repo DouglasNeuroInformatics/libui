@@ -45,7 +45,9 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
   onError?: (error: ZodErrorLike) => void;
   onSubmit: FormSubmitHandler<NoInfer<TData>>;
+  /** @deprecated = use `preventResetValuesOnSubmit` */
   preventResetValuesOnReset?: boolean;
+  preventResetValuesOnSubmit?: boolean;
   readOnly?: boolean;
   resetBtn?: boolean;
   revalidateOnBlur?: boolean;
@@ -65,6 +67,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   onError,
   onSubmit,
   preventResetValuesOnReset,
+  preventResetValuesOnSubmit,
   readOnly,
   resetBtn,
   revalidateOnBlur,
@@ -133,7 +136,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
         return;
       }
       setFormSubmitStatus({ message: formSubmitResult.message, type: 'SUCCESS' });
-      if (!preventResetValuesOnReset) {
+      if (!(preventResetValuesOnSubmit || preventResetValuesOnReset)) {
         setValues({});
       }
     } finally {
