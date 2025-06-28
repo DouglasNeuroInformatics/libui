@@ -102,7 +102,9 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       }
     }
     setErrors(fieldErrors);
-    setFormSubmitStatus({ messages: rootErrors, type: 'ERROR' });
+    if (rootErrors.length) {
+      setFormSubmitStatus({ messages: rootErrors, type: 'ERROR' });
+    }
     if (onError) {
       onError(error);
     }
