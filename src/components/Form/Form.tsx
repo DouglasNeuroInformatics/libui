@@ -9,6 +9,7 @@ import type {
   PartialNullableFormDataType
 } from '@douglasneuroinformatics/libui-form-types';
 import { get, set } from 'lodash-es';
+import { CircleAlertIcon } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 
@@ -102,9 +103,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       }
     }
     setErrors(fieldErrors);
-    if (rootErrors.length) {
-      setFormSubmitStatus({ messages: rootErrors, type: 'ERROR' });
-    }
+    setFormSubmitStatus({ messages: rootErrors, type: 'ERROR' });
     if (onError) {
       onError(error);
     }
@@ -217,7 +216,15 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
           values={values}
         />
       )}
-      {formSubmitStatus?.type === 'ERROR' && <ErrorMessage className="-mt-3" error={formSubmitStatus.messages} />}
+      {formSubmitStatus?.type === 'SUCCESS' && (
+        <div className={cn('-mt-3 flex w-full items-center text-sm font-medium', className)}>
+          <CircleAlertIcon className="mr-1" style={{ strokeWidth: '2px' }} />
+          <span>{formSubmitStatus.message}</span>
+        </div>
+      )}
+      {formSubmitStatus?.type === 'ERROR' && formSubmitStatus.messages.length > 0 && (
+        <ErrorMessage className="-mt-3" error={formSubmitStatus.messages} />
+      )}
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
