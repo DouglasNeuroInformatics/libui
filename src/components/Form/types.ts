@@ -25,3 +25,5 @@ export type BaseFieldComponentProps<TValue extends FormFieldValue = FormFieldVal
 export type FormErrors<TData extends FormDataType = FormDataType> = {
   [K in keyof TData]?: FieldError<TData[K]>;
 };
+
+export type FormSubmitStatus = { message?: string; type: 'SUCCESS' } | { messages: string[]; type: 'ERROR' };

@@ -22,7 +22,7 @@ import { ErrorMessage } from './ErrorMessage';
 import { FieldsComponent } from './FieldsComponent';
 import { getInitialValues } from './utils';
 
-import type { FormErrors } from './types';
+import type { FormErrors, FormSubmitStatus } from './types';
 
 type FormSubmitResult = { message: string; success: false } | { message?: string; success: true };
 
@@ -74,7 +74,9 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   ...props
 }: FormProps<TSchema, TData>) => {
   const { resolvedLanguage, t } = useTranslation('libui');
-  const [rootErrors, setRootErrors] = useState<string[]>([]);
+
+  const [formSubmitStatus, setFormSubmitStatus] = useState<FormSubmitStatus | null>(null);
+
   const [errors, setErrors] = useState<FormErrors<TData>>({});
   const [values, setValues] = useState<PartialFormDataType<TData>>(
     initialValues ? getInitialValues(initialValues) : {}
@@ -97,17 +99,9 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       }
     }
     setErrors(fieldErrors);
-    setRootErrors(rootErrors);
+    setFormSubmitStatus({ messages: rootErrors, type: 'ERROR' });
     if (onError) {
       onError(error);
-    }
-  };
-
-  const reset = () => {
-    setRootErrors([]);
-    setErrors({});
-    if (!preventResetValuesOnReset) {
-      setValues({});
     }
   };
 
@@ -119,21 +113,29 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       handleError(result.error);
       return;
     }
-
+    setErrors({});
     try {
       setIsSubmitting(true);
-      const [formSubmitResult] = await Promise.all([
+      let [formSubmitResult] = await Promise.all([
         onSubmit(result.data),
         new Promise<void>((resolve) => {
           return suspendWhileSubmitting ? setTimeout(resolve, 500) : resolve();
         })
       ]);
-      if (formSubmitResult && !formSubmitResult.success) {
-        setErrors({});
-        setRootErrors([formSubmitResult.message]);
+
+      formSubmitResult ??= { success: true };
+
+      if (!formSubmitResult.success) {
+        setFormSubmitStatus({
+          messages: [formSubmitResult.message],
+          type: 'ERROR'
+        });
         return;
       }
-      reset();
+      setFormSubmitStatus({ message: formSubmitResult.message, type: 'SUCCESS' });
+      if (!preventResetValuesOnReset) {
+        setValues({});
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -142,7 +144,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   const isGrouped = Array.isArray(content);
 
   const revalidate = () => {
-    const hasErrors = Object.keys(errors).length > 0 || rootErrors.length;
+    const hasErrors = Object.keys(errors).length > 0 || formSubmitStatus?.type === 'ERROR';
     if (hasErrors) {
       validationSchema
         .safeParseAsync(values)
@@ -157,7 +159,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
 
   useEffect(() => {
     setErrors({});
-    setRootErrors([]);
+    setFormSubmitStatus(null);
   }, [resolvedLanguage]);
 
   const isSuspended = Boolean(suspendWhileSubmitting && isSubmitting);
@@ -210,7 +212,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
           values={values}
         />
       )}
-      {Boolean(rootErrors.length) && <ErrorMessage className="-mt-3" error={rootErrors} />}
+      {formSubmitStatus?.type === 'ERROR' && <ErrorMessage className="-mt-3" error={formSubmitStatus.messages} />}
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
@@ -245,7 +247,11 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
             disabled={readOnly}
             type="button"
             variant="secondary"
-            onClick={reset}
+            onClick={() => {
+              setErrors({});
+              setFormSubmitStatus(null);
+              setValues({});
+            }}
           >
             {t('form.reset')}
           </Button>
