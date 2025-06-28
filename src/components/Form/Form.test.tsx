@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { Mock } from 'vitest';
 import { z } from 'zod/v4';
 
 import { Form } from './Form';
@@ -116,11 +115,8 @@ describe('Form', () => {
     });
   });
 
-  describe('custom onBeforeSubmit error', () => {
-    let onBeforeSubmit: Mock;
-
+  describe('custom onSubmit error', () => {
     beforeEach(() => {
-      onBeforeSubmit = vi.fn();
       render(
         <Form
           content={{
@@ -134,7 +130,6 @@ describe('Form', () => {
           validationSchema={z.object({
             value: z.number({ message: 'Please enter a number' })
           })}
-          onBeforeSubmit={onBeforeSubmit}
           onError={onError}
           onSubmit={onSubmit}
         />
@@ -156,23 +151,21 @@ describe('Form', () => {
           'Please enter a number'
         ])
       );
-      expect(onBeforeSubmit).not.toHaveBeenCalled();
       expect(onSubmit).not.toHaveBeenCalled();
     });
 
-    it('should not allow submitting the form with the onBeforeSubmit error', async () => {
-      onBeforeSubmit.mockResolvedValueOnce({ errorMessage: 'Invalid!', success: false });
+    it('should correctly display the onSubmit error', async () => {
+      onSubmit.mockResolvedValueOnce({ message: 'Invalid!', success: false });
       const field: HTMLInputElement = screen.getByLabelText('Value');
       await userEvent.type(field, '-1');
       fireEvent.submit(screen.getByTestId(testid));
       await waitFor(() =>
         expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Invalid!'])
       );
-      expect(onSubmit).not.toHaveBeenCalled();
     });
 
     it('should allow submitting the form if onBeforeSubmit returns true', async () => {
-      onBeforeSubmit.mockResolvedValueOnce({ success: true });
+      onSubmit.mockResolvedValueOnce({ success: true });
       const field: HTMLInputElement = screen.getByLabelText('Value');
       await userEvent.type(field, '-1');
       fireEvent.submit(screen.getByTestId(testid));

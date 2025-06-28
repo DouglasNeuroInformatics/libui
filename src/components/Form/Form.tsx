@@ -24,7 +24,7 @@ import { getInitialValues } from './utils';
 
 import type { FormErrors } from './types';
 
-type FormSubmitResult = { errorMessage: string; success: false } | { success: true };
+type FormSubmitResult = { message: string; success: false } | { message?: string; success: true };
 
 type FormSubmitHandler<TData> = (data: NoInfer<TData>) => Promisable<FormSubmitResult | void>;
 
@@ -43,7 +43,6 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
-  onBeforeSubmit?: FormSubmitHandler<NoInfer<TData>> | null;
   onError?: (error: ZodErrorLike) => void;
   onSubmit: FormSubmitHandler<NoInfer<TData>>;
   preventResetValuesOnReset?: boolean;
@@ -63,7 +62,6 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   fieldsFooter,
   id,
   initialValues,
-  onBeforeSubmit,
   onError,
   onSubmit,
   preventResetValuesOnReset,
@@ -121,14 +119,6 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       handleError(result.error);
       return;
     }
-    if (onBeforeSubmit) {
-      const beforeSubmitResult = await onBeforeSubmit(result.data);
-      if (beforeSubmitResult && !beforeSubmitResult.success) {
-        setErrors({});
-        setRootErrors([beforeSubmitResult.errorMessage]);
-        return;
-      }
-    }
 
     try {
       setIsSubmitting(true);
@@ -140,7 +130,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       ]);
       if (formSubmitResult && !formSubmitResult.success) {
         setErrors({});
-        setRootErrors([formSubmitResult.errorMessage]);
+        setRootErrors([formSubmitResult.message]);
         return;
       }
       reset();
