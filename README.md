@@ -43,7 +43,5 @@ We welcome contributions! If you're interested in improving the library or addin
 
 ## License
 
-Copyright (C) 2024 Douglas Neuroinformatics Platform
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the Apache License 2.0.
