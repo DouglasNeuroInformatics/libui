@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.5.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.5.0...v4.5.1) (2025-07-12)
+
+### Bug Fixes
+
+* translator namespace type issue ([f6f69f6](https://github.com/DouglasNeuroInformatics/libui/commit/f6f69f6475f18c0c7e1db52a851b3a22c0bb317a))
+
 ## [4.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.4.1...v4.5.0) (2025-06-26)
 
 ### Features
