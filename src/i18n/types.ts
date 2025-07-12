@@ -43,7 +43,7 @@ export type TranslationNamespace = Extract<keyof Translations, string>;
 export type TranslationKey = ExtractTranslationKey<Translations>;
 
 export type TranslationKeyForNamespace<TNamespace extends TranslationNamespace> =
-  TranslationKey extends `${TNamespace}.${infer TKey}` ? TKey : never;
+  Extract<TranslationKey, `${TNamespace}.${string}`> extends `${TNamespace}.${infer TKey}` ? TKey : never;
 
 export type TranslateFormatArgs =
   | Exclude<Primitive, symbol>[]
