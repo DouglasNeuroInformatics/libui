@@ -31,6 +31,10 @@
       "types": "./dist/i18n.d.ts",
       "import": "./dist/i18n.js"
     },
+    "./providers": {
+      "types": "./dist/providers.d.ts",
+      "import": "./dist/providers.js"
+    },
     "./package.json": "./package.json",
     "./tailwind/globals.css": "./dist/tailwind/globals.css",
     "./utils": {

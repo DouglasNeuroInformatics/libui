@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { NotificationHub } from '../NotificationHub';
+import { CoreProvider } from '@/providers/CoreProvider';
+
 import { OneTimePasswordInput } from './OneTimePasswordInput';
 
 type Story = StoryObj<typeof OneTimePasswordInput>;
@@ -15,10 +16,9 @@ export default {
   decorators: [
     (Story) => {
       return (
-        <>
-          <NotificationHub />
+        <CoreProvider>
           <Story />
-        </>
+        </CoreProvider>
       );
     }
   ]

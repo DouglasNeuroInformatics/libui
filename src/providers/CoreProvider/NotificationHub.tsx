@@ -1,10 +1,10 @@
 import { XIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
+import { Card } from '@/components/Card';
 import { useTranslation } from '@/hooks';
 import { useNotificationsStore } from '@/hooks/useNotificationsStore';
 
-import { Card } from '../Card';
 import { NotificationIcon } from './NotificationIcon';
 
 type NotificationHubProps = {
