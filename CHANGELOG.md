@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.5.1...v4.6.0) (2025-08-07)
+
+### Features
+
+* add useDestructiveAction and CoreProvider ([8ac9e0e](https://github.com/DouglasNeuroInformatics/libui/commit/8ac9e0ef6123ef910166ca5128b5f80e6e5baf77))
+
 ## [4.5.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.5.0...v4.5.1) (2025-07-12)
 
 ### Bug Fixes
