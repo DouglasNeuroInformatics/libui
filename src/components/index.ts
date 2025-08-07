@@ -1,4 +1,3 @@
-export * from './Accordion';
 export * from './ActionDropdown';
 export * from './AlertDialog';
 export * from './ArrowToggle';
