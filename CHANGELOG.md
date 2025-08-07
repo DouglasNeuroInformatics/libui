@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.6.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.6.0...v4.6.1) (2025-08-07)
+
+### Bug Fixes
+
+* allow params in destructive action ([3af5c2d](https://github.com/DouglasNeuroInformatics/libui/commit/3af5c2d107ab57e06b693c3e853aa7a7ec02d014))
+
 ## [4.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.5.1...v4.6.0) (2025-08-07)
 
 ### Features
