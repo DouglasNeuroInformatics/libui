@@ -10,7 +10,9 @@ type Story = StoryObj<typeof CoreProvider>;
 
 const Children = () => {
   const addNotification = useNotificationsStore((store) => store.addNotification);
-  const destructiveAction = useDestructiveAction(() => alert('Delete'));
+  const destructiveAction = useDestructiveAction((event: React.MouseEvent<HTMLButtonElement>) => {
+    alert(`Delete at Event Time: ${event.timeStamp}`);
+  });
   return (
     <div>
       <Button
