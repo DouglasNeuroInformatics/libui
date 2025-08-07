@@ -32,7 +32,6 @@ export * from './LanguageToggle';
 export * from './LineGraph';
 export * from './ListboxDropdown';
 export * from './MenuBar';
-export * from './NotificationHub';
 export * from './OneTimePasswordInput';
 export * from './Popover';
 export * from './Progress';
@@ -53,3 +52,5 @@ export * from './Tabs';
 export * from './TextArea';
 export * from './ThemeToggle';
 export * from './Tooltip';
+
+export { /** @deprecated */ NotificationHub } from '@/providers/CoreProvider/NotificationHub';
