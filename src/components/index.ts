@@ -1,5 +1,4 @@
 export * from './ActionDropdown';
-export * from './AlertDialog';
 export * from './ArrowToggle';
 export * from './Avatar';
 export * from './Badge';
