@@ -41,6 +41,8 @@
 
   --breakpoint-2xl: 1400px;
 
+  --text-semi-sm: 0.9375rem;
+
   @keyframes round {
     0% {
       transform: rotate(0deg);
