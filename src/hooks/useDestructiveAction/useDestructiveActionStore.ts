@@ -37,4 +37,4 @@ export const useDestructiveActionStore = create<DestructiveActionStore>((set) =>
   pendingDestructiveActions: []
 }));
 
-export type { DestructiveAction, DestructiveActionOptions, DestructiveActionParams };
+export type { DestructiveAction, DestructiveActionDef, DestructiveActionOptions, DestructiveActionParams };
