@@ -30,23 +30,26 @@ const NotificationsChildren = () => {
 };
 
 const DestructiveActionsChildren = () => {
-  const [actionTitle, setActionTitle] = useState('');
-  const [actionDescription, setActionDescription] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
-  const destructiveAction = useDestructiveAction((event: React.MouseEvent<HTMLButtonElement>) => {
-    // alert(`Delete at Event Time: ${event.timeStamp}`);
-    alert(actionTitle);
+  const destructiveAction = useDestructiveAction({
+    action: (event: React.MouseEvent<HTMLButtonElement>) => {
+      alert(`Delete at Event Time: ${event.timeStamp}`);
+    },
+    description: description || undefined,
+    title: title || undefined
   });
 
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
         <Label>Title</Label>
-        <Input value={actionTitle} onChange={(event) => setActionTitle(event.target.value)} />
+        <Input value={title} onChange={(event) => setTitle(event.target.value)} />
       </div>
       <div className="flex flex-col gap-2">
         <Label>Description</Label>
-        <Input value={actionDescription} onChange={(event) => setActionDescription(event.target.value)} />
+        <Input value={description} onChange={(event) => setDescription(event.target.value)} />
       </div>
       <Button className="w-min" type="button" variant="danger" onClick={destructiveAction}>
         Add Action

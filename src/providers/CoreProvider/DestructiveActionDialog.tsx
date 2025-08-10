@@ -8,29 +8,29 @@ export const DestructiveActionDialog = () => {
   const pendingDestructiveActions = useDestructiveActionStore((store) => store.pendingDestructiveActions);
   const { t } = useTranslation();
 
-  const currentAction = pendingDestructiveActions[0] ?? null;
-  const isOpen = currentAction !== null;
+  const current = pendingDestructiveActions[0] ?? null;
+  const isOpen = current !== null;
 
   const handleConfirm = async () => {
-    if (!currentAction) {
+    if (!current) {
       return;
     }
     try {
-      await currentAction();
+      await current.action();
     } finally {
-      deletePendingDestructiveAction(currentAction);
+      deletePendingDestructiveAction(current.id);
     }
   };
 
   const handleCancel = () => {
-    if (currentAction) {
-      deletePendingDestructiveAction(currentAction);
+    if (current) {
+      deletePendingDestructiveAction(current.id);
     }
   };
 
   const handleOpenChange = (isOpen: boolean) => {
-    if (!isOpen && currentAction) {
-      deletePendingDestructiveAction(currentAction);
+    if (!isOpen && current) {
+      deletePendingDestructiveAction(current.id);
     }
   };
 
@@ -39,16 +39,18 @@ export const DestructiveActionDialog = () => {
       <Dialog.Content onOpenAutoFocus={(event) => event.preventDefault()}>
         <Dialog.Header>
           <Dialog.Title>
-            {t({
-              en: 'Confirm Action',
-              fr: "Confirmer l'action"
-            })}
+            {current?.title ??
+              t({
+                en: 'Confirm Action',
+                fr: "Confirmer l'action"
+              })}
           </Dialog.Title>
           <Dialog.Description>
-            {t({
-              en: 'This action cannot be reversed. Please confirm that you would like to continue.',
-              fr: 'Cette action ne peut être inversée. Veuillez confirmer que vous souhaitez poursuivre.'
-            })}
+            {current?.description ??
+              t({
+                en: 'This action cannot be reversed. Please confirm that you would like to continue.',
+                fr: 'Cette action ne peut être inversée. Veuillez confirmer que vous souhaitez poursuivre.'
+              })}
           </Dialog.Description>
         </Dialog.Header>
         <Dialog.Footer>

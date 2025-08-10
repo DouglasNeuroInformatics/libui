@@ -1,15 +1,22 @@
 import { useCallback } from 'react';
 
-import type { Promisable } from 'type-fest';
-
 import { useDestructiveActionStore } from './useDestructiveActionStore';
 
-export function useDestructiveAction<TArgs extends any[]>(destructiveAction: (...args: TArgs) => Promisable<void>) {
+import type { DestructiveAction, DestructiveActionParams } from './useDestructiveActionStore';
+
+export function useDestructiveAction<TArgs extends any[]>(action: DestructiveAction<TArgs>): (...args: TArgs) => void;
+export function useDestructiveAction<TArgs extends any[]>(
+  params: DestructiveActionParams<TArgs>
+): (...args: TArgs) => void;
+export function useDestructiveAction<TArgs extends any[]>(
+  arg: DestructiveAction<TArgs> | DestructiveActionParams<TArgs>
+): (...args: TArgs) => void {
   const addPendingDestructiveAction = useDestructiveActionStore((store) => store.addPendingDestructiveAction);
   return useCallback(
     (...args: TArgs) => {
-      addPendingDestructiveAction(() => destructiveAction(...args));
+      const { action, ...options } = typeof arg === 'function' ? { action: arg } : arg;
+      addPendingDestructiveAction(() => action(...args), options);
     },
-    [destructiveAction, addPendingDestructiveAction]
+    [arg, addPendingDestructiveAction]
   );
 }
