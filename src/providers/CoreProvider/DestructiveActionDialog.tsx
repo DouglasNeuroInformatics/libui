@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Button } from '@/components/Button';
 import { Dialog } from '@/components/Dialog';
@@ -18,32 +18,31 @@ export const DestructiveActionDialog = () => {
     return null;
   }, [pendingDestructiveActions]);
 
-  const { defaultDescription, defaultTitle } = useMemo(() => {
-    return {
-      defaultDescription: t({
+  const getDisplay = useCallback(
+    (def: DestructiveActionDef | null) => {
+      const defaultDescription = t({
         en: 'This action cannot be reversed. Please confirm that you would like to continue.',
         fr: 'Cette action ne peut être inversée. Veuillez confirmer que vous souhaitez poursuivre.'
-      }),
-      defaultTitle: t({
+      });
+      const defaultTitle = t({
         en: 'Confirm Action',
         fr: "Confirmer l'action"
-      })
-    };
-  }, [resolvedLanguage]);
+      });
+      return {
+        description: def?.description ?? defaultDescription,
+        title: def?.title ?? defaultTitle
+      };
+    },
+    [resolvedLanguage]
+  );
 
-  const [display, setDisplay] = useState<{ description: string; title: string }>({
-    description: current?.description ?? defaultDescription,
-    title: current?.title ?? defaultTitle
-  });
+  const [display, setDisplay] = useState<{ description: string; title: string }>(getDisplay(current));
 
   useEffect(() => {
     if (current) {
-      setDisplay({
-        description: current.description ?? defaultDescription,
-        title: current.title ?? defaultTitle
-      });
+      setDisplay(getDisplay(current));
     }
-  }, [defaultDescription, defaultTitle, current]);
+  }, [current]);
 
   const handleConfirm = async () => {
     if (!current) {
