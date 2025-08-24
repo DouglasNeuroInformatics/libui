@@ -4,7 +4,7 @@ import * as zustand from 'zustand';
 
 import { useDestructiveActionStore } from './useDestructiveActionStore';
 
-import type { DestructiveAction } from './useDestructiveActionStore';
+import type { DestructiveAction, DestructiveActionOptions } from './useDestructiveActionStore';
 
 describe('useDestructiveActionStore', () => {
   beforeAll(() => {
@@ -32,7 +32,9 @@ describe('useDestructiveActionStore', () => {
       act(() => {
         result.current.addPendingDestructiveAction(testAction);
       });
-      expect(result.current.pendingDestructiveActions).toEqual([testAction]);
+      expect(result.current.pendingDestructiveActions).toHaveLength(1);
+      expect(result.current.pendingDestructiveActions[0]!.action).toBe(testAction);
+      expect(result.current.pendingDestructiveActions[0]!.id).toBeDefined();
     });
 
     it('should add multiple actions to the array', () => {
@@ -43,7 +45,25 @@ describe('useDestructiveActionStore', () => {
         result.current.addPendingDestructiveAction(testAction1);
         result.current.addPendingDestructiveAction(testAction2);
       });
-      expect(result.current.pendingDestructiveActions).toEqual([testAction1, testAction2]);
+      expect(result.current.pendingDestructiveActions).toHaveLength(2);
+      expect(result.current.pendingDestructiveActions[0]!.action).toBe(testAction1);
+      expect(result.current.pendingDestructiveActions[1]!.action).toBe(testAction2);
+    });
+
+    it('should add action with options', () => {
+      const { result } = renderHook(() => useDestructiveActionStore());
+      const testAction: DestructiveAction = vi.fn();
+      const options: DestructiveActionOptions = {
+        description: 'This is a test action',
+        title: 'Test Action'
+      };
+      act(() => {
+        result.current.addPendingDestructiveAction(testAction, options);
+      });
+      expect(result.current.pendingDestructiveActions).toHaveLength(1);
+      expect(result.current.pendingDestructiveActions[0]!.action).toBe(testAction);
+      expect(result.current.pendingDestructiveActions[0]!.title).toBe('Test Action');
+      expect(result.current.pendingDestructiveActions[0]!.description).toBe('This is a test action');
     });
   });
 
@@ -60,18 +80,21 @@ describe('useDestructiveActionStore', () => {
         result.current.addPendingDestructiveAction(testAction3);
       });
 
+      const idToDelete = result.current.pendingDestructiveActions[1]!.id;
+
       act(() => {
-        result.current.deletePendingDestructiveAction(testAction2);
+        result.current.deletePendingDestructiveAction(idToDelete);
       });
 
-      expect(result.current.pendingDestructiveActions).toEqual([testAction1, testAction3]);
+      expect(result.current.pendingDestructiveActions).toHaveLength(2);
+      expect(result.current.pendingDestructiveActions[0]!.action).toBe(testAction1);
+      expect(result.current.pendingDestructiveActions[1]!.action).toBe(testAction3);
     });
 
     it('should handle removing from empty array', () => {
       const { result } = renderHook(() => useDestructiveActionStore());
-      const testAction: DestructiveAction = vi.fn();
       act(() => {
-        result.current.deletePendingDestructiveAction(testAction);
+        result.current.deletePendingDestructiveAction('non-existent-id');
       });
       expect(result.current.pendingDestructiveActions).toEqual([]);
     });
