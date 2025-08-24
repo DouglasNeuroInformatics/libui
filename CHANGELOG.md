@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.6.1...v4.7.0) (2025-08-24)
+
+### Features
+
+* add new destructive action usages ([3a31817](https://github.com/DouglasNeuroInformatics/libui/commit/3a31817aca4065cad2efdea94776bf3207cdd151))
+
 ## [4.6.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.6.0...v4.6.1) (2025-08-07)
 
 ### Bug Fixes
