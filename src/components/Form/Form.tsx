@@ -47,10 +47,18 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   onError?: (error: ZodErrorLike) => void;
   onSubmit: FormSubmitHandler<NoInfer<TData>>;
   preventResetValuesOnReset?: boolean;
+
   readOnly?: boolean;
   resetBtn?: boolean;
   revalidateOnBlur?: boolean;
   submitBtnLabel?: string;
+  subscribe?: {
+    onChange: (
+      values: PartialFormDataType<TData>,
+      setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>
+    ) => Promisable<void>;
+    selector: (values: PartialFormDataType<TData>) => unknown;
+  };
   suspendWhileSubmitting?: boolean;
   validationSchema: ZodTypeLike<TData>;
 };
@@ -71,6 +79,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   resetBtn,
   revalidateOnBlur,
   submitBtnLabel,
+  subscribe,
   suspendWhileSubmitting,
   validationSchema,
   ...props
@@ -104,6 +113,13 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       onError(error);
     }
   };
+
+  useEffect(() => {
+    if (!subscribe) {
+      return;
+    }
+    subscribe.onChange(values, setValues);
+  }, [subscribe?.selector(values)]);
 
   const reset = () => {
     setRootErrors([]);
