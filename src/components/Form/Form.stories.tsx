@@ -1,8 +1,8 @@
 /* eslint-disable perfectionist/sort-objects */
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { sleep } from '@douglasneuroinformatics/libjs';
+import { filterObject, sleep } from '@douglasneuroinformatics/libjs';
 import type { ZodTypeLike } from '@douglasneuroinformatics/libjs';
 import type { FormFields } from '@douglasneuroinformatics/libui-form-types';
 import type FormTypes from '@douglasneuroinformatics/libui-form-types';
@@ -533,6 +533,86 @@ export const WithSuspend: StoryObj<typeof Form<ZodTypeLike<FormTypes.Data>, { de
       delay: z.number().nonnegative().default(0)
     })
   }
+};
+
+export const WithSubscribe: StoryObj<
+  typeof Form<ZodTypeLike<FormTypes.Data>, { options: string; searchTerm: string }>
+> = {
+  decorators: [
+    (Story) => {
+      const defaultOptions = useMemo<{ [key: string]: string }>(
+        () => ({
+          a: 'Option A',
+          b: 'Option B',
+          c: 'Option C',
+          d: 'Option D'
+        }),
+        []
+      );
+      const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+      const [options, setOptions] = useState<typeof defaultOptions>(defaultOptions);
+
+      const handleChange = useCallback(
+        (
+          values: Partial<{ options: string; searchTerm: string }>,
+          setValues: React.Dispatch<React.SetStateAction<Partial<{ options: string; searchTerm: string }>>>
+        ) => {
+          clearTimeout(timeoutRef.current);
+          const lowerCaseSearch = values.searchTerm?.toLowerCase();
+          if (!lowerCaseSearch) {
+            setOptions(defaultOptions);
+            return;
+          }
+          timeoutRef.current = setTimeout(() => {
+            const updatedOptions = filterObject(defaultOptions, (value) =>
+              value.toLowerCase().includes(lowerCaseSearch)
+            ) as {
+              [key: string]: string;
+            };
+            setOptions(updatedOptions);
+            if (values.options !== undefined && !Object.keys(updatedOptions).includes(values.options)) {
+              setValues((prevValues) => ({
+                ...prevValues,
+                options: undefined
+              }));
+            }
+          }, 500);
+        },
+        []
+      );
+
+      return (
+        <Story
+          args={{
+            content: {
+              searchTerm: {
+                kind: 'string',
+                label: 'Search Term',
+                variant: 'input'
+              },
+              options: {
+                kind: 'string',
+                label: 'Options',
+                options,
+                variant: 'select'
+              }
+            },
+            subscribe: {
+              onChange: handleChange,
+              selector: (values) => values.searchTerm
+            },
+            onSubmit: (data) => {
+              alert(JSON.stringify(data, (_key, value) => (value instanceof Set ? [...value] : (value as unknown)), 2));
+            },
+            validationSchema: z.object({
+              searchTerm: z.string().min(1),
+              options: z.enum(['a', 'b', 'c', 'd'])
+            })
+          }}
+        />
+      );
+    }
+  ]
 };
 
 export const WithError: StoryObj<typeof Form> = {
