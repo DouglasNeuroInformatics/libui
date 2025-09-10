@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.7.0...v4.8.0) (2025-09-10)
+
+### Features
+
+* add new subscribe option for form ([1521cc4](https://github.com/DouglasNeuroInformatics/libui/commit/1521cc4806f104bfde4f4727885eae90daad1a4e))
+
 ## [4.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.6.1...v4.7.0) (2025-08-24)
 
 ### Features
