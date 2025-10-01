@@ -68,7 +68,9 @@ export class Translator implements TranslatorType<TranslationKey> {
   @InitializedOnly
   changeLanguage(language: Language) {
     this.#resolvedLanguage = language;
-    document.documentElement.lang = language;
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
     this.emitEvent('languageChange', [language]);
   }
 
