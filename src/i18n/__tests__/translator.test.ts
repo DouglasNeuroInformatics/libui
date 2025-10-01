@@ -88,4 +88,27 @@ describe('Translator', () => {
       )
     ).toBe('Bonjour, tout le monde');
   });
+
+  it('should handle SSR environment where document is undefined', () => {
+    const ssrTranslator = new Translator();
+    const originalDocument = global.document;
+
+    // Simulate SSR environment
+    // @ts-expect-error - deliberately setting document to undefined for SSR test
+    delete global.document;
+
+    expect(() => {
+      ssrTranslator.init({ defaultLanguage: 'en', translations: {} });
+    }).not.toThrow();
+
+    expect(() => {
+      ssrTranslator.changeLanguage('fr');
+    }).not.toThrow();
+
+    expect(ssrTranslator.resolvedLanguage).toBe('fr');
+    expect(ssrTranslator.t('libui.days.monday')).toBe('Lundi');
+
+    // Restore document
+    global.document = originalDocument;
+  });
 });
