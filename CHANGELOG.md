@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.0...v4.8.1) (2025-10-01)
+
+### Bug Fixes
+
+* handle translator init in ssr environment ([c812e12](https://github.com/DouglasNeuroInformatics/libui/commit/c812e129df011c61fcca3f9491544586701165f9))
+
 ## [4.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.7.0...v4.8.0) (2025-09-10)
 
 ### Features
