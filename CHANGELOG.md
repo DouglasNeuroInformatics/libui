@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.1...v4.8.2) (2025-10-06)
+
+### Bug Fixes
+
+* recreate t function when resolved language changes ([d99ca97](https://github.com/DouglasNeuroInformatics/libui/commit/d99ca9769ad85eb03c65f8302d04dfc5b17ff6a7))
+
 ## [4.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.0...v4.8.1) (2025-10-01)
 
 ### Bug Fixes
