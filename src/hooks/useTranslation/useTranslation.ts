@@ -28,7 +28,7 @@ export function useTranslation(namespace?: TranslationNamespace): TranslatorType
       changeLanguage: i18n.changeLanguage.bind(i18n),
       t
     };
-  }, []);
+  }, [resolvedLanguage]);
 
   useEffect(() => {
     i18n.addEventListener('languageChange', setResolvedLanguage);
