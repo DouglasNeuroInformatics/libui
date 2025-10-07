@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.8.3](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.2...v4.8.3) (2025-10-07)
+
+### Bug Fixes
+
+* add rounding on sm viewport ([d5630d8](https://github.com/DouglasNeuroInformatics/libui/commit/d5630d87dcaa281839e2073eb0b117d4ab5104f9))
+* increase animation duration by 100ms ([3b6e82c](https://github.com/DouglasNeuroInformatics/libui/commit/3b6e82c0f20b7de9ddf616576ca1f917d84d0a11))
+* set min-width for sm viewport ([6d596c4](https://github.com/DouglasNeuroInformatics/libui/commit/6d596c4a9f10d2c2d29dda19f9a3414068f6a1b9))
+
 ## [4.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.1...v4.8.2) (2025-10-06)
 
 ### Bug Fixes
