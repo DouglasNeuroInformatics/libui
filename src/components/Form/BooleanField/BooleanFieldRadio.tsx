@@ -24,6 +24,7 @@ export type BooleanFieldRadioProps = Simplify<
 >;
 
 export const BooleanFieldRadio = ({
+  description,
   disabled,
   error,
   label,
@@ -55,11 +56,12 @@ export const BooleanFieldRadio = ({
         value={stringifyBoolean(value)}
         onValueChange={handleValueChange}
       >
+        <FieldGroup.Description description={description} />
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
           <Label
             aria-disabled={disabled || readOnly}
-            className="font-normal text-muted-foreground"
+            className="text-muted-foreground font-normal"
             htmlFor={`${name}-true`}
           >
             {options?.true ?? t('form.radioLabels.true')}
@@ -69,7 +71,7 @@ export const BooleanFieldRadio = ({
           <RadioGroup.Item id={`${name}-false`} value="false" />
           <Label
             aria-disabled={disabled || readOnly}
-            className="font-normal text-muted-foreground"
+            className="text-muted-foreground font-normal"
             htmlFor={`${name}-false`}
           >
             {options?.false ?? t('form.radioLabels.false')}

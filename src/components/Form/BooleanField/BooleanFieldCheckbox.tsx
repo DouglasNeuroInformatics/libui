@@ -13,6 +13,7 @@ export type BooleanFieldCheckboxProps = Simplify<
 >;
 
 export const BooleanFieldCheckbox = ({
+  description,
   disabled,
   error,
   label,
@@ -36,6 +37,7 @@ export const BooleanFieldCheckbox = ({
           }}
         />
         <Label htmlFor={name}>{label}</Label>
+        <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <FieldGroup.Error error={error} />
     </FieldGroup>
