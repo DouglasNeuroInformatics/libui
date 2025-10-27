@@ -49,14 +49,16 @@ export const BooleanFieldRadio = ({
 
   return (
     <FieldGroup name={name}>
-      <Label>{label}</Label>
+      <FieldGroup.Row>
+        <Label>{label}</Label>
+        <FieldGroup.Description description={description} />
+      </FieldGroup.Row>
       <RadioGroup
         disabled={disabled || readOnly}
         name={name}
         value={stringifyBoolean(value)}
         onValueChange={handleValueChange}
       >
-        <FieldGroup.Description description={description} />
         <FieldGroup.Row>
           <RadioGroup.Item id={`${name}-true`} value="true" />
           <Label aria-disabled={disabled || readOnly} className="text-muted-foreground" htmlFor={`${name}-true`}>
