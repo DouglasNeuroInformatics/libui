@@ -1,5 +1,11 @@
 # Changelog
 
+## [4.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.3...v4.9.0) (2025-10-27)
+
+### Features
+
+* allow description in boolean field ([688c9f8](https://github.com/DouglasNeuroInformatics/libui/commit/688c9f8c8c4fe94d90dc5d4692cfb1e38f653a57))
+
 ## [4.8.3](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.2...v4.8.3) (2025-10-07)
 
 ### Bug Fixes
