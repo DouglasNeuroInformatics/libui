@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.9.0...v4.9.1) (2025-10-27)
+
+### Bug Fixes
+
+* add testid to destructive-action-dialog ([6a237b9](https://github.com/DouglasNeuroInformatics/libui/commit/6a237b9974da77c2c3c44ffcaf335469bfc69b16))
+* radio field styling ([a2bed6a](https://github.com/DouglasNeuroInformatics/libui/commit/a2bed6aff72c34136235104482c0691557150731))
+
 ## [4.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.8.3...v4.9.0) (2025-10-27)
 
 ### Features
