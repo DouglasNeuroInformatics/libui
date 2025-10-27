@@ -59,12 +59,14 @@ type SimpleExampleFormSchemaType = typeof $SimpleExampleFormData;
 
 const booleanFields: FormFields<Pick<ExampleFormData, 'booleanCheck' | 'booleanRadio'>> = {
   booleanRadio: {
+    description: 'This is a boolean radio field',
     disabled: DISABLED,
     kind: 'boolean',
     label: 'Radio',
     variant: 'radio'
   },
   booleanCheck: {
+    description: 'This is a boolean check field',
     disabled: DISABLED,
     kind: 'boolean',
     label: 'Checkbox',

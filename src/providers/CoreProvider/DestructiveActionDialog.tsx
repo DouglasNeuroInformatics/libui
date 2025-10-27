@@ -69,7 +69,7 @@ export const DestructiveActionDialog = () => {
 
   return (
     <Dialog open={current !== null} onOpenChange={handleOpenChange}>
-      <Dialog.Content onOpenAutoFocus={(event) => event.preventDefault()}>
+      <Dialog.Content data-testid="destructive-action-dialog" onOpenAutoFocus={(event) => event.preventDefault()}>
         <Dialog.Header>
           <Dialog.Title>{display.title}</Dialog.Title>
           <Dialog.Description>{display.description}</Dialog.Description>
