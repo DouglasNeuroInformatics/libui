@@ -1,11 +1,9 @@
 import { cleanup } from '@testing-library/react';
-import { afterEach, vi } from 'vitest';
+import { afterEach } from 'vitest';
 
 import { i18n } from '@/i18n';
 
 import '@testing-library/jest-dom/vitest';
-
-vi.mock('zustand');
 
 i18n.init({ translations: {} });
 
