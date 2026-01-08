@@ -157,6 +157,9 @@ export const WithActions: Story = {
       }
     ],
     data: createData(100).map((payment) => ({ ...payment, notes: faker.lorem.paragraph() })),
+    onSearchChange: () => {
+      return;
+    },
     rowActions: [
       {
         label: 'Modify',
@@ -188,6 +191,9 @@ export const WithToggles: Story = {
         }
       ]
     },
+    onSearchChange: () => {
+      return;
+    },
     togglesComponent: Toggles
   }
 };
@@ -195,7 +201,10 @@ export const WithToggles: Story = {
 export const Empty: Story = {
   args: {
     columns,
-    data: []
+    data: [],
+    onSearchChange: () => {
+      return;
+    }
   }
 };
 
@@ -229,6 +238,9 @@ export const Grouped: Story = {
         header: 'Details'
       }
     ],
-    data: createData(100)
+    data: createData(100),
+    onSearchChange: () => {
+      return;
+    }
   }
 };
