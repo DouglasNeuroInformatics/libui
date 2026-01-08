@@ -1,5 +1,15 @@
 # Changelog
 
+## [5.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.9.1...v5.0.0) (2026-01-08)
+
+### ⚠ BREAKING CHANGES
+
+* DataTable has been completely rewritten
+
+### Features
+
+* implement new DataTable ([7311e00](https://github.com/DouglasNeuroInformatics/libui/commit/7311e0021c18ae7d2796c4d020582fea58ab4253))
+
 ## [4.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v4.9.0...v4.9.1) (2025-10-27)
 
 ### Bug Fixes
