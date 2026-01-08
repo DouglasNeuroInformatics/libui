@@ -1,18 +1,13 @@
 import { act, renderHook } from '@testing-library/react';
-import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import * as zustand from 'zustand';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { useDestructiveActionStore } from './useDestructiveActionStore';
 
 import type { DestructiveAction, DestructiveActionOptions } from './useDestructiveActionStore';
 
 describe('useDestructiveActionStore', () => {
-  beforeAll(() => {
-    vi.spyOn(zustand, 'create');
-  });
-
   afterEach(() => {
-    vi.clearAllMocks();
+    useDestructiveActionStore.setState(useDestructiveActionStore.getInitialState());
   });
 
   it('should render and return an object', () => {

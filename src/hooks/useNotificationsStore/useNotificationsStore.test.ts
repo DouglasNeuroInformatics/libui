@@ -1,16 +1,9 @@
 import { act, renderHook } from '@testing-library/react';
-import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
-import * as zustand from 'zustand';
+import { describe, expect, it } from 'vitest';
 
 import { useNotificationsStore } from './useNotificationsStore';
 
 describe('useNotificationsStore', () => {
-  beforeAll(() => {
-    vi.spyOn(zustand, 'create');
-  });
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
   it('should render and return an object', () => {
     const { result } = renderHook(() => useNotificationsStore());
     expect(result.current).toBeTypeOf('object');
