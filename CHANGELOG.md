@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.0...v5.0.1) (2026-01-14)
+
+### Bug Fixes
+
+* hide icon for long root errors using css container query with flex wrap solution ([661ae9e](https://github.com/DouglasNeuroInformatics/libui/commit/661ae9ed8b8620898f85747e5eb7785e381491bf))
+* prevent icon in error message shrinking ([e5b905a](https://github.com/DouglasNeuroInformatics/libui/commit/e5b905a4214d00bd94816bf28f0d76fda12d2c3a))
+
 ## [5.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v4.9.1...v5.0.0) (2026-01-08)
 
 ### ⚠ BREAKING CHANGES
