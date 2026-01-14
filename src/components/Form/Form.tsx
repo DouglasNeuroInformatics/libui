@@ -236,7 +236,11 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
           values={values}
         />
       )}
-      {Boolean(rootErrors.length) && <ErrorMessage className="-mt-3" error={rootErrors} />}
+      {Boolean(rootErrors.length) && (
+        <div className="-mt-3">
+          <ErrorMessage hideIconOnWrap error={rootErrors} />
+        </div>
+      )}
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
