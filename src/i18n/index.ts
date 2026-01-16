@@ -1,5 +1,5 @@
-import { Translator } from './translator.ts';
+import { Translator } from './translator';
 
 export const i18n = new Translator();
 
-export * from './types.ts';
+export * from './types';
