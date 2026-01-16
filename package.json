@@ -55,7 +55,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup --config tsup.config.mts",
+    "build": "rm -rf dist && tsc -b tsconfig.build.json",
     "format": "prettier --write src",
     "format:translations": "find src/i18n/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
