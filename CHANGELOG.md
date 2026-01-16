@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.0.2](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.1...v5.0.2) (2026-01-16)
+
+### Bug Fixes
+
+* react type error ([2a85904](https://github.com/DouglasNeuroInformatics/libui/commit/2a859048b7b2575e8a324c5079d1aae2e60423d7))
+
 ## [5.0.1](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.0...v5.0.1) (2026-01-14)
 
 ### Bug Fixes
