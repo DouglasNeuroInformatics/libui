@@ -1,4 +1,4 @@
-import {} from 'react';
+import * as React from 'react';
 
 import { Description } from '@radix-ui/react-dialog';
 

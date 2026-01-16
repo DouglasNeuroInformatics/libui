@@ -1,4 +1,4 @@
-import {} from 'react';
+import * as React from 'react';
 
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
