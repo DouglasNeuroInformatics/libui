@@ -19,12 +19,29 @@
     "TailwindCSS"
   ],
   "imports": {
-    "#components": "./src/components/index.js",
-    "#hooks": "./src/hooks/index.js",
-    "#i18n": "./src/i18n/index.js",
-    "#providers": "./src/providers/index.js",
-    "#testing:mocks": "./src/testing/mocks.js",
-    "#utils": "./src/utils/index.js"
+    "#components": {
+      "libui-dev": "./src/components/index.js",
+      "default": "./dist/components/index.js"
+    },
+    "#hooks": {
+      "libui-dev": "./src/hooks/index.js",
+      "default": "./dist/hooks/index.js"
+    },
+    "#i18n": {
+      "libui-dev": "./src/i18n/index.js",
+      "default": "./dist/i18n/index.js"
+    },
+    "#providers": {
+      "libui-dev": "./src/providers/index.js",
+      "default": "./dist/providers/index.js"
+    },
+    "#testing:mocks": {
+      "libui-dev": "./src/testing/mocks.js"
+    },
+    "#utils": {
+      "libui-dev": "./src/utils/index.js",
+      "default": "./dist/utils/index.js"
+    }
   },
   "exports": {
     "./components": {
