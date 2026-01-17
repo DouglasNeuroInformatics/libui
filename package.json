@@ -55,7 +55,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup --config tsup.config.mts",
+    "build": "rm -rf dist && tsc -b tsconfig.build.json",
     "format": "prettier --write src",
     "format:translations": "find src/i18n/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
@@ -100,7 +100,6 @@
     "@tanstack/table-core": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.486.0",
     "motion": "^11.18.2",
