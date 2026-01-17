@@ -28,26 +28,26 @@
   },
   "exports": {
     "./components": {
-      "types": "./dist/components.d.ts",
-      "import": "./dist/components.js"
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
     },
     "./hooks": {
-      "types": "./dist/hooks.d.ts",
-      "import": "./dist/hooks.js"
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
     },
     "./i18n": {
-      "types": "./dist/i18n.d.ts",
-      "import": "./dist/i18n.js"
+      "types": "./dist/i18n/index.d.ts",
+      "import": "./dist/i18n/index.js"
     },
     "./package.json": "./package.json",
     "./providers": {
-      "types": "./dist/providers.d.ts",
-      "import": "./dist/providers.js"
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.js"
     },
     "./tailwind/globals.css": "./dist/tailwind/globals.css",
     "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/utils.js"
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js"
     }
   },
   "files": [
