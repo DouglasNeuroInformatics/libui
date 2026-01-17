@@ -4,8 +4,6 @@
 @custom-variant dark (&:is([data-mode="dark"] *));
 
 @theme {
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-spinner: spinner-spin 1.7s infinite ease, round 1.7s infinite ease;
 
   --radius-lg: var(--radius);
@@ -43,22 +41,6 @@
 
   --breakpoint-2xl: 1400px;
 
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
   @keyframes round {
     0% {
       transform: rotate(0deg);
@@ -67,6 +49,7 @@
       transform: rotate(360deg);
     }
   }
+
   @keyframes spinner-spin {
     0%,
     5%,
