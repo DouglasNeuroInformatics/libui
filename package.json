@@ -63,7 +63,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -b tsconfig.build.json",
+    "build": "rm -rf dist && tsc -b tsconfig.build.json && cp -r src/tailwind dist/tailwind",
     "format": "prettier --write src",
     "format:translations": "find src/i18n/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
