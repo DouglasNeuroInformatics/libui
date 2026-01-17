@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { DialogOverlay } from './DialogOverlay';
+import { DialogOverlay } from './DialogOverlay.tsx';
 
 export const DialogContent = ({ children, className, ...props }: React.ComponentProps<typeof Content>) => {
   return (

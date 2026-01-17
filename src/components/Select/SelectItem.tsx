@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const SelectItem = forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,

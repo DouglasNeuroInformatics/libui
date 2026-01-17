@@ -1,10 +1,14 @@
 import { act, renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { useDestructiveAction } from './useDestructiveAction';
-import { useDestructiveActionStore } from './useDestructiveActionStore';
+import { useDestructiveAction } from './useDestructiveAction.ts';
+import { useDestructiveActionStore } from './useDestructiveActionStore.ts';
 
-import type { DestructiveAction, DestructiveActionOptions, DestructiveActionParams } from './useDestructiveActionStore';
+import type {
+  DestructiveAction,
+  DestructiveActionOptions,
+  DestructiveActionParams
+} from './useDestructiveActionStore.ts';
 
 vi.mock('./useDestructiveActionStore', () => ({
   useDestructiveActionStore: vi.fn()

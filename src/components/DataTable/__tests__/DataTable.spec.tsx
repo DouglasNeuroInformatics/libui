@@ -4,7 +4,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { range } from 'lodash-es';
 import { describe, expect, it } from 'vitest';
 
-import { DataTable } from '../DataTable';
+import { DataTable } from '../DataTable.tsx';
 
 type PaymentStatus = 'failed' | 'pending' | 'processing' | 'success';
 

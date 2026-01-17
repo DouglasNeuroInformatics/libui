@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Badge } from './Badge';
+import { Badge } from './Badge.tsx';
 
 type Story = StoryObj<typeof Badge>;
 

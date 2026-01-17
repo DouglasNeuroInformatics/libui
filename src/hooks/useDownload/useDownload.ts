@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import type { Promisable } from 'type-fest';
 
-import { useNotificationsStore } from '../useNotificationsStore';
+import { useNotificationsStore } from '../useNotificationsStore/useNotificationsStore.ts';
 
 type DownloadTextOptions = {
   blobType: 'text/csv' | 'text/plain';

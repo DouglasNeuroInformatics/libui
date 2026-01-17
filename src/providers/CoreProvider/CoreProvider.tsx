@@ -1,5 +1,5 @@
-import { DestructiveActionDialog } from './DestructiveActionDialog';
-import { NotificationHub } from './NotificationHub';
+import { DestructiveActionDialog } from './DestructiveActionDialog.tsx';
+import { NotificationHub } from './NotificationHub.tsx';
 
 export const CoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

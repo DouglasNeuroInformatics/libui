@@ -1,11 +1,8 @@
-import { Badge } from '@/components/Badge';
-import { DropdownButton } from '@/components/DropdownButton';
-import { DropdownMenu } from '@/components/DropdownMenu';
-import { Label } from '@/components/Label';
+import { Badge, DropdownButton, DropdownMenu, Label } from '#components';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { SetFieldProps } from './SetField';
+import type { SetFieldProps } from './SetField.tsx';
 
 export type SetFieldSelectProps<T extends string = string> = SetFieldProps<T> & {
   onCheckedChange: (option: T, isChecked: boolean) => void;

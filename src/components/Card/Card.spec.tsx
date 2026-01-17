@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Card } from './Card';
+import { Card } from './Card.tsx';
 
 const TEST_ID = 'card';
 

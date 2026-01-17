@@ -1,14 +1,14 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { DropdownMenuCheckboxItem } from './DropdownMenuCheckboxItem';
-import { DropdownMenuContent } from './DropdownMenuContent';
-import { DropdownMenuItem } from './DropdownMenuItem';
-import { DropdownMenuLabel } from './DropdownMenuLabel';
-import { DropdownMenuRadioItem } from './DropdownMenuRadioItem';
-import { DropdownMenuSeparator } from './DropdownMenuSeparator';
-import { DropdownMenuShortcut } from './DropdownMenuShortcut';
-import { DropdownMenuSubContent } from './DropdownMenuSubContent';
-import { DropdownMenuSubTrigger } from './DropdownMenuSubTrigger';
+import { DropdownMenuCheckboxItem } from './DropdownMenuCheckboxItem.tsx';
+import { DropdownMenuContent } from './DropdownMenuContent.tsx';
+import { DropdownMenuItem } from './DropdownMenuItem.tsx';
+import { DropdownMenuLabel } from './DropdownMenuLabel.tsx';
+import { DropdownMenuRadioItem } from './DropdownMenuRadioItem.tsx';
+import { DropdownMenuSeparator } from './DropdownMenuSeparator.tsx';
+import { DropdownMenuShortcut } from './DropdownMenuShortcut.tsx';
+import { DropdownMenuSubContent } from './DropdownMenuSubContent.tsx';
+import { DropdownMenuSubTrigger } from './DropdownMenuSubTrigger.tsx';
 
 export const DropdownMenu = Object.assign(DropdownMenuPrimitive.Root.bind(null), {
   CheckboxItem: DropdownMenuCheckboxItem,

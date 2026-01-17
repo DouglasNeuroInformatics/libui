@@ -1,13 +1,13 @@
 import type { RowData } from '@tanstack/table-core';
 
-import { TABLE_NAME_METADATA_KEY } from './constants';
-import { DataTableBody } from './DataTableBody';
-import { DataTableControls } from './DataTableControls';
-import { DataTableHead } from './DataTableHead';
-import { DataTablePagination } from './DataTablePagination';
-import { useContainerRef, useDataTableHandle, useDataTableStore } from './hooks';
+import { TABLE_NAME_METADATA_KEY } from './constants.ts';
+import { DataTableBody } from './DataTableBody.tsx';
+import { DataTableControls } from './DataTableControls.tsx';
+import { DataTableHead } from './DataTableHead.tsx';
+import { DataTablePagination } from './DataTablePagination.tsx';
+import { useContainerRef, useDataTableHandle, useDataTableStore } from './hooks.ts';
 
-import type { DataTableContentProps } from './types';
+import type { DataTableContentProps } from './types.ts';
 
 export const DataTableContent = <T extends RowData>({
   emptyStateProps,

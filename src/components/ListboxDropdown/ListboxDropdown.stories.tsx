@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ListboxDropdown } from './ListboxDropdown';
+import { ListboxDropdown } from './ListboxDropdown.tsx';
 
 type Story = StoryObj<typeof ListboxDropdown>;
 

@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 
-import { i18n } from '../src/i18n';
-import theme from './theme';
+import { i18n } from '../src/i18n/index.ts';
+import theme from './theme.ts';
 
 import '../src/tailwind/globals.css';
 

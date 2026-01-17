@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Separator } from './Separator';
+import { Separator } from './Separator.tsx';
 
 type Story = StoryObj<typeof Separator>;
 

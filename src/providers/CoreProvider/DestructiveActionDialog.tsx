@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Button } from '@/components/Button';
-import { Dialog } from '@/components/Dialog';
-import { useDestructiveActionStore } from '@/hooks/useDestructiveAction/useDestructiveActionStore';
-import type { DestructiveActionDef } from '@/hooks/useDestructiveAction/useDestructiveActionStore';
-import { useTranslation } from '@/hooks/useTranslation';
+import { Button, Dialog } from '#components';
+import { useTranslation } from '#hooks';
+
+import { useDestructiveActionStore } from '../../hooks/useDestructiveAction/useDestructiveActionStore.ts';
+
+import type { DestructiveActionDef } from '../../hooks/useDestructiveAction/useDestructiveActionStore.ts';
 
 export const DestructiveActionDialog = () => {
   const deletePendingDestructiveAction = useDestructiveActionStore((store) => store.deletePendingDestructiveAction);

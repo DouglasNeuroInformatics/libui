@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { FileDropzone } from './FileDropzone';
+import { FileDropzone } from './FileDropzone.tsx';
 
 describe('FileDropzone', () => {
   const testfile = new File([new Blob()], 'testfile.csv');

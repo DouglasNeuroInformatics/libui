@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Input } from './Input';
+import { Input } from './Input.tsx';
 
 type Story = StoryObj<typeof Input>;
 

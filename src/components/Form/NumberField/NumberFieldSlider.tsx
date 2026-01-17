@@ -1,12 +1,11 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '@/components/Label';
-import { Slider } from '@/components/Slider';
+import { Label, Slider } from '#components';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.ts';
 
 export type NumberFieldSliderProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'slider' }>
@@ -39,7 +38,7 @@ export const NumberFieldSlider = ({
           value={[value ?? 0]}
           onValueChange={([value]) => setValue(value)}
         />
-        <span className="flex h-full w-8 items-center justify-center text-sm text-muted-foreground">
+        <span className="text-muted-foreground flex h-full w-8 items-center justify-center text-sm">
           {value ?? 'NA'}
         </span>
       </FieldGroup.Row>

@@ -1,13 +1,13 @@
 import { match } from 'ts-pattern';
 
-import { NumberFieldInput } from './NumberFieldInput';
-import { NumberFieldRadio } from './NumberFieldRadio';
-import { NumberFieldSelect } from './NumberFieldSelect';
-import { NumberFieldSlider } from './NumberFieldSlider';
+import { NumberFieldInput } from './NumberFieldInput.tsx';
+import { NumberFieldRadio } from './NumberFieldRadio.tsx';
+import { NumberFieldSelect } from './NumberFieldSelect.tsx';
+import { NumberFieldSlider } from './NumberFieldSlider.tsx';
 
-import type { NumberFieldInputProps } from './NumberFieldInput';
-import type { NumberFieldRadioProps } from './NumberFieldRadio';
-import type { NumberFieldSliderProps } from './NumberFieldSlider';
+import type { NumberFieldInputProps } from './NumberFieldInput.tsx';
+import type { NumberFieldRadioProps } from './NumberFieldRadio.tsx';
+import type { NumberFieldSliderProps } from './NumberFieldSlider.tsx';
 
 export type NumberFieldProps = NumberFieldInputProps | NumberFieldRadioProps | NumberFieldSliderProps;
 

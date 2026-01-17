@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { SetField } from './SetField';
+import { SetField } from './SetField.tsx';
 
 type Fruit = 'apple' | 'banana' | 'blueberry' | 'mango';
 

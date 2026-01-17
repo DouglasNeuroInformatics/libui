@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { TextArea } from './TextArea';
+import { TextArea } from './TextArea.tsx';
 
 type Story = StoryObj<typeof TextArea>;
 

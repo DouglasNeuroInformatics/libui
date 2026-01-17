@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { ActionDropdown } from './ActionDropdown';
+import { ActionDropdown } from './ActionDropdown.tsx';
 
 type Props = React.ComponentPropsWithoutRef<typeof ActionDropdown>;
 

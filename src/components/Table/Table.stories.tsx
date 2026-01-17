@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Table } from './Table';
+import { Table } from './Table.tsx';
 
 const invoices = [
   {

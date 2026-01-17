@@ -10,8 +10,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { IntRange } from 'type-fest';
 import { z } from 'zod/v4';
 
-import { Heading } from '../Heading';
-import { Form } from './Form';
+import { Heading } from '../Heading/Heading.tsx';
+import { Form } from './Form.tsx';
 
 const DISABLED = false;
 

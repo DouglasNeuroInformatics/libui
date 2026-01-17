@@ -1,5 +1,5 @@
-import { useDataTableHandle } from './hooks';
-import { flexRender } from './utils';
+import { useDataTableHandle } from './hooks.ts';
+import { flexRender } from './utils.tsx';
 
 export const DataTableHead = () => {
   const headerGroups = useDataTableHandle('headerGroups');

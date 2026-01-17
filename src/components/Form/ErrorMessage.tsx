@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { CircleAlertIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const ErrorMessage: React.FC<{ className?: string; error?: null | string[]; hideIconOnWrap?: boolean }> = ({
   className,

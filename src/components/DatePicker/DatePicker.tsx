@@ -3,13 +3,13 @@ import * as React from 'react';
 
 import { AnimatePresence, motion } from 'motion/react';
 
-import { useTranslation } from '@/hooks';
-import { cn } from '@/utils';
+import { useTranslation } from '#hooks';
+import { cn } from '#utils';
 
-import { ArrowToggle } from '../ArrowToggle';
-import { Card } from '../Card';
-import { Calendar, CALENDAR_ANIMATION_DURATION } from './Calendar';
-import { YearSelector } from './YearSelector';
+import { ArrowToggle } from '../ArrowToggle/ArrowToggle.tsx';
+import { Card } from '../Card/Card.tsx';
+import { Calendar, CALENDAR_ANIMATION_DURATION } from './Calendar.tsx';
+import { YearSelector } from './YearSelector.tsx';
 
 const MONTHS = [
   'january',

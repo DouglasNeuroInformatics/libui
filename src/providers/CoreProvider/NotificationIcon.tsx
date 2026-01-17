@@ -1,4 +1,4 @@
-import type { NotificationInterface } from '@/hooks/useNotificationsStore';
+import type { NotificationInterface } from '#hooks';
 
 export type NotificationIconProps = {
   type: NotificationInterface['type'];

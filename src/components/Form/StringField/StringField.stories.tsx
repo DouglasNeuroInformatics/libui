@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { StringField } from './StringField';
+import { StringField } from './StringField.tsx';
 
-import type { PasswordStrengthValue } from './StringFieldPassword';
+import type { PasswordStrengthValue } from './StringFieldPassword.tsx';
 
 type Story = StoryObj<typeof StringField>;
 

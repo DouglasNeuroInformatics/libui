@@ -1,10 +1,10 @@
 import { match } from 'ts-pattern';
 
-import { BooleanFieldCheckbox } from './BooleanFieldCheckbox';
-import { BooleanFieldRadio } from './BooleanFieldRadio';
+import { BooleanFieldCheckbox } from './BooleanFieldCheckbox.tsx';
+import { BooleanFieldRadio } from './BooleanFieldRadio.tsx';
 
-import type { BooleanFieldCheckboxProps } from './BooleanFieldCheckbox';
-import type { BooleanFieldRadioProps } from './BooleanFieldRadio';
+import type { BooleanFieldCheckboxProps } from './BooleanFieldCheckbox.tsx';
+import type { BooleanFieldRadioProps } from './BooleanFieldRadio.tsx';
 
 export type BooleanFieldProps = BooleanFieldCheckboxProps | BooleanFieldRadioProps;
 

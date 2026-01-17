@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 
 import { range } from 'lodash-es';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { ScrollArea } from '../ScrollArea';
+import { ScrollArea } from '../ScrollArea/ScrollArea.tsx';
 
 export type YearSelectorProps = {
   onSelection: (date: Date) => void;
@@ -24,7 +24,7 @@ export const YearSelector = (props: YearSelectorProps) => {
 
   return (
     <ScrollArea className="h-56 w-56">
-      <div className="grid grid-cols-3 gap-x-2 gap-y-1 text-sm text-muted-foreground">
+      <div className="text-muted-foreground grid grid-cols-3 gap-x-2 gap-y-1 text-sm">
         {years.map((year) => (
           <div className="flex h-7 items-center justify-center" key={year}>
             <button

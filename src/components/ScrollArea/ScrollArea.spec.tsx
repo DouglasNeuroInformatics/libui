@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { ScrollArea } from './ScrollArea';
+import { ScrollArea } from './ScrollArea.tsx';
 
 const TEST_ID = 'scroll-area';
 

@@ -1,8 +1,8 @@
 import { range } from 'lodash-es';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 
-import { Button } from '../Button';
-import { useDataTableHandle, useDataTableStore } from './hooks';
+import { Button } from '../Button/Button.tsx';
+import { useDataTableHandle, useDataTableStore } from './hooks.ts';
 
 export const DataTablePagination = () => {
   const { pageCount, pageIndex } = useDataTableHandle('paginationInfo');

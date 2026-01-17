@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Label } from './Label';
+import { Label } from './Label.tsx';
 
 type Story = StoryObj<typeof Label>;
 

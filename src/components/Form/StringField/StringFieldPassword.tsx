@@ -4,13 +4,12 @@ import type { StringFormField } from '@douglasneuroinformatics/libui-form-types'
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
-import { cn } from '@/utils';
+import { Input, Label } from '#components';
+import { cn } from '#utils';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.ts';
 
 export type PasswordStrengthValue = 0 | 1 | 2 | 3 | 4;
 

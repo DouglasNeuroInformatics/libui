@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from '../Button';
-import { HoverCard } from './HoverCard';
+import { Button } from '../Button/Button.tsx';
+import { HoverCard } from './HoverCard.tsx';
 
 type Story = StoryObj<typeof HoverCard>;
 

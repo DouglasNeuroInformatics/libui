@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { Content } from '@radix-ui/react-hover-card';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const HoverCardContent = forwardRef<
   React.ElementRef<typeof Content>,

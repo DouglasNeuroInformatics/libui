@@ -1,17 +1,17 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { mockStorage } from '@/testing/mocks';
-import { isBrowser } from '@/utils';
+import { mockStorage } from '#testing:mocks';
+import { isBrowser } from '#utils';
 
-import { useStorage } from './useStorage';
+import { useStorage } from './useStorage.ts';
 
-import type { StorageName } from './useStorage';
+import type { StorageName } from './useStorage.ts';
 
 const storages: StorageName[] = ['localStorage', 'sessionStorage'];
 storages.forEach(mockStorage);
 
-vi.mock('@/utils', () => ({ isBrowser: vi.fn(() => true) }));
+vi.mock('#utils', () => ({ isBrowser: vi.fn(() => true) }));
 
 describe('useStorage()', () => {
   storages.forEach((storageName) => {

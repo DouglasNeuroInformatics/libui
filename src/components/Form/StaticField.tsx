@@ -13,12 +13,12 @@ import type {
 } from '@douglasneuroinformatics/libui-form-types';
 import { match } from 'ts-pattern';
 
-import { NumberRecordField } from './NumberRecordField';
-import { RecordArrayField } from './RecordArrayField';
-import { ScalarField } from './ScalarField';
+import { NumberRecordField } from './NumberRecordField.tsx';
+import { RecordArrayField } from './RecordArrayField.tsx';
+import { ScalarField } from './ScalarField.tsx';
 
-import type { ScalarFieldProps } from './ScalarField';
-import type { FieldError, FormErrors } from './types';
+import type { ScalarFieldProps } from './ScalarField.tsx';
+import type { FieldError, FormErrors } from './types.ts';
 
 export type StaticFieldProps<TData extends FormDataType> = {
   errors: FormErrors<TData>;

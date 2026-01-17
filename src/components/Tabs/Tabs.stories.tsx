@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from '../Button';
-import { Card } from '../Card';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Tabs } from './Tabs';
+import { Button } from '../Button/Button.tsx';
+import { Card } from '../Card/Card.tsx';
+import { Input } from '../Input/Input.tsx';
+import { Label } from '../Label/Label.tsx';
+import { Tabs } from './Tabs.tsx';
 
 type Story = StoryObj<typeof Tabs>;
 

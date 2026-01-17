@@ -4,8 +4,8 @@ import { UploadIcon } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
 import type { FileRejection } from 'react-dropzone';
 
-import { useTranslation } from '@/hooks/useTranslation';
-import { cn } from '@/utils';
+import { useTranslation } from '#hooks';
+import { cn } from '#utils';
 
 export type FileDropzoneProps = {
   acceptedFileTypes: {
@@ -75,7 +75,7 @@ export const FileDropzone = ({
           <h3 className="text-lg font-semibold tracking-tight" data-testid="dropzone-title">
             {file ? file.name : isDragActive ? dragActiveTitle : dragInactiveTitle}
           </h3>
-          {description && <p className="text-sm text-muted-foreground">{description}</p>}
+          {description && <p className="text-muted-foreground text-sm">{description}</p>}
         </div>
       </div>
       <input {...getInputProps()} />

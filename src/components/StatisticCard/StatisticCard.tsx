@@ -3,9 +3,9 @@ import type { ReactElement } from 'react';
 
 import { motion, useSpring, useTransform } from 'motion/react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { Card } from '../Card';
+import { Card } from '../Card/Card.tsx';
 
 type StatisticCardProps = {
   [key: `data-${string}`]: unknown;
@@ -27,10 +27,10 @@ export const StatisticCard = ({ className, icon, label, value, ...props }: Stati
     <Card className={cn('flex w-full rounded-lg p-4', className)} {...props}>
       {icon && <div className="mr-2 flex items-center justify-center text-4xl">{icon}</div>}
       <div className="w-full text-center">
-        <motion.h3 className="title-font text-2xl font-semibold text-slate-900 dark:text-slate-100 sm:text-3xl">
+        <motion.h3 className="title-font text-2xl font-semibold text-slate-900 sm:text-3xl dark:text-slate-100">
           {rounded}
         </motion.h3>
-        <p className="font-medium leading-relaxed">{label}</p>
+        <p className="leading-relaxed font-medium">{label}</p>
       </div>
     </Card>
   );

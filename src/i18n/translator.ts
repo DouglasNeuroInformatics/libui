@@ -11,7 +11,7 @@ import type {
   TranslationKey,
   Translations,
   TranslatorType
-} from './types';
+} from './types.ts';
 
 type TranslatorEventMap = {
   languageChange: (...args: [language: Language]) => void;

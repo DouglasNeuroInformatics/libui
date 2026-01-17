@@ -1,8 +1,12 @@
 import { useCallback } from 'react';
 
-import { useDestructiveActionStore } from './useDestructiveActionStore';
+import { useDestructiveActionStore } from './useDestructiveActionStore.ts';
 
-import type { DestructiveAction, DestructiveActionOptions, DestructiveActionParams } from './useDestructiveActionStore';
+import type {
+  DestructiveAction,
+  DestructiveActionOptions,
+  DestructiveActionParams
+} from './useDestructiveActionStore.ts';
 
 /**
  * Returns a function that accepts a destructive action and optional configuration.

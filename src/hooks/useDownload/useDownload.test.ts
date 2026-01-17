@@ -1,13 +1,13 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { useDownload } from './useDownload';
+import { useDownload } from './useDownload.ts';
 
 const mockNotificationsStore = {
   addNotification: vi.fn()
 };
 
-vi.mock('../useNotificationsStore', () => ({
+vi.mock('../useNotificationsStore/useNotificationsStore.ts', () => ({
   useNotificationsStore: () => mockNotificationsStore
 }));
 

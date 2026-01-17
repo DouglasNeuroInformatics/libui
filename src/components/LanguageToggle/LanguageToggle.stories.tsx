@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { useTranslation } from '@/hooks';
+import { useTranslation } from '#hooks';
 
-import { Separator } from '../Separator';
-import { LanguageToggle } from './LanguageToggle';
+import { Separator } from '../Separator/Separator.tsx';
+import { LanguageToggle } from './LanguageToggle.tsx';
 
 type Story = StoryObj<typeof LanguageToggle>;
 

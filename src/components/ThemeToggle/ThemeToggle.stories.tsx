@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ThemeToggle } from './ThemeToggle';
+import { ThemeToggle } from './ThemeToggle.tsx';
 
 type Story = StoryObj<typeof ThemeToggle>;
 

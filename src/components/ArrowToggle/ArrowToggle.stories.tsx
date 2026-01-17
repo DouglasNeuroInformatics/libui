@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ArrowToggle } from './ArrowToggle';
+import { ArrowToggle } from './ArrowToggle.tsx';
 
 type Story = StoryObj<typeof ArrowToggle>;
 

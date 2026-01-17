@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 import { z } from 'zod/v4';
 
-import { Form } from './Form';
+import { Form } from './Form.tsx';
 
 describe('Form', () => {
   const testid = 'test-form';

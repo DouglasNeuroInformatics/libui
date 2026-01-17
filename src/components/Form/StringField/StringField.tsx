@@ -1,15 +1,15 @@
 import { match } from 'ts-pattern';
 
-import { StringFieldInput } from './StringFieldInput';
-import { StringFieldPassword } from './StringFieldPassword';
-import { StringFieldRadio } from './StringFieldRadio';
-import { StringFieldSelect } from './StringFieldSelect';
-import { StringFieldTextArea } from './StringFieldTextArea';
+import { StringFieldInput } from './StringFieldInput.tsx';
+import { StringFieldPassword } from './StringFieldPassword.tsx';
+import { StringFieldRadio } from './StringFieldRadio.tsx';
+import { StringFieldSelect } from './StringFieldSelect.tsx';
+import { StringFieldTextArea } from './StringFieldTextArea.tsx';
 
-import type { StringFieldInputProps } from './StringFieldInput';
-import type { StringFieldPasswordProps } from './StringFieldPassword';
-import type { StringFieldRadioProps } from './StringFieldRadio';
-import type { StringFieldTextAreaProps } from './StringFieldTextArea';
+import type { StringFieldInputProps } from './StringFieldInput.tsx';
+import type { StringFieldPasswordProps } from './StringFieldPassword.tsx';
+import type { StringFieldRadioProps } from './StringFieldRadio.tsx';
+import type { StringFieldTextAreaProps } from './StringFieldTextArea.tsx';
 
 export type StringFieldProps =
   | StringFieldInputProps

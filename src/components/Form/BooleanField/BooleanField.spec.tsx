@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { BooleanField } from './BooleanField';
+import { BooleanField } from './BooleanField.tsx';
 
-import type { BooleanFieldProps } from './BooleanField';
+import type { BooleanFieldProps } from './BooleanField.tsx';
 
 const TestBooleanField = ({ variant }: Pick<BooleanFieldProps, 'variant'>) => {
   const [error, setError] = useState<string[] | undefined>();

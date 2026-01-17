@@ -1,9 +1,9 @@
 import { SearchIcon } from 'lucide-react';
 
-import { useTranslation } from '@/hooks';
-import { cn } from '@/utils';
+import { useTranslation } from '#hooks';
+import { cn } from '#utils';
 
-import { Input } from '../Input';
+import { Input } from '../Input/Input.tsx';
 
 type BaseSearchBarProps = {
   [key: `data-${string}`]: unknown;
@@ -45,7 +45,7 @@ export const SearchBar = ({
   const { t } = useTranslation('libui');
   return (
     <form className={cn('relative', className)} {...props}>
-      <SearchIcon className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+      <SearchIcon className="text-muted-foreground absolute top-2.5 left-2 h-4 w-4" />
       <Input
         className="pl-8"
         placeholder={placeholder ?? t('searchBar.placeholder')}

@@ -7,18 +7,18 @@ import type {
   StringFormField
 } from '@douglasneuroinformatics/libui-form-types';
 
-import { BooleanField } from './BooleanField';
-import { DateField } from './DateField';
-import { NumberField } from './NumberField';
-import { SetField } from './SetField';
-import { StringField } from './StringField';
+import { BooleanField } from './BooleanField/BooleanField.tsx';
+import { DateField } from './DateField/DateField.tsx';
+import { NumberField } from './NumberField/NumberField.tsx';
+import { SetField } from './SetField/SetField.tsx';
+import { StringField } from './StringField/StringField.tsx';
 
-import type { BooleanFieldProps } from './BooleanField';
-import type { DateFieldProps } from './DateField';
-import type { NumberFieldProps } from './NumberField';
-import type { SetFieldProps } from './SetField';
-import type { StringFieldProps } from './StringField';
-import type { BaseFieldComponentProps } from './types';
+import type { BooleanFieldProps } from './BooleanField/BooleanField.tsx';
+import type { DateFieldProps } from './DateField/DateField.tsx';
+import type { NumberFieldProps } from './NumberField/NumberField.tsx';
+import type { SetFieldProps } from './SetField/SetField.tsx';
+import type { StringFieldProps } from './StringField/StringField.tsx';
+import type { BaseFieldComponentProps } from './types.ts';
 
 export type ScalarFieldProps = BaseFieldComponentProps<ScalarFieldValue> & {
   field: BooleanFormField | DateFormField | NumberFormField | SetFormField | StringFormField;

@@ -7,10 +7,10 @@ import type {
 } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Heading } from '../Heading';
-import { NumberField } from './NumberField';
+import { Heading } from '../Heading/Heading.tsx';
+import { NumberField } from './NumberField/NumberField.tsx';
 
-import type { BaseFieldComponentProps } from './types';
+import type { BaseFieldComponentProps } from './types.ts';
 
 export type NumberRecordFieldProps<T extends NumberRecordFieldValue = NumberRecordFieldValue> = Simplify<
   BaseFieldComponentProps<NumberRecordFieldValue> & NumberRecordFormField<RequiredFieldValue<T>>

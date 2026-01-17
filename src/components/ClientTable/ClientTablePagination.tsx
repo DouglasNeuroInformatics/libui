@@ -1,6 +1,6 @@
-import { useTranslation } from '@/hooks';
+import { useTranslation } from '#hooks';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button.tsx';
 
 export type ClientPagePaginationProps = {
   currentPage: number;
@@ -24,7 +24,7 @@ export const ClientTablePagination = ({
     <div className="flex items-center justify-between py-3">
       <div className="hidden sm:block">
         <p
-          className="text-sm font-medium text-muted-foreground"
+          className="text-muted-foreground text-sm font-medium"
           data-testid="page-numbers"
         >{`${firstEntry} - ${lastEntry} / ${totalEntries}`}</p>
       </div>

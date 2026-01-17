@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import { ArrowToggle } from './ArrowToggle';
+import { ArrowToggle } from './ArrowToggle.tsx';
 
-import type { ArrowToggleProps } from './ArrowToggle';
+import type { ArrowToggleProps } from './ArrowToggle.tsx';
 
 const TestArrowToggle = ({ onClick, ...props }: Omit<ArrowToggleProps, 'isToggled'>) => {
   const [isToggled, setIsToggled] = useState(false);

@@ -8,16 +8,16 @@ import {
 import type { GlobalFilter, TableState, Updater } from '@tanstack/table-core';
 import { createStore } from 'zustand';
 
-import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants';
+import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
 import {
   applyUpdater,
   calculateColumnSizing,
   defineMemoizedHandle,
   getColumnsWithActions,
   getTanstackTableState
-} from './utils';
+} from './utils.tsx';
 
-import type { DataTableStore, DataTableStoreParams } from './types';
+import type { DataTableStore, DataTableStoreParams } from './types.ts';
 
 export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
   return createStore<DataTableStore>((set, get) => {

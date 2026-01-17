@@ -5,8 +5,8 @@ import { IconButton } from 'storybook/internal/components';
 import { addons, types } from 'storybook/manager-api';
 import { match } from 'ts-pattern';
 
-import { useTheme } from '../src/hooks/useTheme';
-import theme from './theme';
+import { useTheme } from '../src/hooks/index.ts';
+import theme from './theme.ts';
 
 const Toolbar = React.memo(function Toolbar() {
   const [theme, setTheme] = useTheme();
