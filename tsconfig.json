@@ -1,15 +1,21 @@
 {
   "extends": ["@douglasneuroinformatics/tsconfig"],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "checkJs": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "ESNext", "ESNext.Decorators"],
-    "module": "Preserve",
-    "moduleResolution": "Bundler",
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "noEmit": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "#components": ["./src/components/index.ts"],
+      "#hooks": ["./src/hooks/index.ts"],
+      "#i18n": ["./src/i18n/index.ts"],
+      "#providers": ["./src/providers/index.ts"],
+      "#testing:mocks": ["./src/testing/mocks.ts"],
+      "#utils": ["./src/utils/index.ts"]
     },
     "resolveJsonModule": true,
     "target": "ES2022",
