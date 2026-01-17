@@ -123,10 +123,10 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@douglasneuroinformatics/eslint-config": "^5.3.2",
-    "@douglasneuroinformatics/prettier-config": "^0.0.2",
+    "@douglasneuroinformatics/eslint-config": "^5.3.7",
+    "@douglasneuroinformatics/prettier-config": "^0.3.0",
     "@douglasneuroinformatics/semantic-release": "^0.2.1",
-    "@douglasneuroinformatics/tsconfig": "^1.0.3",
+    "@douglasneuroinformatics/tsconfig": "^1.0.5",
     "@faker-js/faker": "^9.6.0",
     "@storybook/addon-docs": "^9.0.6",
     "@storybook/addon-links": "^9.0.6",
@@ -154,7 +154,7 @@
     "sort-json": "^2.0.1",
     "storybook": "^9.0.6",
     "tsup": "^8.4.0",
-    "typescript": "5.6.x",
+    "typescript": "5.9.x",
     "vite": "^6.3.5",
     "vitest": "^3.1.1"
   },
