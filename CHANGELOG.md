@@ -1,5 +1,23 @@
 # Changelog
 
+## [6.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.2...v6.0.0) (2026-01-21)
+
+### ⚠ BREAKING CHANGES
+
+* Remove Accordion, AlertDialog, Avatar, Breadcrumb, Chart, Collapsible, Command, ContextMenu, Drawer, ErrorBoundary, ErrorFallback, LineGraph, MenuBar, Progress, Resizable, SpinnerIcon, Switch
+
+### Features
+
+* export tanstack table namespace ([fc22539](https://github.com/DouglasNeuroInformatics/libui/commit/fc2253952bbe8bfd566bbe9bdc2419f67642a9c3))
+
+### Bug Fixes
+
+* add react imports for types ([a5d7541](https://github.com/DouglasNeuroInformatics/libui/commit/a5d75412aa7b95efa21cf94a026e7cc2994239c7))
+
+### Code Refactoring
+
+* remove unused components ([1ca6032](https://github.com/DouglasNeuroInformatics/libui/commit/1ca6032864a2207ae40978d2f13fa040dff6356d))
+
 ## [5.0.2](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.1...v5.0.2) (2026-01-16)
 
 ### Bug Fixes
