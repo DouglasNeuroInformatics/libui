@@ -6,10 +6,10 @@ import type {
   TranslationKeyForNamespace,
   TranslationNamespace,
   TranslatorType
-} from '@/i18n';
+} from '#i18n';
 
 // this is required since our storybook manager plugin cannot use vite aliases
-import { i18n } from '../../i18n';
+import { i18n } from '../../i18n/index.ts';
 
 export function useTranslation(): TranslatorType<TranslationKey>;
 export function useTranslation<TNamespace extends TranslationNamespace>(

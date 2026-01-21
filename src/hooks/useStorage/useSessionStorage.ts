@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
 
-import { useStorage } from './useStorage';
+import { useStorage } from './useStorage.ts';
 
-import type { UseStorageOptions } from './useStorage';
+import type { UseStorageOptions } from './useStorage.ts';
 
 /** Custom hook that uses session storage to persist state across page reloads */
 export function useSessionStorage<T>(

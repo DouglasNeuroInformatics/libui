@@ -1,14 +1,14 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { mockMatchMedia, mockStorage } from '@/testing/mocks';
-import { isBrowser } from '@/utils';
+import { mockMatchMedia, mockStorage } from '#testing:mocks';
+import { isBrowser } from '#utils';
 
-import { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_ATTRIBUTE, THEME_KEY, useTheme } from './useTheme';
+import { DEFAULT_THEME, SYS_DARK_MEDIA_QUERY, THEME_ATTRIBUTE, THEME_KEY, useTheme } from './useTheme.ts';
 
 mockStorage('localStorage');
 
-vi.mock('@/utils', () => ({ isBrowser: vi.fn(() => true) }));
+vi.mock('#utils', () => ({ isBrowser: vi.fn(() => true) }));
 
 describe('useTheme', () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ActionDropdown } from './ActionDropdown';
+import { ActionDropdown } from './ActionDropdown.tsx';
 
 type Story = StoryObj<typeof ActionDropdown>;
 

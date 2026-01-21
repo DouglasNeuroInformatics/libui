@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { ChevronRightIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const DropdownMenuSubTrigger = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,

@@ -3,10 +3,10 @@ import { useContext, useEffect, useRef } from 'react';
 import { useStore } from 'zustand';
 import { useStoreWithEqualityFn } from 'zustand/traditional';
 
-import { MEMOIZED_HANDLE_ID } from './constants';
-import { DataTableContext } from './context';
+import { MEMOIZED_HANDLE_ID } from './constants.ts';
+import { DataTableContext } from './context.ts';
 
-import type { DataTableStore } from './types';
+import type { DataTableStore } from './types.ts';
 
 export function useContainerRef() {
   const containerRef = useRef<HTMLDivElement>(null);

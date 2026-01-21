@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 
-import type { StorageName } from '@/hooks';
+import type { StorageName } from '#hooks';
 
 /**
  * Mocks the matchMedia API

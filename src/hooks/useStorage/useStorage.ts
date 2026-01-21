@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
-import { isBrowser } from '@/utils';
+import { isBrowser } from '#utils';
 
-import { useEventCallback } from '../useEventCallback';
-import { useEventListener } from '../useEventListener';
+import { useEventCallback } from '../useEventCallback/useEventCallback.ts';
+import { useEventListener } from '../useEventListener/useEventListener.ts';
 
 type StorageName = 'localStorage' | 'sessionStorage';
 

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
-import { TextArea } from './TextArea';
+import { TextArea } from './TextArea.tsx';
 
 const TEST_ID = 'text-area';
 

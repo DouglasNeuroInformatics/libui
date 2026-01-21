@@ -1,9 +1,8 @@
-import { Checkbox } from '@/components/Checkbox';
-import { Label } from '@/components/Label';
+import { Checkbox, Label } from '#components';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { SetFieldProps } from './SetField';
+import type { SetFieldProps } from './SetField.tsx';
 
 export type SetFieldListboxProps<T extends string = string> = SetFieldProps<T> & {
   onCheckedChange: (option: T, isChecked: boolean) => void;
@@ -37,7 +36,7 @@ export const SetFieldListbox = <T extends string = string>({
                 onCheckedChange(option as T, !checked);
               }}
             />
-            <Label className="font-normal text-muted-foreground" htmlFor={`${name}-${option}`}>
+            <Label className="text-muted-foreground font-normal" htmlFor={`${name}-${option}`}>
               {options[option as T]}
             </Label>
           </FieldGroup.Row>

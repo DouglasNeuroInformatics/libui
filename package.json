@@ -18,28 +18,53 @@
     "React",
     "TailwindCSS"
   ],
+  "imports": {
+    "#components": {
+      "libui-dev": "./src/components/index.js",
+      "default": "./dist/components/index.js"
+    },
+    "#hooks": {
+      "libui-dev": "./src/hooks/index.js",
+      "default": "./dist/hooks/index.js"
+    },
+    "#i18n": {
+      "libui-dev": "./src/i18n/index.js",
+      "default": "./dist/i18n/index.js"
+    },
+    "#providers": {
+      "libui-dev": "./src/providers/index.js",
+      "default": "./dist/providers/index.js"
+    },
+    "#testing:mocks": {
+      "libui-dev": "./src/testing/mocks.js"
+    },
+    "#utils": {
+      "libui-dev": "./src/utils/index.js",
+      "default": "./dist/utils/index.js"
+    }
+  },
   "exports": {
     "./components": {
-      "types": "./dist/components.d.ts",
-      "import": "./dist/components.js"
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
     },
     "./hooks": {
-      "types": "./dist/hooks.d.ts",
-      "import": "./dist/hooks.js"
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
     },
     "./i18n": {
-      "types": "./dist/i18n.d.ts",
-      "import": "./dist/i18n.js"
+      "types": "./dist/i18n/index.d.ts",
+      "import": "./dist/i18n/index.js"
     },
     "./package.json": "./package.json",
     "./providers": {
-      "types": "./dist/providers.d.ts",
-      "import": "./dist/providers.js"
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.js"
     },
     "./tailwind/globals.css": "./dist/tailwind/globals.css",
     "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/utils.js"
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js"
     }
   },
   "files": [
@@ -55,7 +80,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "rm -rf dist && tsup --config tsup.config.mts",
+    "build": "rm -rf dist && tsc -b tsconfig.build.json && cp -r src/tailwind dist/tailwind",
     "format": "prettier --write src",
     "format:translations": "find src/i18n/translations -name '*.json' -exec pnpm exec sort-json {} \\;",
     "lint": "tsc && eslint --fix src",
@@ -100,7 +125,6 @@
     "@tanstack/table-core": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.1.1",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.486.0",
     "motion": "^11.18.2",
@@ -116,10 +140,10 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@douglasneuroinformatics/eslint-config": "^5.3.2",
-    "@douglasneuroinformatics/prettier-config": "^0.0.2",
+    "@douglasneuroinformatics/eslint-config": "^5.3.7",
+    "@douglasneuroinformatics/prettier-config": "^0.3.0",
     "@douglasneuroinformatics/semantic-release": "^0.2.1",
-    "@douglasneuroinformatics/tsconfig": "^1.0.3",
+    "@douglasneuroinformatics/tsconfig": "^1.0.5",
     "@faker-js/faker": "^9.6.0",
     "@storybook/addon-docs": "^9.0.6",
     "@storybook/addon-links": "^9.0.6",
@@ -147,7 +171,7 @@
     "sort-json": "^2.0.1",
     "storybook": "^9.0.6",
     "tsup": "^8.4.0",
-    "typescript": "5.6.x",
+    "typescript": "5.9.x",
     "vite": "^6.3.5",
     "vitest": "^3.1.1"
   },

@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { useNotificationsStore } from './useNotificationsStore';
+import { useNotificationsStore } from './useNotificationsStore.ts';
 
 describe('useNotificationsStore', () => {
   it('should render and return an object', () => {

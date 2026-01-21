@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { range } from 'lodash-es';
 import { AnimatePresence, motion } from 'motion/react';
 
-import { useTranslation } from '@/hooks';
+import { useTranslation } from '#hooks';
 
 export const CALENDAR_ANIMATION_DURATION = 0.2; // seconds
 
@@ -40,7 +40,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
       >
         <div className="grid h-56 w-56 grid-cols-7 text-sm" ref={ref}>
           {daysOfWeek.map((label) => (
-            <div className="flex h-8 w-8 items-center justify-center text-muted-foreground" key={label}>
+            <div className="text-muted-foreground flex h-8 w-8 items-center justify-center" key={label}>
               {label.charAt(0).toUpperCase()}
             </div>
           ))}

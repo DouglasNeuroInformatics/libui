@@ -2,10 +2,10 @@ import { Fragment } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Sheet } from './Sheet';
+import { Button } from '../Button/Button.tsx';
+import { Input } from '../Input/Input.tsx';
+import { Label } from '../Label/Label.tsx';
+import { Sheet } from './Sheet.tsx';
 
 type Story = StoryObj<typeof Sheet>;
 

@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 
 import type { RowData } from '@tanstack/table-core';
 
-import { DataTableContext } from './context';
-import { DataTableContent } from './DataTableContent';
-import { createDataTableStore } from './store';
+import { DataTableContext } from './context.ts';
+import { DataTableContent } from './DataTableContent.tsx';
+import { createDataTableStore } from './store.ts';
 
-import type { DataTableProps } from './types';
+import type { DataTableProps } from './types.ts';
 
 export const DataTable = <T extends RowData>({
   emptyStateProps,
@@ -31,3 +31,5 @@ export const DataTable = <T extends RowData>({
     </DataTableContext.Provider>
   );
 };
+
+export * as TanstackTable from '@tanstack/table-core';

@@ -3,8 +3,8 @@ import type { ChangeEvent, ClipboardEvent, KeyboardEvent } from 'react';
 
 import type { Promisable } from 'type-fest';
 
-import { useNotificationsStore, useTranslation } from '@/hooks';
-import { cn } from '@/utils';
+import { useNotificationsStore, useTranslation } from '#hooks';
+import { cn } from '#utils';
 
 const CODE_LENGTH = 6;
 

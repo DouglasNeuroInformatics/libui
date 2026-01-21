@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { DropdownButton } from '../DropdownButton';
-import { DropdownMenu } from '../DropdownMenu';
+import { DropdownButton } from '../DropdownButton/DropdownButton.tsx';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
 
-import type { ButtonProps } from '../Button';
+import type { ButtonProps } from '../Button/Button.tsx';
 
 export type ListboxDropdownOption = {
   key: string;
@@ -47,7 +47,7 @@ export const ListboxDropdown = <T extends ListboxDropdownOption>({
           return (
             <DropdownMenu.CheckboxItem
               checked={checked}
-              className="flex w-full items-center whitespace-nowrap bg-slate-50 p-2 text-sm hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
+              className="flex w-full items-center bg-slate-50 p-2 text-sm whitespace-nowrap hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
               data-testid="select-dropdown-option"
               key={option.key}
               onSelect={(event) => {

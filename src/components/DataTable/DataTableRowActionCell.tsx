@@ -1,12 +1,12 @@
 import type { CellContext, RowData } from '@tanstack/table-core';
 import { MoreHorizontalIcon } from 'lucide-react';
 
-import { useDestructiveAction, useTranslation } from '@/hooks';
-import { cn } from '@/utils';
+import { useDestructiveAction, useTranslation } from '#hooks';
+import { cn } from '#utils';
 
-import { Button } from '../Button';
-import { DropdownMenu } from '../DropdownMenu';
-import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants';
+import { Button } from '../Button/Button.tsx';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
+import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
 
 export const DataTableRowActionCell = <T extends RowData>({ row, table }: CellContext<T, unknown>) => {
   const destructiveAction = useDestructiveAction();

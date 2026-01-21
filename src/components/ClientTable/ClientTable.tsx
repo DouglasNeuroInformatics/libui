@@ -5,11 +5,11 @@ import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { range } from 'lodash-es';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { DropdownMenu } from '../DropdownMenu';
-import { Table } from '../Table';
-import { ClientTablePagination } from './ClientTablePagination';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
+import { Table } from '../Table/Table.tsx';
+import { ClientTablePagination } from './ClientTablePagination.tsx';
 
 /** Coerces the value in a cell to a string for consistant display purposes */
 function defaultFormatter(value: unknown): string {

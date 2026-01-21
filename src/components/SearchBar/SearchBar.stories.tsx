@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { SearchBar } from './SearchBar';
+import { SearchBar } from './SearchBar.tsx';
 
 type Story = StoryObj<typeof SearchBar>;
 

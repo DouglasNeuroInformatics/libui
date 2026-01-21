@@ -1,11 +1,10 @@
 import type { StringFormField } from '@douglasneuroinformatics/libui-form-types';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
+import { Input, Label } from '#components';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.ts';
 
 export type StringFieldInputProps = BaseFieldComponentProps<string> &
   Extract<StringFormField, { variant: 'input' | 'textarea' }>;

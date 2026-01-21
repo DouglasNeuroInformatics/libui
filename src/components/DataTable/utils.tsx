@@ -1,10 +1,10 @@
 import type { ColumnDef, ColumnSizingState, RowData, Table, TableState, Updater } from '@tanstack/table-core';
 import { sum } from 'lodash-es';
 
-import { ACTIONS_COLUMN_ID, MEMOIZED_HANDLE_ID } from './constants';
-import { DataTableRowActionCell } from './DataTableRowActionCell';
+import { ACTIONS_COLUMN_ID, MEMOIZED_HANDLE_ID } from './constants.ts';
+import { DataTableRowActionCell } from './DataTableRowActionCell.tsx';
 
-import type { DataTableStoreParams, MemoizedHandle } from './types';
+import type { DataTableStoreParams, MemoizedHandle } from './types.ts';
 
 function applyUpdater<T>(updater: Updater<T>, current: T): T {
   return typeof updater === 'function' ? (updater as (prev: T) => T)(current) : updater;

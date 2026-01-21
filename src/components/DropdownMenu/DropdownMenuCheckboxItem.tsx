@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const DropdownMenuCheckboxItem = forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,

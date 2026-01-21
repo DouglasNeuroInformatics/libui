@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { ScrollArea } from './ScrollArea';
+import { ScrollArea } from './ScrollArea.tsx';
 
 type Story = StoryObj<typeof ScrollArea>;
 

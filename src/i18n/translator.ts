@@ -2,7 +2,7 @@ import { format } from '@douglasneuroinformatics/libjs';
 import { get } from 'lodash-es';
 import type { SetOptional } from 'type-fest';
 
-import libui from './translations/libui.json';
+import libui from './translations/libui.json' with { type: 'json' };
 
 import type {
   Language,
@@ -11,7 +11,7 @@ import type {
   TranslationKey,
   Translations,
   TranslatorType
-} from './types';
+} from './types.ts';
 
 type TranslatorEventMap = {
   languageChange: (...args: [language: Language]) => void;

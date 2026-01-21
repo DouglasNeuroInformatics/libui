@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import type { RowData, Table } from '@tanstack/table-core';
 
-import { useTranslation } from '@/hooks';
+import { useTranslation } from '#hooks';
 
-import { SearchBar } from '../SearchBar';
-import { useDataTableHandle, useDataTableStore } from './hooks';
+import { SearchBar } from '../SearchBar/SearchBar.tsx';
+import { useDataTableHandle, useDataTableStore } from './hooks.ts';
 
-import type { SearchChangeHandler } from './types';
+import type { SearchChangeHandler } from './types.ts';
 
 export const DataTableControls = <T extends RowData>({
   onSearchChange,

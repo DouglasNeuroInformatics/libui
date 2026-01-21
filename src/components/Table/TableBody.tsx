@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const TableBody = forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
   function TableBody({ className, ...props }, ref) {

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { Translator } from '../translator';
+import { Translator } from '../translator.ts';
 
 describe('Translator', () => {
   const translator = new Translator();

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Overlay } from '@radix-ui/react-dialog';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export const DialogOverlay = ({ className, ...props }: React.ComponentProps<typeof Overlay>) => {
   return (

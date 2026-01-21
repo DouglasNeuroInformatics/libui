@@ -6,10 +6,10 @@ import type { ColumnDef } from '@tanstack/table-core';
 import { range } from 'lodash-es';
 import { ChevronDownIcon } from 'lucide-react';
 
-import { Button } from '../Button';
-import { DropdownMenu } from '../DropdownMenu';
-import { DataTable } from './DataTable';
-import { useDataTableHandle } from './hooks';
+import { Button } from '../Button/Button.tsx';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
+import { DataTable } from './DataTable.tsx';
+import { useDataTableHandle } from './hooks.ts';
 
 type PaymentStatus = 'failed' | 'pending' | 'processing' | 'success';
 

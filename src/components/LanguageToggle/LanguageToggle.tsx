@@ -1,12 +1,12 @@
 import { LanguagesIcon } from 'lucide-react';
 
-import { useTranslation } from '@/hooks';
-import type { Language } from '@/i18n';
+import { useTranslation } from '#hooks';
+import type { Language } from '#i18n';
 
-import { Button } from '../Button';
-import { DropdownMenu } from '../DropdownMenu';
+import { Button } from '../Button/Button.tsx';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
 
-import type { ButtonProps } from '../Button';
+import type { ButtonProps } from '../Button/Button.tsx';
 
 export type LanguageToggleProps = {
   align?: 'center' | 'end' | 'start';

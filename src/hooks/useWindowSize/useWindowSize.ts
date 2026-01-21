@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useEventListener } from '../useEventListener';
-import { useIsomorphicLayoutEffect } from '../useIsomorphicLayoutEffect';
+import { useEventListener } from '../useEventListener/useEventListener.ts';
+import { useIsomorphicLayoutEffect } from '../useIsomorphicLayoutEffect/useIsomorphicLayoutEffect.ts';
 
 export type WindowSize = {
   height: number;

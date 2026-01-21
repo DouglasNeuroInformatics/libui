@@ -4,12 +4,11 @@ import { parseNumber } from '@douglasneuroinformatics/libjs';
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Input } from '@/components/Input';
-import { Label } from '@/components/Label';
+import { Input, Label } from '#components';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.ts';
 
 export type NumberFieldInputProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { variant: 'input' }>

@@ -1,13 +1,12 @@
 import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '@/components/Label';
-import { RadioGroup } from '@/components/RadioGroup';
-import { cn } from '@/utils';
+import { Label, RadioGroup } from '#components';
+import { cn } from '#utils';
 
-import { FieldGroup } from '../FieldGroup';
+import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from '../types';
+import type { BaseFieldComponentProps } from '../types.ts';
 
 export type NumberFieldRadioProps = Simplify<
   BaseFieldComponentProps<number> & Extract<NumberFormField, { options: object }>
@@ -52,7 +51,7 @@ export const NumberFieldRadio = ({
                 <RadioGroup.Item disabled={disabled || readOnly} id={`${name}-${val}`} value={val.toString()} />
                 <Label
                   aria-disabled={disabled || readOnly}
-                  className="font-normal text-muted-foreground"
+                  className="text-muted-foreground font-normal"
                   htmlFor={`${name}-${val}`}
                 >
                   {text}

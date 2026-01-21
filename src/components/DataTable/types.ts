@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -12,8 +14,8 @@ import type {
 } from '@tanstack/table-core';
 import type { Promisable } from 'type-fest';
 
-import type { MEMOIZED_HANDLE_ID, ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants';
-import type { DataTableEmptyStateProps } from './DataTableEmptyState';
+import type { MEMOIZED_HANDLE_ID, ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
+import type { DataTableEmptyStateProps } from './DataTableEmptyState.tsx';
 
 declare module '@tanstack/table-core' {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions, @typescript-eslint/no-unused-vars

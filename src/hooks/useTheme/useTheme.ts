@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // this is required since our storybook manager plugin cannot use vite aliases
-import { isBrowser } from '../../utils';
+import { isBrowser } from '../../utils/index.ts';
 
 type Theme = 'dark' | 'light';
 

@@ -12,17 +12,17 @@ import { get, set } from 'lodash-es';
 import { twMerge } from 'tailwind-merge';
 import type { Promisable } from 'type-fest';
 
-import { useTranslation } from '@/hooks';
-import { cn } from '@/utils';
+import { useTranslation } from '#hooks';
+import { cn } from '#utils';
 
-import { Button } from '../Button';
-import { Heading } from '../Heading';
-import { Separator } from '../Separator';
-import { ErrorMessage } from './ErrorMessage';
-import { FieldsComponent } from './FieldsComponent';
-import { getInitialValues } from './utils';
+import { Button } from '../Button/Button.tsx';
+import { Heading } from '../Heading/Heading.tsx';
+import { Separator } from '../Separator/Separator.tsx';
+import { ErrorMessage } from './ErrorMessage.tsx';
+import { FieldsComponent } from './FieldsComponent.tsx';
+import { getInitialValues } from './utils.ts';
 
-import type { FormErrors } from './types';
+import type { FormErrors } from './types.ts';
 
 type FormSubmitResult = { errorMessage: string; success: false } | { success: true };
 

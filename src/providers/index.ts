@@ -1,1 +1,1 @@
-export * from './CoreProvider';
+export * from './CoreProvider/CoreProvider.tsx';

@@ -2,12 +2,10 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Input, Label } from '@/components';
-import { Button } from '@/components/Button';
-import { useDestructiveAction } from '@/hooks/useDestructiveAction';
-import { useNotificationsStore } from '@/hooks/useNotificationsStore';
+import { Button, Input, Label } from '#components';
+import { useDestructiveAction, useNotificationsStore } from '#hooks';
 
-import { CoreProvider } from './CoreProvider';
+import { CoreProvider } from './CoreProvider.tsx';
 
 type Story = StoryObj<typeof CoreProvider>;
 

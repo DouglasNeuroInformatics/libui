@@ -1,6 +1,8 @@
+import type React from 'react';
+
 import type { LucideIcon } from 'lucide-react';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
 export type DataTableEmptyStateProps = {
   className?: string;

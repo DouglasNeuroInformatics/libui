@@ -1,9 +1,9 @@
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { DropdownButton } from '../DropdownButton';
-import { DropdownMenu } from '../DropdownMenu';
+import { DropdownButton } from '../DropdownButton/DropdownButton.tsx';
+import { DropdownMenu } from '../DropdownMenu/DropdownMenu.tsx';
 
-import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent';
+import type { DropdownMenuContentProps } from '../DropdownMenu/DropdownMenuContent.tsx';
 
 type ActionDropdownOptions = readonly string[] | { [key: string]: string };
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Label } from '../Label';
-import { RadioGroup } from './RadioGroup';
+import { Label } from '../Label/Label.tsx';
+import { RadioGroup } from './RadioGroup.tsx';
 
 type Story = StoryObj<typeof RadioGroup>;
 

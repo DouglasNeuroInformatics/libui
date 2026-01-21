@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from '../Button';
-import { DropdownMenu } from './DropdownMenu';
+import { Button } from '../Button/Button.tsx';
+import { DropdownMenu } from './DropdownMenu.tsx';
 
 type Story = StoryObj<typeof DropdownMenu>;
 

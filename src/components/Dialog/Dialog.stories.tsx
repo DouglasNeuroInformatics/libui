@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { Label } from '../Label';
-import { Dialog } from './Dialog';
+import { Button } from '../Button/Button.tsx';
+import { Input } from '../Input/Input.tsx';
+import { Label } from '../Label/Label.tsx';
+import { Dialog } from './Dialog.tsx';
 
 type Story = StoryObj<typeof Dialog>;
 

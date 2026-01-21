@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { CoreProvider } from '@/providers/CoreProvider';
+import { CoreProvider } from '#providers';
 
-import { OneTimePasswordInput } from './OneTimePasswordInput';
+import { OneTimePasswordInput } from './OneTimePasswordInput.tsx';
 
 type Story = StoryObj<typeof OneTimePasswordInput>;
 

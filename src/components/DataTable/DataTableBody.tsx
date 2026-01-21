@@ -1,10 +1,12 @@
-import { useTranslation } from '@/hooks';
+import type React from 'react';
 
-import { DataTableEmptyState } from './DataTableEmptyState';
-import { useDataTableHandle } from './hooks';
-import { flexRender } from './utils';
+import { useTranslation } from '#hooks';
 
-import type { DataTableEmptyStateProps } from './DataTableEmptyState';
+import { DataTableEmptyState } from './DataTableEmptyState.tsx';
+import { useDataTableHandle } from './hooks.ts';
+import { flexRender } from './utils.tsx';
+
+import type { DataTableEmptyStateProps } from './DataTableEmptyState.tsx';
 
 export const DataTableBody: React.FC<{ emptyStateProps?: Partial<DataTableEmptyStateProps> }> = ({
   emptyStateProps

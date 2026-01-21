@@ -4,14 +4,12 @@
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "checkJs": true,
+    "customConditions": ["libui-dev"],
     "jsx": "react-jsx",
     "lib": ["DOM", "ESNext", "ESNext.Decorators"],
-    "module": "Preserve",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "resolveJsonModule": true,
     "target": "ES2022",
     "types": ["vite/client", "vitest"]

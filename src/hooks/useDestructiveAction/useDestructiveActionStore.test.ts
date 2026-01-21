@@ -1,9 +1,9 @@
 import { act, renderHook } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { useDestructiveActionStore } from './useDestructiveActionStore';
+import { useDestructiveActionStore } from './useDestructiveActionStore.ts';
 
-import type { DestructiveAction, DestructiveActionOptions } from './useDestructiveActionStore';
+import type { DestructiveAction, DestructiveActionOptions } from './useDestructiveActionStore.ts';
 
 describe('useDestructiveActionStore', () => {
   afterEach(() => {

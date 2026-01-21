@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
 import type { Simplify } from 'type-fest';
 
-import { Label } from '../Label';
-import { RadioGroup } from '../RadioGroup';
-import { FieldGroup } from './FieldGroup';
+import { Label } from '../Label/Label.tsx';
+import { RadioGroup } from '../RadioGroup/RadioGroup.tsx';
+import { FieldGroup } from './FieldGroup/FieldGroup.tsx';
 
-import type { BaseFieldComponentProps } from './types';
+import type { BaseFieldComponentProps } from './types.ts';
 
 const baseRadioFieldVariants = cva('flex', {
   defaultVariants: {
@@ -59,7 +59,7 @@ export const BaseRadioField = <T extends string>({
             <RadioGroup.Item disabled={disabled || readOnly} id={`${name}-${option}`} value={option} />
             <Label
               aria-disabled={disabled || readOnly}
-              className="font-normal text-muted-foreground"
+              className="text-muted-foreground font-normal"
               htmlFor={`${name}-${option}`}
             >
               {options[option as T]}

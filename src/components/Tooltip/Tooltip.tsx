@@ -1,6 +1,6 @@
-import { TooltipContent } from './TooltipContent';
-import { TooltipRoot } from './TooltipRoot';
-import { TooltipTrigger } from './TooltipTrigger';
+import { TooltipContent } from './TooltipContent.tsx';
+import { TooltipRoot } from './TooltipRoot.tsx';
+import { TooltipTrigger } from './TooltipTrigger.tsx';
 
 export const Tooltip = Object.assign(TooltipRoot, {
   Content: TooltipContent,

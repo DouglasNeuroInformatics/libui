@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { DateField } from './DateField';
+import { DateField } from './DateField.tsx';
 
 type Story = StoryObj<typeof DateField>;
 

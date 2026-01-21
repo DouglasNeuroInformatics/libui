@@ -4,11 +4,11 @@ import * as React from 'react';
 import { ChevronUpIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
-import { cn } from '@/utils';
+import { cn } from '#utils';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button.tsx';
 
-import type { ButtonProps } from '../Button';
+import type { ButtonProps } from '../Button/Button.tsx';
 
 export type ArrowToggleProps = Simplify<
   React.HTMLAttributes<HTMLButtonElement> & {

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import { ClientTable } from './ClientTable';
+import { ClientTable } from './ClientTable.tsx';
 
 const TEST_ID = 'ClientTable';
 const FIRST_BUTTON_ID = 'first-page-button';
@@ -10,6 +10,7 @@ const PREVIOUS_BUTTON_ID = 'previous-page-button';
 const NEXT_BUTTON_ID = 'next-page-button';
 const LAST_BUTTON_ID = 'last-page-button';
 const PAGE_NUMBER_TEST_ID = 'page-numbers';
+
 describe('ClientTable', () => {
   it('should render', () => {
     render(<ClientTable columns={[]} data={[]} minRows={10} />);

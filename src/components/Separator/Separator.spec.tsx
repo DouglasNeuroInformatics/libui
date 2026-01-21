@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Separator } from './Separator';
+import { Separator } from './Separator.tsx';
 
 const TEST_ID = 'separator';
 

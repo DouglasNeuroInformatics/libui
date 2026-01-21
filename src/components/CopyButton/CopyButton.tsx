@@ -4,9 +4,9 @@ import { ClipboardCheckIcon, ClipboardListIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { match } from 'ts-pattern';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button.tsx';
 
-import type { ButtonProps } from '../Button';
+import type { ButtonProps } from '../Button/Button.tsx';
 
 export const CopyButton: React.FC<{ size?: ButtonProps['size']; text: string; variant?: ButtonProps['variant'] }> = ({
   size,
