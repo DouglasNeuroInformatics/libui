@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import type { LucideIcon } from 'lucide-react';
 
 import { cn } from '#utils';

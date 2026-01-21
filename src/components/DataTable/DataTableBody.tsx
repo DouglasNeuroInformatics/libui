@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { useTranslation } from '#hooks';
 
 import { DataTableEmptyState } from './DataTableEmptyState.tsx';
