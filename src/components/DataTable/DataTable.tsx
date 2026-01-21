@@ -31,3 +31,5 @@ export const DataTable = <T extends RowData>({
     </DataTableContext.Provider>
   );
 };
+
+export * as TanstackTable from '@tanstack/table-core';
