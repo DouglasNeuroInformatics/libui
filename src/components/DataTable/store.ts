@@ -43,7 +43,7 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       if (!_containerWidth) {
         return;
       }
-      setTableState('columnSizing', calculateColumnSizing(table, _containerWidth));
+      setTableState('columnSizing', calculateColumnSizing(table, _containerWidth, params.columnBreakpoints));
     };
 
     const updateStyle = () => {

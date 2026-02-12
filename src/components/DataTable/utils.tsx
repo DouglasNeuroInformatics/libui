@@ -4,13 +4,25 @@ import { sum } from 'lodash-es';
 import { ACTIONS_COLUMN_ID, MEMOIZED_HANDLE_ID } from './constants.ts';
 import { DataTableRowActionCell } from './DataTableRowActionCell.tsx';
 
-import type { DataTableStoreParams, MemoizedHandle } from './types.ts';
+import type { DataTableColumnBreakpoints, DataTableStoreParams, MemoizedHandle } from './types.ts';
+
+const DEFAULT_COLUMN_BREAKPOINTS: DataTableColumnBreakpoints = {
+  0: 1,
+  512: 2,
+  768: 3,
+  1024: 4,
+  1280: 5
+};
 
 function applyUpdater<T>(updater: Updater<T>, current: T): T {
   return typeof updater === 'function' ? (updater as (prev: T) => T)(current) : updater;
 }
 
-function calculateColumnSizing(table: Table<any>, containerWidth: number) {
+function calculateColumnSizing(
+  table: Table<any>,
+  containerWidth: number,
+  breakpoints: DataTableColumnBreakpoints = DEFAULT_COLUMN_BREAKPOINTS
+) {
   const updatedColumnSizing: ColumnSizingState = {};
 
   const visibleCenterLeafColumns = table.getCenterLeafColumns().filter((column) => column.getIsVisible());
@@ -33,15 +45,15 @@ function calculateColumnSizing(table: Table<any>, containerWidth: number) {
   const availableCenterSize = containerWidth - nonCenteredColumnsSize;
   let maxCenterColumns: number;
   if (containerWidth < 512) {
-    maxCenterColumns = 1;
+    maxCenterColumns = breakpoints[0];
   } else if (containerWidth < 768) {
-    maxCenterColumns = 2;
+    maxCenterColumns = breakpoints[512];
   } else if (containerWidth < 1024) {
-    maxCenterColumns = 3;
+    maxCenterColumns = breakpoints[768];
   } else if (containerWidth < 1280) {
-    maxCenterColumns = 4;
+    maxCenterColumns = breakpoints[1024];
   } else {
-    maxCenterColumns = 5;
+    maxCenterColumns = breakpoints[1280];
   }
 
   const centerColumnsToDisplay = Math.min(visibleCenterLeafColumns.length, maxCenterColumns);

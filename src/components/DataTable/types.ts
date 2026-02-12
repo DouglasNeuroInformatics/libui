@@ -38,6 +38,14 @@ declare module '@tanstack/table-core' {
   }
 }
 
+export type DataTableColumnBreakpoints = {
+  0: number;
+  512: number;
+  768: number;
+  1024: number;
+  1280: number;
+};
+
 export type DataTableInitialState = {
   columnFilters?: ColumnFiltersState;
   columnPinning?: ColumnPinningState;
@@ -85,6 +93,7 @@ export type DataTableStore = {
 };
 
 export type DataTableStoreParams<T extends RowData> = {
+  columnBreakpoints?: DataTableColumnBreakpoints;
   columns: ColumnDef<NoInfer<T>>[];
   data: T[];
   initialState?: DataTableInitialState;
