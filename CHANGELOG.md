@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.0.0...v6.1.0) (2026-02-12)
+
+### Features
+
+* add columnBreakpoints option to DataTable ([a06a24a](https://github.com/DouglasNeuroInformatics/libui/commit/a06a24ae39110e3f88beedb7f421ebc458ec877d))
+* add onRowClick option to DataTable ([0b6d221](https://github.com/DouglasNeuroInformatics/libui/commit/0b6d2217f9baf4b9c8393aa14da8c6663bec33b3))
+
 ## [6.0.0](https://github.com/DouglasNeuroInformatics/libui/compare/v5.0.2...v6.0.0) (2026-01-21)
 
 ### ⚠ BREAKING CHANGES
