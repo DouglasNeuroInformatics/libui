@@ -56,6 +56,7 @@ export type DataTableProps<T extends RowData> = DataTableContentProps<T> & DataT
 
 export type DataTableContentProps<T extends RowData> = {
   emptyStateProps?: Partial<DataTableEmptyStateProps>;
+  onRowClick?: (row: T) => Promisable<void>;
   onSearchChange?: SearchChangeHandler<NoInfer<T>>;
   togglesComponent?: React.FC<{ table: Table<T> }>;
 };

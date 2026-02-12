@@ -1,15 +1,17 @@
 import type React from 'react';
 
 import { useTranslation } from '#hooks';
+import { cn } from '#utils';
 
 import { DataTableEmptyState } from './DataTableEmptyState.tsx';
 import { useDataTableHandle } from './hooks.ts';
 import { flexRender } from './utils.tsx';
 
-import type { DataTableEmptyStateProps } from './DataTableEmptyState.tsx';
+import type { DataTableContentProps } from './types.ts';
 
-export const DataTableBody: React.FC<{ emptyStateProps?: Partial<DataTableEmptyStateProps> }> = ({
-  emptyStateProps
+export const DataTableBody: React.FC<Pick<DataTableContentProps<any>, 'emptyStateProps' | 'onRowClick'>> = ({
+  emptyStateProps,
+  onRowClick
 }) => {
   const rows = useDataTableHandle('rows');
   const { t } = useTranslation();
@@ -33,7 +35,14 @@ export const DataTableBody: React.FC<{ emptyStateProps?: Partial<DataTableEmptyS
         </div>
       ) : (
         rows.map((row) => (
-          <div className="flex border-b last:border-b-0" data-testid="data-table-row" id={row.id} key={row.id}>
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+          <div
+            className={cn('bg-background flex border-b last:border-b-0', onRowClick && 'hover:bg-accent')}
+            data-testid="data-table-row"
+            id={row.id}
+            key={row.id}
+            onClick={onRowClick ? () => void onRowClick(row.original) : undefined}
+          >
             {row.getVisibleCells().map((cell) => {
               const style: React.CSSProperties = {
                 width: `calc(var(--col-${cell.column.id}-size) * 1px)`
@@ -54,11 +63,7 @@ export const DataTableBody: React.FC<{ emptyStateProps?: Partial<DataTableEmptyS
               }
               const content = flexRender(cell.column.columnDef.cell, cell.getContext());
               return (
-                <div
-                  className="bg-background flex items-center border-r px-4 py-2 last:border-r-0"
-                  key={cell.id}
-                  style={style}
-                >
+                <div className="flex items-center border-r px-4 py-2 last:border-r-0" key={cell.id} style={style}>
                   {content && typeof content === 'object' ? content : <span className="block truncate">{content}</span>}
                 </div>
               );
