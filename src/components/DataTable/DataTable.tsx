@@ -10,6 +10,7 @@ import type { DataTableProps } from './types.ts';
 
 export const DataTable = <T extends RowData>({
   emptyStateProps,
+  onRowClick,
   onSearchChange,
   togglesComponent,
   ...props
@@ -26,6 +27,7 @@ export const DataTable = <T extends RowData>({
       <DataTableContent
         emptyStateProps={emptyStateProps}
         togglesComponent={togglesComponent}
+        onRowClick={onRowClick}
         onSearchChange={onSearchChange}
       />
     </DataTableContext.Provider>
