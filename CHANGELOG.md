@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.0...v6.1.1) (2026-02-18)
+
+### Bug Fixes
+
+* add warning if multiple translators exist ([f0dfea2](https://github.com/DouglasNeuroInformatics/libui/commit/f0dfea29791deb5229cd5c0648227e7be5eb8d76))
+
 ## [6.1.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.0.0...v6.1.0) (2026-02-12)
 
 ### Features
