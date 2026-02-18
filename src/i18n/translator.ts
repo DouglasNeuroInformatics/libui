@@ -50,6 +50,25 @@ export class Translator implements TranslatorType<TranslationKey> {
       languageChange: new Set()
     };
     this.#resolvedLanguage = null!;
+
+    const globalKey = '__LIBUI_TRANSLATOR_INSTANCES__';
+    const globalObj = globalThis as { [globalKey]?: Translator[] } & typeof window;
+
+    globalObj[globalKey] ??= [];
+    globalObj[globalKey].push(this);
+
+    if (globalObj[globalKey].length > 0) {
+      console.warn(`WARNING: Multiple Translator instances detected (existing: ${globalObj[globalKey].length})`);
+
+      // Check if prototypes are the same (can occur if multiple library versions are loaded)
+      const differentPrototype = globalObj[globalKey].some((inst) => {
+        return Object.getPrototypeOf(inst) !== Object.getPrototypeOf(this);
+      });
+
+      if (differentPrototype) {
+        console.warn('WARNING: Detected different prototypes for Translator instances.');
+      }
+    }
   }
 
   get isInitialized() {
