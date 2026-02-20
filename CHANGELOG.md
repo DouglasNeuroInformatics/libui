@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.1.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.1...v6.1.2) (2026-02-20)
+
+### Bug Fixes
+
+* typo ([eec80eb](https://github.com/DouglasNeuroInformatics/libui/commit/eec80eb402d687161c60c024c5f7cb079599f4a9))
+
 ## [6.1.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.0...v6.1.1) (2026-02-18)
 
 ### Bug Fixes
