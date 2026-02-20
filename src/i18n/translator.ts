@@ -57,7 +57,7 @@ export class Translator implements TranslatorType<TranslationKey> {
     globalObj[globalKey] ??= [];
     globalObj[globalKey].push(this);
 
-    if (globalObj[globalKey].length > 0) {
+    if (globalObj[globalKey].length > 1) {
       console.warn(`WARNING: Multiple Translator instances detected (existing: ${globalObj[globalKey].length})`);
 
       // Check if prototypes are the same (can occur if multiple library versions are loaded)
