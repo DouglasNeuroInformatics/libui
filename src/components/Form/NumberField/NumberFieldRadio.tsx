@@ -39,16 +39,16 @@ export const NumberFieldRadio = ({
           .map((val) => parseInt(val))
           .toSorted((a, b) => a - b)
           .map((val) => {
-            const text = (disableAutoPrefix ? '' : `${val} - `) + options[val];
             return (
-              <div className="flex items-center gap-2" key={val}>
+              <div className="flex items-center gap-6" key={val}>
                 <RadioGroup.Item disabled={disabled || readOnly} id={`${name}-${val}`} value={val.toString()} />
                 <Label
                   aria-disabled={disabled || readOnly}
-                  className="text-muted-foreground font-normal"
+                  className="text-muted-foreground flex items-center font-normal"
                   htmlFor={`${name}-${val}`}
                 >
-                  {text}
+                  {!disableAutoPrefix && <span className="whitespace-nowrap">{val}&nbsp;-&nbsp;</span>}
+                  <span>{options[val]}</span>
                 </Label>
               </div>
             );
