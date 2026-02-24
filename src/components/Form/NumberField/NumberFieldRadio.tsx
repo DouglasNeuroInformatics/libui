@@ -2,7 +2,6 @@ import type { NumberFormField } from '@douglasneuroinformatics/libui-form-types'
 import type { Simplify } from 'type-fest';
 
 import { Label, RadioGroup } from '#components';
-import { cn } from '#utils';
 
 import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 
@@ -24,8 +23,6 @@ export const NumberFieldRadio = ({
   setValue,
   value
 }: NumberFieldRadioProps) => {
-  const optionsCount = Object.keys(options).length;
-
   return (
     <FieldGroup name={name}>
       <FieldGroup.Row>
@@ -33,10 +30,7 @@ export const NumberFieldRadio = ({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <RadioGroup
-        className={cn(
-          'flex',
-          optionsCount > 5 ? 'flex-col' : 'flex-col @3xl:flex-row @3xl:items-center @3xl:justify-between'
-        )}
+        className="flex gap-2"
         name={name}
         value={value?.toString() ?? ''}
         onValueChange={(value) => setValue(parseInt(value))}
