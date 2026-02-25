@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.3](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.2...v6.1.3) (2026-02-25)
+
+### Bug Fixes
+
+* automatically determine whether number radio field should be vertical or horizontal layout ([429bf60](https://github.com/DouglasNeuroInformatics/libui/commit/429bf60aae2e98fdaeea9c1fe4be93175b4c8b6a))
+* update number field radio overflow styles ([927824f](https://github.com/DouglasNeuroInformatics/libui/commit/927824f6fff1906c75c4a7de201e8a333bd1a6b9))
+
 ## [6.1.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.1...v6.1.2) (2026-02-20)
 
 ### Bug Fixes
