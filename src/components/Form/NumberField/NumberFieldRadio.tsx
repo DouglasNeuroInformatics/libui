@@ -27,7 +27,6 @@ export const NumberFieldRadio = ({
 }: NumberFieldRadioProps) => {
   const radioGroupRef = useRef<HTMLDivElement>(null);
   const [isColumnLayout, setIsColumnLayout] = useState<boolean>(false);
-  const isColumnLayoutRef = useRef(isColumnLayout);
 
   const optionsCount = Object.keys(options).length;
 
@@ -36,9 +35,8 @@ export const NumberFieldRadio = ({
       const { width: rootWidth } = entry!.target.getBoundingClientRect();
       const children = Array.from(entry!.target.children);
       const totalChildWidth = children.reduce((sum, child) => sum + child.scrollWidth, 0);
-      const isOverflowing = totalChildWidth > rootWidth - children.length * 24; // to provide spacing between items
+      const isOverflowing = totalChildWidth > rootWidth - children.length * 24; // to additional provide spacing between items
       setIsColumnLayout(isOverflowing);
-      isColumnLayoutRef.current = isOverflowing;
     });
     if (radioGroupRef.current) {
       observer.observe(radioGroupRef.current);
@@ -60,7 +58,7 @@ export const NumberFieldRadio = ({
           gridTemplateColumns: isColumnLayout ? 'repeat(1, 1fr)' : `repeat(${optionsCount}, auto)`
         }}
         value={value?.toString() ?? ''}
-        onValueChange={(value) => setValue(parseInt(value))}
+        onValueChange={(value) => setValue(parseInt(value, 10))}
       >
         {Object.keys(options)
           .map((val) => parseInt(val))
