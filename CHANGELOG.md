@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.3...v6.2.0) (2026-02-26)
+
+### Features
+
+* add onRowDoubleClick function to data table props ([c4c23c6](https://github.com/DouglasNeuroInformatics/libui/commit/c4c23c6bd838504806dca242d7efd94fb13a158e))
+* add rowDoubleClick method to datatablebody and add functionality to stories ([05b8cc6](https://github.com/DouglasNeuroInformatics/libui/commit/05b8cc67eb803b193f4ccd1d2d65389ad47f5678))
+* add the onRowDoubleClick to the datatable and content definitions ([cfc9b0f](https://github.com/DouglasNeuroInformatics/libui/commit/cfc9b0f9a41ab08fbd3dde55e6be842867893ece))
+
 ## [6.1.3](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.2...v6.1.3) (2026-02-25)
 
 ### Bug Fixes
