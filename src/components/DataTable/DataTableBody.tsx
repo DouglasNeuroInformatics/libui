@@ -9,10 +9,9 @@ import { flexRender } from './utils.tsx';
 
 import type { DataTableContentProps } from './types.ts';
 
-export const DataTableBody: React.FC<Pick<DataTableContentProps<any>, 'emptyStateProps' | 'onRowClick'>> = ({
-  emptyStateProps,
-  onRowClick
-}) => {
+export const DataTableBody: React.FC<
+  Pick<DataTableContentProps<any>, 'emptyStateProps' | 'onRowClick' | 'onRowDoubleClick'>
+> = ({ emptyStateProps, onRowClick, onRowDoubleClick }) => {
   const rows = useDataTableHandle('rows');
   const { t } = useTranslation();
 
@@ -42,6 +41,7 @@ export const DataTableBody: React.FC<Pick<DataTableContentProps<any>, 'emptyStat
             id={row.id}
             key={row.id}
             onClick={onRowClick ? () => void onRowClick(row.original) : undefined}
+            onDoubleClick={onRowDoubleClick ? () => void onRowDoubleClick(row.original) : undefined}
           >
             {row.getVisibleCells().map((cell) => {
               const style: React.CSSProperties = {
