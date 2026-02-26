@@ -129,7 +129,10 @@ export const Default: Story = {
           <Story
             args={{
               columns,
-              data: tableData
+              data: tableData,
+              onRowDoubleClick(row) {
+                alert(`row with email ${row.email} double clicked`);
+              }
             }}
           />
           <div className="fixed bottom-0 py-2">
@@ -157,6 +160,9 @@ export const WithActions: Story = {
       }
     ],
     data: createData(100).map((payment) => ({ ...payment, notes: faker.lorem.paragraph() })),
+    onRowDoubleClick(row) {
+      alert(`row with email ${row.email} double clicked`);
+    },
     onSearchChange: () => {
       return;
     },
@@ -239,6 +245,9 @@ export const Grouped: Story = {
       }
     ],
     data: createData(100),
+    onRowDoubleClick(row) {
+      alert(`row with ID ${row.id} double clicked`);
+    },
     onSearchChange: () => {
       return;
     }
