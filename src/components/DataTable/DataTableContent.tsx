@@ -12,6 +12,7 @@ import type { DataTableContentProps } from './types.ts';
 export const DataTableContent = <T extends RowData>({
   emptyStateProps,
   onRowClick,
+  onRowDoubleClick,
   onSearchChange,
   togglesComponent
 }: DataTableContentProps<T>) => {
@@ -28,7 +29,11 @@ export const DataTableContent = <T extends RowData>({
       <div className="relative w-full overflow-auto rounded-md border" ref={containerRef}>
         <div className="flex min-w-full flex-col text-sm tracking-tight" style={style}>
           <DataTableHead />
-          <DataTableBody emptyStateProps={emptyStateProps} onRowClick={onRowClick} />
+          <DataTableBody
+            emptyStateProps={emptyStateProps}
+            onRowClick={onRowClick}
+            onRowDoubleClick={onRowDoubleClick}
+          />
         </div>
       </div>
       <DataTablePagination />
