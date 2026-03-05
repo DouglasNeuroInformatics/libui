@@ -44,7 +44,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
               {label.charAt(0).toUpperCase()}
             </div>
           ))}
-          <div style={{ gridColumn: `span ${firstDay} / span ${firstDay}` }} />
+          {firstDay > 0 && <div style={{ gridColumn: `span ${firstDay} / span ${firstDay}` }} />}
           {days.map((day) => (
             <button
               className="dark:hover:bg-extra-muted flex h-8 w-8 items-center justify-center rounded-md hover:bg-slate-200 dark:hover:bg-slate-700"
