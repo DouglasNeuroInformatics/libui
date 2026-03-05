@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.2.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.2.0...v6.2.1) (2026-03-05)
+
+### Bug Fixes
+
+* issue where days of week in calendar are misaligned when month starts on Sunday ([50c4c34](https://github.com/DouglasNeuroInformatics/libui/commit/50c4c3474c722965988bb78bbd04d036fe948f28))
+
 ## [6.2.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.1.3...v6.2.0) (2026-02-26)
 
 ### Features
