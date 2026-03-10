@@ -8,12 +8,14 @@ type Story = StoryObj<typeof InputGroup>;
 export default {
   args: {
     children: (
-      <InputGroup>
-        <InputGroupInput placeholder="Search..." />
-        <InputGroupAddon>
-          <SearchIcon />
-        </InputGroupAddon>
-      </InputGroup>
+      <>
+        <InputGroup>
+          <InputGroupInput placeholder="Search..." />
+          <InputGroupAddon>
+            <SearchIcon />
+          </InputGroupAddon>
+        </InputGroup>
+      </>
     )
   },
   component: InputGroup,
