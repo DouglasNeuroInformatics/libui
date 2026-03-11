@@ -16,15 +16,19 @@ const ComboboxValue = ({ ...props }: ComboboxPrimitive.Value.Props) => {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />;
 };
 
-const ComboboxTrigger = ({ children, className, ...props }: ComboboxPrimitive.Trigger.Props) => {
+const ComboboxTrigger = ({ children, className, render, ...props }: ComboboxPrimitive.Trigger.Props) => {
   return (
     <ComboboxPrimitive.Trigger
       className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
       data-slot="combobox-trigger"
+      render={render} // This allows it to "become" the InputGroupButton
       {...props}
     >
       {children}
-      <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4" />
+      {/* We move the icon here so it's always included, 
+         unless you prefer passing it as children manually. 
+      */}
+      {!render && <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4" />}
     </ComboboxPrimitive.Trigger>
   );
 };
@@ -60,13 +64,19 @@ const ComboboxInput = ({
       <ComboboxPrimitive.Input render={<InputGroupInput disabled={disabled} />} {...props} />
       <InputGroupAddon align="inline-end">
         {showTrigger && (
-          <InputGroupButton
-            className="group-has-data-[slot=combobox-clear]/input-group:hidden data-pressed:bg-transparent"
-            data-slot="input-group-button"
+          <ComboboxTrigger
             disabled={disabled}
-            render={<ComboboxTrigger />}
-            size="icon-xs"
-            variant="ghost"
+            /* Now this works because ComboboxTrigger is expecting 'render' */
+            render={
+              <InputGroupButton
+                className="group-has-data-[slot=combobox-clear]/input-group:hidden data-pressed:bg-transparent"
+                data-slot="input-group-button"
+                size="icon-xs"
+                variant="ghost"
+              >
+                <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4" />
+              </InputGroupButton>
+            }
           />
         )}
         {showClear && <ComboboxClear disabled={disabled} />}
