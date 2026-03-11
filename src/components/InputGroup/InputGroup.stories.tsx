@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SearchIcon } from 'lucide-react';
 
-import { InputGroup, InputGroupAddon, InputGroupInput } from './InputGroup.tsx';
+import { InputGroup } from './InputGroup.tsx';
+import { InputGroupAddon } from './InputGroupAddon.tsx';
+import { InputGroupInput } from './InputGroupInput.tsx';
 
 type Story = StoryObj<typeof InputGroup>;
 

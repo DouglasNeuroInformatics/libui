@@ -8,7 +8,10 @@ import { CheckIcon, ChevronDownIcon, XIcon } from 'lucide-react';
 import { cn } from '#utils';
 
 import { Button } from '../Button/Button.tsx';
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '../InputGroup/InputGroup.tsx';
+import { InputGroup } from '../InputGroup/InputGroup.tsx';
+import { InputGroupAddon } from '../InputGroup/InputGroupAddon.tsx';
+import { InputGroupButton } from '../InputGroup/InputGroupButton.tsx';
+import { InputGroupInput } from '../InputGroup/InputGroupInput.tsx';
 
 const Combobox = ComboboxPrimitive.Root;
 
