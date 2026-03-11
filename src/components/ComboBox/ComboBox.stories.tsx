@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from './ComboBox.tsx';
+import { Combobox } from './ComboBox.tsx';
+import { ComboboxContent } from './ComboBoxContent.tsx';
+import { ComboboxEmpty } from './ComboBoxEmpty.tsx';
+import { ComboboxInput } from './ComboBoxInput.tsx';
+import { ComboboxItem } from './ComboBoxItem.tsx';
+import { ComboboxList } from './ComboBoxList.tsx';
 
 type Story = StoryObj<typeof Combobox>;
 
