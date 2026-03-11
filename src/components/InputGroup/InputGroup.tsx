@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 
 import { cva } from 'class-variance-authority';
@@ -43,6 +41,7 @@ const inputGroupAddonVariants = cva(
   }
 );
 
+//ensure that Group encapsulates the input and the addon
 const InputGroupAddon = ({
   align = 'inline-start',
   className,
