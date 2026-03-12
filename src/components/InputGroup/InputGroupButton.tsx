@@ -21,6 +21,13 @@ const inputGroupButtonVariants = cva('gap-2 text-sm flex items-center shadow-non
   }
 });
 
+const buttonSizeMap = {
+  'icon-sm': 'icon',
+  'icon-xs': 'icon',
+  sm: 'sm',
+  xs: 'sm'
+} as const;
+
 const InputGroupButton = ({
   className,
   size = 'xs',
@@ -32,6 +39,7 @@ const InputGroupButton = ({
     <Button
       className={cn(inputGroupButtonVariants({ size }), className)}
       data-size={size}
+      size={buttonSizeMap[size ?? 'xs']}
       type={type}
       variant={variant}
       {...props}
