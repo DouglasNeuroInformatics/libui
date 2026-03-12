@@ -1,36 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Combobox } from './ComboBox.tsx';
-import { ComboboxContent } from './ComboBoxContent.tsx';
-import { ComboboxEmpty } from './ComboBoxEmpty.tsx';
-import { ComboboxInput } from './ComboBoxInput.tsx';
-import { ComboboxItem } from './ComboBoxItem.tsx';
-import { ComboboxList } from './ComboBoxList.tsx';
+import { ComboBox } from './ComboBox.tsx';
 
-type Story = StoryObj<typeof Combobox>;
+type Story = StoryObj<typeof ComboBox>;
 
 const frameworks: string[] = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'];
 
 export default {
   args: {
     children: (
-      <Combobox items={frameworks}>
-        <ComboboxInput placeholder="Select a framework" />
-        <ComboboxContent>
-          <ComboboxEmpty>No items found.</ComboboxEmpty>
-          <ComboboxList>
+      <ComboBox items={frameworks}>
+        <ComboBox.Input placeholder="Select a framework" />
+        <ComboBox.Content>
+          <ComboBox.Empty>No items found.</ComboBox.Empty>
+          <ComboBox.List>
             {(item: string) => (
-              <ComboboxItem key={item} value={item}>
+              <ComboBox.Item key={item} value={item}>
                 {item}
-              </ComboboxItem>
+              </ComboBox.Item>
             )}
-          </ComboboxList>
-        </ComboboxContent>
-      </Combobox>
+          </ComboBox.List>
+        </ComboBox.Content>
+      </ComboBox>
     )
   },
-  component: Combobox,
+  component: ComboBox,
   tags: ['autodocs']
-} as Meta<typeof Combobox>;
+} as Meta<typeof ComboBox>;
 
 export const Default: Story = {};
