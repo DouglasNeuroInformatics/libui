@@ -13,6 +13,7 @@ import { ComboboxCollection } from './ComboBoxCollection.tsx';
 import { ComboboxEmpty } from './ComboBoxEmpty.tsx';
 import { ComboboxInput } from './ComboBoxInput.tsx';
 import { ComboboxSeparator } from './ComboBoxSeparator.tsx';
+import { ComboboxValue } from './ComboBoxValue.tsx';
 
 function useComboboxAnchor() {
   return React.useRef<HTMLDivElement | null>(null);
@@ -33,5 +34,6 @@ export const ComboBox = Object.assign(ComboboxPrimitive.Root.bind(null), {
   List: ComboboxList,
   Label: ComboboxLabel,
   Separator: ComboboxSeparator,
-  Trigger: ComboboxTrigger
+  Trigger: ComboboxTrigger,
+  Value: ComboboxValue
 });
