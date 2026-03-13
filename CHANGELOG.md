@@ -1,5 +1,24 @@
 # Changelog
 
+## [6.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.2.1...v6.3.0) (2026-03-13)
+
+### Features
+
+* add combobox component and story ([0ed5367](https://github.com/DouglasNeuroInformatics/libui/commit/0ed536775e71fce55db9886b364f92f28c255035))
+* add input group component ([9ad4480](https://github.com/DouglasNeuroInformatics/libui/commit/9ad4480103eae2890a07e8d56311984e3d0e593c))
+* add pakages for combo box and input group ([e1e5526](https://github.com/DouglasNeuroInformatics/libui/commit/e1e552670064c7a4b0ba631d0a47ecf51e8e805d))
+* add story for input group ([2c5e1ec](https://github.com/DouglasNeuroInformatics/libui/commit/2c5e1ec823501afd94fae37308124f205cb37900))
+* format inputGroup story ([df33546](https://github.com/DouglasNeuroInformatics/libui/commit/df33546ec2ce590b4646f3bec9683fef59be9408))
+
+### Bug Fixes
+
+* add code rabbit change to input group button ([eaa1e59](https://github.com/DouglasNeuroInformatics/libui/commit/eaa1e5956e79f4f59e4f87f806fe49fe6f22030d))
+* adjust size of comboBox button ([bfc31d7](https://github.com/DouglasNeuroInformatics/libui/commit/bfc31d7e0dff2a623cd37b690b108cd64e6bf916))
+* fix render type issue ([faf3920](https://github.com/DouglasNeuroInformatics/libui/commit/faf392053ff4f70a5ec246312066910fa40d422e))
+* remove redundant onclick method ([02df77b](https://github.com/DouglasNeuroInformatics/libui/commit/02df77b1a6cc9391d6fdf29e37355e3a46491ca7))
+* separate combobox use hook from object assign export ([d9de35f](https://github.com/DouglasNeuroInformatics/libui/commit/d9de35f3c50bc927fb46102872f483748be6f083))
+* type error in combobox ([b03fb23](https://github.com/DouglasNeuroInformatics/libui/commit/b03fb238aaead3a17a8b2de775afaad5b8090130))
+
 ## [6.2.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.2.0...v6.2.1) (2026-03-05)
 
 ### Bug Fixes
