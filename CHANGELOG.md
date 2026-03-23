@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.0...v6.3.1) (2026-03-23)
+
+### Bug Fixes
+
+* issue with background color of actions column ([bf88543](https://github.com/DouglasNeuroInformatics/libui/commit/bf88543a8d542c80b6f9fdd331cf181d74bb38a5))
+* issue with styling for grouped headers in DataTable ([a4c2aa2](https://github.com/DouglasNeuroInformatics/libui/commit/a4c2aa2d06735f2444ad3456cf38d8cbcc93660c))
+
 ## [6.3.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.2.1...v6.3.0) (2026-03-13)
 
 ### Features
