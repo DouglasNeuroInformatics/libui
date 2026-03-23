@@ -1,3 +1,4 @@
+import { ACTIONS_COLUMN_ID } from './constants.ts';
 import { useDataTableHandle } from './hooks.ts';
 import { flexRender } from './utils.tsx';
 
@@ -24,11 +25,12 @@ export const DataTableHead = () => {
               style.position = 'sticky';
               style.zIndex = 20;
             }
-            // no border with actions on right
-            // TODO - consider resizing toggle in this case
-            if (header.column.getIsLastColumn('center')) {
+
+            const nextHeader = headerGroup.headers[header.index + 1];
+            if (nextHeader?.column.id === ACTIONS_COLUMN_ID) {
               style.borderRight = 'none';
             }
+
             return (
               <div
                 className="group/cell bg-background relative flex items-center border-r border-b px-4 py-2 last:border-r-0"
