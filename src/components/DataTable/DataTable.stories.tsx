@@ -221,35 +221,56 @@ export const Grouped: Story = {
         columns: [
           {
             accessorKey: 'id',
+            enableResizing: false,
             header: 'ID'
           },
           {
             accessorKey: 'status',
+            enableResizing: false,
             header: 'Status'
           }
         ],
+        enableResizing: false,
         header: 'Internal'
       },
       {
         columns: [
           {
             accessorKey: 'email',
+            enableResizing: false,
             header: 'Email'
           },
           {
             accessorKey: 'amount',
+            enableResizing: false,
             header: 'Amount'
           }
         ],
         header: 'Details'
       }
     ],
+
     data: createData(100),
     onRowDoubleClick(row) {
       alert(`row with ID ${row.id} double clicked`);
     },
     onSearchChange: () => {
       return;
-    }
+    },
+    rowActions: [
+      {
+        label: 'Modify',
+        onSelect: () => {
+          alert('Modify');
+        }
+      },
+      {
+        destructive: true,
+        label: 'Delete',
+        onSelect: () => {
+          alert('Delete');
+        }
+      }
+    ]
   }
 };
