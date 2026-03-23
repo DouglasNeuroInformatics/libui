@@ -221,12 +221,10 @@ export const Grouped: Story = {
         columns: [
           {
             accessorKey: 'id',
-            enableResizing: false,
             header: 'ID'
           },
           {
             accessorKey: 'status',
-            enableResizing: false,
             header: 'Status'
           }
         ],
@@ -237,15 +235,14 @@ export const Grouped: Story = {
         columns: [
           {
             accessorKey: 'email',
-            enableResizing: false,
             header: 'Email'
           },
           {
             accessorKey: 'amount',
-            enableResizing: false,
             header: 'Amount'
           }
         ],
+        enableResizing: false,
         header: 'Details'
       }
     ],
