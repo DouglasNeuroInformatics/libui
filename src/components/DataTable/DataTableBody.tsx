@@ -63,7 +63,11 @@ export const DataTableBody: React.FC<
               }
               const content = flexRender(cell.column.columnDef.cell, cell.getContext());
               return (
-                <div className="flex items-center border-r px-4 py-2 last:border-r-0" key={cell.id} style={style}>
+                <div
+                  className="flex items-center border-r bg-inherit px-4 py-2 last:border-r-0"
+                  key={cell.id}
+                  style={style}
+                >
                   {content && typeof content === 'object' ? content : <span className="block truncate">{content}</span>}
                 </div>
               );
