@@ -228,6 +228,7 @@ export const Grouped: Story = {
             header: 'Status'
           }
         ],
+        enableResizing: false,
         header: 'Internal'
       },
       {
@@ -241,15 +242,32 @@ export const Grouped: Story = {
             header: 'Amount'
           }
         ],
+        enableResizing: false,
         header: 'Details'
       }
     ],
+
     data: createData(100),
     onRowDoubleClick(row) {
       alert(`row with ID ${row.id} double clicked`);
     },
     onSearchChange: () => {
       return;
-    }
+    },
+    rowActions: [
+      {
+        label: 'Modify',
+        onSelect: () => {
+          alert('Modify');
+        }
+      },
+      {
+        destructive: true,
+        label: 'Delete',
+        onSelect: () => {
+          alert('Delete');
+        }
+      }
+    ]
   }
 };
