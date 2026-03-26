@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.3.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.1...v6.3.2) (2026-03-26)
+
+### Bug Fixes
+
+* update lucide-react to v1 ([39337fc](https://github.com/DouglasNeuroInformatics/libui/commit/39337fc018a5eb03e8f9a4e718690e559fe6fcc7))
+
 ## [6.3.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.0...v6.3.1) (2026-03-23)
 
 ### Bug Fixes
