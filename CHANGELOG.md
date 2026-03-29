@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.3.3](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.2...v6.3.3) (2026-03-29)
+
+### Bug Fixes
+
+* issue where data table layout is broken with both pinned columns and actions ([53faaba](https://github.com/DouglasNeuroInformatics/libui/commit/53faaba21dbc55464508d49ef0a68e41c61a18ff))
+
 ## [6.3.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.1...v6.3.2) (2026-03-26)
 
 ### Bug Fixes
