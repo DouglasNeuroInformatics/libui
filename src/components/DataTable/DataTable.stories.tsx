@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { ColumnDef } from '@tanstack/table-core';
@@ -15,6 +16,7 @@ type PaymentStatus = 'failed' | 'pending' | 'processing' | 'success';
 
 type Payment = {
   amount: number;
+  date: Date;
   email: string;
   id: string;
   status: PaymentStatus;
@@ -46,6 +48,7 @@ const statuses: readonly PaymentStatus[] = Object.freeze(['failed', 'pending', '
 const createData = (n: number): Payment[] => {
   return range(n).map((i) => ({
     amount: faker.number.int({ max: 100, min: 0 }),
+    date: faker.date.recent(),
     email: faker.internet.email(),
     id: String(i + 1),
     status: faker.helpers.arrayElement(statuses)
@@ -218,6 +221,11 @@ export const Grouped: Story = {
   args: {
     columns: [
       {
+        accessorFn: (row) => toBasicISOString(row.date),
+        header: 'Date',
+        id: 'date'
+      },
+      {
         columns: [
           {
             accessorKey: 'id',
@@ -229,7 +237,10 @@ export const Grouped: Story = {
           }
         ],
         enableResizing: false,
-        header: 'Internal'
+        header: 'Internal',
+        meta: {
+          centered: true
+        }
       },
       {
         columns: [
@@ -243,11 +254,18 @@ export const Grouped: Story = {
           }
         ],
         enableResizing: false,
-        header: 'Details'
+        header: 'Details',
+        meta: {
+          centered: true
+        }
       }
     ],
-
     data: createData(100),
+    initialState: {
+      columnPinning: {
+        left: ['date']
+      }
+    },
     onRowDoubleClick(row) {
       alert(`row with ID ${row.id} double clicked`);
     },
