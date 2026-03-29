@@ -130,8 +130,10 @@ function getTanstackTableState<T>({ initialState, rowActions }: DataTableStorePa
     sorting
   };
   if (rowActions) {
-    state.columnPinning.right ??= [];
-    state.columnPinning.right.push(ACTIONS_COLUMN_ID);
+    state.columnPinning = {
+      ...state.columnPinning,
+      right: [...(state.columnPinning.right ?? []), ACTIONS_COLUMN_ID]
+    };
   }
   return state;
 }
