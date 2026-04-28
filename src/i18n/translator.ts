@@ -115,7 +115,7 @@ export class Translator implements TranslatorType<TranslationKey> {
   t(target: TranslationKey | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
     let obj: { [key: string]: string };
     if (typeof target === 'string') {
-      obj = (get(this.#config.translations, target) ?? {}) as { [key: string]: string };
+      obj = get(this.#config.translations, target) ?? {};
     } else {
       obj = target;
     }

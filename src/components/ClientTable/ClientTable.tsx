@@ -127,7 +127,7 @@ export const ClientTable = <T extends ClientTableEntry>({
           </Table.Header>
           <Table.Body>
             {range(nRows).map((i) => {
-              const entry = currentEntries[i] as T | undefined;
+              const entry = currentEntries[i];
               const onClick = onEntryClick && entry ? () => onEntryClick(entry) : undefined;
               return (
                 <Table.Row
