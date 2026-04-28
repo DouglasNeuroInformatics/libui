@@ -17,6 +17,7 @@ export type NumberRecordFieldProps<T extends NumberRecordFieldValue = NumberReco
 >;
 
 export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecordFieldValue>({
+  disableAutoPrefix,
   disabled,
   error: recordError,
   items,
@@ -56,6 +57,7 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
           const item = items[name]!;
           return (
             <NumberField
+              disableAutoPrefix={disableAutoPrefix}
               error={recordError?.[name]}
               key={name}
               kind="number"
