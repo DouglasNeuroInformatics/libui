@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.3...v6.4.0) (2026-04-28)
+
+### Features
+
+* add disableAutoPrefix option to number record field ([5d75bd4](https://github.com/DouglasNeuroInformatics/libui/commit/5d75bd45f8e6da1100f48da3f1dccd0a988f2410))
+
 ## [6.3.3](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.2...v6.3.3) (2026-03-29)
 
 ### Bug Fixes
