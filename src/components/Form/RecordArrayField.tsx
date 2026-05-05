@@ -16,6 +16,7 @@ import type { BaseFieldComponentProps } from './types.ts';
 export type RecordArrayFieldProps = Simplify<BaseFieldComponentProps<RecordArrayFieldValue> & RecordArrayFormField>;
 
 export const RecordArrayField = memo(function RecordArrayField({
+  disableAutoSuffix,
   disabled,
   error: arrayError,
   fieldset,
@@ -64,42 +65,48 @@ export const RecordArrayField = memo(function RecordArrayField({
         {label}
       </Heading>
       <div className="flex flex-col gap-6">
-        {arrayValue.map((fields, i) => (
-          <div className="flex flex-col gap-4" key={i}>
-            <Label className="font-semibold italic">{label + ' ' + (i + 1)}</Label>
-            {Object.keys(fields).map((name) => {
-              const field = fieldset[name];
-              const fieldProps = field?.kind === 'dynamic' ? field.render.call(undefined, fields) : field;
-              if (!fieldProps) {
-                return null;
-              }
-              return (
-                <ScalarField
-                  error={arrayError?.[i]?.[name]}
-                  field={{
-                    ...fieldProps,
-                    disabled: disabled || fieldProps.disabled
-                  }}
-                  key={name}
-                  name={name}
-                  readOnly={disabled || readOnly}
-                  setError={(error) => {
-                    const newArrayError = arrayError ? [...arrayError] : [];
-                    newArrayError[i] ??= {};
-                    newArrayError[i][name] = error;
-                    setArrayError(newArrayError);
-                  }}
-                  setValue={(value) => {
-                    const newArrayValue = [...arrayValue];
-                    newArrayValue[i]![name] = value;
-                    setArrayValue(newArrayValue);
-                  }}
-                  value={arrayValue?.[i]?.[name]}
-                />
-              );
-            })}
-          </div>
-        ))}
+        {arrayValue.map((fields, i) => {
+          let itemLabel = label;
+          if (!disableAutoSuffix) {
+            itemLabel += ` ${i + 1}`;
+          }
+          return (
+            <div className="flex flex-col gap-4" key={i}>
+              <Label className="font-semibold italic">{itemLabel}</Label>
+              {Object.keys(fields).map((name) => {
+                const field = fieldset[name];
+                const fieldProps = field?.kind === 'dynamic' ? field.render.call(undefined, fields) : field;
+                if (!fieldProps) {
+                  return null;
+                }
+                return (
+                  <ScalarField
+                    error={arrayError?.[i]?.[name]}
+                    field={{
+                      ...fieldProps,
+                      disabled: disabled || fieldProps.disabled
+                    }}
+                    key={name}
+                    name={name}
+                    readOnly={disabled || readOnly}
+                    setError={(error) => {
+                      const newArrayError = arrayError ? [...arrayError] : [];
+                      newArrayError[i] ??= {};
+                      newArrayError[i][name] = error;
+                      setArrayError(newArrayError);
+                    }}
+                    setValue={(value) => {
+                      const newArrayValue = [...arrayValue];
+                      newArrayValue[i]![name] = value;
+                      setArrayValue(newArrayValue);
+                    }}
+                    value={arrayValue?.[i]?.[name]}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
       <div className="flex gap-3">
         <Button disabled={disabled || readOnly} type="button" variant="outline" onClick={appendField}>
