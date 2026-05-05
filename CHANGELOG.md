@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.4.0...v6.5.0) (2026-05-05)
+
+### Features
+
+* add disableAutoSuffix option to record array ([e8763f7](https://github.com/DouglasNeuroInformatics/libui/commit/e8763f78b9ec10858b77fecdfb631535b076ca40))
+
 ## [6.4.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.3.3...v6.4.0) (2026-04-28)
 
 ### Features
