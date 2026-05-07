@@ -4,7 +4,12 @@ import { sum } from 'lodash-es';
 import { ACTIONS_COLUMN_ID, MEMOIZED_HANDLE_ID } from './constants.ts';
 import { DataTableRowActionCell } from './DataTableRowActionCell.tsx';
 
-import type { DataTableColumnBreakpoints, DataTableStoreParams, MemoizedHandle } from './types.ts';
+import type {
+  AnyDataTableStoreParams,
+  BaseDataTableStoreParams,
+  DataTableColumnBreakpoints,
+  MemoizedHandle
+} from './types.ts';
 
 const DEFAULT_COLUMN_BREAKPOINTS: DataTableColumnBreakpoints = {
   0: 1,
@@ -86,7 +91,10 @@ function flexRender<TProps extends object>(
   return !Comp ? null : isReactComponent<TProps>(Comp) ? <Comp {...props} /> : Comp;
 }
 
-function getColumnsWithActions<T extends RowData>({ columns, rowActions }: DataTableStoreParams<T>): ColumnDef<T>[] {
+function getColumnsWithActions<T extends RowData>({
+  columns,
+  rowActions
+}: BaseDataTableStoreParams<T>): ColumnDef<T>[] {
   if (!rowActions) {
     return columns;
   }
@@ -102,7 +110,7 @@ function getColumnsWithActions<T extends RowData>({ columns, rowActions }: DataT
   ];
 }
 
-function getTanstackTableState<T>({ initialState, rowActions }: DataTableStoreParams<T>): TableState {
+function getTanstackTableState<T>({ initialState, rowActions }: AnyDataTableStoreParams<T>): TableState {
   const { columnFilters = [], columnPinning = {}, sorting = [] } = initialState ?? {};
   const state: TableState = {
     columnFilters,

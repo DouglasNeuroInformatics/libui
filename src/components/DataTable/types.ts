@@ -112,6 +112,7 @@ export type ClientDataTableProps<T extends RowData> = Simplify<
 
 export type ServerDataTableStoreParams<T extends RowData> = Simplify<
   BaseDataTableStoreParams<T> & {
+    initialState?: never;
     onPaginationChange: (state: PaginationState) => void;
     onSortingChange?: (state: SortingState) => void;
     pageCount: number;
