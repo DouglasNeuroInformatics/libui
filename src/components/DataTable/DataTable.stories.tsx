@@ -126,7 +126,7 @@ export default {
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const [tableData, setTableData] = useState(createData(10));
+      const [tableData, setTableData] = useState(createData(100));
       return (
         <div>
           <Story
@@ -142,7 +142,7 @@ export const Default: Story = {
             <button
               className="rounded-md border px-2 py-1.5 text-sm"
               type="button"
-              onClick={() => setTableData(createData(10))}
+              onClick={() => setTableData(createData(100))}
             >
               New Data
             </button>
