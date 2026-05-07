@@ -99,6 +99,7 @@ export type ClientDataTableInitialState = {
 export type ClientDataTableStoreParams<T extends RowData> = Simplify<
   BaseDataTableStoreParams<T> & {
     initialState?: ClientDataTableInitialState;
+    mode?: 'client';
   }
 >;
 
@@ -113,6 +114,7 @@ export type ClientDataTableProps<T extends RowData> = Simplify<
 export type ServerDataTableStoreParams<T extends RowData> = Simplify<
   BaseDataTableStoreParams<T> & {
     initialState?: never;
+    mode: 'server';
     onPaginationChange: (state: PaginationState) => void;
     onSortingChange?: (state: SortingState) => void;
     pageCount: number;
