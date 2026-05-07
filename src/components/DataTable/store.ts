@@ -5,7 +5,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel
 } from '@tanstack/table-core';
-import type { GlobalFilter, TableState, Updater } from '@tanstack/table-core';
+import type { GlobalFilter, TableOptionsResolved, TableState, Updater } from '@tanstack/table-core';
 import { createStore } from 'zustand';
 
 import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
@@ -17,9 +17,9 @@ import {
   getTanstackTableState
 } from './utils.tsx';
 
-import type { DataTableStore, DataTableStoreParams } from './types.ts';
+import type { AnyDataTableStoreParams, DataTableStore } from './types.ts';
 
-export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
+export function createDataTableStore<T>(params: AnyDataTableStoreParams<T>) {
   return createStore<DataTableStore>((set, get) => {
     const _state = getTanstackTableState(params);
 
@@ -67,15 +67,29 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       });
     };
 
+    let modeOptions: Partial<TableOptionsResolved<any>>;
+    if (params.mode === 'server') {
+      modeOptions = {
+        manualFiltering: true,
+        manualPagination: true,
+        manualSorting: true,
+        pageCount: params.pageCount
+      };
+    } else {
+      modeOptions = {
+        getFilteredRowModel: getFilteredRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel()
+      };
+    }
+
     const table = createTable<any>({
+      ...modeOptions,
       columnResizeMode: 'onChange',
       columns: getColumnsWithActions(params),
       data: params.data,
       enableSortingRemoval: false,
       getCoreRowModel: getCoreRowModel(),
-      getFilteredRowModel: getFilteredRowModel(),
-      getPaginationRowModel: getPaginationRowModel(),
-      getSortedRowModel: getSortedRowModel(),
       meta: {
         ...params.meta,
         [ROW_ACTIONS_METADATA_KEY]: params.rowActions,
@@ -128,10 +142,16 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       },
       onPaginationChange: (updaterOrValue) => {
         setTableState('pagination', updaterOrValue);
+        if (params.mode === 'server') {
+          params.onPaginationChange(table.getState().pagination);
+        }
         invalidateHandles();
       },
       onSortingChange: (updaterOrValue) => {
         setTableState('sorting', updaterOrValue);
+        if (params.mode === 'server') {
+          params.onSortingChange?.(table.getState().sorting);
+        }
         invalidateHandles();
       },
       onStateChange: (updaterOrValue) => {
@@ -166,19 +186,48 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       },
       _containerWidth: null,
       _key: Symbol(),
-      reset: (params) => {
+      reset: (updatedParams) => {
         table.setOptions((options) => ({
           ...options,
-          columns: getColumnsWithActions(params),
+          columns: getColumnsWithActions(updatedParams),
           data: params.data,
           meta: {
             ...params.meta,
-            [ROW_ACTIONS_METADATA_KEY]: params.rowActions,
-            [TABLE_NAME_METADATA_KEY]: params.tableName
+            [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+            [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
           },
-          state: getTanstackTableState(params)
+          state: getTanstackTableState(updatedParams)
         }));
         invalidateHandles();
+
+        // if (isServer) {
+        //   const sp = newParams as DataTableServerStoreParams<any>;
+        //   _serverOnPaginationChange = sp.onPaginationChange;
+        //   _serverOnSortingChange = sp.onSortingChange;
+        //   table.setOptions((options) => ({
+        //     ...options,
+        //     columns: getColumnsWithActions(newParams),
+        //     data: newParams.data,
+        //     meta: {
+        //       ...newParams.meta,
+        //       [ROW_ACTIONS_METADATA_KEY]: newParams.rowActions,
+        //       [TABLE_NAME_METADATA_KEY]: newParams.tableName
+        //     },
+        //     pageCount: sp.pageCount
+        //   }));
+        // } else {
+        //   table.setOptions((options) => ({
+        //     ...options,
+        //     columns: getColumnsWithActions(newParams),
+        //     data: newParams.data,
+        //     meta: {
+        //       ...newParams.meta,
+        //       [ROW_ACTIONS_METADATA_KEY]: newParams.rowActions,
+        //       [TABLE_NAME_METADATA_KEY]: newParams.tableName
+        //     },
+        //     state: getTanstackTableState(newParams)
+        //   }));
+        // }
       },
       setContainerWidth: (containerWidth) => {
         set(() => {

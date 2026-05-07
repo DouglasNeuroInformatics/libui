@@ -6,7 +6,7 @@ import { DataTableContext } from './context.ts';
 import { DataTableContent } from './DataTableContent.tsx';
 import { createDataTableStore } from './store.ts';
 
-import type { DataTableProps } from './types.ts';
+import type { AnyDataTableProps } from './types.ts';
 
 export const DataTable = <T extends RowData>({
   emptyStateProps,
@@ -15,7 +15,7 @@ export const DataTable = <T extends RowData>({
   onSearchChange,
   togglesComponent,
   ...props
-}: DataTableProps<T>) => {
+}: AnyDataTableProps<T>) => {
   const storeRef = useRef(createDataTableStore(props));
 
   useEffect(() => {

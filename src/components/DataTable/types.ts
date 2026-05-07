@@ -131,6 +131,8 @@ export type AnyDataTableStoreParams<T extends RowData = any> =
   | ClientDataTableStoreParams<T>
   | ServerDataTableStoreParams<T>;
 
+export type AnyDataTableProps<T extends RowData = any> = ClientDataTableProps<T> | ServerDataTableProps<T>;
+
 export type DataTableStore = {
   $handles: DataTableHandles<{
     headerGroups: HeaderGroup<any>[];
