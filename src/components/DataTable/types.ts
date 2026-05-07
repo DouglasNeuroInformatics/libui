@@ -43,7 +43,7 @@ declare module '@tanstack/table-core' {
  * BASE
  *********************************************************************/
 
-type BaseDataTableStoreParams<T extends RowData> = {
+export type BaseDataTableStoreParams<T extends RowData> = {
   columnBreakpoints?: DataTableColumnBreakpoints;
   columns: ColumnDef<NoInfer<T>>[];
   data: T[];
