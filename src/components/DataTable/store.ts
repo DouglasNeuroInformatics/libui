@@ -5,7 +5,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel
 } from '@tanstack/table-core';
-import type { GlobalFilter, TableState, Updater } from '@tanstack/table-core';
+import type { GlobalFilter, TableOptionsResolved, TableState, Updater } from '@tanstack/table-core';
 import { createStore } from 'zustand';
 
 import { ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
@@ -67,15 +67,33 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       });
     };
 
+    // Mutable refs for server callbacks; updated by reset() as props change so handlers always call the latest version
+    let _serverOnPaginationChange = params.mode === 'server' ? params.onPaginationChange : undefined;
+    let _serverOnSortingChange = params.mode === 'server' ? params.onSortingChange : undefined;
+
+    let modeOptions: Partial<TableOptionsResolved<any>>;
+    if (params.mode === 'server') {
+      modeOptions = {
+        manualFiltering: true,
+        manualPagination: true,
+        manualSorting: true,
+        pageCount: params.pageCount
+      };
+    } else {
+      modeOptions = {
+        getFilteredRowModel: getFilteredRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel()
+      };
+    }
+
     const table = createTable<any>({
+      ...modeOptions,
       columnResizeMode: 'onChange',
       columns: getColumnsWithActions(params),
       data: params.data,
       enableSortingRemoval: false,
       getCoreRowModel: getCoreRowModel(),
-      getFilteredRowModel: getFilteredRowModel(),
-      getPaginationRowModel: getPaginationRowModel(),
-      getSortedRowModel: getSortedRowModel(),
       meta: {
         ...params.meta,
         [ROW_ACTIONS_METADATA_KEY]: params.rowActions,
@@ -128,10 +146,12 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       },
       onPaginationChange: (updaterOrValue) => {
         setTableState('pagination', updaterOrValue);
+        _serverOnPaginationChange?.(table.getState().pagination);
         invalidateHandles();
       },
       onSortingChange: (updaterOrValue) => {
         setTableState('sorting', updaterOrValue);
+        _serverOnSortingChange?.(table.getState().sorting);
         invalidateHandles();
       },
       onStateChange: (updaterOrValue) => {
@@ -166,18 +186,34 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       },
       _containerWidth: null,
       _key: Symbol(),
-      reset: (params) => {
-        table.setOptions((options) => ({
-          ...options,
-          columns: getColumnsWithActions(params),
-          data: params.data,
-          meta: {
-            ...params.meta,
-            [ROW_ACTIONS_METADATA_KEY]: params.rowActions,
-            [TABLE_NAME_METADATA_KEY]: params.tableName
-          },
-          state: getTanstackTableState(params)
-        }));
+      reset: (updatedParams) => {
+        if (updatedParams.mode === 'server') {
+          _serverOnPaginationChange = updatedParams.onPaginationChange;
+          _serverOnSortingChange = updatedParams.onSortingChange;
+          table.setOptions((options) => ({
+            ...options,
+            columns: getColumnsWithActions(updatedParams),
+            data: updatedParams.data,
+            meta: {
+              ...updatedParams.meta,
+              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
+            },
+            pageCount: updatedParams.pageCount
+          }));
+        } else {
+          table.setOptions((options) => ({
+            ...options,
+            columns: getColumnsWithActions(updatedParams),
+            data: updatedParams.data,
+            meta: {
+              ...updatedParams.meta,
+              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
+            },
+            state: getTanstackTableState(updatedParams)
+          }));
+        }
         invalidateHandles();
       },
       setContainerWidth: (containerWidth) => {

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ColumnDef } from '@tanstack/table-core';
+import type { ColumnDef, PaginationState, SortingState } from '@tanstack/table-core';
 import { range } from 'lodash-es';
 import { ChevronDownIcon } from 'lucide-react';
 
@@ -119,14 +119,12 @@ const Toggles = () => {
   );
 };
 
-export default {
-  component: DataTable
-} as Meta<typeof DataTable>;
+export default { component: DataTable } as Meta<typeof DataTable>;
 
 export const Default: Story = {
   decorators: [
     (Story) => {
-      const [tableData, setTableData] = useState(createData(10));
+      const [tableData, setTableData] = useState(createData(100));
       return (
         <div>
           <Story
@@ -142,7 +140,7 @@ export const Default: Story = {
             <button
               className="rounded-md border px-2 py-1.5 text-sm"
               type="button"
-              onClick={() => setTableData(createData(10))}
+              onClick={() => setTableData(createData(100))}
             >
               New Data
             </button>
@@ -288,4 +286,58 @@ export const Grouped: Story = {
       }
     ]
   }
+};
+
+export const Server: Story = {
+  decorators: [
+    (Story) => {
+      const allServerData = useMemo<Payment[]>(() => {
+        return range(100).map((i) => ({
+          amount: faker.number.int({ max: 100, min: 0 }),
+          date: faker.date.recent(),
+          email: faker.internet.email(),
+          id: String(i + 1),
+          status: faker.helpers.arrayElement(statuses)
+        }));
+      }, []);
+
+      const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
+      const [sorting, setSorting] = useState<SortingState>([]);
+
+      const sortedData = useMemo(() => {
+        if (!sorting.length) {
+          return allServerData;
+        }
+        const { desc, id } = sorting[0]!;
+        return [...allServerData].sort((a, b) => {
+          const aVal = a[id as keyof Payment];
+          const bVal = b[id as keyof Payment];
+          if (aVal < bVal) {
+            return desc ? 1 : -1;
+          } else if (aVal > bVal) {
+            return desc ? -1 : 1;
+          }
+          return 0;
+        });
+      }, [allServerData, sorting]);
+
+      const pageData = sortedData.slice(
+        pagination.pageIndex * pagination.pageSize,
+        (pagination.pageIndex + 1) * pagination.pageSize
+      );
+
+      return (
+        <Story
+          args={{
+            columns,
+            data: pageData,
+            mode: 'server',
+            onPaginationChange: setPagination,
+            onSortingChange: setSorting,
+            pageCount: Math.ceil(allServerData.length / pagination.pageSize)
+          }}
+        />
+      );
+    }
+  ]
 };

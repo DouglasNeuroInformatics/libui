@@ -7,13 +7,13 @@ import { useTranslation } from '#hooks';
 import { SearchBar } from '../SearchBar/SearchBar.tsx';
 import { useDataTableHandle, useDataTableStore } from './hooks.ts';
 
-import type { SearchChangeHandler } from './types.ts';
+import type { DataTableSearchChangeHandler } from './types.ts';
 
 export const DataTableControls = <T extends RowData>({
   onSearchChange,
   togglesComponent: Toggles
 }: {
-  onSearchChange?: SearchChangeHandler<T>;
+  onSearchChange?: DataTableSearchChangeHandler<T>;
   togglesComponent?: React.FC<{ table: Table<T> }>;
 }) => {
   const table = useDataTableHandle('table');
