@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.5.0...v6.6.0) (2026-05-08)
+
+### Features
+
+* add server-side pagination mode option to DataTable ([f367388](https://github.com/DouglasNeuroInformatics/libui/commit/f36738811c116ea6edd4ac61225e6980be786d7c))
+
 ## [6.5.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.4.0...v6.5.0) (2026-05-05)
 
 ### Features
