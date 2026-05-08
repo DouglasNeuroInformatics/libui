@@ -36,4 +36,11 @@ export const DataTable = <T extends RowData>({
   );
 };
 
+export type {
+  DataTableColumnBreakpoints,
+  DataTableProps,
+  DataTableRowAction,
+  DataTableSearchChangeHandler
+} from './types.ts';
+
 export * as TanstackTable from '@tanstack/table-core';

@@ -6,13 +6,14 @@ import type {
   ColumnPinningState,
   GlobalFilter,
   HeaderGroup,
+  PaginationState,
   Row,
   RowData,
   SortingState,
   Table,
   TableMeta
 } from '@tanstack/table-core';
-import type { Promisable } from 'type-fest';
+import type { Promisable, Simplify } from 'type-fest';
 
 import type { MEMOIZED_HANDLE_ID, ROW_ACTIONS_METADATA_KEY, TABLE_NAME_METADATA_KEY } from './constants.ts';
 import type { DataTableEmptyStateProps } from './DataTableEmptyState.tsx';
@@ -38,6 +39,19 @@ declare module '@tanstack/table-core' {
   }
 }
 
+/*********************************************************************
+ * BASE
+ *********************************************************************/
+
+export type BaseDataTableStoreParams<T extends RowData> = {
+  columnBreakpoints?: DataTableColumnBreakpoints;
+  columns: ColumnDef<NoInfer<T>>[];
+  data: T[];
+  meta?: TableMeta<NoInfer<T>>;
+  rowActions?: DataTableRowAction<NoInfer<T>>[];
+  tableName?: string;
+};
+
 export type DataTableColumnBreakpoints = {
   0: number;
   512: number;
@@ -46,19 +60,11 @@ export type DataTableColumnBreakpoints = {
   1280: number;
 };
 
-export type DataTableInitialState = {
-  columnFilters?: ColumnFiltersState;
-  columnPinning?: ColumnPinningState;
-  sorting?: SortingState;
-};
-
-export type DataTableProps<T extends RowData> = DataTableContentProps<T> & DataTableStoreParams<T>;
-
 export type DataTableContentProps<T extends RowData> = {
   emptyStateProps?: Partial<DataTableEmptyStateProps>;
   onRowClick?: (row: T) => Promisable<void>;
   onRowDoubleClick?: (row: T) => Promisable<void>;
-  onSearchChange?: SearchChangeHandler<NoInfer<T>>;
+  onSearchChange?: DataTableSearchChangeHandler<NoInfer<T>>;
   togglesComponent?: React.FC<{ table: Table<T> }>;
 };
 
@@ -72,6 +78,60 @@ export type DataTableRowAction<T extends RowData> = {
   label: string;
   onSelect: (row: T, table: Table<T>) => Promisable<void>;
 };
+
+export type DataTableSearchChangeHandler<T = any> = (value: string, table: Table<T>) => void;
+
+export type MemoizedHandle<T extends (...args: any[]) => any> = T & {
+  invalidate(): void;
+  [MEMOIZED_HANDLE_ID]: symbol;
+};
+
+/*********************************************************************
+ * CLIENT
+ *********************************************************************/
+
+export type ClientDataTableInitialState = {
+  columnFilters?: ColumnFiltersState;
+  columnPinning?: ColumnPinningState;
+  sorting?: SortingState;
+};
+
+export type ClientDataTableStoreParams<T extends RowData> = Simplify<
+  BaseDataTableStoreParams<T> & {
+    initialState?: ClientDataTableInitialState;
+    mode?: 'client';
+  }
+>;
+
+export type ClientDataTableProps<T extends RowData> = Simplify<
+  ClientDataTableStoreParams<T> & DataTableContentProps<T>
+>;
+
+/*********************************************************************
+ * SERVER
+ *********************************************************************/
+
+export type ServerDataTableStoreParams<T extends RowData> = Simplify<
+  BaseDataTableStoreParams<T> & {
+    initialState?: never;
+    mode: 'server';
+    onPaginationChange: (state: PaginationState) => void;
+    onSortingChange?: (state: SortingState) => void;
+    pageCount: number;
+  }
+>;
+
+export type ServerDataTableProps<T extends RowData> = DataTableContentProps<T> & ServerDataTableStoreParams<T>;
+
+/*********************************************************************
+ * COMMON
+ *********************************************************************/
+
+export type DataTableStoreParams<T extends RowData = any> =
+  | ClientDataTableStoreParams<T>
+  | ServerDataTableStoreParams<T>;
+
+export type DataTableProps<T extends RowData = any> = ClientDataTableProps<T> | ServerDataTableProps<T>;
 
 export type DataTableStore = {
   $handles: DataTableHandles<{
@@ -87,26 +147,9 @@ export type DataTableStore = {
   }>;
   _containerWidth: null | number;
   _key: symbol;
-  reset: (params: DataTableStoreParams<any>) => void;
+  reset: (params: DataTableStoreParams) => void;
   setContainerWidth: (containerWidth: number) => void;
   setGlobalFilter: (globalFilter: GlobalFilter) => void;
   setPageIndex: (index: number) => void;
   style: React.CSSProperties;
 };
-
-export type DataTableStoreParams<T extends RowData> = {
-  columnBreakpoints?: DataTableColumnBreakpoints;
-  columns: ColumnDef<NoInfer<T>>[];
-  data: T[];
-  initialState?: DataTableInitialState;
-  meta?: TableMeta<NoInfer<T>>;
-  rowActions?: DataTableRowAction<NoInfer<T>>[];
-  tableName?: string;
-};
-
-export type MemoizedHandle<T extends (...args: any[]) => any> = T & {
-  invalidate(): void;
-  [MEMOIZED_HANDLE_ID]: symbol;
-};
-
-export type SearchChangeHandler<T = any> = (value: string, table: Table<T>) => void;
