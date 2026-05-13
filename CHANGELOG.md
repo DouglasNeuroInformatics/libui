@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.7.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.7.0...v6.7.1) (2026-05-13)
+
+### Bug Fixes
+
+* issue where data table internal sizing is not recomputed when columns change ([cda25ad](https://github.com/DouglasNeuroInformatics/libui/commit/cda25ad050797b4b2f22a8816b4d9f13ddaac2c0))
+
 ## [6.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.6.0...v6.7.0) (2026-05-13)
 
 ### Features
