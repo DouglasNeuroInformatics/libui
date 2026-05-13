@@ -61,6 +61,7 @@ export type DataTableColumnBreakpoints = {
 };
 
 export type DataTableContentProps<T extends RowData> = {
+  disableSearch?: boolean;
   emptyStateProps?: Partial<DataTableEmptyStateProps>;
   onRowClick?: (row: T) => Promisable<void>;
   onRowDoubleClick?: (row: T) => Promisable<void>;

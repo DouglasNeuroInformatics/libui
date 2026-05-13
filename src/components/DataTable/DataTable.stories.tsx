@@ -131,6 +131,7 @@ export const Default: Story = {
             args={{
               columns,
               data: tableData,
+              disableSearch: true,
               onRowDoubleClick(row) {
                 alert(`row with email ${row.email} double clicked`);
               }
