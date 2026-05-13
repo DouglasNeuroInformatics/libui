@@ -214,6 +214,8 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
             state: getTanstackTableState(updatedParams)
           }));
         }
+        updateColumnSizing();
+        updateStyle();
         invalidateHandles();
       },
       setContainerWidth: (containerWidth) => {
