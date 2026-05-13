@@ -10,6 +10,7 @@ import { useContainerRef, useDataTableHandle, useDataTableStore } from './hooks.
 import type { DataTableContentProps } from './types.ts';
 
 export const DataTableContent = <T extends RowData>({
+  disableSearch,
   emptyStateProps,
   onRowClick,
   onRowDoubleClick,
@@ -25,7 +26,7 @@ export const DataTableContent = <T extends RowData>({
       data-name={meta[TABLE_NAME_METADATA_KEY]}
       data-testid="data-table"
     >
-      <DataTableControls togglesComponent={togglesComponent} onSearchChange={onSearchChange} />
+      {!disableSearch && <DataTableControls togglesComponent={togglesComponent} onSearchChange={onSearchChange} />}
       <div className="relative w-full overflow-auto rounded-md border" ref={containerRef}>
         <div className="flex min-w-full flex-col text-sm tracking-tight" style={style}>
           <DataTableHead />

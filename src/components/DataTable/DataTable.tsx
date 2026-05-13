@@ -9,6 +9,7 @@ import { createDataTableStore } from './store.ts';
 import type { DataTableProps } from './types.ts';
 
 export const DataTable = <T extends RowData>({
+  disableSearch,
   emptyStateProps,
   onRowClick,
   onRowDoubleClick,
@@ -26,6 +27,7 @@ export const DataTable = <T extends RowData>({
   return (
     <DataTableContext.Provider value={{ store: storeRef.current }}>
       <DataTableContent
+        disableSearch={disableSearch}
         emptyStateProps={emptyStateProps}
         togglesComponent={togglesComponent}
         onRowClick={onRowClick}
