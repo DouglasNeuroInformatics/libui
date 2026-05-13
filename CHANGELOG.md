@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.7.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.6.0...v6.7.0) (2026-05-13)
+
+### Features
+
+* add disableSearch option to DataTable ([8f4b784](https://github.com/DouglasNeuroInformatics/libui/commit/8f4b784de3c38f7b48c08f6eb93fad03ed2eaf66))
+
 ## [6.6.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.5.0...v6.6.0) (2026-05-08)
 
 ### Features
