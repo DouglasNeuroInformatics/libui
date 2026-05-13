@@ -289,6 +289,61 @@ export const Grouped: Story = {
   }
 };
 
+export const RandomColumns: StoryObj<typeof DataTable<{ [key: string]: unknown }>> = {
+  decorators: [
+    (Story) => {
+      const generate = () => {
+        const columnCount = faker.number.int({ max: 5, min: 3 });
+        const generators = [
+          { gen: () => faker.person.fullName(), type: 'name' },
+          { gen: () => faker.internet.email(), type: 'email' },
+          { gen: () => faker.location.city(), type: 'city' },
+          { gen: () => faker.company.name(), type: 'company' },
+          { gen: () => faker.number.int({ max: 1000, min: 0 }), type: 'amount' },
+          { gen: () => faker.commerce.product(), type: 'product' },
+          { gen: () => faker.color.human(), type: 'color' }
+        ];
+        const picked = faker.helpers.arrayElements(generators, columnCount);
+        const randomColumns: ColumnDef<{ [key: string]: unknown }>[] = picked.map(({ type }) => ({
+          accessorKey: type,
+          header: type.charAt(0).toUpperCase() + type.slice(1)
+        }));
+        const randomData = range(50).map(() => {
+          const row: { [key: string]: unknown } = {};
+          for (const { gen, type } of picked) {
+            row[type] = gen();
+          }
+          return row;
+        });
+        return { randomColumns, randomData };
+      };
+
+      const [state, setState] = useState(generate);
+
+      return (
+        <div>
+          <div className="mb-2">
+            <button
+              className="rounded-md border px-2 py-1.5 text-sm"
+              type="button"
+              onClick={() => setState(generate())}
+            >
+              Regenerate Columns & Data
+            </button>
+          </div>
+          <Story
+            args={{
+              columns: state.randomColumns,
+              data: state.randomData,
+              disableSearch: true
+            }}
+          />
+        </div>
+      );
+    }
+  ]
+};
+
 export const Server: Story = {
   decorators: [
     (Story) => {
