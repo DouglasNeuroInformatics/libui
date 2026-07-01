@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.7.1...v6.8.0) (2026-07-01)
+
+### Features
+
+* add combobox field option ([299d051](https://github.com/DouglasNeuroInformatics/libui/commit/299d05134dea49618c24398b721df0ba882429cb))
+
 ## [6.7.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.7.0...v6.7.1) (2026-05-13)
 
 ### Bug Fixes
