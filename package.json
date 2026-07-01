@@ -143,7 +143,7 @@
   "devDependencies": {
     "@douglasneuroinformatics/eslint-config": "^6.0.0",
     "@douglasneuroinformatics/prettier-config": "^0.3.0",
-    "@douglasneuroinformatics/semantic-release": "^0.2.1",
+    "@douglasneuroinformatics/semantic-release": "^0.2.2",
     "@douglasneuroinformatics/tsconfig": "^2.0.0",
     "@faker-js/faker": "^9.6.0",
     "@storybook/addon-docs": "^9.0.6",
