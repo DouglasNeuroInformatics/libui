@@ -14,8 +14,8 @@ importers:
         specifier: ^3.2.1
         version: 3.2.1(neverthrow@8.2.0)(zod@3.25.56)
       '@douglasneuroinformatics/libui-form-types':
-        specifier: ^0.13.0
-        version: 0.13.0
+        specifier: ^0.15.0
+        version: 0.15.0
       '@radix-ui/react-accordion':
         specifier: ^1.2.3
         version: 1.2.11(@types/react-dom@19.1.6(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -487,9 +487,9 @@ packages:
       neverthrow: ^8.2.0
       zod: ^3.25.67 || 4.x
 
-  '@douglasneuroinformatics/libui-form-types@0.13.0':
+  '@douglasneuroinformatics/libui-form-types@0.15.0':
     resolution:
-      { integrity: sha512-56DsMv5yb5aG/NRVGp7BpuW7toUAgp4gfGDhbFTGPHVuGiL/U7+CnvW/BI1Me9NFIBM5bpuU30w4Kgr6xPMwHQ== }
+      { integrity: sha512-ag36tPgh9KxrcZzzc793M5GYyJcTSXXeDR0dZxa4+1Bk3RuDBsePNACKftypZKZFHZxvT8NIokLeRqRoNOquFA== }
 
   '@douglasneuroinformatics/prettier-config@0.3.0':
     resolution:
@@ -6731,7 +6731,7 @@ snapshots:
       type-fest: 4.41.0
       zod: 3.25.56
 
-  '@douglasneuroinformatics/libui-form-types@0.13.0':
+  '@douglasneuroinformatics/libui-form-types@0.15.0':
     dependencies:
       type-fest: 4.41.0
 

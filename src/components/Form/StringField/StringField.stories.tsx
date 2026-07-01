@@ -111,7 +111,34 @@ export const Select: Story = {
               mango: 'Mango'
             },
             setValue,
-            value
+            value,
+            variant: 'select'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const ComboBox: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<string | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Favorite Fruit',
+            name: 'fruit',
+            options: {
+              apple: 'Apple',
+              banana: 'Banana',
+              blueberry: 'Blueberry',
+              mango: 'Mango'
+            },
+            setValue,
+            value,
+            variant: 'combobox'
           }}
         />
       );

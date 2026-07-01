@@ -5,6 +5,7 @@ export * from './Button/Button.tsx';
 export * from './Card/Card.tsx';
 export * from './Checkbox/Checkbox.tsx';
 export * from './ClientTable/ClientTable.tsx';
+export * from './ComboBox/ComboBox.tsx';
 export * from './CopyButton/CopyButton.tsx';
 export * from './DataTable/DataTable.tsx';
 export * from './DatePicker/DatePicker.tsx';

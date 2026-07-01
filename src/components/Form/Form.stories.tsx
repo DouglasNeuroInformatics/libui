@@ -40,6 +40,7 @@ const $ExampleFormData = z.object({
   numberRadio: z.number().min(1).max(5).int().optional(),
   numberSelect: z.number().min(1).max(5).int().optional(),
   stringSelect: z.enum(['a', 'b', 'c']).optional(),
+  stringComboBox: z.enum(['a', 'b', 'c']).optional(),
   setListbox: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   setSelect: z.set(z.enum(['a', 'b', 'c', 'd'])).optional(),
   showDynamicField: z.boolean().optional(),
@@ -158,8 +159,22 @@ const setFields: FormFields<Pick<ExampleFormData, 'setListbox' | 'setSelect'>> =
 };
 
 const stringFields: FormFields<
-  Pick<ExampleFormData, 'stringInput' | 'stringPassword' | 'stringRadio' | 'stringSelect' | 'stringTextArea'>
+  Pick<
+    ExampleFormData,
+    'stringComboBox' | 'stringInput' | 'stringPassword' | 'stringRadio' | 'stringSelect' | 'stringTextArea'
+  >
 > = {
+  stringComboBox: {
+    disabled: DISABLED,
+    kind: 'string',
+    label: 'ComboBox',
+    options: {
+      a: 'Option A',
+      b: 'Option B',
+      c: 'Option C'
+    },
+    variant: 'combobox'
+  },
   stringSelect: {
     disabled: DISABLED,
     kind: 'string',
@@ -428,6 +443,7 @@ export const WithInitialValues: StoryObj<typeof Form> = {
         }
       ],
       stringSelect: 'a',
+      stringComboBox: 'a',
       setListbox: new Set(['a', 'b']),
       setSelect: new Set(['c', 'd']),
       showDynamicField: true,
@@ -471,6 +487,7 @@ export const WithDynamicInitialValues: StoryObj<typeof Form> = {
             numberRadio: 3,
             numberSelect: 4,
             stringSelect: 'a',
+            stringComboBox: 'a',
             setListbox: new Set(['a', 'b']),
             setSelect: new Set(['c', 'd']),
             showDynamicField: true,
