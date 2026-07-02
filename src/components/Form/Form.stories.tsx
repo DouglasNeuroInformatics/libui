@@ -167,7 +167,7 @@ const stringFields: FormFields<
   stringComboBox: {
     disabled: DISABLED,
     kind: 'string',
-    label: 'ComboBox',
+    label: 'Combo Box',
     options: {
       a: 'Option A',
       b: 'Option B',
