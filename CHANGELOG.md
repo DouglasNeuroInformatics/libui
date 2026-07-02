@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.0...v6.8.1) (2026-07-02)
+
+### Bug Fixes
+
+* adjust combobox styles to match other fields ([587af96](https://github.com/DouglasNeuroInformatics/libui/commit/587af96be2170c25d858aac50c9dc9adb2b7c7d9))
+
 ## [6.8.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.7.1...v6.8.0) (2026-07-02)
 
 ### Features
