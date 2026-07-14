@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.1...v6.8.2) (2026-07-14)
+
+### Bug Fixes
+
+* change dropdown menu radio item style ([4f7710f](https://github.com/DouglasNeuroInformatics/libui/commit/4f7710f57dfa77bd947c45d51062a8bb3fa585d9))
+
 ## [6.8.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.0...v6.8.1) (2026-07-02)
 
 ### Bug Fixes
