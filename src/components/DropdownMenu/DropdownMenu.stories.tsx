@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button } from '../Button/Button.tsx';
@@ -73,4 +75,31 @@ export const Default: Story = {
       </div>
     )
   }
+};
+
+export const Radio: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<'a' | 'b'>('a');
+      return (
+        <Story
+          args={{
+            children: (
+              <div className="mx-24">
+                <DropdownMenu.Trigger asChild>
+                  <Button variant="outline">Open</Button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content className="w-56">
+                  <DropdownMenu.RadioGroup value={value} onValueChange={(value) => setValue(value as 'a' | 'b')}>
+                    <DropdownMenu.RadioItem value="a">Apple</DropdownMenu.RadioItem>
+                    <DropdownMenu.RadioItem value="b">Banana</DropdownMenu.RadioItem>
+                  </DropdownMenu.RadioGroup>
+                </DropdownMenu.Content>
+              </div>
+            )
+          }}
+        />
+      );
+    }
+  ]
 };

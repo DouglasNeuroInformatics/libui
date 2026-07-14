@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { CircleIcon } from 'lucide-react';
+import { CheckIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
@@ -20,7 +20,7 @@ export const DropdownMenuRadioItem = forwardRef<
     >
       <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CircleIcon className="h-4 w-4 fill-current" />
+          <CheckIcon />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
