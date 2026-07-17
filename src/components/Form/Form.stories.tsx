@@ -366,6 +366,15 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
         fields: stringFields
       },
       {
+        kind: 'block',
+        render: (data) => (
+          <p className="text-muted-foreground rounded-md border border-dashed p-3 text-sm">
+            This is an arbitrary JSX block inlined between groups. The current value of the string input field is:{' '}
+            <span className="font-medium">{data.stringInput ?? '(empty)'}</span>
+          </p>
+        )
+      },
+      {
         title: 'Dynamic',
         description: `A 'dynamic' field may be used with any data type. For a given data type T, a dynamic field must define a render method that returns either a scalar field for type T, or null to indicate the field should not be shown to the user. The render function receives as its first and only argument the current values in the form, unless it is in the context of a record-array field, in which case it will receive the current value of the fieldset in which it is situated. To optimize performance, a dynamic field must specify an array of dependent fields, a change in which will trigger a rerender of the component.`,
         fields: dynamicFields

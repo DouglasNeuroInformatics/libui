@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import type { ZodErrorLike, ZodTypeLike } from '@douglasneuroinformatics/libjs';
 import type {
@@ -199,31 +199,37 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
     >
       {isSubmitting && <div className="absolute z-10 h-full w-full cursor-wait" />}
       {isGrouped ? (
-        content.map((fieldGroup, i) => {
+        content.map((item, i) => {
           return (
-            <>
-              <div className="flex flex-col gap-6 [&:not(:first-child)]:pt-8" key={i}>
-                <div className="flex flex-col gap-1">
-                  {fieldGroup.title && (
-                    <Heading className="text-base" variant="h4">
-                      {fieldGroup.title}
-                    </Heading>
-                  )}
-                  {fieldGroup.description && (
-                    <p className="text-muted-foreground text-sm leading-tight italic">{fieldGroup.description}</p>
-                  )}
-                </div>
-                <FieldsComponent
-                  errors={errors}
-                  fields={fieldGroup.fields as FormFields<TData>}
-                  readOnly={readOnly}
-                  setErrors={setErrors}
-                  setValues={setValues}
-                  values={values}
-                />
+            <Fragment key={i}>
+              <div className="flex flex-col gap-6 not-first:pt-8">
+                {item.kind === 'block' ? (
+                  item.render(values)
+                ) : (
+                  <Fragment>
+                    <div className="flex flex-col gap-1">
+                      {item.title && (
+                        <Heading className="text-base" variant="h4">
+                          {item.title}
+                        </Heading>
+                      )}
+                      {item.description && (
+                        <p className="text-muted-foreground text-sm leading-tight italic">{item.description}</p>
+                      )}
+                    </div>
+                    <FieldsComponent
+                      errors={errors}
+                      fields={item.fields as FormFields<TData>}
+                      readOnly={readOnly}
+                      setErrors={setErrors}
+                      setValues={setValues}
+                      values={values}
+                    />
+                  </Fragment>
+                )}
               </div>
               <Separator className="mt-8" />
-            </>
+            </Fragment>
           );
         })
       ) : (

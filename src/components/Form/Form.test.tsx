@@ -116,6 +116,62 @@ describe('Form', () => {
     });
   });
 
+  describe('inline block', () => {
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should render arbitrary JSX from a block inlined amongst groups', () => {
+      render(
+        <Form
+          content={[
+            {
+              fields: {
+                name: { kind: 'string', label: 'Name', variant: 'input' }
+              },
+              title: 'Group A'
+            },
+            {
+              kind: 'block',
+              render: () => <div data-testid="inline-block">Hello from a block</div>
+            }
+          ]}
+          data-testid={testid}
+          validationSchema={z.object({ name: z.string() })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      expect(screen.getByTestId('inline-block')).toHaveTextContent('Hello from a block');
+    });
+
+    it('should pass the current form values to the block render function', async () => {
+      render(
+        <Form
+          content={[
+            {
+              fields: {
+                name: { kind: 'string', label: 'Name', variant: 'input' }
+              },
+              title: 'Group A'
+            },
+            {
+              kind: 'block',
+              render: (data) => <div data-testid="inline-block">{data.name ?? '(empty)'}</div>
+            }
+          ]}
+          data-testid={testid}
+          validationSchema={z.object({ name: z.string() })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      expect(screen.getByTestId('inline-block')).toHaveTextContent('(empty)');
+      await userEvent.type(screen.getByLabelText('Name'), 'Jane');
+      expect(screen.getByTestId('inline-block')).toHaveTextContent('Jane');
+    });
+  });
+
   describe('custom onBeforeSubmit error', () => {
     let onBeforeSubmit: Mock;
 
