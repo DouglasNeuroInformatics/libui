@@ -202,7 +202,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
         content.map((fieldGroup, i) => {
           return (
             <>
-              <div className="flex flex-col gap-6 [&:not(:first-child)]:pt-8" key={i}>
+              <div className="flex flex-col gap-6 not-first:pt-8" key={i}>
                 <div className="flex flex-col gap-1">
                   {fieldGroup.title && (
                     <Heading className="text-base" variant="h4">
