@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.2...v6.9.0) (2026-07-17)
+
+### Features
+
+* add blocks to Form ([0ab0c0e](https://github.com/DouglasNeuroInformatics/libui/commit/0ab0c0ef6848ff8c43c1fd8133a6b3cc02c37ca3))
+
 ## [6.8.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.1...v6.8.2) (2026-07-14)
 
 ### Bug Fixes
