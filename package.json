@@ -77,7 +77,7 @@
     "/tailwind.config.d.cts"
   ],
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "scripts": {
     "build": "rm -rf dist && tsc -b tsconfig.build.json && cp -r src/tailwind dist/tailwind",
