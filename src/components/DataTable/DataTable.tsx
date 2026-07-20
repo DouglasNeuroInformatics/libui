@@ -14,6 +14,7 @@ export const DataTable = <T extends RowData>({
   onRowClick,
   onRowDoubleClick,
   onSearchChange,
+  rootStyle,
   togglesComponent,
   ...props
 }: DataTableProps<T>) => {
@@ -29,6 +30,7 @@ export const DataTable = <T extends RowData>({
       <DataTableContent
         disableSearch={disableSearch}
         emptyStateProps={emptyStateProps}
+        rootStyle={rootStyle}
         togglesComponent={togglesComponent}
         onRowClick={onRowClick}
         onRowDoubleClick={onRowDoubleClick}
@@ -41,6 +43,7 @@ export const DataTable = <T extends RowData>({
 export type {
   DataTableColumnBreakpoints,
   DataTableProps,
+  DataTableRootStyle,
   DataTableRowAction,
   DataTableSearchChangeHandler
 } from './types.ts';

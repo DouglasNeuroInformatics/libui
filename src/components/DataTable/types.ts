@@ -60,12 +60,17 @@ export type DataTableColumnBreakpoints = {
   1280: number;
 };
 
+export type DataTableRootStyle = React.CSSProperties & {
+  [property: `--${string}`]: number | string | undefined;
+};
+
 export type DataTableContentProps<T extends RowData> = {
   disableSearch?: boolean;
   emptyStateProps?: Partial<DataTableEmptyStateProps>;
   onRowClick?: (row: T) => Promisable<void>;
   onRowDoubleClick?: (row: T) => Promisable<void>;
   onSearchChange?: DataTableSearchChangeHandler<NoInfer<T>>;
+  rootStyle?: DataTableRootStyle;
   togglesComponent?: React.FC<{ table: Table<T> }>;
 };
 

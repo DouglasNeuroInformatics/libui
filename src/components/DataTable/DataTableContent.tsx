@@ -15,6 +15,7 @@ export const DataTableContent = <T extends RowData>({
   onRowClick,
   onRowDoubleClick,
   onSearchChange,
+  rootStyle,
   togglesComponent
 }: DataTableContentProps<T>) => {
   const containerRef = useContainerRef();
@@ -25,6 +26,7 @@ export const DataTableContent = <T extends RowData>({
       className="bg-background flex w-full flex-col"
       data-name={meta[TABLE_NAME_METADATA_KEY]}
       data-testid="data-table"
+      style={rootStyle}
     >
       {!disableSearch && <DataTableControls togglesComponent={togglesComponent} onSearchChange={onSearchChange} />}
       <div className="relative w-full overflow-auto rounded-md border" ref={containerRef}>
