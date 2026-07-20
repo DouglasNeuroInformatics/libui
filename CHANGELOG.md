@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.0...v6.9.1) (2026-07-20)
+
+### Bug Fixes
+
+* allow passing styles into data table root ([b1a7221](https://github.com/DouglasNeuroInformatics/libui/commit/b1a7221f2c4909a60277833df98d906a52531e73))
+
 ## [6.9.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.8.2...v6.9.0) (2026-07-17)
 
 ### Features
