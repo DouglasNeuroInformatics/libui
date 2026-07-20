@@ -49,6 +49,14 @@ describe('DataTable', () => {
     expect(screen.getByTestId('data-table')).toBeInTheDocument();
     expect(screen.getAllByTestId('data-table-row').length).toBe(10);
   });
+  it('should apply custom styles to the root element', () => {
+    render(
+      <DataTable columns={columns} data={data} rootStyle={{ '--data-table-accent': 'red', backgroundColor: 'blue' }} />
+    );
+    const root = screen.getByTestId('data-table');
+    expect(root).toHaveStyle({ backgroundColor: 'blue' });
+    expect(root.style.getPropertyValue('--data-table-accent')).toBe('red');
+  });
   it('should search', async () => {
     render(<DataTable columns={columns} data={data} />);
     const searchBar = screen.getByTestId('data-table-search-bar').querySelector('input')!;
