@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.9.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.1...v6.9.2) (2026-07-21)
+
+### Bug Fixes
+
+* preserve data table state across prop updates ([976be28](https://github.com/DouglasNeuroInformatics/libui/commit/976be289c9c94cf204d51fc6df631a5a36734d39))
+
 ## [6.9.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.0...v6.9.1) (2026-07-20)
 
 ### Bug Fixes
