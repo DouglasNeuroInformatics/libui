@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import type { RowData, Table } from '@tanstack/table-core';
 
@@ -22,14 +22,22 @@ export const DataTableControls = <T extends RowData>({
 
   const { t } = useTranslation();
 
+  // Held in a ref so that the effect below responds to the search value alone. Call sites normally
+  // write `onSearchChange` inline, so it is a new function on every render; keying the effect on it
+  // replayed the handler on every render of the consumer, and a handler that writes filter state
+  // then reset the table's page via Tanstack's `autoResetPageIndex`.
+  const onSearchChangeRef = useRef(onSearchChange);
+  onSearchChangeRef.current = onSearchChange;
+
   useEffect(() => {
-    if (onSearchChange) {
+    const handleSearchChange = onSearchChangeRef.current;
+    if (handleSearchChange) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      onSearchChange(searchValue, table);
+      handleSearchChange(searchValue, table);
     } else {
       setGlobalFilter(searchValue || undefined);
     }
-  }, [onSearchChange, searchValue]);
+  }, [searchValue]);
 
   return (
     <div className="flex flex-col items-center gap-4 pb-4 md:flex-row">

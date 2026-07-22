@@ -13,6 +13,7 @@ import {
   applyUpdater,
   calculateColumnSizing,
   defineMemoizedHandle,
+  getColumnPinningWithActions,
   getColumnsWithActions,
   getTanstackTableState
 } from './utils.tsx';
@@ -190,30 +191,29 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
         if (updatedParams.mode === 'server') {
           _serverOnPaginationChange = updatedParams.onPaginationChange;
           _serverOnSortingChange = updatedParams.onSortingChange;
-          table.setOptions((options) => ({
-            ...options,
-            columns: getColumnsWithActions(updatedParams),
-            data: updatedParams.data,
-            meta: {
-              ...updatedParams.meta,
-              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
-              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
-            },
-            pageCount: updatedParams.pageCount
-          }));
-        } else {
-          table.setOptions((options) => ({
-            ...options,
-            columns: getColumnsWithActions(updatedParams),
-            data: updatedParams.data,
-            meta: {
-              ...updatedParams.meta,
-              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
-              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
-            },
-            state: getTanstackTableState(updatedParams)
-          }));
         }
+        table.setOptions((options) => ({
+          ...options,
+          columns: getColumnsWithActions(updatedParams),
+          data: updatedParams.data,
+          meta: {
+            ...updatedParams.meta,
+            [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+            [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
+          },
+          ...(updatedParams.mode === 'server' && { pageCount: updatedParams.pageCount })
+        }));
+
+        // `initialState` is applied once, when the store is created. Everything in the live table
+        // state -- pagination, sorting, column filters, the global filter, column sizing -- is
+        // owned by the user, not by props, so rebuilding it here would send them back to page one
+        // (losing their sort and search along with it) every time `data` or `columns` changed
+        // identity. The only piece derived from props is the actions column's pinning, so
+        // reconcile just that.
+        setTableState('columnPinning', (columnPinning) =>
+          getColumnPinningWithActions(columnPinning, updatedParams.rowActions)
+        );
+
         updateColumnSizing();
         updateStyle();
         invalidateHandles();
