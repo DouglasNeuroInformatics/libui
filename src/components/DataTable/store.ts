@@ -13,7 +13,6 @@ import {
   applyUpdater,
   calculateColumnSizing,
   defineMemoizedHandle,
-  getColumnPinningWithActions,
   getColumnsWithActions,
   getTanstackTableState
 } from './utils.tsx';
@@ -188,44 +187,33 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
       _containerWidth: null,
       _key: Symbol(),
       reset: (updatedParams) => {
-        const isServer = updatedParams.mode === 'server';
         if (updatedParams.mode === 'server') {
           _serverOnPaginationChange = updatedParams.onPaginationChange;
           _serverOnSortingChange = updatedParams.onSortingChange;
+          table.setOptions((options) => ({
+            ...options,
+            columns: getColumnsWithActions(updatedParams),
+            data: updatedParams.data,
+            meta: {
+              ...updatedParams.meta,
+              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
+            },
+            pageCount: updatedParams.pageCount
+          }));
+        } else {
+          table.setOptions((options) => ({
+            ...options,
+            columns: getColumnsWithActions(updatedParams),
+            data: updatedParams.data,
+            meta: {
+              ...updatedParams.meta,
+              [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
+              [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
+            },
+            state: getTanstackTableState(updatedParams)
+          }));
         }
-        table.setOptions((options) => ({
-          ...options,
-          columns: getColumnsWithActions(updatedParams),
-          data: updatedParams.data,
-          meta: {
-            ...updatedParams.meta,
-            [ROW_ACTIONS_METADATA_KEY]: updatedParams.rowActions,
-            [TABLE_NAME_METADATA_KEY]: updatedParams.tableName
-          },
-          ...(updatedParams.mode === 'server' && { pageCount: updatedParams.pageCount })
-        }));
-
-        // `initialState` is applied once, when the store is created. Everything in the live table
-        // state -- pagination, sorting, column filters, the global filter, column sizing -- is owned
-        // by the user, not by props, so rebuilding it here would send them back to page one (losing
-        // their sort and search along with it) every time `data` or `columns` changed identity. The
-        // only piece of state derived from props is the actions column's pinning, so reconcile just
-        // that.
-        setTableState('columnPinning', (columnPinning) =>
-          getColumnPinningWithActions(columnPinning, updatedParams.rowActions)
-        );
-
-        // A props update can shrink the data out from under the current page (a consumer applying a
-        // filter, say). Clamp to the last page that still exists rather than resetting to the first,
-        // so the user keeps their place whenever it survives. Server mode owns its own pagination.
-        if (!isServer) {
-          const pageCount = table.getPageCount();
-          const { pageIndex } = table.getState().pagination;
-          if (pageCount > 0 && pageIndex > pageCount - 1) {
-            table.setPageIndex(pageCount - 1);
-          }
-        }
-
         updateColumnSizing();
         updateStyle();
         invalidateHandles();
