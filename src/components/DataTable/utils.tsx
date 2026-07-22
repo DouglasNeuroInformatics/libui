@@ -1,12 +1,4 @@
-import type {
-  ColumnDef,
-  ColumnPinningState,
-  ColumnSizingState,
-  RowData,
-  Table,
-  TableState,
-  Updater
-} from '@tanstack/table-core';
+import type { ColumnDef, ColumnSizingState, RowData, Table, TableState, Updater } from '@tanstack/table-core';
 import { sum } from 'lodash-es';
 
 import { ACTIONS_COLUMN_ID, MEMOIZED_HANDLE_ID } from './constants.ts';
@@ -15,7 +7,6 @@ import { DataTableRowActionCell } from './DataTableRowActionCell.tsx';
 import type {
   BaseDataTableStoreParams,
   DataTableColumnBreakpoints,
-  DataTableRowAction,
   DataTableStoreParams,
   MemoizedHandle
 } from './types.ts';
@@ -119,22 +110,6 @@ function getColumnsWithActions<T extends RowData>({
   ];
 }
 
-/**
- * The given column pinning, with the actions column pinned to the right if (and only if) the table
- * has row actions. Pinning is the one part of the table state derived from props, so it must be
- * reconcilable on a props update without disturbing the rest of the user's pinning.
- */
-function getColumnPinningWithActions<T extends RowData>(
-  columnPinning: ColumnPinningState,
-  rowActions: DataTableRowAction<T>[] | undefined
-): ColumnPinningState {
-  const right = (columnPinning.right ?? []).filter((id) => id !== ACTIONS_COLUMN_ID);
-  return {
-    ...columnPinning,
-    right: rowActions ? [...right, ACTIONS_COLUMN_ID] : right
-  };
-}
-
 function getTanstackTableState<T>({ initialState, rowActions }: DataTableStoreParams<T>): TableState {
   const { columnFilters = [], columnPinning = {}, sorting = [] } = initialState ?? {};
   const state: TableState = {
@@ -162,7 +137,12 @@ function getTanstackTableState<T>({ initialState, rowActions }: DataTableStorePa
     rowSelection: {},
     sorting
   };
-  state.columnPinning = getColumnPinningWithActions(state.columnPinning, rowActions);
+  if (rowActions) {
+    state.columnPinning = {
+      ...state.columnPinning,
+      right: [...(state.columnPinning.right ?? []), ACTIONS_COLUMN_ID]
+    };
+  }
   return state;
 }
 
@@ -175,7 +155,6 @@ export {
   calculateColumnSizing,
   defineMemoizedHandle,
   flexRender,
-  getColumnPinningWithActions,
   getColumnsWithActions,
   getTanstackTableState
 };
