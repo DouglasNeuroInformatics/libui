@@ -2,112 +2,138 @@
   "days": {
     "friday": {
       "en": "Friday",
+      "es": "Viernes",
       "fr": "Vendredi"
     },
     "monday": {
       "en": "Monday",
+      "es": "Lunes",
       "fr": "Lundi"
     },
     "saturday": {
       "en": "Saturday",
+      "es": "Sábado",
       "fr": "Samedi"
     },
     "sunday": {
       "en": "Sunday",
+      "es": "Domingo",
       "fr": "Dimanche"
     },
     "thursday": {
       "en": "Thursday",
+      "es": "Jueves",
       "fr": "Jeudi"
     },
     "tuesday": {
       "en": "Tuesday",
+      "es": "Martes",
       "fr": "Mardi"
     },
     "wednesday": {
       "en": "Wednesday",
+      "es": "Miércoles",
       "fr": "Mercredi"
     }
   },
   "form": {
     "append": {
       "en": "Append",
+      "es": "Agregar",
       "fr": "Ajouter"
     },
     "radioLabels": {
       "false": {
         "en": "False",
+        "es": "Falso",
         "fr": "Faux"
       },
       "true": {
         "en": "True",
+        "es": "Verdadero",
         "fr": "Vrai"
       }
     },
     "remove": {
       "en": "Remove",
+      "es": "Eliminar",
       "fr": "Supprimer"
     },
     "required": {
       "en": "This field is required",
+      "es": "Este campo es obligatorio",
       "fr": "Ce champ est obligatoire"
     },
     "reset": {
       "en": "Reset",
+      "es": "Restablecer",
       "fr": "Réinitialiser"
     },
     "submit": {
       "en": "Submit",
+      "es": "Enviar",
       "fr": "Soumettre"
     }
   },
   "months": {
     "april": {
       "en": "April",
+      "es": "Abril",
       "fr": "Avril"
     },
     "august": {
       "en": "August",
+      "es": "Agosto",
       "fr": "Août"
     },
     "december": {
       "en": "December",
+      "es": "Diciembre",
       "fr": "Décembre"
     },
     "february": {
       "en": "February",
+      "es": "Febrero",
       "fr": "Février"
     },
     "january": {
       "en": "January",
+      "es": "Enero",
       "fr": "Janvier"
     },
     "july": {
       "en": "July",
+      "es": "Julio",
       "fr": "Juillet"
     },
     "june": {
       "en": "June",
+      "es": "Junio",
       "fr": "Juin"
     },
     "march": {
       "en": "March",
+      "es": "Marzo",
       "fr": "Mars"
     },
     "may": {
       "en": "May",
+      "es": "Mayo",
       "fr": "Mai"
     },
     "november": {
       "en": "November",
+      "es": "Noviembre",
       "fr": "Novembre"
     },
     "october": {
       "en": "October",
+      "es": "Octubre",
       "fr": "Octobre"
     },
     "september": {
       "en": "September",
+      "es": "Septiembre",
       "fr": "Septembre"
     }
   },
@@ -115,18 +141,22 @@
     "types": {
       "error": {
         "en": "Error",
+        "es": "Error",
         "fr": "Erreur"
       },
       "info": {
         "en": "Info",
+        "es": "Información",
         "fr": "Attention"
       },
       "success": {
         "en": "Success",
+        "es": "Éxito",
         "fr": "Succès"
       },
       "warning": {
         "en": "Warning",
+        "es": "Advertencia",
         "fr": "Avertissement"
       }
     }
@@ -134,51 +164,62 @@
   "oneTimePasswordInput": {
     "invalidCodeFormat": {
       "en": "Invalid code format",
+      "es": "Formato de código no válido",
       "fr": "Format de code invalide"
     }
   },
   "pagination": {
-    "firstPage": {
-      "en": "<< First",
-      "fr": "<< Première"
-    },
     "first": {
       "en": "First",
+      "es": "Primera",
       "fr": "Première"
+    },
+    "firstPage": {
+      "en": "<< First",
+      "es": "<< Primera",
+      "fr": "<< Première"
     },
     "info": {
       "en": "Showing {{first}} to {{last}} of {{total}} results",
+      "es": "Mostrando {{first}} a {{last}} de {{total}} resultados",
       "fr": "Affichage de {{first}} à {{last}} sur {{total}} résultats"
-    },
-    "lastPage": {
-      "en": "Last >>",
-      "fr": "Dernière >>"
     },
     "last": {
       "en": "Last",
+      "es": "Última",
       "fr": "Dernière"
+    },
+    "lastPage": {
+      "en": "Last >>",
+      "es": "Última >>",
+      "fr": "Dernière >>"
     },
     "next": {
       "en": "Next",
+      "es": "Siguiente",
       "fr": "Suivant"
     },
     "previous": {
       "en": "Previous",
+      "es": "Anterior",
       "fr": "Précédent"
     }
   },
   "searchBar": {
     "placeholder": {
       "en": "Search...",
+      "es": "Buscar...",
       "fr": "Rechercher..."
     }
   },
   "yes": {
     "en": "Yes",
+    "es": "Sí",
     "fr": "Oui"
   },
   "no": {
     "en": "No",
+    "es": "No",
     "fr": "Non"
   }
 }
