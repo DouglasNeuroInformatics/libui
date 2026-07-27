@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.10.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.3...v6.10.0) (2026-07-27)
+
+### Features
+
+* **i18n:** add Spanish as a built-in language ([3d1a112](https://github.com/DouglasNeuroInformatics/libui/commit/3d1a112ca54939aa60d12436910d964098dceb83))
+
 ## [6.9.3](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.2...v6.9.3) (2026-07-22)
 
 ### Bug Fixes
