@@ -19,6 +19,7 @@ export declare namespace UserConfig {
 
 export type LanguageOptions = UserConfig.LanguageOptions & {
   en: true;
+  es: true;
   fr: true;
 };
 

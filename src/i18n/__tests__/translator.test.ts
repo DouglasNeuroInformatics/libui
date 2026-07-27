@@ -54,6 +54,13 @@ describe('Translator', () => {
     expect(translator.t({ en: 'Yes' })).toBe('Yes');
   });
 
+  it('should resolve Spanish translations', () => {
+    translator.changeLanguage('es');
+    expect(translator.resolvedLanguage).toBe('es');
+    expect(translator.t('libui.days.monday')).toBe('Lunes');
+    expect(translator.t({ en: 'Yes', es: 'Sí', fr: 'Oui' })).toBe('Sí');
+  });
+
   it('should return an empty string if no translation is available', () => {
     vi.spyOn(console, 'error').mockImplementationOnce(() => undefined);
     expect(translator.t({})).toBe('');
