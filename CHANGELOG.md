@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.11.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.10.0...v6.11.0) (2026-07-30)
+
+### Features
+
+* add translate feature to form block ([c928006](https://github.com/DouglasNeuroInformatics/libui/commit/c928006015b618eb6e867adf83f83e1de84aef38))
+
 ## [6.10.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.9.3...v6.10.0) (2026-07-27)
 
 ### Features
