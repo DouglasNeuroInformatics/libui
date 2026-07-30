@@ -204,7 +204,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
             <Fragment key={i}>
               <div className="flex flex-col gap-6 not-first:pt-8">
                 {item.kind === 'block' ? (
-                  item.render(values)
+                  item.render(values, { t })
                 ) : (
                   <Fragment>
                     <div className="flex flex-col gap-1">

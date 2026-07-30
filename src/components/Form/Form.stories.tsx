@@ -367,9 +367,11 @@ export const Grouped: StoryObj<typeof Form<ExampleFormSchemaType>> = {
       },
       {
         kind: 'block',
-        render: (data) => (
+        render: (data, { t }) => (
           <p className="text-muted-foreground rounded-md border border-dashed p-3 text-sm">
-            This is an arbitrary JSX block inlined between groups. The current value of the string input field is:{' '}
+            {t({
+              en: 'This is an arbitrary JSX block inlined between groups. The current value of the string input field is:'
+            })}{' '}
             <span className="font-medium">{data.stringInput ?? '(empty)'}</span>
           </p>
         )
