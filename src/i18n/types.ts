@@ -2,12 +2,18 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-namespace */
 
-import type { OmitIndexSignature, Primitive, Simplify } from 'type-fest';
+import type { Merge, OmitIndexSignature, Primitive, Simplify } from 'type-fest';
 
 import type libuiTranslations from './translations/libui.json';
 
 interface TranslationsLike {
   [key: string]: TranslationsLike | { [L in Language]?: string };
+}
+
+interface DefaultLanguageOptions {
+  en: true;
+  es: true;
+  fr: true;
 }
 
 export declare namespace UserConfig {
@@ -17,11 +23,7 @@ export declare namespace UserConfig {
   interface Translations extends TranslationsLike {}
 }
 
-export type LanguageOptions = UserConfig.LanguageOptions & {
-  en: true;
-  es: true;
-  fr: true;
-};
+export type LanguageOptions = OmitIndexSignature<Merge<DefaultLanguageOptions, UserConfig.LanguageOptions>>;
 
 export type Language = keyof { [L in keyof LanguageOptions as LanguageOptions[L] extends true ? L : never]: any };
 
