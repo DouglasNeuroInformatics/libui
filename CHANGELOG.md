@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.11.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.1...v6.11.2) (2026-08-04)
+
+### Bug Fixes
+
+* add explicit type annotation for resolvedLanguage ([3f4ce68](https://github.com/DouglasNeuroInformatics/libui/commit/3f4ce68fdbcb23ec4551a0a1ae88c233d32a96d9))
+
 ## [6.11.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.0...v6.11.1) (2026-08-04)
 
 ### Bug Fixes
