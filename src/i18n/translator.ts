@@ -76,7 +76,7 @@ export class Translator implements TranslatorType<TranslationKey> {
   }
 
   @InitializedOnly
-  get resolvedLanguage() {
+  get resolvedLanguage(): Language {
     return this.#resolvedLanguage;
   }
 
