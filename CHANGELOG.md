@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.11.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.0...v6.11.1) (2026-08-04)
+
+### Bug Fixes
+
+* namespace augmentation for Language ([188f59c](https://github.com/DouglasNeuroInformatics/libui/commit/188f59c582b647d973cf720640c65ef77ad281ee))
+
 ## [6.11.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.10.0...v6.11.0) (2026-07-30)
 
 ### Features
