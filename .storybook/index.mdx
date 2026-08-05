@@ -48,6 +48,14 @@ declare module '@douglasneuroinformatics/libui/i18n' {
 init({ translations: { common } });
 ```
 
+To require that every language be provided, rather than falling back to the default language at runtime, add:
+
+```ts
+export interface Options {
+  requireCompleteTranslations: true;
+}
+```
+
 **main.tsx**
 
 ```js
