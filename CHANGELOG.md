@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.12.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.2...v6.12.0) (2026-08-05)
+
+### Features
+
+* **i18n:** add option to require complete translations ([2e30322](https://github.com/DouglasNeuroInformatics/libui/commit/2e30322aa48bbd333acdbae561101deb3787f5e2))
+
 ## [6.11.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.1...v6.11.2) (2026-08-04)
 
 ### Bug Fixes
