@@ -10,6 +10,7 @@ import type {
   TranslateOptions,
   TranslationKey,
   Translations,
+  TranslationValue,
   TranslatorType
 } from './types.ts';
 
@@ -112,7 +113,7 @@ export class Translator implements TranslatorType<TranslationKey> {
   }
 
   @InitializedOnly
-  t(target: TranslationKey | { [L in Language]?: string }, { args }: TranslateOptions = {}): string {
+  t(target: TranslationKey | TranslationValue, { args }: TranslateOptions = {}): string {
     let obj: { [key: string]: string };
     if (typeof target === 'string') {
       obj = get(this.#config.translations, target) ?? {};
