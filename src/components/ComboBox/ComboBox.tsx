@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { Combobox as ComboboxPrimitive } from '@base-ui/react';
-
 import { ComboboxChip, ComboboxChips, ComboboxChipsInput } from './ComboBoxChips.tsx';
 import { ComboboxClear } from './ComboBoxClear.tsx';
 import { ComboboxCollection } from './ComboBoxCollection.tsx';
@@ -12,6 +10,7 @@ import { ComboboxInput } from './ComboBoxInput.tsx';
 import { ComboboxItem } from './ComboBoxItem.tsx';
 import { ComboboxLabel } from './ComboBoxLabel.tsx';
 import { ComboboxList } from './ComboBoxList.tsx';
+import { ComboboxRoot } from './ComboBoxRoot.tsx';
 import { ComboboxSeparator } from './ComboBoxSeparator.tsx';
 import { ComboboxTrigger } from './ComboBoxTrigger.tsx';
 import { ComboboxValue } from './ComboBoxValue.tsx';
@@ -22,7 +21,7 @@ function useComboboxAnchor() {
 
 export { useComboboxAnchor };
 
-export const ComboBox = Object.assign(ComboboxPrimitive.Root.bind(null), {
+export const ComboBox = Object.assign(ComboboxRoot, {
   Chip: ComboboxChip,
   Chips: ComboboxChips,
   ChipsInput: ComboboxChipsInput,

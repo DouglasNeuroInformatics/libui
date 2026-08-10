@@ -29,3 +29,23 @@ export default {
 } as Meta<typeof ComboBox>;
 
 export const Default: Story = {};
+
+export const AllowCustomValue: Story = {
+  args: {
+    children: (
+      <ComboBox allowCustomValue items={frameworks}>
+        <ComboBox.Input placeholder="Select or enter a framework" />
+        <ComboBox.Content>
+          <ComboBox.Empty>No items found.</ComboBox.Empty>
+          <ComboBox.List>
+            {(item: string) => (
+              <ComboBox.Item key={item} value={item}>
+                {item}
+              </ComboBox.Item>
+            )}
+          </ComboBox.List>
+        </ComboBox.Content>
+      </ComboBox>
+    )
+  }
+};
