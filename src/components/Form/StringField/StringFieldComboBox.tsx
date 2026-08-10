@@ -11,10 +11,21 @@ import type { BaseFieldComponentProps } from '../types.ts';
 type ComboBoxItem<T extends string> = { label: string; value: T };
 
 export type StringFieldComboBoxProps<T extends string = string> = Simplify<
-  BaseFieldComponentProps<T> & Extract<StringFormField<T>, { options: object }>
+  BaseFieldComponentProps<T> &
+    Extract<StringFormField<T>, { options: object }> & {
+      /**
+       * Whether text that does not match any option may be entered. When enabled, text that does not
+       * resolve to an option is committed as the value instead of being discarded when the popup
+       * closes. Note that such a value is not a key of `options`, so the validation schema for this
+       * field must accept arbitrary strings.
+       * @default false
+       */
+      allowCustomValue?: boolean;
+    }
 >;
 
 export const StringFieldComboBox = <T extends string = string>({
+  allowCustomValue = false,
   description,
   disabled,
   error,
@@ -29,7 +40,10 @@ export const StringFieldComboBox = <T extends string = string>({
     label: options[option as T],
     value: option as T
   }));
-  const selected = items.find((item) => item.value === value) ?? null;
+  // A custom value is absent from `items`, so it must fall back to an item built from the value
+  // itself, otherwise the controlled input would revert to empty as soon as the value is committed.
+  const selected =
+    items.find((item) => item.value === value) ?? (allowCustomValue && value ? { label: value, value } : null);
   const { t } = useTranslation();
   return (
     <FieldGroup name={name}>
@@ -38,6 +52,10 @@ export const StringFieldComboBox = <T extends string = string>({
         <FieldGroup.Description description={description} />
       </FieldGroup.Row>
       <ComboBox
+        // Items are objects, so the text must be built into an item rather than committed as a string.
+        allowCustomValue={
+          allowCustomValue ? (inputValue: string) => ({ label: inputValue, value: inputValue as T }) : false
+        }
         isItemEqualToValue={(a: ComboBoxItem<T> | null, b: ComboBoxItem<T> | null) => a?.value === b?.value}
         items={items}
         value={selected}
