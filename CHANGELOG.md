@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.13.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.12.0...v6.13.0) (2026-08-10)
+
+### Features
+
+* add combobox root to combobox components to allow for a custom input into combobox ([60e10a9](https://github.com/DouglasNeuroInformatics/libui/commit/60e10a92c0fe7e257c074854391ebbf0850da17a))
+* add combobox with flag to stories ([b7c128c](https://github.com/DouglasNeuroInformatics/libui/commit/b7c128cf01b9278d944c920dbf0f9f46dbb6d525))
+
 ## [6.12.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.11.2...v6.12.0) (2026-08-05)
 
 ### Features
