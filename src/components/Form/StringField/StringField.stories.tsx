@@ -4,9 +4,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { StringField } from './StringField.tsx';
 
+import type { StringFieldComboBoxProps } from './StringFieldComboBox.tsx';
 import type { PasswordStrengthValue } from './StringFieldPassword.tsx';
 
 type Story = StoryObj<typeof StringField>;
+
+/** Typed to the combobox props so `allowCustomValue`, which the other variants lack, is readable in the decorator */
+type ComboBoxStory = StoryObj<StringFieldComboBoxProps>;
 
 export default { component: StringField } as Meta<typeof StringField>;
 
@@ -120,13 +124,24 @@ export const Select: Story = {
   ]
 };
 
-export const ComboBox: Story = {
+export const ComboBox: ComboBoxStory = {
+  args: {
+    allowCustomValue: true
+  },
+  argTypes: {
+    allowCustomValue: {
+      control: 'boolean',
+      description: 'Whether text that does not match any option may be entered'
+    }
+  },
   decorators: [
-    (Story) => {
+    // The args passed here override the story args, so the toggled value must be read from context.
+    (Story, { args }) => {
       const [value, setValue] = useState<string | undefined>();
       return (
         <Story
           args={{
+            allowCustomValue: args.allowCustomValue,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             label: 'Favorite Fruit',
             name: 'fruit',
