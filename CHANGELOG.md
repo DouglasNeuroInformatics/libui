@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.14.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.13.0...v6.14.0) (2026-08-11)
+
+### Features
+
+* add passable allowCustomValue flag to string field combobox ([7805f0d](https://github.com/DouglasNeuroInformatics/libui/commit/7805f0d2cade7739c68cb41ec153aa7c01ef06bb))
+* adjust for story with combobox ([3c18086](https://github.com/DouglasNeuroInformatics/libui/commit/3c18086fbf325d1419ac65d02f31745b988b8927))
+
 ## [6.13.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.12.0...v6.13.0) (2026-08-10)
 
 ### Features
