@@ -15,6 +15,9 @@ type ComboBoxStory = StoryObj<StringFieldComboBoxProps>;
 /** Typed to the password props so `generatePassword`, which the other variants lack, may be passed */
 type PasswordStory = StoryObj<StringFieldPasswordProps>;
 
+/** Exactly 64 characters, so that reducing a random byte modulo its length stays uniform */
+const PASSWORD_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_';
+
 export default { component: StringField } as Meta<typeof StringField>;
 
 export const Short: Story = {
@@ -112,7 +115,11 @@ export const PasswordWithGenerate: PasswordStory = {
               return Math.min(password.length, 4) as PasswordStrengthValue;
             },
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            generatePassword: () => Math.random().toString(36).slice(2, 12),
+            generatePassword: () =>
+              Array.from(
+                crypto.getRandomValues(new Uint8Array(16)),
+                (byte) => PASSWORD_CHARS[byte % PASSWORD_CHARS.length]
+              ).join(''),
             label: 'Password',
             name: 'text',
             setValue,
