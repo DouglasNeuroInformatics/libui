@@ -17,13 +17,13 @@ export type PasswordStrengthValue = 0 | 1 | 2 | 3 | 4;
 export type StringFieldPasswordProps = BaseFieldComponentProps<string> &
   Extract<StringFormField, { variant: 'password' }> & {
     /**
-     * A function used to generate a password for this field. When provided, a button is rendered in
-     * the input that fills the field with the returned value and reveals it.
+     * A function used to generate a passphrase for this field. When provided, a button is rendered
+     * in the input that fills the field with the returned value and reveals it.
      *
      * Declared here rather than coming from `StringFormField`, and should be removed once the
      * form types package publishes it on the password variant.
      */
-    generatePassword?: (this: void) => string;
+    generatePassphrase?: (this: void) => string;
   };
 
 export const StringFieldPassword = ({
@@ -31,7 +31,7 @@ export const StringFieldPassword = ({
   description,
   disabled,
   error,
-  generatePassword,
+  generatePassphrase,
   label,
   name,
   readOnly,
@@ -55,7 +55,7 @@ export const StringFieldPassword = ({
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Input
-          className={cn(generatePassword ? 'pr-10' : 'pr-8')}
+          className={cn(generatePassphrase ? 'pr-10' : 'pr-8')}
           disabled={disabled || readOnly}
           id={name}
           name={name}
@@ -63,10 +63,10 @@ export const StringFieldPassword = ({
           value={value ?? ''}
           onChange={(event) => setValue(event.target.value)}
         />
-        {generatePassword && (
+        {generatePassphrase && (
           <Tooltip>
             <Tooltip.Trigger
-              aria-label={t({ en: 'Generate Password', fr: 'Générer un mot de passe' })}
+              aria-label={t({ en: 'Generate Passphrase', fr: 'Générer une phrase de passe' })}
               // `p-0` neutralizes the padding the button size variant adds, so the geometry matches
               // the adjacent toggle rather than squeezing the icon inside the fixed width.
               className="text-muted-foreground absolute right-8 flex h-full w-8 items-center justify-center p-0"
@@ -74,15 +74,15 @@ export const StringFieldPassword = ({
               type="button"
               variant="ghost"
               onClick={() => {
-                setValue(generatePassword());
-                // A generated password the user cannot read is of little use, so reveal it.
+                setValue(generatePassphrase());
+                // A generated passphrase the user cannot read is of little use, so reveal it.
                 setShow(true);
               }}
             >
               <SparklesIcon />
             </Tooltip.Trigger>
             <Tooltip.Content>
-              <p>{t({ en: 'Generate a password', fr: 'Générer un mot de passe' })}</p>
+              <p>{t({ en: 'Generate a passphrase', fr: 'Générer une phrase de passe' })}</p>
             </Tooltip.Content>
           </Tooltip>
         )}
