@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.15.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.14.0...v6.15.0) (2026-08-19)
+
+### Features
+
+* add generate password method to password string field ([256b38b](https://github.com/DouglasNeuroInformatics/libui/commit/256b38b29be45a1f08736c1422630ec41721390c))
+* add story of password field with generate password tool ([d2b765e](https://github.com/DouglasNeuroInformatics/libui/commit/d2b765ee9db697e10dc7799fa3e8312ccaec4829))
+* adjust method and story to reflect and example passphrase generator instead ([29af006](https://github.com/DouglasNeuroInformatics/libui/commit/29af006a9165afc7405b1542ad1c1c10c62a7517))
+* change method name back to password for semantics ([05f8bd8](https://github.com/DouglasNeuroInformatics/libui/commit/05f8bd82bc8d195ce6e8cba58143596137a84861))
+* use crypto random for the example password generator method ([43414af](https://github.com/DouglasNeuroInformatics/libui/commit/43414af238a9bf5aeb0072d5ceb249d916f8aef6))
+
 ## [6.14.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.13.0...v6.14.0) (2026-08-11)
 
 ### Features
