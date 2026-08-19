@@ -23,7 +23,7 @@ export type StringFieldPasswordProps = BaseFieldComponentProps<string> &
      * Declared here rather than coming from `StringFormField`, and should be removed once the
      * form types package publishes it on the password variant.
      */
-    generatePassphrase?: (this: void) => string;
+    generatePassword?: (this: void) => string;
   };
 
 export const StringFieldPassword = ({
@@ -31,7 +31,7 @@ export const StringFieldPassword = ({
   description,
   disabled,
   error,
-  generatePassphrase,
+  generatePassword,
   label,
   name,
   readOnly,
@@ -55,7 +55,7 @@ export const StringFieldPassword = ({
       </FieldGroup.Row>
       <FieldGroup.Row>
         <Input
-          className={cn(generatePassphrase ? 'pr-10' : 'pr-8')}
+          className={cn(generatePassword ? 'pr-10' : 'pr-8')}
           disabled={disabled || readOnly}
           id={name}
           name={name}
@@ -63,7 +63,7 @@ export const StringFieldPassword = ({
           value={value ?? ''}
           onChange={(event) => setValue(event.target.value)}
         />
-        {generatePassphrase && (
+        {generatePassword && (
           <Tooltip>
             <Tooltip.Trigger
               aria-label={t({ en: 'Generate Passphrase', fr: 'Générer une phrase de passe' })}
@@ -74,7 +74,7 @@ export const StringFieldPassword = ({
               type="button"
               variant="ghost"
               onClick={() => {
-                setValue(generatePassphrase());
+                setValue(generatePassword());
                 // A generated passphrase the user cannot read is of little use, so reveal it.
                 setShow(true);
               }}

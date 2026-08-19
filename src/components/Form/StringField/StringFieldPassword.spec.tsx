@@ -9,15 +9,15 @@ import { StringFieldPassword } from './StringFieldPassword.tsx';
 import type { StringFieldPasswordProps } from './StringFieldPassword.tsx';
 
 const TestStringFieldPassword = ({
-  generatePassphrase,
+  generatePassword,
   readOnly
-}: Pick<StringFieldPasswordProps, 'generatePassphrase' | 'readOnly'>) => {
+}: Pick<StringFieldPasswordProps, 'generatePassword' | 'readOnly'>) => {
   const [error, setError] = useState<string[] | undefined>();
   const [value, setValue] = useState<string | undefined>();
   return (
     <StringFieldPassword
       error={error}
-      generatePassphrase={generatePassphrase}
+      generatePassword={generatePassword}
       kind="string"
       label="password-field"
       name="password-field"
@@ -34,26 +34,26 @@ describe('StringFieldPassword', () => {
   const getInput = () => screen.getByLabelText<HTMLInputElement>('password-field');
   const getGenerateButton = () => screen.getByRole('button', { name: 'Generate Passphrase' });
 
-  it('should not render the generate button when generatePassphrase is not provided', () => {
+  it('should not render the generate button when generatePassword is not provided', () => {
     render(<TestStringFieldPassword />);
     expect(() => getGenerateButton()).toThrow();
   });
 
   it('should fill the field with the generated passphrase when the button is clicked', async () => {
-    render(<TestStringFieldPassword generatePassphrase={() => 'hunter2'} />);
+    render(<TestStringFieldPassword generatePassword={() => 'hunter2'} />);
     await userEvent.click(getGenerateButton());
     expect(getInput()).toHaveValue('hunter2');
   });
 
   it('should reveal the generated passphrase', async () => {
-    render(<TestStringFieldPassword generatePassphrase={() => 'hunter2'} />);
+    render(<TestStringFieldPassword generatePassword={() => 'hunter2'} />);
     expect(getInput()).toHaveAttribute('type', 'password');
     await userEvent.click(getGenerateButton());
     expect(getInput()).toHaveAttribute('type', 'text');
   });
 
   it('should allow reaching the generate button with the keyboard', async () => {
-    render(<TestStringFieldPassword generatePassphrase={() => 'hunter2'} />);
+    render(<TestStringFieldPassword generatePassword={() => 'hunter2'} />);
     getInput().focus();
     await userEvent.tab();
     expect(getGenerateButton()).toHaveFocus();
@@ -62,7 +62,7 @@ describe('StringFieldPassword', () => {
   });
 
   it('should disable the generate button when the field is read-only', () => {
-    render(<TestStringFieldPassword readOnly generatePassphrase={() => 'hunter2'} />);
+    render(<TestStringFieldPassword readOnly generatePassword={() => 'hunter2'} />);
     expect(getGenerateButton()).toBeDisabled();
   });
 });

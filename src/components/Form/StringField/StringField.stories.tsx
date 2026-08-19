@@ -148,7 +148,7 @@ export const PasswordWithPassphraseGenerator: PasswordStory = {
               return Math.min(password.length, 4) as PasswordStrengthValue;
             },
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            generatePassphrase: () =>
+            generatePassword: () =>
               Array.from(
                 crypto.getRandomValues(new Uint8Array(4)),
                 (byte) => PASSPHRASE_WORDS[byte % PASSPHRASE_WORDS.length]
