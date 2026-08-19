@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.16.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.15.0...v6.16.0) (2026-08-19)
+
+### Features
+
+* remove custom comment and code for allowCustomValue flag in combobox ([ef77c81](https://github.com/DouglasNeuroInformatics/libui/commit/ef77c81f614c9ab3b47e7359708deb89e4d32587))
+* remove substitute comment and code for generatePassword method ([59ccc90](https://github.com/DouglasNeuroInformatics/libui/commit/59ccc90d29e5b24632ebf1fea142e0ce19f91b40))
+
 ## [6.15.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.14.0...v6.15.0) (2026-08-19)
 
 ### Features
