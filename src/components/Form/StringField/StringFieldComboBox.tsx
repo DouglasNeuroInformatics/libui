@@ -11,17 +11,7 @@ import type { BaseFieldComponentProps } from '../types.ts';
 type ComboBoxItem<T extends string> = { label: string; value: T };
 
 export type StringFieldComboBoxProps<T extends string = string> = Simplify<
-  BaseFieldComponentProps<T> &
-    Extract<StringFormField<T>, { options: object }> & {
-      /**
-       * Whether text that does not match any option may be entered. When enabled, text that does not
-       * resolve to an option is committed as the value instead of being discarded when the popup
-       * closes. Note that such a value is not a key of `options`, so the validation schema for this
-       * field must accept arbitrary strings.
-       * @default false
-       */
-      allowCustomValue?: boolean;
-    }
+  BaseFieldComponentProps<T> & Extract<StringFormField<T>, { variant: 'combobox' }>
 >;
 
 export const StringFieldComboBox = <T extends string = string>({
