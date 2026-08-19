@@ -5,12 +5,51 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { StringField } from './StringField.tsx';
 
 import type { StringFieldComboBoxProps } from './StringFieldComboBox.tsx';
-import type { PasswordStrengthValue } from './StringFieldPassword.tsx';
+import type { PasswordStrengthValue, StringFieldPasswordProps } from './StringFieldPassword.tsx';
 
 type Story = StoryObj<typeof StringField>;
 
 /** Typed to the combobox props so `allowCustomValue`, which the other variants lack, is readable in the decorator */
 type ComboBoxStory = StoryObj<StringFieldComboBoxProps>;
+
+/** Typed to the password props so `generatePassword`, which the other variants lack, may be passed */
+type PasswordStory = StoryObj<StringFieldPasswordProps>;
+
+/** Exactly 32 words, so that reducing a random byte modulo the list length stays uniform */
+const PASSPHRASE_WORDS = [
+  'anchor',
+  'bramble',
+  'cinder',
+  'cobalt',
+  'dapple',
+  'drift',
+  'ember',
+  'fathom',
+  'flint',
+  'gable',
+  'garnet',
+  'harbor',
+  'hollow',
+  'ivory',
+  'jasper',
+  'kindle',
+  'lantern',
+  'marble',
+  'meadow',
+  'nectar',
+  'opal',
+  'pebble',
+  'quartz',
+  'ripple',
+  'saffron',
+  'thistle',
+  'timber',
+  'umber',
+  'velvet',
+  'willow',
+  'yonder',
+  'zephyr'
+];
 
 export default { component: StringField } as Meta<typeof StringField>;
 
@@ -86,6 +125,34 @@ export const PasswordWithStrength: Story = {
               return Math.min(password.length, 4) as PasswordStrengthValue;
             },
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Password',
+            name: 'text',
+            setValue,
+            value,
+            variant: 'password'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const PasswordWithPassphraseGenerator: PasswordStory = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<string | undefined>();
+      return (
+        <Story
+          args={{
+            calculateStrength: (password: string) => {
+              return Math.min(password.length, 4) as PasswordStrengthValue;
+            },
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            generatePassword: () =>
+              Array.from(
+                crypto.getRandomValues(new Uint8Array(4)),
+                (byte) => PASSPHRASE_WORDS[byte % PASSPHRASE_WORDS.length]
+              ).join('-'),
             label: 'Password',
             name: 'text',
             setValue,
