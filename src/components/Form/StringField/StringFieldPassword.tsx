@@ -15,16 +15,7 @@ import type { BaseFieldComponentProps } from '../types.ts';
 export type PasswordStrengthValue = 0 | 1 | 2 | 3 | 4;
 
 export type StringFieldPasswordProps = BaseFieldComponentProps<string> &
-  Extract<StringFormField, { variant: 'password' }> & {
-    /**
-     * A function used to generate a passphrase for this field. When provided, a button is rendered
-     * in the input that fills the field with the returned value and reveals it.
-     *
-     * Declared here rather than coming from `StringFormField`, and should be removed once the
-     * form types package publishes it on the password variant.
-     */
-    generatePassword?: (this: void) => string;
-  };
+  Extract<StringFormField, { variant: 'password' }>;
 
 export const StringFieldPassword = ({
   calculateStrength,
