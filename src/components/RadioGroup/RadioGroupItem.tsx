@@ -7,7 +7,7 @@ export const RadioGroupItem: React.FC<React.ComponentProps<typeof Item>> = ({ cl
   return (
     <Item
       className={cn(
-        'border-primary text-primary focus-visible:ring-ring flex aspect-square h-4 w-4 items-center justify-center rounded-full border shadow-sm focus:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
+        'border-primary text-primary focus-visible:ring-ring flex aspect-square h-4 w-4 shrink-0 items-center justify-center rounded-full border shadow-sm focus:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50',
         className
       )}
       {...props}

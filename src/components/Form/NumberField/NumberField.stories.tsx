@@ -75,6 +75,55 @@ export const Radio: Story = {
   ]
 };
 
+export const RadioTwoOptions: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Two Option Radio Field',
+            name: 'number-radio-two-options',
+            options: {
+              0: 'The first in the morning',
+              1: 'Any other'
+            },
+            setValue,
+            value,
+            variant: 'radio'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const RadioThreeOptions: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Three Option Radio Field',
+            name: 'number-radio-three-options',
+            options: {
+              1: 'Never',
+              2: 'Sometimes',
+              3: 'Always'
+            },
+            setValue,
+            value,
+            variant: 'radio'
+          }}
+        />
+      );
+    }
+  ]
+};
+
 export const Select: Story = {
   decorators: [
     (Story) => {
