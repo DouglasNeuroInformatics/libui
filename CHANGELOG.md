@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.16.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.16.0...v6.16.1) (2026-08-26)
+
+### Bug Fixes
+
+* stack number radio fields vertically when there are few options ([0bda907](https://github.com/DouglasNeuroInformatics/libui/commit/0bda907cbf46abdc6db969afa470c35b06d835dc)), closes [#118](https://github.com/DouglasNeuroInformatics/libui/issues/118)
+
 ## [6.16.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.15.0...v6.16.0) (2026-08-19)
 
 ### Features
