@@ -235,4 +235,99 @@ describe('Form', () => {
       await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
     });
   });
+  describe('reset button', () => {
+    const renderForm = (props?: { preventResetValuesOnReset?: boolean; resetBtn?: boolean }) => {
+      render(
+        <Form
+          content={{
+            name: {
+              kind: 'string',
+              label: 'Name',
+              variant: 'input'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({
+            name: z.string().min(3, 'Too short')
+          })}
+          onError={onError}
+          onSubmit={onSubmit}
+          {...props}
+        />
+      );
+      return screen.getByLabelText<HTMLInputElement>('Name');
+    };
+
+    // The button is identified by its aria-label, so the query does not depend on the resolved
+    // translation for the visible text.
+    const getResetButton = () => screen.getByRole('button', { name: 'Reset' });
+
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should not render the reset button unless resetBtn is set', () => {
+      renderForm();
+      expect(screen.queryByRole('button', { name: 'Reset' })).not.toBeInTheDocument();
+    });
+
+    it('should render the reset button when resetBtn is set', () => {
+      renderForm({ resetBtn: true });
+      expect(getResetButton()).toBeInTheDocument();
+    });
+
+    it('should clear the values when the reset button is clicked', async () => {
+      const name = renderForm({ resetBtn: true });
+      await userEvent.type(name, 'Winston');
+      expect(name.value).toBe('Winston');
+      await userEvent.click(getResetButton());
+      expect(name.value).toBe('');
+    });
+
+    it('should not submit the form when the reset button is clicked', async () => {
+      const name = renderForm({ resetBtn: true });
+      await userEvent.type(name, 'Winston');
+      await userEvent.click(getResetButton());
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it('should clear the errors when the reset button is clicked', async () => {
+      const name = renderForm({ resetBtn: true });
+      await userEvent.type(name, 'ab');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() =>
+        expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Too short'])
+      );
+      await userEvent.click(getResetButton());
+      expect(screen.queryAllByTestId('error-message-text')).toHaveLength(0);
+    });
+
+    it('should keep the values, but still clear the errors, when preventResetValuesOnReset is set', async () => {
+      const name = renderForm({ preventResetValuesOnReset: true, resetBtn: true });
+      await userEvent.type(name, 'ab');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() =>
+        expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Too short'])
+      );
+      await userEvent.click(getResetButton());
+      expect(screen.queryAllByTestId('error-message-text')).toHaveLength(0);
+      expect(name.value).toBe('ab');
+    });
+
+    it('should clear the values after a successful submit, even without the reset button', async () => {
+      const name = renderForm();
+      await userEvent.type(name, 'Winston');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      await waitFor(() => expect(name.value).toBe(''));
+    });
+
+    it('should keep the values after a successful submit when preventResetValuesOnReset is set', async () => {
+      const name = renderForm({ preventResetValuesOnReset: true });
+      await userEvent.type(name, 'Winston');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(name.value).toBe('Winston');
+    });
+  });
 });

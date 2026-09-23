@@ -527,6 +527,41 @@ export const WithDynamicInitialValues: StoryObj<typeof Form> = {
   ]
 };
 
+export const WithResetButton: StoryObj<typeof Form> = {
+  args: {
+    content: {
+      name: {
+        kind: 'string',
+        label: 'Name',
+        variant: 'input'
+      },
+      contactMethod: {
+        kind: 'string',
+        label: 'Preferred Contact Method',
+        options: {
+          email: 'Email',
+          phone: 'Phone',
+          mail: 'Mail'
+        },
+        variant: 'radio'
+      },
+      comments: {
+        kind: 'string',
+        label: 'Comments',
+        variant: 'textarea'
+      }
+    },
+    resetBtn: true,
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, null, 2));
+    },
+    validationSchema: $SimpleExampleFormData.extend({
+      contactMethod: z.enum(['email', 'phone', 'mail']).optional(),
+      comments: z.string().optional()
+    })
+  }
+};
+
 export const WithPreventReset: StoryObj<typeof Form<SimpleExampleFormSchemaType>> = {
   args: {
     content: {
