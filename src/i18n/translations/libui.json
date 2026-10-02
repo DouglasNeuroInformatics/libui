@@ -42,6 +42,11 @@
       "es": "Agregar",
       "fr": "Ajouter"
     },
+    "date": {
+      "en": "Date",
+      "es": "Fecha",
+      "fr": "Date"
+    },
     "radioLabels": {
       "false": {
         "en": "False",
@@ -69,10 +74,20 @@
       "es": "Restablecer",
       "fr": "Réinitialiser"
     },
+    "selectDate": {
+      "en": "Select date",
+      "es": "Seleccionar fecha",
+      "fr": "Sélectionner une date"
+    },
     "submit": {
       "en": "Submit",
       "es": "Enviar",
       "fr": "Soumettre"
+    },
+    "time": {
+      "en": "Time",
+      "es": "Hora",
+      "fr": "Heure"
     }
   },
   "months": {
