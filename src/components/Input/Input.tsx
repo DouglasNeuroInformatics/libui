@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { cn } from '#utils';
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = React.ComponentProps<'input'>;
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Input({ className, type, ...props }, ref) {
+export const Input = ({ className, ref, type, ...props }: InputProps) => {
   return (
     <input
       autoComplete="off"
@@ -18,4 +18,4 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
       {...props}
     />
   );
-});
+};

@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 import { cn } from '#utils';
@@ -7,10 +5,13 @@ import { cn } from '#utils';
 import { SelectScrollDownButton } from './SelectScrollDownButton.tsx';
 import { SelectScrollUpButton } from './SelectScrollUpButton.tsx';
 
-export const SelectContent = forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(function SelectContent({ children, className, position = 'popper', ...props }, ref) {
+export const SelectContent = ({
+  children,
+  className,
+  position = 'popper',
+  ref,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Content>) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -38,4 +39,4 @@ export const SelectContent = forwardRef<
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
   );
-});
+};

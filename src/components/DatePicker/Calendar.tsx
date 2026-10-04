@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import { range } from 'lodash-es';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -10,10 +8,11 @@ export const CALENDAR_ANIMATION_DURATION = 0.2; // seconds
 export type CalendarProps = {
   month: number;
   onSelection: (date: Date) => void;
+  ref?: React.Ref<HTMLDivElement>;
   year: number;
 };
 
-export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calendar(props, ref) {
+export const Calendar = ({ ref, ...props }: CalendarProps) => {
   const { t } = useTranslation('libui');
   const firstDay = new Date(props.year, props.month).getDay();
   const lastDay = new Date(props.year, props.month + 1, 0).getDate();
@@ -62,4 +61,4 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
       </motion.div>
     </AnimatePresence>
   );
-});
+};

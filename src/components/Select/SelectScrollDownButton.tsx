@@ -1,14 +1,13 @@
-import { forwardRef } from 'react';
-
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const SelectScrollDownButton = forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
->(function SelectScrollDownButton({ className, ...props }, ref) {
+export const SelectScrollDownButton = ({
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => {
   return (
     <SelectPrimitive.ScrollDownButton
       className={cn('flex cursor-default items-center justify-center py-1', className)}
@@ -18,4 +17,4 @@ export const SelectScrollDownButton = forwardRef<
       <ChevronDownIcon />
     </SelectPrimitive.ScrollDownButton>
   );
-});
+};

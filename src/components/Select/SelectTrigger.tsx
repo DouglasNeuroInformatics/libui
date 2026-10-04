@@ -1,16 +1,16 @@
-import { forwardRef } from 'react';
-
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 import { DropdownButton } from '../DropdownButton/DropdownButton.tsx';
 
-export const SelectTrigger = forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(function SelectTrigger({ children, className, ...props }, ref) {
+export const SelectTrigger = ({
+  children,
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Trigger>) => {
   return (
     <SelectPrimitive.Trigger asChild className={className} ref={ref} {...props}>
       <DropdownButton>{children}</DropdownButton>
     </SelectPrimitive.Trigger>
   );
-});
+};

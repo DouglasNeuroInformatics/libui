@@ -18,6 +18,8 @@ export type ArrowToggleProps = Simplify<
     /** The starting position of the arrow (i.e., which direction does it point to) */
     position: 'down' | 'left' | 'right' | 'up';
 
+    ref?: React.Ref<HTMLButtonElement>;
+
     /** The clockwise rotation of the arrow when toggled (e.g., if the position is 'right' and rotation is 90, the arrow will point down) */
     rotation?: number;
 
@@ -28,10 +30,17 @@ export type ArrowToggleProps = Simplify<
   }
 >;
 
-export const ArrowToggle = React.forwardRef<HTMLButtonElement, ArrowToggleProps>(function ArrowToggle(
-  { children, className, isToggled, position, rotation = 0, size = 'icon', variant = 'ghost', ...props },
-  ref
-) {
+export const ArrowToggle = ({
+  children,
+  className,
+  isToggled,
+  position,
+  ref,
+  rotation = 0,
+  size = 'icon',
+  variant = 'ghost',
+  ...props
+}: ArrowToggleProps) => {
   const computedRotation = useMemo(() => {
     const toggleRotation = isToggled ? rotation : 0;
     switch (position) {
@@ -64,4 +73,4 @@ export const ArrowToggle = React.forwardRef<HTMLButtonElement, ArrowToggleProps>
       {children}
     </Button>
   );
-});
+};

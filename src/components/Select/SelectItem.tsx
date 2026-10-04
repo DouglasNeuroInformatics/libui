@@ -1,14 +1,14 @@
-import { forwardRef } from 'react';
-
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const SelectItem = forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(function SelectItem({ children, className, ...props }, ref) {
+export const SelectItem = ({
+  children,
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Item>) => {
   return (
     <SelectPrimitive.Item
       className={cn(
@@ -26,4 +26,4 @@ export const SelectItem = forwardRef<
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
   );
-});
+};

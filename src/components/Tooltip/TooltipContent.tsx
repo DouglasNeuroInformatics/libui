@@ -13,25 +13,31 @@ export type TooltipContentProps = {
   className?: string;
   /** The distance in pixels from the viewport edges where collision detection should occur */
   collisionPadding?: number;
+  /** A ref to the underlying content element */
+  ref?: React.Ref<React.ComponentRef<typeof Content>>;
   /** The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled. */
   side?: 'bottom' | 'left' | 'right' | 'top';
   /** The distance in pixels from the trigger */
   sideOffset?: number;
 };
 
-export const TooltipContent = React.forwardRef<React.ElementRef<typeof Content>, TooltipContentProps>(
-  function TooltipContent({ className, collisionPadding = 0, sideOffset = 4, ...props }, ref) {
-    return (
-      <Content
-        className={cn(
-          'bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 overflow-hidden rounded-md px-3 py-1.5 text-xs',
-          className
-        )}
-        collisionPadding={collisionPadding}
-        ref={ref}
-        sideOffset={sideOffset}
-        {...props}
-      />
-    );
-  }
-);
+export const TooltipContent = ({
+  className,
+  collisionPadding = 0,
+  ref,
+  sideOffset = 4,
+  ...props
+}: TooltipContentProps) => {
+  return (
+    <Content
+      className={cn(
+        'bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 overflow-hidden rounded-md px-3 py-1.5 text-xs',
+        className
+      )}
+      collisionPadding={collisionPadding}
+      ref={ref}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  );
+};

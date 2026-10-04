@@ -1,14 +1,15 @@
-import { forwardRef } from 'react';
-
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const DropdownMenuCheckboxItem = forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
->(function DropdownMenuCheckboxItem({ checked, children, className, ...props }, ref) {
+export const DropdownMenuCheckboxItem = ({
+  checked,
+  children,
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       checked={checked}
@@ -27,4 +28,4 @@ export const DropdownMenuCheckboxItem = forwardRef<
       {children}
     </DropdownMenuPrimitive.CheckboxItem>
   );
-});
+};

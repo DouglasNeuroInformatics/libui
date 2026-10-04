@@ -1,11 +1,6 @@
-import { forwardRef } from 'react';
-
 import { cn } from '#utils';
 
-export const TableRow = forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(function TableRow(
-  { className, ...props },
-  ref
-) {
+export const TableRow = ({ className, ref, ...props }: React.ComponentProps<'tr'>) => {
   return (
     <tr
       className={cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', className)}
@@ -13,4 +8,4 @@ export const TableRow = forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTM
       {...props}
     />
   );
-});
+};

@@ -1,13 +1,14 @@
-import { forwardRef } from 'react';
-
 import { Content } from '@radix-ui/react-hover-card';
 
 import { cn } from '#utils';
 
-export const HoverCardContent = forwardRef<
-  React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
->(function HoverCardContent({ align = 'center', className, sideOffset = 4, ...props }, ref) {
+export const HoverCardContent = ({
+  align = 'center',
+  className,
+  ref,
+  sideOffset = 4,
+  ...props
+}: React.ComponentProps<typeof Content>) => {
   return (
     <Content
       align={align}
@@ -20,4 +21,4 @@ export const HoverCardContent = forwardRef<
       {...props}
     />
   );
-});
+};

@@ -1,14 +1,14 @@
-import { forwardRef } from 'react';
-
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const DropdownMenuRadioItem = forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
->(function DropdownMenuRadioItem({ children, className, ...props }, ref) {
+export const DropdownMenuRadioItem = ({
+  children,
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => {
   return (
     <DropdownMenuPrimitive.RadioItem
       className={cn(
@@ -26,4 +26,4 @@ export const DropdownMenuRadioItem = forwardRef<
       {children}
     </DropdownMenuPrimitive.RadioItem>
   );
-});
+};
