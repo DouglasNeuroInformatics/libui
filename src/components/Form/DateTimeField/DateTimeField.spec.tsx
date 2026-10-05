@@ -88,7 +88,7 @@ describe('DateTimeField', () => {
     render(
       <DateTimeField label="Appointment" name="appointment" setError={setError} setValue={setValue} value={value} />
     );
-    expect(screen.getByTestId('datetime-date-trigger')).toHaveTextContent('2025-01-15');
+    expect(screen.getByTestId('datetime-date-trigger')).toHaveTextContent('Wed Jan 15 2025');
     expect(screen.getByTestId<HTMLInputElement>('datetime-time-input').value).toBe('10:30:05');
   });
 
