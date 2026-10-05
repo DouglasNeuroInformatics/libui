@@ -92,7 +92,7 @@ export const DateTimeField = ({
           </Label>
           <Input
             autoComplete="off"
-            className="bg-background w-32 appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+            className="bg-background w-40 appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
             data-testid="datetime-time-input"
             disabled={disabled || readOnly}
             id={timeInputId}
