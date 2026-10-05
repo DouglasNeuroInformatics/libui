@@ -47,6 +47,16 @@
       "es": "Fecha",
       "fr": "Date"
     },
+    "hours": {
+      "en": "Hours",
+      "es": "Horas",
+      "fr": "Heures"
+    },
+    "minutes": {
+      "en": "Minutes",
+      "es": "Minutos",
+      "fr": "Minutes"
+    },
     "radioLabels": {
       "false": {
         "en": "False",
@@ -73,6 +83,11 @@
       "en": "Reset",
       "es": "Restablecer",
       "fr": "Réinitialiser"
+    },
+    "seconds": {
+      "en": "Seconds",
+      "es": "Segundos",
+      "fr": "Secondes"
     },
     "selectDate": {
       "en": "Select date",
