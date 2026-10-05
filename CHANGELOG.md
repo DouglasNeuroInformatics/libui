@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.17.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.16.1...v6.17.0) (2026-10-05)
+
+### Features
+
+* add datetime picker component ([9f903d6](https://github.com/DouglasNeuroInformatics/libui/commit/9f903d69e47f238e6f7de6f404626c177a7e6135))
+* add segemented time component for 24 hr time editing ([1395c7c](https://github.com/DouglasNeuroInformatics/libui/commit/1395c7ce58524bb2493010eeea641a38491ecc53))
+* make timebox bigger so am/pm is visible ([8565e81](https://github.com/DouglasNeuroInformatics/libui/commit/8565e8113e43e0c920cb0ba9d4e71640f6972af1))
+* use toDate string instead of toIsoString function ([c11114f](https://github.com/DouglasNeuroInformatics/libui/commit/c11114fbded9419274ffb0e8e3fbe250a2d94bda))
+
 ## [6.16.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.16.0...v6.16.1) (2026-08-26)
 
 ### Bug Fixes
