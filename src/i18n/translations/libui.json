@@ -42,6 +42,21 @@
       "es": "Agregar",
       "fr": "Ajouter"
     },
+    "date": {
+      "en": "Date",
+      "es": "Fecha",
+      "fr": "Date"
+    },
+    "hours": {
+      "en": "Hours",
+      "es": "Horas",
+      "fr": "Heures"
+    },
+    "minutes": {
+      "en": "Minutes",
+      "es": "Minutos",
+      "fr": "Minutes"
+    },
     "radioLabels": {
       "false": {
         "en": "False",
@@ -69,10 +84,25 @@
       "es": "Restablecer",
       "fr": "Réinitialiser"
     },
+    "seconds": {
+      "en": "Seconds",
+      "es": "Segundos",
+      "fr": "Secondes"
+    },
+    "selectDate": {
+      "en": "Select date",
+      "es": "Seleccionar fecha",
+      "fr": "Sélectionner une date"
+    },
     "submit": {
       "en": "Submit",
       "es": "Enviar",
       "fr": "Soumettre"
+    },
+    "time": {
+      "en": "Time",
+      "es": "Hora",
+      "fr": "Heure"
     }
   },
   "months": {
