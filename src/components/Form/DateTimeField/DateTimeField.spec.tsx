@@ -123,4 +123,75 @@ describe('DateTimeField', () => {
     expect(screen.getByTestId('datetime-date-trigger')).toBeDisabled();
     expect(screen.getByTestId('datetime-time-input')).toBeDisabled();
   });
+
+  describe('timeFormat="24h"', () => {
+    it('should display the time in 24-hour format', () => {
+      render(
+        <DateTimeField
+          label="Appointment"
+          name="appointment"
+          setError={setError}
+          setValue={setValue}
+          timeFormat="24h"
+          value={new Date(2025, 0, 15, 18, 45, 30)}
+        />
+      );
+      expect(screen.getByTestId<HTMLInputElement>('datetime-time-hours').value).toBe('18');
+      expect(screen.getByTestId<HTMLInputElement>('datetime-time-minutes').value).toBe('45');
+      expect(screen.getByTestId<HTMLInputElement>('datetime-time-seconds').value).toBe('30');
+    });
+
+    it('should update the value when a segment is changed', () => {
+      render(
+        <DateTimeField
+          label="Appointment"
+          name="appointment"
+          setError={setError}
+          setValue={setValue}
+          timeFormat="24h"
+          value={new Date(2025, 0, 15, 10, 30, 0)}
+        />
+      );
+      fireEvent.change(screen.getByTestId('datetime-time-hours'), { target: { value: '21' } });
+      expect(setValue).toHaveBeenCalledWith(new Date(2025, 0, 15, 21, 30, 0));
+    });
+
+    it('should clamp segments to their maximum value', () => {
+      render(
+        <DateTimeField
+          label="Appointment"
+          name="appointment"
+          setError={setError}
+          setValue={setValue}
+          timeFormat="24h"
+          value={new Date(2025, 0, 15, 10, 30, 0)}
+        />
+      );
+      const hours = screen.getByTestId<HTMLInputElement>('datetime-time-hours');
+      const minutes = screen.getByTestId<HTMLInputElement>('datetime-time-minutes');
+      const seconds = screen.getByTestId<HTMLInputElement>('datetime-time-seconds');
+      fireEvent.change(hours, { target: { value: '24' } });
+      fireEvent.change(minutes, { target: { value: '60' } });
+      fireEvent.change(seconds, { target: { value: '99' } });
+      expect(hours.value).toBe('23');
+      expect(minutes.value).toBe('59');
+      expect(seconds.value).toBe('59');
+      expect(setValue).toHaveBeenLastCalledWith(new Date(2025, 0, 15, 23, 59, 59));
+    });
+
+    it('should not set the value if a segment is cleared', () => {
+      render(
+        <DateTimeField
+          label="Appointment"
+          name="appointment"
+          setError={setError}
+          setValue={setValue}
+          timeFormat="24h"
+          value={new Date(2025, 0, 15, 10, 30, 0)}
+        />
+      );
+      fireEvent.change(screen.getByTestId('datetime-time-minutes'), { target: { value: '' } });
+      expect(setValue).not.toHaveBeenCalled();
+    });
+  });
 });
