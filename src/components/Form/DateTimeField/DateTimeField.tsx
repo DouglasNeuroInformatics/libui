@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ChangeEvent, FocusEvent } from 'react';
 
-import { toBasicISOString } from '@douglasneuroinformatics/libjs';
 import type { BaseFormField } from '@douglasneuroinformatics/libui-form-types';
 import { ChevronDownIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
