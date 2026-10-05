@@ -45,6 +45,25 @@ export const WithInitialValue: Story = {
   ]
 };
 
+export const With24HourTime: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<Date | undefined>(new Date(2025, 0, 1, 18, 30));
+      return (
+        <Story
+          args={{
+            label: 'Appointment',
+            name: 'appointment',
+            setValue,
+            timeFormat: '24h',
+            value
+          }}
+        />
+      );
+    }
+  ]
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,
