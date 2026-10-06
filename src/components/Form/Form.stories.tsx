@@ -28,6 +28,7 @@ const $ExampleFormData = z.object({
       .partial()
   ),
   date: z.date().optional(),
+  dateTime: z.date().optional(),
   numberInput: z.number().optional(),
   numberSlider: z.number().optional(),
   numberRecord: z
@@ -75,11 +76,17 @@ const booleanFields: FormFields<Pick<ExampleFormData, 'booleanCheck' | 'booleanR
   }
 };
 
-const dateFields: FormFields<Pick<ExampleFormData, 'date'>> = {
+const dateFields: FormFields<Pick<ExampleFormData, 'date' | 'dateTime'>> = {
   date: {
     disabled: DISABLED,
     kind: 'date',
     label: 'Datepicker (Default)'
+  },
+  dateTime: {
+    disabled: DISABLED,
+    kind: 'date',
+    label: 'Date and Time',
+    variant: 'datetime'
   }
 };
 
@@ -437,6 +444,7 @@ export const WithInitialValues: StoryObj<typeof Form> = {
       booleanCheck: true,
       booleanRadio: true,
       date: new Date(),
+      dateTime: new Date(),
       numberInput: 44,
       numberSlider: 45,
       numberRadio: 3,
