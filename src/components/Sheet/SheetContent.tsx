@@ -28,12 +28,9 @@ export const sheetVariants = cva(
   }
 );
 
-export type SheetContentProps = React.ComponentPropsWithoutRef<typeof Content> & VariantProps<typeof sheetVariants>;
+export type SheetContentProps = React.ComponentProps<typeof Content> & VariantProps<typeof sheetVariants>;
 
-export const SheetContent = React.forwardRef<React.ElementRef<typeof Content>, SheetContentProps>(function SheetContent(
-  { children, className, side = 'right', ...props },
-  ref
-) {
+export const SheetContent = ({ children, className, ref, side = 'right', ...props }: SheetContentProps) => {
   return (
     <Portal>
       <SheetOverlay />
@@ -46,4 +43,4 @@ export const SheetContent = React.forwardRef<React.ElementRef<typeof Content>, S
       </Content>
     </Portal>
   );
-});
+};

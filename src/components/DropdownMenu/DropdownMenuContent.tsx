@@ -4,13 +4,16 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '#utils';
 
-export type DropdownMenuContentProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
+export type DropdownMenuContentProps = React.ComponentProps<typeof DropdownMenuPrimitive.Content> & {
   widthFull?: boolean;
 };
-export const DropdownMenuContent = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-  DropdownMenuContentProps
->(function DropdownMenuContent({ className, sideOffset = 4, widthFull = false, ...props }, ref) {
+export const DropdownMenuContent = ({
+  className,
+  ref,
+  sideOffset = 4,
+  widthFull = false,
+  ...props
+}: DropdownMenuContentProps) => {
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
@@ -26,4 +29,4 @@ export const DropdownMenuContent = React.forwardRef<
       />
     </DropdownMenuPrimitive.Portal>
   );
-});
+};

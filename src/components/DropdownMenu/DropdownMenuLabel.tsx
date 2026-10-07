@@ -1,15 +1,15 @@
-import { forwardRef } from 'react';
-
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '#utils';
 
-export const DropdownMenuLabel = forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-    inset?: boolean;
-  }
->(function DropdownMenuLabel({ className, inset, ...props }, ref) {
+export const DropdownMenuLabel = ({
+  className,
+  inset,
+  ref,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
+  inset?: boolean;
+}) => {
   return (
     <DropdownMenuPrimitive.Label
       className={cn('px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', className)}
@@ -17,4 +17,4 @@ export const DropdownMenuLabel = forwardRef<
       {...props}
     />
   );
-});
+};

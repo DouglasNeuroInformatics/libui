@@ -1,13 +1,8 @@
-import { forwardRef } from 'react';
-
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 import { cn } from '#utils';
 
-export const TabsTrigger = forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(function TabsTrigger({ className, ...props }, ref) {
+export const TabsTrigger = ({ className, ref, ...props }: React.ComponentProps<typeof TabsPrimitive.Trigger>) => {
   return (
     <TabsPrimitive.Trigger
       className={cn(
@@ -18,4 +13,4 @@ export const TabsTrigger = forwardRef<
       {...props}
     />
   );
-});
+};

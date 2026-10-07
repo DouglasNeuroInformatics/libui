@@ -1,15 +1,15 @@
-import { forwardRef } from 'react';
-
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '#utils';
 
-export const DropdownMenuItem = forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-    inset?: boolean;
-  }
->(function DropdownMenuItem({ className, inset, ...props }, ref) {
+export const DropdownMenuItem = ({
+  className,
+  inset,
+  ref,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
+  inset?: boolean;
+}) => {
   return (
     <DropdownMenuPrimitive.Item
       className={cn(
@@ -21,4 +21,4 @@ export const DropdownMenuItem = forwardRef<
       {...props}
     />
   );
-});
+};

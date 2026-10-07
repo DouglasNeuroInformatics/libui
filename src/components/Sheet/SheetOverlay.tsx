@@ -1,13 +1,8 @@
-import { forwardRef } from 'react';
-
 import { Overlay } from '@radix-ui/react-dialog';
 
 import { cn } from '#utils';
 
-export const SheetOverlay = forwardRef<
-  React.ElementRef<typeof Overlay>,
-  React.ComponentPropsWithoutRef<typeof Overlay>
->(function SheetOverlay({ className, ...props }, ref) {
+export const SheetOverlay = ({ className, ref, ...props }: React.ComponentProps<typeof Overlay>) => {
   return (
     <Overlay
       className={cn(
@@ -18,4 +13,4 @@ export const SheetOverlay = forwardRef<
       ref={ref}
     />
   );
-});
+};

@@ -2,12 +2,9 @@ import * as React from 'react';
 
 import { cn } from '#utils';
 
-export type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextAreaProps = React.ComponentProps<'textarea'>;
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-  { className, ...props },
-  ref
-) {
+export const TextArea = ({ className, ref, ...props }: TextAreaProps) => {
   return (
     <textarea
       autoComplete="off"
@@ -20,4 +17,4 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(fun
       {...props}
     />
   );
-});
+};

@@ -60,12 +60,10 @@ export type DatePickerProps = {
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onSelection: (value: Date) => void;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
-export const DatePicker = React.forwardRef<React.ElementRef<typeof Card>, DatePickerProps>(function DatePicker(
-  { onSelection, ...props },
-  ref
-) {
+export const DatePicker = ({ onSelection, ref, ...props }: DatePickerProps) => {
   const [date, dispatch] = useReducer(reducer, new Date());
   const [showYearSelector, setShowYearSelector] = useState(false);
   const { t } = useTranslation('libui');
@@ -155,4 +153,4 @@ export const DatePicker = React.forwardRef<React.ElementRef<typeof Card>, DatePi
       </div>
     </Card>
   );
-});
+};

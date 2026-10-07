@@ -1,13 +1,8 @@
-import { forwardRef } from 'react';
-
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 import { cn } from '#utils';
 
-export const TabsList = forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(function TabsList({ className, ...props }, ref) {
+export const TabsList = ({ className, ref, ...props }: React.ComponentProps<typeof TabsPrimitive.List>) => {
   return (
     <TabsPrimitive.List
       className={cn(
@@ -18,4 +13,4 @@ export const TabsList = forwardRef<
       {...props}
     />
   );
-});
+};

@@ -45,13 +45,20 @@ export type ButtonProps = Simplify<
       asChild?: boolean;
       /** @deprecated - use children   */
       label?: string;
+      ref?: React.Ref<HTMLButtonElement>;
     }
 >;
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { asChild, children, className, label, size = 'md', variant = 'primary', ...props },
-  ref
-) {
+export const Button = ({
+  asChild,
+  children,
+  className,
+  label,
+  ref,
+  size = 'md',
+  variant = 'primary',
+  ...props
+}: ButtonProps) => {
   const Comp = asChild ? Slot : 'button';
   return (
     <Comp className={cn(buttonVariants({ className, size, variant }))} ref={ref} {...props}>
@@ -59,4 +66,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       <Slottable>{children}</Slottable>
     </Comp>
   );
-});
+};
