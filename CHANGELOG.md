@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.18.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.17.0...v6.18.0) (2026-10-07)
+
+### Features
+
+* adjust date time field to be it own field in scalar field ([caf403e](https://github.com/DouglasNeuroInformatics/libui/commit/caf403e661e1ee3a60ab81875f688e2a1aa70331))
+* open field descriptions on hover ([6727a4f](https://github.com/DouglasNeuroInformatics/libui/commit/6727a4fa79e6cdb48ff13d65f59f8536df356ab7))
+
 ## [6.17.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.16.1...v6.17.0) (2026-10-05)
 
 ### Features
