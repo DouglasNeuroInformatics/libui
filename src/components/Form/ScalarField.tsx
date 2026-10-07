@@ -9,12 +9,14 @@ import type {
 
 import { BooleanField } from './BooleanField/BooleanField.tsx';
 import { DateField } from './DateField/DateField.tsx';
+import { DateTimeField } from './DateTimeField/DateTimeField.tsx';
 import { NumberField } from './NumberField/NumberField.tsx';
 import { SetField } from './SetField/SetField.tsx';
 import { StringField } from './StringField/StringField.tsx';
 
 import type { BooleanFieldProps } from './BooleanField/BooleanField.tsx';
 import type { DateFieldProps } from './DateField/DateField.tsx';
+import type { DateTimeFieldProps } from './DateTimeField/DateTimeField.tsx';
 import type { NumberFieldProps } from './NumberField/NumberField.tsx';
 import type { SetFieldProps } from './SetField/SetField.tsx';
 import type { StringFieldProps } from './StringField/StringField.tsx';
@@ -29,7 +31,11 @@ export const ScalarField = ({ field, ...props }: ScalarFieldProps) => {
     case 'boolean':
       return <BooleanField {...field} {...(props as BooleanFieldProps)} />;
     case 'date':
-      return <DateField {...field} {...(props as DateFieldProps)} />;
+      return field.variant === 'datetime' ? (
+        <DateTimeField {...field} {...(props as DateTimeFieldProps)} />
+      ) : (
+        <DateField {...field} {...(props as DateFieldProps)} />
+      );
     case 'number':
       return <NumberField {...field} {...(props as NumberFieldProps)} />;
     case 'set':

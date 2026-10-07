@@ -330,4 +330,36 @@ describe('Form', () => {
       expect(name.value).toBe('Winston');
     });
   });
+
+  describe('date fields', () => {
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it("should render the datetime field when the variant is 'datetime'", () => {
+      render(
+        <Form
+          content={{ when: { kind: 'date', label: 'When', variant: 'datetime' } }}
+          validationSchema={z.object({ when: z.date() })}
+          onSubmit={onSubmit}
+        />
+      );
+      expect(screen.getByTestId('datetime-date-trigger')).toBeInTheDocument();
+      expect(screen.getByTestId('datetime-time-input')).toBeInTheDocument();
+      expect(screen.queryByTestId('date-input')).not.toBeInTheDocument();
+    });
+
+    it('should render the date-only field when no variant is given', () => {
+      render(
+        <Form
+          content={{ when: { kind: 'date', label: 'When' } }}
+          validationSchema={z.object({ when: z.date() })}
+          onSubmit={onSubmit}
+        />
+      );
+      expect(screen.getByTestId('date-input')).toBeInTheDocument();
+      expect(screen.queryByTestId('datetime-date-trigger')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('datetime-time-input')).not.toBeInTheDocument();
+    });
+  });
 });

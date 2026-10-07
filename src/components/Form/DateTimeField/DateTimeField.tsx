@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { ChangeEvent, FocusEvent } from 'react';
 
-import type { BaseFormField } from '@douglasneuroinformatics/libui-form-types';
+import type { DateFormField } from '@douglasneuroinformatics/libui-form-types';
 import { ChevronDownIcon } from 'lucide-react';
 import type { Simplify } from 'type-fest';
 
@@ -124,7 +124,7 @@ const SegmentedTimeInput = ({ disabled, id, name, onChange, value }: SegmentedTi
 
 export type DateTimeFieldProps = Simplify<
   BaseFieldComponentProps<Date> &
-    Omit<BaseFormField, 'kind'> & {
+    Omit<DateFormField, 'kind' | 'variant'> & {
       /** Force a 24-hour time display. If omitted, the native time input is used, which follows the browser locale. */
       timeFormat?: '24h';
     }
