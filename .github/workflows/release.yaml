@@ -16,6 +16,6 @@ jobs:
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     with:
-      build-command: pnpm build
+      build-command: pnpm build && pnpm lint:dist
       lint-command: pnpm lint
       test-command: pnpm test:coverage
