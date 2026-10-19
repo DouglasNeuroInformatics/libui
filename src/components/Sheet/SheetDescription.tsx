@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { Description } from '@radix-ui/react-dialog';
 
 import { cn } from '#utils';

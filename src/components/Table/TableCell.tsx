@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { cn } from '#utils';
 
 export const TableCell = ({ className, ref, ...props }: React.ComponentProps<'td'>) => {

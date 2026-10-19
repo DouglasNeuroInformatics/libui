@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
 
 import { cn } from '#utils';

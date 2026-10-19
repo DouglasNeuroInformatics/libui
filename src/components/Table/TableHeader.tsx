@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { cn } from '#utils';
 
 export const TableHeader = ({ className, ref, ...props }: React.ComponentProps<'thead'>) => {

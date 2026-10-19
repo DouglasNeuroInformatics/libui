@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { Content } from '@radix-ui/react-hover-card';
 
 import { cn } from '#utils';

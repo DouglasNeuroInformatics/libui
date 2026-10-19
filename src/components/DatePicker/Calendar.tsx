@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { range } from 'lodash-es';
 import { AnimatePresence, motion } from 'motion/react';
 
