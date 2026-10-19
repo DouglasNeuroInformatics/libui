@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { DestructiveActionDialog } from './DestructiveActionDialog.tsx';
 import { NotificationHub } from './NotificationHub.tsx';
 

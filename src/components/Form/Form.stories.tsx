@@ -1,5 +1,6 @@
 /* eslint-disable perfectionist/sort-objects */
 
+import type * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { filterObject, sleep } from '@douglasneuroinformatics/libjs';

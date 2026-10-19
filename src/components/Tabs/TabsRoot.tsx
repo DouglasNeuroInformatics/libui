@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { Root } from '@radix-ui/react-tabs';
 
 export const TabsRoot = ({ ref, ...props }: React.ComponentProps<typeof Root>) => {

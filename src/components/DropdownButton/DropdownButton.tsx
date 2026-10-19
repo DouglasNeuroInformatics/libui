@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '#utils';

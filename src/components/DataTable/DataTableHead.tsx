@@ -1,3 +1,5 @@
+import type * as React from 'react';
+
 import { ACTIONS_COLUMN_ID } from './constants.ts';
 import { useDataTableHandle } from './hooks.ts';
 import { flexRender } from './utils.tsx';
