@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
+import * as React from 'react';
 
 import { cn } from '#utils';
 
 import { Input } from '../Input/Input.tsx';
 
-const InputGroupInput = ({ className, ...props }: ComponentProps<'input'>) => {
+const InputGroupInput = ({ className, ...props }: React.ComponentProps<'input'>) => {
   return (
     <Input
       className={cn(

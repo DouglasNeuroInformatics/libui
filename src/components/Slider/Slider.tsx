@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
 
 import { cn } from '#utils';
 
-export const Slider = ({ className, disabled, ref, ...props }: ComponentProps<typeof Root>) => {
+export const Slider = ({ className, disabled, ref, ...props }: React.ComponentProps<typeof Root>) => {
   return (
     <Root
       className={cn('relative flex w-full touch-none items-center py-1.5 select-none', className)}

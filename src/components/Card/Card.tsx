@@ -1,8 +1,8 @@
-import type { ComponentProps, HTMLAttributes } from 'react';
+import * as React from 'react';
 
 import { cn } from '#utils';
 
-const CardRoot = ({ className, ref, ...props }: ComponentProps<'div'>) => {
+const CardRoot = ({ className, ref, ...props }: React.ComponentProps<'div'>) => {
   return (
     <div
       className={cn('bg-card text-card-foreground rounded-xl border shadow-sm', className)}
@@ -14,19 +14,19 @@ const CardRoot = ({ className, ref, ...props }: ComponentProps<'div'>) => {
 };
 
 export const Card = Object.assign(CardRoot, {
-  Content: ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
+  Content: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn('p-6 pt-0', className)} {...props} />
   ),
-  Description: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
+  Description: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn('text-muted-foreground text-sm', className)} {...props} />
   ),
-  Footer: ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+  Footer: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
     return <div className={cn('flex items-center p-6 pt-0', className)} {...props} />;
   },
-  Header: ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
+  Header: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
     <div className={cn('flex flex-col space-y-1.5 p-6', className)} {...props} />
   ),
-  Title: ({ children, className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+  Title: ({ children, className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3 className={cn('leading-none font-semibold tracking-tight', className)} {...props}>
       {children}
     </h3>

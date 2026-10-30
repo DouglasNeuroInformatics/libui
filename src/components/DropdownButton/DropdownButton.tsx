@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const DropdownButton = ({ children, className, ref, ...props }: ComponentProps<'button'>) => {
+export const DropdownButton = ({ children, className, ref, ...props }: React.ComponentProps<'button'>) => {
   return (
     <button
       className={cn(

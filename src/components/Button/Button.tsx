@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, Ref } from 'react';
+import * as React from 'react';
 
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
@@ -40,12 +40,12 @@ export const buttonVariants = cva(
 );
 
 export type ButtonProps = Simplify<
-  ButtonHTMLAttributes<HTMLButtonElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
     VariantProps<typeof buttonVariants> & {
       asChild?: boolean;
       /** @deprecated - use children   */
       label?: string;
-      ref?: Ref<HTMLButtonElement>;
+      ref?: React.Ref<HTMLButtonElement>;
     }
 >;
 

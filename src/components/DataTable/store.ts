@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type React from 'react';
 
 import {
   createTable,
@@ -52,7 +52,7 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
     const updateStyle = () => {
       set((state) => {
         const headers = table.getFlatHeaders();
-        const style: CSSProperties & { [key: string]: any } = {
+        const style: React.CSSProperties & { [key: string]: any } = {
           width: table.getTotalSize()
         };
         if (state._containerWidth === null) {

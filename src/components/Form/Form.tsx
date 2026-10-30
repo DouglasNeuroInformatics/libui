@@ -1,4 +1,4 @@
-import type { Dispatch, FormEvent, ReactNode, SetStateAction } from 'react';
+import type React from 'react';
 import { Fragment, useEffect, useState } from 'react';
 
 import type { ZodErrorLike, ZodTypeLike } from '@douglasneuroinformatics/libjs';
@@ -32,8 +32,8 @@ type FormSubmitHandler<TData> = (data: NoInfer<TData>) => Promisable<FormSubmitR
 type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['_output'] = TSchema['_output']> = {
   [key: `data-${string}`]: unknown;
   additionalButtons?: {
-    left?: ReactNode;
-    right?: ReactNode;
+    left?: React.ReactNode;
+    right?: React.ReactNode;
   };
   className?: string;
   content: FormContent<TData>;
@@ -41,7 +41,7 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
     resetBtn?: string;
     submitBtn?: string;
   };
-  fieldsFooter?: ReactNode;
+  fieldsFooter?: React.ReactNode;
   id?: string;
   initialValues?: PartialNullableFormDataType<NoInfer<TData>>;
   onBeforeSubmit?: FormSubmitHandler<NoInfer<TData>> | null;
@@ -56,7 +56,7 @@ type FormProps<TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema[
   subscribe?: {
     onChange: (
       values: PartialFormDataType<TData>,
-      setValues: Dispatch<SetStateAction<PartialFormDataType<TData>>>
+      setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>
     ) => Promisable<void>;
     selector: (values: PartialFormDataType<TData>) => unknown;
   };
@@ -130,7 +130,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
     }
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const result = await validationSchema.safeParseAsync(values);
     if (!result.success) {

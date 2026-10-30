@@ -1,7 +1,7 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import { cn } from '#utils';
 
-export const TableHeader = ({ className, ref, ...props }: ComponentProps<'thead'>) => {
+export const TableHeader = ({ className, ref, ...props }: React.ComponentProps<'thead'>) => {
   return <thead className={cn('[&_tr]:border-b', className)} ref={ref} {...props} />;
 };

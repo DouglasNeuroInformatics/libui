@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import type { FC } from 'react';
+import React, { useState } from 'react';
 
 import { ClipboardCheckIcon, ClipboardListIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -9,7 +8,7 @@ import { Button } from '../Button/Button.tsx';
 
 import type { ButtonProps } from '../Button/Button.tsx';
 
-export const CopyButton: FC<{ size?: ButtonProps['size']; text: string; variant?: ButtonProps['variant'] }> = ({
+export const CopyButton: React.FC<{ size?: ButtonProps['size']; text: string; variant?: ButtonProps['variant'] }> = ({
   size,
   text,
   variant

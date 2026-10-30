@@ -1,7 +1,7 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import { cn } from '#utils';
 
-export const TableBody = ({ className, ref, ...props }: ComponentProps<'tbody'>) => {
+export const TableBody = ({ className, ref, ...props }: React.ComponentProps<'tbody'>) => {
   return <tbody className={cn('[&_tr:last-child]:border-0', className)} ref={ref} {...props} />;
 };

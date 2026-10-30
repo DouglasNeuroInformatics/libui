@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
+import * as React from 'react';
 
 import { cn } from '#utils';
 
 import { TextArea } from '../TextArea/TextArea.tsx';
 
-const InputGroupTextArea = ({ className, ...props }: ComponentProps<'textarea'>) => {
+const InputGroupTextArea = ({ className, ...props }: React.ComponentProps<'textarea'>) => {
   return (
     <TextArea
       className={cn(

@@ -1,6 +1,6 @@
 /* eslint-disable perfectionist/sort-objects */
 
-import type { Dispatch, SetStateAction } from 'react';
+import type React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { filterObject, sleep } from '@douglasneuroinformatics/libjs';
@@ -629,7 +629,7 @@ export const WithSubscribe: StoryObj<
       const handleChange = useCallback(
         (
           values: Partial<{ options: string; searchTerm: string }>,
-          setValues: Dispatch<SetStateAction<Partial<{ options: string; searchTerm: string }>>>
+          setValues: React.Dispatch<React.SetStateAction<Partial<{ options: string; searchTerm: string }>>>
         ) => {
           clearTimeout(timeoutRef.current);
           const lowerCaseSearch = values.searchTerm?.toLowerCase();

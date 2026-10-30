@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import * as React from 'react';
 
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { cva } from 'class-variance-authority';
@@ -28,7 +28,7 @@ export const sheetVariants = cva(
   }
 );
 
-export type SheetContentProps = ComponentProps<typeof Content> & VariantProps<typeof sheetVariants>;
+export type SheetContentProps = React.ComponentProps<typeof Content> & VariantProps<typeof sheetVariants>;
 
 export const SheetContent = ({ children, className, ref, side = 'right', ...props }: SheetContentProps) => {
   return (

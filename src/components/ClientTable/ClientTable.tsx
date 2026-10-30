@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import type { ComponentType, SVGProps } from 'react';
 import * as React from 'react';
 
 import { toBasicISOString } from '@douglasneuroinformatics/libjs';
@@ -43,7 +42,7 @@ export type ClientTableColumn<T extends ClientTableEntry> = {
 };
 
 export type ClientTableDropdownOptions<T extends ClientTableEntry> = {
-  icon?: ComponentType<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  icon?: React.ComponentType<Omit<React.SVGProps<SVGSVGElement>, 'ref'>>;
   label: string;
   onSelection: (column: ClientTableColumn<T>) => void;
 }[];

@@ -1,4 +1,4 @@
-import type { ComponentType, JSX, ReactNode } from 'react';
+import type React from 'react';
 
 import type {
   ColumnDef,
@@ -97,9 +97,9 @@ function defineMemoizedHandle<T extends (...args: any[]) => any>(target: T) {
 }
 
 function flexRender<TProps extends object>(
-  Comp: ComponentType<TProps> | ReactNode,
+  Comp: React.ComponentType<TProps> | React.ReactNode,
   props: TProps
-): JSX.Element | ReactNode {
+): React.JSX.Element | React.ReactNode {
   return !Comp ? null : isReactComponent<TProps>(Comp) ? <Comp {...props} /> : Comp;
 }
 
@@ -172,7 +172,7 @@ function getTanstackTableState<T>({ initialState, rowActions }: DataTableStorePa
   return state;
 }
 
-function isReactComponent<TProps>(component: unknown): component is ComponentType<TProps> {
+function isReactComponent<TProps>(component: unknown): component is React.ComponentType<TProps> {
   return typeof component === 'function';
 }
 

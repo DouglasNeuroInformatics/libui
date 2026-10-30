@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import * as React from 'react';
 
 import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
@@ -22,7 +22,7 @@ const badgeVariants = cva(
   }
 );
 
-type BadgeProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>;
+type BadgeProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>;
 
 const Badge = ({ className, variant, ...props }: BadgeProps) => {
   return <div className={cn(badgeVariants({ variant }), className)} data-testid="badge" {...props} />;

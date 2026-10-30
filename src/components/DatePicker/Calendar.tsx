@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type React from 'react';
 
 import { range } from 'lodash-es';
 import { AnimatePresence, motion } from 'motion/react';
@@ -10,7 +10,7 @@ export const CALENDAR_ANIMATION_DURATION = 0.2; // seconds
 export type CalendarProps = {
   month: number;
   onSelection: (date: Date) => void;
-  ref?: Ref<HTMLDivElement>;
+  ref?: React.Ref<HTMLDivElement>;
   year: number;
 };
 

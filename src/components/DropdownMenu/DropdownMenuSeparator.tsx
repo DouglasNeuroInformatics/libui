@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
@@ -8,6 +8,6 @@ export const DropdownMenuSeparator = ({
   className,
   ref,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Separator>) => {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) => {
   return <DropdownMenuPrimitive.Separator className={cn('bg-muted -mx-1 my-1 h-px', className)} ref={ref} {...props} />;
 };

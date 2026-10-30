@@ -1,8 +1,8 @@
-import type { ComponentProps } from 'react';
+import * as React from 'react';
 
 import { cn } from '#utils';
 
-const InputGroup = ({ className, ...props }: ComponentProps<'div'>) => {
+const InputGroup = ({ className, ...props }: React.ComponentProps<'div'>) => {
   return (
     <div
       className={cn(

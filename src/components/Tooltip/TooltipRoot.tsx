@@ -1,10 +1,10 @@
-import type { ReactNode } from 'react';
+import * as React from 'react';
 
 import { Provider, Root } from '@radix-ui/react-tooltip';
 
 export type TooltipRootProps = {
   /** The tooltip trigger and content */
-  children: ReactNode;
+  children: React.ReactNode;
   /** The duration from when the mouse enters a tooltip trigger until the tooltip opens. */
   delayDuration?: number;
   /** Event handler called when the open state of the tooltip changes. */

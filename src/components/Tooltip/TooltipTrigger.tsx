@@ -1,4 +1,4 @@
-import type { ComponentRef, Ref } from 'react';
+import type React from 'react';
 
 import { Trigger } from '@radix-ui/react-tooltip';
 
@@ -7,7 +7,7 @@ import { Button } from '../Button/Button.tsx';
 import type { ButtonProps } from '../Button/Button.tsx';
 
 export type TooltipTriggerProps = Omit<ButtonProps, 'asChild' | 'ref'> & {
-  ref?: Ref<ComponentRef<typeof Trigger>>;
+  ref?: React.Ref<React.ComponentRef<typeof Trigger>>;
 };
 
 export const TooltipTrigger = ({ ref, variant = 'outline', ...props }: TooltipTriggerProps) => {

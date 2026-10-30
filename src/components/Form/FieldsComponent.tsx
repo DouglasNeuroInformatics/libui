@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import * as React from 'react';
 
 import type { FormDataType, FormFields, PartialFormDataType } from '@douglasneuroinformatics/libui-form-types';
 
@@ -11,8 +11,8 @@ export type FieldsComponentProps<T extends FormDataType> = {
   errors: FormErrors<T>;
   fields: FormFields<T>;
   readOnly?: boolean;
-  setErrors: Dispatch<SetStateAction<FormErrors<T>>>;
-  setValues: Dispatch<SetStateAction<PartialFormDataType<T>>>;
+  setErrors: React.Dispatch<React.SetStateAction<FormErrors<T>>>;
+  setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<T>>>;
   values: PartialFormDataType<T>;
 };
 

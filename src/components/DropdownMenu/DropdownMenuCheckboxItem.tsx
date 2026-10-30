@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';
@@ -11,7 +11,7 @@ export const DropdownMenuCheckboxItem = ({
   className,
   ref,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       checked={checked}

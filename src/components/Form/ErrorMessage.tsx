@@ -1,10 +1,10 @@
-import type { FC } from 'react';
+import * as React from 'react';
 
 import { CircleAlertIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const ErrorMessage: FC<{ className?: string; error?: null | string[]; hideIconOnWrap?: boolean }> = ({
+export const ErrorMessage: React.FC<{ className?: string; error?: null | string[]; hideIconOnWrap?: boolean }> = ({
   className,
   error,
   hideIconOnWrap

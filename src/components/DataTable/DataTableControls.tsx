@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import type { FC } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import type { RowData, Table } from '@tanstack/table-core';
 
@@ -15,7 +14,7 @@ export const DataTableControls = <T extends RowData>({
   togglesComponent: Toggles
 }: {
   onSearchChange?: DataTableSearchChangeHandler<T>;
-  togglesComponent?: FC<{ table: Table<T> }>;
+  togglesComponent?: React.FC<{ table: Table<T> }>;
 }) => {
   const table = useDataTableHandle('table');
   const setGlobalFilter = useDataTableStore((store) => store.setGlobalFilter);

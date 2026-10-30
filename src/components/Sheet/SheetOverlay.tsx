@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import { Overlay } from '@radix-ui/react-dialog';
 
 import { cn } from '#utils';
 
-export const SheetOverlay = ({ className, ref, ...props }: ComponentProps<typeof Overlay>) => {
+export const SheetOverlay = ({ className, ref, ...props }: React.ComponentProps<typeof Overlay>) => {
   return (
     <Overlay
       className={cn(

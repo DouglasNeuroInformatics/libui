@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef } from 'react';
+import * as React from 'react';
 
 import { Combobox as ComboboxPrimitive } from '@base-ui/react';
 import { XIcon } from 'lucide-react';
@@ -10,7 +10,7 @@ import { Button } from '../Button/Button.tsx';
 const ComboboxChips = ({
   className,
   ...props
-}: ComboboxPrimitive.Chips.Props & ComponentPropsWithRef<typeof ComboboxPrimitive.Chips>) => {
+}: ComboboxPrimitive.Chips.Props & React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips>) => {
   return (
     <ComboboxPrimitive.Chips
       className={cn(

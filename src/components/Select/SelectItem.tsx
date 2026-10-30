@@ -1,11 +1,16 @@
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { CheckIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const SelectItem = ({ children, className, ref, ...props }: ComponentProps<typeof SelectPrimitive.Item>) => {
+export const SelectItem = ({
+  children,
+  className,
+  ref,
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Item>) => {
   return (
     <SelectPrimitive.Item
       className={cn(

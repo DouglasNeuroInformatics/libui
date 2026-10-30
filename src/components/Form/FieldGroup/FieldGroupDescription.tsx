@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { FC, PointerEvent } from 'react';
 
 import { CircleHelpIcon } from 'lucide-react';
 
@@ -8,9 +7,9 @@ import { Popover } from '#components';
 /** Lets the pointer cross the gap between the icon and the description without closing it. */
 const HOVER_CLOSE_DELAY_MS = 100;
 
-const isMouse = (event: PointerEvent) => event.pointerType === 'mouse';
+const isMouse = (event: React.PointerEvent) => event.pointerType === 'mouse';
 
-export const FieldGroupDescription: FC<{ description?: null | string }> = ({ description }) => {
+export const FieldGroupDescription: React.FC<{ description?: null | string }> = ({ description }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const closeTimeoutRef = React.useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -20,14 +19,14 @@ export const FieldGroupDescription: FC<{ description?: null | string }> = ({ des
     return null;
   }
 
-  const openOnHover = (event: PointerEvent) => {
+  const openOnHover = (event: React.PointerEvent) => {
     if (isMouse(event)) {
       clearTimeout(closeTimeoutRef.current);
       setIsOpen(true);
     }
   };
 
-  const closeOnLeave = (event: PointerEvent) => {
+  const closeOnLeave = (event: React.PointerEvent) => {
     if (isMouse(event)) {
       closeTimeoutRef.current = setTimeout(() => setIsOpen(false), HOVER_CLOSE_DELAY_MS);
     }

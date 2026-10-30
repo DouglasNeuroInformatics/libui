@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react';
+import type React from 'react';
 import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
@@ -33,7 +33,7 @@ const DestructiveActionsChildren = () => {
   const [description, setDescription] = useState('');
 
   const destructiveAction = useDestructiveAction({
-    action: (event: MouseEvent<HTMLButtonElement>) => {
+    action: (event: React.MouseEvent<HTMLButtonElement>) => {
       alert(`Delete at Event Time: ${event.timeStamp}`);
     },
     description: description || undefined,
