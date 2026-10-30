@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.19.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.19.0...v6.19.1) (2026-10-30)
+
+### Bug Fixes
+
+* import the React types the declarations annotate props with ([a44eec9](https://github.com/DouglasNeuroInformatics/libui/commit/a44eec9b9101f64fd84993b0babf905991adfad7))
+
 ## [6.19.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.18.0...v6.19.0) (2026-10-30)
 
 ### Features
