@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import type { ColumnDef } from '@tanstack/table-core';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { range } from 'lodash-es';
+import { noop, range } from 'lodash-es';
 import { describe, expect, it } from 'vitest';
 
 import { DataTable } from '../DataTable.tsx';
@@ -150,5 +150,27 @@ describe('DataTable pagination', () => {
 
     expect(searchBar).toHaveValue('user-11@example.com');
     expect(screen.getAllByTestId('data-table-row').length).toBe(1);
+  });
+});
+
+describe('DataTable server mode', () => {
+  const serverProps = {
+    columns,
+    data: data.slice(0, 10),
+    mode: 'server',
+    onPaginationChange: noop,
+    pageCount: 3
+  } as const;
+
+  it('should pin a column named by its initial state, so a server-mode table can size it', () => {
+    render(<DataTable {...serverProps} initialState={{ columnPinning: { right: ['amount'] } }} />);
+    expect(screen.getByText('Amount')).toHaveStyle({ position: 'sticky' });
+    expect(screen.getByText('Status')).not.toHaveStyle({ position: 'sticky' });
+    expect(screen.getByText('Email')).not.toHaveStyle({ position: 'sticky' });
+  });
+
+  it('should pin nothing when given no initial state', () => {
+    render(<DataTable {...serverProps} />);
+    expect(screen.getByText('Amount')).not.toHaveStyle({ position: 'sticky' });
   });
 });
