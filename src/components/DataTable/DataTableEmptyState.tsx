@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { FC } from 'react';
 
 import type { LucideIcon } from 'lucide-react';
 
@@ -11,12 +11,7 @@ export type DataTableEmptyStateProps = {
   title: string;
 };
 
-export const DataTableEmptyState: React.FC<DataTableEmptyStateProps> = ({
-  className,
-  description,
-  icon: Icon,
-  title
-}) => {
+export const DataTableEmptyState: FC<DataTableEmptyStateProps> = ({ className, description, icon: Icon, title }) => {
   return (
     <div className={cn('flex flex-col items-center justify-center', className)} data-testid="data-table-empty-state">
       {Icon && <Icon className="text-muted-foreground mb-2" style={{ height: '20px', width: '20px' }} />}

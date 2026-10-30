@@ -1,8 +1,8 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import { cn } from '#utils';
 
-export const TableHead = ({ className, ref, ...props }: React.ComponentProps<'th'>) => {
+export const TableHead = ({ className, ref, ...props }: ComponentProps<'th'>) => {
   return (
     <th
       className={cn(

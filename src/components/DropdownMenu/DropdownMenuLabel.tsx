@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
@@ -9,7 +9,7 @@ export const DropdownMenuLabel = ({
   inset,
   ref,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
+}: ComponentProps<typeof DropdownMenuPrimitive.Label> & {
   inset?: boolean;
 }) => {
   return (

@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
@@ -9,7 +9,7 @@ export const SelectTrigger = ({
   className,
   ref,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Trigger>) => {
+}: ComponentProps<typeof SelectPrimitive.Trigger>) => {
   return (
     <SelectPrimitive.Trigger asChild className={className} ref={ref} {...props}>
       <DropdownButton>{children}</DropdownButton>

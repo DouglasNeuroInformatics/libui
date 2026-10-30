@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import * as React from 'react';
 
 import { ChevronUpIcon } from 'lucide-react';
@@ -11,14 +12,14 @@ import { Button } from '../Button/Button.tsx';
 import type { ButtonProps } from '../Button/Button.tsx';
 
 export type ArrowToggleProps = Simplify<
-  React.HTMLAttributes<HTMLButtonElement> & {
+  HTMLAttributes<HTMLButtonElement> & {
     /** Whether or not the arrow is currently toggled */
     isToggled?: boolean;
 
     /** The starting position of the arrow (i.e., which direction does it point to) */
     position: 'down' | 'left' | 'right' | 'up';
 
-    ref?: React.Ref<HTMLButtonElement>;
+    ref?: Ref<HTMLButtonElement>;
 
     /** The clockwise rotation of the arrow when toggled (e.g., if the position is 'right' and rotation is 90, the arrow will point down) */
     rotation?: number;

@@ -1,11 +1,11 @@
-import type React from 'react';
+import type { ComponentProps, FC } from 'react';
 
 import { Indicator, Item } from '@radix-ui/react-radio-group';
 import { CircleIcon } from 'lucide-react';
 
 import { cn } from '#utils';
 
-export const RadioGroupItem: React.FC<React.ComponentProps<typeof Item>> = ({ className, ...props }) => {
+export const RadioGroupItem: FC<ComponentProps<typeof Item>> = ({ className, ...props }) => {
   return (
     <Item
       className={cn(

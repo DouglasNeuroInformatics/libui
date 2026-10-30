@@ -1,4 +1,5 @@
 import { useReducer, useState } from 'react';
+import type { MouseEventHandler, Ref } from 'react';
 import * as React from 'react';
 
 import { AnimatePresence, motion } from 'motion/react';
@@ -57,10 +58,10 @@ const reducer = (previousDate: Date, action: ReducerAction) => {
 };
 
 export type DatePickerProps = {
-  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
-  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>;
   onSelection: (value: Date) => void;
-  ref?: React.Ref<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 };
 
 export const DatePicker = ({ onSelection, ref, ...props }: DatePickerProps) => {

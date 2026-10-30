@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 import { cn } from '#utils';
 
@@ -6,7 +6,7 @@ export const SheetBody = ({
   children,
   className,
   ...props
-}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
+}: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
   return (
     <div className={cn('py-4', className)} {...props}>
       {children}

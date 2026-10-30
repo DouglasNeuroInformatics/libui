@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { ComponentRef, ReactNode, Ref } from 'react';
 
 import { Content, Portal } from '@radix-ui/react-popover';
 
@@ -12,13 +12,13 @@ export type PopoverContentProps = {
   /** Whether the content should be automatically focused when opened (default = true) */
   autofocus?: boolean;
   /** The content to display when the user opens the popover */
-  children: React.ReactNode;
+  children: ReactNode;
   /** Additional CSS classes to add to the component, potentially overriding default styling */
   className?: string;
   /** The distance in pixels from the viewport edges where collision detection should occur */
   collisionPadding?: number;
   /** A ref to the underlying content element */
-  ref?: React.Ref<React.ComponentRef<typeof Content>>;
+  ref?: Ref<ComponentRef<typeof Content>>;
   /** The distance in pixels from the anchor */
   sideOffset?: number;
 };

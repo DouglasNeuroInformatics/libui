@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { ChevronRightIcon } from 'lucide-react';
@@ -11,7 +11,7 @@ export const DropdownMenuSubTrigger = ({
   inset,
   ref,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
+}: ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
   inset?: boolean;
 }) => {
   return (

@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
@@ -13,7 +13,7 @@ export const SelectContent = ({
   position = 'popper',
   ref,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) => {
+}: ComponentProps<typeof SelectPrimitive.Content>) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content

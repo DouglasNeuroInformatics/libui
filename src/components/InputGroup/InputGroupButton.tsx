@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
@@ -34,7 +34,7 @@ const InputGroupButton = ({
   type = 'button',
   variant = 'ghost',
   ...props
-}: Omit<React.ComponentProps<typeof Button>, 'size'> & VariantProps<typeof inputGroupButtonVariants>) => {
+}: Omit<ComponentProps<typeof Button>, 'size'> & VariantProps<typeof inputGroupButtonVariants>) => {
   return (
     <Button
       className={cn(inputGroupButtonVariants({ size }), className)}

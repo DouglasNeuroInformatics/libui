@@ -1,8 +1,8 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import { cn } from '#utils';
 
-export type TextAreaProps = React.ComponentProps<'textarea'>;
+export type TextAreaProps = ComponentProps<'textarea'>;
 
 export const TextArea = ({ className, ref, ...props }: TextAreaProps) => {
   return (

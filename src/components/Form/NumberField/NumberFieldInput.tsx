@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ChangeEventHandler } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
 
 import { parseNumber } from '@douglasneuroinformatics/libjs';
@@ -44,7 +44,7 @@ export const NumberFieldInput = ({
     return NaN;
   };
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const updatedValue = parseInputValue(event.target.value);
     if (Number.isNaN(updatedValue)) {
       return;

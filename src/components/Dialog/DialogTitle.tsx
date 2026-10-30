@@ -1,9 +1,9 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import { Title } from '@radix-ui/react-dialog';
 
 import { cn } from '#utils';
 
-export const DialogTitle = ({ className, ...props }: React.ComponentProps<typeof Title>) => {
+export const DialogTitle = ({ className, ...props }: ComponentProps<typeof Title>) => {
   return <Title className={cn('text-lg leading-none font-semibold tracking-tight', className)} {...props} />;
 };

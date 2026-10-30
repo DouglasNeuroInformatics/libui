@@ -1,10 +1,10 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 import { cn } from '#utils';
 
-export const TabsContent = ({ className, ref, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) => {
+export const TabsContent = ({ className, ref, ...props }: ComponentProps<typeof TabsPrimitive.Content>) => {
   return (
     <TabsPrimitive.Content
       className={cn(

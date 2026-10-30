@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import * as React from 'react';
 
 import type { DynamicFormField, FormDataType, PartialFormDataType } from '@douglasneuroinformatics/libui-form-types';
@@ -13,8 +14,8 @@ export type DynamicFieldProps<TData extends FormDataType> = {
   field: DynamicFormField<TData>;
   name: string;
   readOnly?: boolean;
-  setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
-  setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
+  setErrors: Dispatch<SetStateAction<FormErrors<TData>>>;
+  setValues: Dispatch<SetStateAction<PartialFormDataType<TData>>>;
   values: PartialFormDataType<TData>;
 };
 

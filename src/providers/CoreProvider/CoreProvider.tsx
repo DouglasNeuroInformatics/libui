@@ -1,9 +1,9 @@
-import type React from 'react';
+import type { FC, ReactNode } from 'react';
 
 import { DestructiveActionDialog } from './DestructiveActionDialog.tsx';
 import { NotificationHub } from './NotificationHub.tsx';
 
-export const CoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const CoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <DestructiveActionDialog />

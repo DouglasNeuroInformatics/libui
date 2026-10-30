@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { CSSProperties } from 'react';
 
 import { ACTIONS_COLUMN_ID } from './constants.ts';
 import { useDataTableHandle } from './hooks.ts';
@@ -13,7 +13,7 @@ export const DataTableHead = () => {
       {headerGroups.map((headerGroup) => (
         <div className="flex" key={headerGroup.id}>
           {headerGroup.headers.map((header) => {
-            const style: React.CSSProperties = {
+            const style: CSSProperties = {
               // TODO - add more robust solution - should be able to block centering also - also set correct typing
               justifyContent: header.column.columnDef.meta?.centered ? 'center' : 'start',
               width: `calc(var(--header-${header?.id}-size) * 1px)`
