@@ -96,11 +96,12 @@ export type MemoizedHandle<T extends (...args: any[]) => any> = T & {
  * CLIENT
  *********************************************************************/
 
-export type ClientDataTableInitialState = {
-  columnFilters?: ColumnFiltersState;
-  columnPinning?: ColumnPinningState;
-  sorting?: SortingState;
-};
+export type ClientDataTableInitialState = Simplify<
+  ServerDataTableInitialState & {
+    columnFilters?: ColumnFiltersState;
+    sorting?: SortingState;
+  }
+>;
 
 export type ClientDataTableStoreParams<T extends RowData> = Simplify<
   BaseDataTableStoreParams<T> & {
@@ -117,9 +118,19 @@ export type ClientDataTableProps<T extends RowData> = Simplify<
  * SERVER
  *********************************************************************/
 
+/**
+ * Pinning is layout rather than a view of the data: `calculateColumnSizing` honours `size` on a
+ * pinned column and splits what is left between the rest, so it is how a table of any mode gives
+ * one column the room its content needs. Filtering and sorting in server mode belong to the
+ * request, so they stay out.
+ */
+export type ServerDataTableInitialState = {
+  columnPinning?: ColumnPinningState;
+};
+
 export type ServerDataTableStoreParams<T extends RowData> = Simplify<
   BaseDataTableStoreParams<T> & {
-    initialState?: never;
+    initialState?: ServerDataTableInitialState;
     mode: 'server';
     onPaginationChange: (state: PaginationState) => void;
     onSortingChange?: (state: SortingState) => void;

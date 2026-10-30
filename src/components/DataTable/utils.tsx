@@ -14,6 +14,7 @@ import { DataTableRowActionCell } from './DataTableRowActionCell.tsx';
 
 import type {
   BaseDataTableStoreParams,
+  ClientDataTableInitialState,
   DataTableColumnBreakpoints,
   DataTableRowAction,
   DataTableStoreParams,
@@ -136,7 +137,10 @@ function getColumnPinningWithActions<T extends RowData>(
 }
 
 function getTanstackTableState<T>({ initialState, rowActions }: DataTableStoreParams<T>): TableState {
-  const { columnFilters = [], columnPinning = {}, sorting = [] } = initialState ?? {};
+  // Widened to the client shape, which the server one is a subset of, so the union's narrower
+  // member does not make `columnFilters` and `sorting` unreadable here.
+  const initial: ClientDataTableInitialState = initialState ?? {};
+  const { columnFilters = [], columnPinning = {}, sorting = [] } = initial;
   const state: TableState = {
     columnFilters,
     columnOrder: [],
