@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { cn } from '#utils';
 
 export const TableFooter = ({ className, ref, ...props }: React.ComponentProps<'tfoot'>) => {

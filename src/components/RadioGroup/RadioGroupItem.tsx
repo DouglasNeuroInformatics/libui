@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { Indicator, Item } from '@radix-ui/react-radio-group';
 import { CircleIcon } from 'lucide-react';
 

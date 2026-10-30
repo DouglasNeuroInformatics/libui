@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { ChevronRightIcon } from 'lucide-react';
 

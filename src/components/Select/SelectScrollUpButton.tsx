@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { ChevronUpIcon } from 'lucide-react';
 
