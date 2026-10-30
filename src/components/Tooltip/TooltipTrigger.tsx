@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { Trigger } from '@radix-ui/react-tooltip';
 
 import { Button } from '../Button/Button.tsx';

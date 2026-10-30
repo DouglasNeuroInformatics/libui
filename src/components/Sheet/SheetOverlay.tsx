@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { Overlay } from '@radix-ui/react-dialog';
 
 import { cn } from '#utils';
