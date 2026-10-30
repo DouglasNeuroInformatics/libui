@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.19.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.19.1...v6.19.2) (2026-10-30)
+
+### Bug Fixes
+
+* annotate props with named react type imports ([7194415](https://github.com/DouglasNeuroInformatics/libui/commit/71944153a9b7cdda24786f2e7db9701a295bfb81))
+
 ## [6.19.1](https://github.com/DouglasNeuroInformatics/libui/compare/v6.19.0...v6.19.1) (2026-10-30)
 
 ### Bug Fixes
