@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
@@ -8,7 +8,7 @@ export const DropdownMenuSubContent = ({
   className,
   ref,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => {
+}: ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => {
   return (
     <DropdownMenuPrimitive.SubContent
       className={cn(

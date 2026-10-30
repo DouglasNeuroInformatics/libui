@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import * as React from 'react';
 
 import type {
@@ -25,8 +26,8 @@ export type StaticFieldProps<TData extends FormDataType> = {
   field: NumberRecordFormField | RecordArrayFormField | ScalarFieldProps['field'];
   name: string;
   readOnly?: boolean;
-  setErrors: React.Dispatch<React.SetStateAction<FormErrors<TData>>>;
-  setValues: React.Dispatch<React.SetStateAction<PartialFormDataType<TData>>>;
+  setErrors: Dispatch<SetStateAction<FormErrors<TData>>>;
+  setValues: Dispatch<SetStateAction<PartialFormDataType<TData>>>;
   values: PartialFormDataType<TData>;
 };
 

@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { CSSProperties, FC } from 'react';
 
 import { useTranslation } from '#hooks';
 import { cn } from '#utils';
@@ -9,7 +9,7 @@ import { flexRender } from './utils.tsx';
 
 import type { DataTableContentProps } from './types.ts';
 
-export const DataTableBody: React.FC<
+export const DataTableBody: FC<
   Pick<DataTableContentProps<any>, 'emptyStateProps' | 'onRowClick' | 'onRowDoubleClick'>
 > = ({ emptyStateProps, onRowClick, onRowDoubleClick }) => {
   const rows = useDataTableHandle('rows');
@@ -44,7 +44,7 @@ export const DataTableBody: React.FC<
             onDoubleClick={onRowDoubleClick ? () => void onRowDoubleClick(row.original) : undefined}
           >
             {row.getVisibleCells().map((cell) => {
-              const style: React.CSSProperties = {
+              const style: CSSProperties = {
                 width: `calc(var(--col-${cell.column.id}-size) * 1px)`
               };
               if (cell.column.getIsPinned() === 'left') {

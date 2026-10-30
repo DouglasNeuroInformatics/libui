@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
@@ -28,7 +28,7 @@ const InputGroupAddon = ({
   align = 'inline-start',
   className,
   ...props
-}: React.ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) => {
+}: ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) => {
   return (
     <div
       className={cn(inputGroupAddonVariants({ align }), className)}

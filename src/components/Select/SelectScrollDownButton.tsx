@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { ChevronDownIcon } from 'lucide-react';
@@ -9,7 +9,7 @@ export const SelectScrollDownButton = ({
   className,
   ref,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => {
+}: ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => {
   return (
     <SelectPrimitive.ScrollDownButton
       className={cn('flex cursor-default items-center justify-center py-1', className)}

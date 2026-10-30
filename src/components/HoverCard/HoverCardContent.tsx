@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import { Content } from '@radix-ui/react-hover-card';
 
@@ -10,7 +10,7 @@ export const HoverCardContent = ({
   ref,
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof Content>) => {
+}: ComponentProps<typeof Content>) => {
   return (
     <Content
       align={align}

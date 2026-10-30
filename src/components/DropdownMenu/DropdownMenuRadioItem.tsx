@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';
@@ -10,7 +10,7 @@ export const DropdownMenuRadioItem = ({
   className,
   ref,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => {
+}: ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => {
   return (
     <DropdownMenuPrimitive.RadioItem
       className={cn(

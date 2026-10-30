@@ -1,15 +1,15 @@
-import type React from 'react';
+import type { ComponentPropsWithoutRef, FC } from 'react';
 
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { ActionDropdown } from './ActionDropdown.tsx';
 
-type Props = React.ComponentPropsWithoutRef<typeof ActionDropdown>;
+type Props = ComponentPropsWithoutRef<typeof ActionDropdown>;
 
 const TEST_ID = 'ActionDropdown';
 
-const TestActionDropdown: React.FC<Partial<Props>> = (props) => {
+const TestActionDropdown: FC<Partial<Props>> = (props) => {
   return (
     <ActionDropdown
       data-testid={TEST_ID}

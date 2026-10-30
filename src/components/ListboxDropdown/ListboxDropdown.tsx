@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
 import { cn } from '#utils';
 
@@ -19,7 +19,7 @@ export type ListboxDropdownProps<T extends ListboxDropdownOption> = {
   disabled?: boolean;
   options: T[];
   selected: T[];
-  setSelected: React.Dispatch<React.SetStateAction<T[]>>;
+  setSelected: Dispatch<SetStateAction<T[]>>;
   title: string;
   triggerClassName?: string;
   variant?: ButtonProps['variant'];

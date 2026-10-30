@@ -1,10 +1,10 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 import { cn } from '#utils';
 
-export const TabsTrigger = ({ className, ref, ...props }: React.ComponentProps<typeof TabsPrimitive.Trigger>) => {
+export const TabsTrigger = ({ className, ref, ...props }: ComponentProps<typeof TabsPrimitive.Trigger>) => {
   return (
     <TabsPrimitive.Trigger
       className={cn(

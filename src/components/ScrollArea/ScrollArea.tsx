@@ -1,10 +1,10 @@
-import type React from 'react';
+import type { ComponentProps } from 'react';
 
 import { Corner, Root, Scrollbar, Thumb, Viewport } from '@radix-ui/react-scroll-area';
 
 import { cn } from '#utils';
 
-export const ScrollArea = ({ children, className, ...props }: React.ComponentProps<typeof Root>) => {
+export const ScrollArea = ({ children, className, ...props }: ComponentProps<typeof Root>) => {
   return (
     <Root className={cn('relative overflow-hidden', className)} data-testid="scroll-area" {...props}>
       <Viewport className="h-full w-full rounded-[inherit]">{children}</Viewport>

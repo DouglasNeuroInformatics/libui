@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { CSSProperties, FC } from 'react';
 
 import type {
   ColumnDef,
@@ -60,7 +60,7 @@ export type DataTableColumnBreakpoints = {
   1280: number;
 };
 
-export type DataTableRootStyle = React.CSSProperties & {
+export type DataTableRootStyle = CSSProperties & {
   [property: `--${string}`]: number | string | undefined;
 };
 
@@ -71,7 +71,7 @@ export type DataTableContentProps<T extends RowData> = {
   onRowDoubleClick?: (row: T) => Promisable<void>;
   onSearchChange?: DataTableSearchChangeHandler<NoInfer<T>>;
   rootStyle?: DataTableRootStyle;
-  togglesComponent?: React.FC<{ table: Table<T> }>;
+  togglesComponent?: FC<{ table: Table<T> }>;
 };
 
 export type DataTableHandles<T extends { [key: string]: unknown }> = {
@@ -168,5 +168,5 @@ export type DataTableStore = {
   setContainerWidth: (containerWidth: number) => void;
   setGlobalFilter: (globalFilter: GlobalFilter) => void;
   setPageIndex: (index: number) => void;
-  style: React.CSSProperties;
+  style: CSSProperties;
 };

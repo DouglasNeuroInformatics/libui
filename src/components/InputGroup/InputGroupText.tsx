@@ -1,8 +1,8 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 
 import { cn } from '#utils';
 
-const InputGroupText = ({ className, ...props }: React.ComponentProps<'span'>) => {
+const InputGroupText = ({ className, ...props }: ComponentProps<'span'>) => {
   return (
     <span
       className={cn(
