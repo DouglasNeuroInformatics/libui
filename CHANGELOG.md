@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.19.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.18.0...v6.19.0) (2026-10-30)
+
+### Features
+
+* accept column pinning in a server-mode data table's initial state ([24314ea](https://github.com/DouglasNeuroInformatics/libui/commit/24314ea264c0a7b20ea58a553c4e881b3ee31fe2))
+
 ## [6.18.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.17.0...v6.18.0) (2026-10-07)
 
 ### Features
