@@ -37,8 +37,104 @@ export const Slider: Story = {
           args={{
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             label: 'Slider Number Field',
+            max: 10,
+            min: 0,
             name: 'number-slider',
             setValue,
+            value,
+            variant: 'slider'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const SliderWithRange: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Slider Number Field',
+            max: 10,
+            min: 0,
+            name: 'number-slider',
+            setValue,
+            showRange: true,
+            value,
+            variant: 'slider'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const SliderWithMarks: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Slider Number Field',
+            marks: { 0: 'Not at all', 5: 'Moderately', 10: 'Extremely' },
+            max: 10,
+            min: 0,
+            name: 'number-slider',
+            setValue,
+            value,
+            variant: 'slider'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const SliderWithRangeAndMarks: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Slider Number Field',
+            marks: { 0: 'No pain', 10: 'The worst pain that you can imagine' },
+            max: 10,
+            min: 0,
+            name: 'number-slider',
+            setValue,
+            showRange: true,
+            value,
+            variant: 'slider'
+          }}
+        />
+      );
+    }
+  ]
+};
+
+export const SliderWithDefaultValue: Story = {
+  decorators: [
+    (Story) => {
+      const [value, setValue] = useState<number | undefined>();
+      return (
+        <Story
+          args={{
+            defaultValue: 3,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+            label: 'Slider Number Field',
+            max: 10,
+            min: 0,
+            name: 'number-slider',
+            setValue,
+            showRange: true,
             value,
             variant: 'slider'
           }}

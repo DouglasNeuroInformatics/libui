@@ -536,6 +536,35 @@ export const WithDynamicInitialValues: StoryObj<typeof Form> = {
   ]
 };
 
+export const WithNumberRecordInput: StoryObj<
+  typeof Form<z.ZodType<{ dimensions: { depth: number; height: number; width: number } }>>
+> = {
+  args: {
+    content: {
+      dimensions: {
+        items: {
+          depth: { label: 'Depth (cm)' },
+          height: { description: 'Measure from the floor', label: 'Height (cm)' },
+          width: { label: 'Width (cm)' }
+        },
+        kind: 'number-record',
+        label: 'Dimensions',
+        variant: 'input'
+      }
+    },
+    validationSchema: z.object({
+      dimensions: z.object({
+        depth: z.number().positive(),
+        height: z.number().positive(),
+        width: z.number().positive()
+      })
+    }),
+    onSubmit: (data) => {
+      alert(JSON.stringify(data, null, 2));
+    }
+  }
+};
+
 export const WithResetButton: StoryObj<typeof Form> = {
   args: {
     content: {
