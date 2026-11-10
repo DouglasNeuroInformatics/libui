@@ -258,8 +258,6 @@ describe('Form', () => {
       return screen.getByLabelText<HTMLInputElement>('Name');
     };
 
-    // The button is identified by its aria-label, so the query does not depend on the resolved
-    // translation for the visible text.
     const getResetButton = () => screen.getByRole('button', { name: 'Reset' });
 
     afterEach(() => {
@@ -397,6 +395,38 @@ describe('Form', () => {
       fireEvent.submit(screen.getByTestId(testid));
       await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
+    });
+  });
+
+  describe('button accessible names', () => {
+    const renderForm = (props?: { resetBtn?: boolean; submitBtnLabel?: string }) => {
+      render(
+        <Form
+          content={{ name: { kind: 'string', label: 'Name', variant: 'input' } }}
+          data-testid={testid}
+          validationSchema={z.object({ name: z.string() })}
+          onSubmit={onSubmit}
+          {...props}
+        />
+      );
+    };
+
+    it('should name the submit button after its default visible label', () => {
+      renderForm();
+      expect(screen.getByRole('button', { name: 'Submit' })).toHaveAttribute('type', 'submit');
+    });
+
+    it('should name the submit button after a custom submitBtnLabel', () => {
+      renderForm({ submitBtnLabel: 'Save' });
+      expect(screen.getByRole('button', { name: 'Save' })).toHaveAttribute('type', 'submit');
+      expect(screen.queryByRole('button', { name: 'Submit' })).not.toBeInTheDocument();
+    });
+
+    it('should not override the visible text of either button with an aria-label', () => {
+      renderForm({ resetBtn: true });
+      for (const button of screen.getAllByRole('button')) {
+        expect(button).not.toHaveAttribute('aria-label');
+      }
     });
   });
 });
