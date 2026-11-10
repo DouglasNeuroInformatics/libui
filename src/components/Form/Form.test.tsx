@@ -62,14 +62,15 @@ describe('Form', () => {
       expect(() => screen.getByLabelText('Field B')).toThrow();
     });
 
-    it('should display field b after checking field a, then remove field b when a is unchecked', () => {
+    it('should display field b after checking field a, then remove field b when a is unchecked', async () => {
       const a = screen.getByLabelText('Field A');
       expect(a).toHaveAttribute('data-state', 'unchecked');
       fireEvent.click(a);
       expect(a).toHaveAttribute('data-state', 'checked');
       expect(screen.getByLabelText('Field B')).toBeInTheDocument();
       fireEvent.click(a);
-      expect(() => screen.getByLabelText('Field B')).toThrow();
+      // the field is removed after it animates out
+      await waitFor(() => expect(screen.queryByLabelText('Field B')).not.toBeInTheDocument());
     });
 
     it('should allow submitting the form if field A is not checked', async () => {
@@ -104,7 +105,7 @@ describe('Form', () => {
       await userEvent.type(b, 'TEST');
       expect(b.value).toBe('TEST');
       fireEvent.click(a);
-      expect(b).not.toBeInTheDocument();
+      await waitFor(() => expect(b).not.toBeInTheDocument());
       fireEvent.click(a);
       b = screen.getByLabelText('Field B');
       expect(b).toBeInTheDocument();
@@ -397,6 +398,48 @@ describe('Form', () => {
       fireEvent.submit(screen.getByTestId(testid));
       await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
       expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
+    });
+  });
+
+  describe('dynamic field animation', () => {
+    const renderForm = (initialValues?: { a?: boolean }) => {
+      render(
+        <Form
+          content={{
+            a: { kind: 'boolean', label: 'Field A', variant: 'checkbox' },
+            b: {
+              deps: ['a'],
+              kind: 'dynamic',
+              render: (data) => (data.a ? { kind: 'string', label: 'Field B', variant: 'input' } : null)
+            }
+          }}
+          data-testid={testid}
+          initialValues={initialValues}
+          validationSchema={z.object({ a: z.boolean().optional(), b: z.string().optional() })}
+          onSubmit={onSubmit}
+        />
+      );
+    };
+
+    it('should not animate a dynamic field that is displayed when the form is first rendered', () => {
+      renderForm({ a: true });
+      expect(screen.getByTestId('dynamic-field').style.opacity).not.toBe('0');
+    });
+
+    it('should start collapsed and transparent when the field appears, then become fully visible', async () => {
+      renderForm();
+      fireEvent.click(screen.getByLabelText('Field A'));
+      const wrapper = screen.getByTestId('dynamic-field');
+      expect(wrapper.style.opacity).toBe('0');
+      expect(wrapper.style.height).toBe('0px');
+      await waitFor(() => expect(wrapper.style.opacity).toBe('1'));
+    });
+
+    it('should keep the field in the document while it animates out, then remove it', async () => {
+      renderForm({ a: true });
+      fireEvent.click(screen.getByLabelText('Field A'));
+      expect(screen.getByLabelText('Field B')).toBeInTheDocument();
+      await waitFor(() => expect(screen.queryByLabelText('Field B')).not.toBeInTheDocument());
     });
   });
 });
