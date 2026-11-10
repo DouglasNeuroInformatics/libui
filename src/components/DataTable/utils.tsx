@@ -172,6 +172,20 @@ function getTanstackTableState<T>({ initialState, rowActions }: DataTableStorePa
   return state;
 }
 
+/**
+ * Returns the name of the CSS variable that holds the size of a header or column.
+ *
+ * An ID can contain characters that are not valid in a CSS variable name (e.g., a space). Each
+ * character other than an ASCII letter, a digit, or a hyphen is replaced by its code point between
+ * underscores. Because the underscore itself is replaced, two different IDs cannot give the same name.
+ */
+function getSizeVariableName(kind: 'col' | 'header', id: string): `--${string}` {
+  const encodedId = Array.from(id, (char) => {
+    return /[a-zA-Z0-9-]/.test(char) ? char : `_${char.codePointAt(0)!.toString(16)}_`;
+  }).join('');
+  return `--${kind}-${encodedId}-size`;
+}
+
 function isReactComponent<TProps>(component: unknown): component is ComponentType<TProps> {
   return typeof component === 'function';
 }
@@ -183,5 +197,6 @@ export {
   flexRender,
   getColumnPinningWithActions,
   getColumnsWithActions,
+  getSizeVariableName,
   getTanstackTableState
 };
