@@ -251,9 +251,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
       {fieldsFooter}
       <div className="flex w-full gap-3">
         {additionalButtons?.left}
-        {/** Note - aria-label is used for testing in downstream packages */}
         <Button
-          aria-label="Submit"
           className={cn('flex w-full items-center justify-center gap-2', customStyles?.submitBtn)}
           disabled={readOnly || isSuspended}
           type="submit"
@@ -277,7 +275,6 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
         </Button>
         {resetBtn && (
           <Button
-            aria-label="Reset"
             className={cn('block w-full', customStyles?.resetBtn)}
             disabled={readOnly}
             type="button"
