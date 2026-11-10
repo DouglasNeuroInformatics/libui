@@ -399,4 +399,31 @@ describe('Form', () => {
       expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
     });
   });
+
+  describe('dynamic field deps', () => {
+    it('should pass only the values named in deps to the render function', async () => {
+      const renderField = vi.fn((data: { a?: boolean; b?: string; c?: string }) => {
+        return data.a ? ({ kind: 'string', label: 'Field C', variant: 'input' } as const) : null;
+      });
+      render(
+        <Form
+          content={{
+            a: { kind: 'boolean', label: 'Field A', variant: 'checkbox' },
+            b: { kind: 'string', label: 'Field B', variant: 'input' },
+            c: { deps: ['a'], kind: 'dynamic', render: renderField }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({ a: z.boolean().optional(), b: z.string().optional(), c: z.string().optional() })}
+          onSubmit={onSubmit}
+        />
+      );
+      await userEvent.type(screen.getByLabelText('Field B'), 'abc');
+      fireEvent.click(screen.getByLabelText('Field A'));
+      await waitFor(() => expect(screen.getByLabelText('Field C')).toBeInTheDocument());
+      expect(renderField.mock.lastCall?.[0]).toStrictEqual({ a: true });
+      for (const [data] of renderField.mock.calls) {
+        expect(data).not.toHaveProperty('b');
+      }
+    });
+  });
 });

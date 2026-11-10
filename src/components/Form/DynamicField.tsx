@@ -30,7 +30,8 @@ export const DynamicField = <TData extends FormDataType>({
   const [dependentValues, setDependentValues] = useState(pick(values, field.deps));
 
   const staticField = useMemo(() => {
-    return field.render.call(undefined, values);
+    // only the values named in deps are provided, since a change to any other value does not trigger a rerender
+    return field.render.call(undefined, dependentValues as PartialFormDataType<TData>);
   }, [dependentValues, field.render]);
 
   useEffect(() => {

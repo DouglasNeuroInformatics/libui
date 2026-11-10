@@ -7,6 +7,7 @@ import type {
   StaticFormFields,
   UnknownFormField
 } from '@douglasneuroinformatics/libui-form-types';
+import { pick } from 'lodash-es';
 
 export function getInitialValues<T extends FormDataType>(values: PartialNullableFormDataType<T>) {
   const initialValues: { [key: string]: unknown } = {};
@@ -34,7 +35,7 @@ export function getFormFields<T extends FormDataType>(content: FormContent<T>): 
 
 /**
  * Given a set of data, resolve static content for form fields. Null values
- * will be removed.
+ * will be removed. A dynamic field receives only the values named in its deps.
  */
 export function resolveStaticFormFields<T extends FormDataType>(content: FormContent<T>, data: PartialFormDataType<T>) {
   const staticFormFields: Partial<StaticFormFields<T>> = {};
@@ -42,7 +43,7 @@ export function resolveStaticFormFields<T extends FormDataType>(content: FormCon
   for (const fieldName in formFields) {
     const field: UnknownFormField<T, typeof fieldName> = formFields[fieldName];
     if (field.kind === 'dynamic') {
-      const resolvedField = field.render.call(undefined, data);
+      const resolvedField = field.render.call(undefined, pick(data, field.deps) as PartialFormDataType<T>);
       if (resolvedField) {
         staticFormFields[fieldName] = resolvedField;
       }
