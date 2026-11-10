@@ -399,4 +399,119 @@ describe('Form', () => {
       expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
     });
   });
+
+  describe('record array', () => {
+    const renderForm = (itemSchema: z.ZodType<{ name?: string }>) => {
+      render(
+        <Form
+          content={{
+            items: {
+              fieldset: { name: { kind: 'string', label: 'Name', variant: 'input' } },
+              kind: 'record-array',
+              label: 'Item'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({ items: z.array(itemSchema).optional() })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      return screen.getByLabelText<HTMLInputElement>('Name');
+    };
+
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should submit an optional record array that was not filled in, although its fields are required', async () => {
+      renderForm(z.object({ name: z.string().min(1) }));
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({});
+      expect(onError).not.toHaveBeenCalled();
+    });
+
+    it('should not submit a record with all values empty in place of an omitted record array', async () => {
+      renderForm(z.object({ name: z.string().optional() }));
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({});
+    });
+
+    it('should omit a record array where the only value was entered and then cleared', async () => {
+      const name = renderForm(z.object({ name: z.string().min(1) }));
+      await userEvent.type(name, 'a');
+      await userEvent.clear(name);
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({});
+    });
+
+    it('should show the errors on the fields of the first record when the record array is required', async () => {
+      render(
+        <Form
+          content={{
+            items: {
+              fieldset: { name: { kind: 'string', label: 'Name', variant: 'input' } },
+              kind: 'record-array',
+              label: 'Item'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({ items: z.array(z.object({ name: z.string('Required') })) })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      expect(onError.mock.lastCall?.[0].issues[0].path).toStrictEqual(['items', 0, 'name']);
+      expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Required']);
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it('should not show errors on an empty optional record array when a different field is invalid', async () => {
+      render(
+        <Form
+          content={{
+            items: {
+              fieldset: { name: { kind: 'string', label: 'Name', variant: 'input' } },
+              kind: 'record-array',
+              label: 'Item'
+            },
+            title: { kind: 'string', label: 'Title', variant: 'input' }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({
+            items: z.array(z.object({ name: z.string('Name required') })).optional(),
+            title: z.string('Title required')
+          })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Title required']);
+    });
+
+    it('should submit the records when a value is set', async () => {
+      const name = renderForm(z.object({ name: z.string().min(1) }));
+      await userEvent.type(name, 'Jane');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({ items: [{ name: 'Jane' }] });
+    });
+
+    it('should continue to validate an empty record when another record has a value', async () => {
+      const name = renderForm(z.object({ name: z.string().min(1) }));
+      await userEvent.type(name, 'Jane');
+      await userEvent.click(screen.getByRole('button', { name: 'Append' }));
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      expect(onError.mock.lastCall?.[0].issues[0].path).toStrictEqual(['items', 1, 'name']);
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+  });
 });
