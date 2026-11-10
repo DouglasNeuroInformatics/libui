@@ -16,18 +16,20 @@ export type NumberRecordFieldProps<T extends NumberRecordFieldValue = NumberReco
   BaseFieldComponentProps<NumberRecordFieldValue> & NumberRecordFormField<RequiredFieldValue<T>>
 >;
 
-export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecordFieldValue>({
-  disableAutoPrefix,
-  disabled,
-  error: recordError,
-  items,
-  label,
-  options,
-  readOnly,
-  setError: setRecordError,
-  setValue: setRecordValue,
-  value: recordValue
-}: NumberRecordFieldProps<T>) => {
+export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecordFieldValue>(
+  props: NumberRecordFieldProps<T>
+) => {
+  const {
+    disabled,
+    error: recordError,
+    items,
+    label,
+    readOnly,
+    setError: setRecordError,
+    setValue: setRecordValue,
+    value: recordValue
+  } = props;
+  const options = props.variant === 'likert' ? props.options : undefined;
   const optionsRef = useRef(options);
 
   useEffect(() => {
@@ -55,20 +57,25 @@ export const NumberRecordField = <T extends NumberRecordFieldValue = NumberRecor
       <div className="flex flex-col gap-6">
         {Object.keys(items).map((name) => {
           const item = items[name]!;
-          return (
+          const itemProps = {
+            error: recordError?.[name],
+            kind: 'number',
+            name,
+            readOnly: disabled || readOnly,
+            setError: (error: string[]) => setRecordError({ ...recordError, [name]: error }),
+            setValue: (value: number | undefined) => setRecordValue({ ...recordValue, [name]: value }),
+            value: recordValue?.[name],
+            ...item
+          } as const;
+          return props.variant === 'input' ? (
+            <NumberField key={name} variant="input" {...itemProps} />
+          ) : (
             <NumberField
-              disableAutoPrefix={disableAutoPrefix}
-              error={recordError?.[name]}
+              disableAutoPrefix={props.disableAutoPrefix}
               key={name}
-              kind="number"
-              name={name}
-              options={options}
-              readOnly={disabled || readOnly}
-              setError={(error) => setRecordError({ ...recordError, [name]: error })}
-              setValue={(value) => setRecordValue({ ...recordValue, [name]: value })}
-              value={recordValue?.[name]}
+              options={props.options}
               variant="radio"
-              {...item}
+              {...itemProps}
             />
           );
         })}

@@ -399,4 +399,54 @@ describe('Form', () => {
       expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
     });
   });
+
+  describe('number record with the input variant', () => {
+    const schema = z.object({ dimensions: z.object({ height: z.number('Required'), width: z.number('Required') }) });
+
+    beforeEach(() => {
+      render(
+        <Form
+          content={{
+            dimensions: {
+              items: { height: { label: 'Height' }, width: { label: 'Width' } },
+              kind: 'number-record',
+              label: 'Dimensions',
+              variant: 'input'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={schema}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+    });
+
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should render a number input for each item, and no radio buttons', () => {
+      expect(screen.getByLabelText<HTMLInputElement>('Height').type).toBe('text');
+      expect(screen.getByLabelText('Width')).toBeInTheDocument();
+      expect(screen.queryAllByRole('radio')).toHaveLength(0);
+    });
+
+    it('should submit the number entered for each item', async () => {
+      await userEvent.type(screen.getByLabelText('Height'), '12.5');
+      await userEvent.type(screen.getByLabelText('Width'), '30');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({ dimensions: { height: 12.5, width: 30 } });
+    });
+
+    it('should show the error of an item below that item', async () => {
+      await userEvent.type(screen.getByLabelText('Height'), '12');
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      const errors = screen.getAllByTestId('error-message-text');
+      expect(errors.map((e) => e.innerHTML)).toMatchObject(['Required']);
+      expect(errors[0]!.closest('[data-field-group]')).toHaveAttribute('data-field-group', 'width');
+    });
+  });
 });
