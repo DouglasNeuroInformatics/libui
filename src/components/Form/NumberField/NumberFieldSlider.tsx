@@ -36,12 +36,15 @@ export const NumberFieldSlider = ({
   showRange,
   value
 }: NumberFieldSliderProps) => {
-  // also applies after the form is reset, since the user cannot clear a slider
+  const isDisabled = Boolean(disabled || readOnly);
+
+  // also applies after the form is reset, since the user cannot clear a slider. A field that the user
+  // cannot change does not get a value.
   useEffect(() => {
-    if (value === undefined && defaultValue !== undefined) {
+    if (value === undefined && defaultValue !== undefined && !isDisabled) {
       setValue(defaultValue);
     }
-  }, [defaultValue, value]);
+  }, [defaultValue, isDisabled, value]);
 
   const isUnset = value === undefined;
   const midpoint = min + Math.round((max - min) / 2);
@@ -59,7 +62,7 @@ export const NumberFieldSlider = ({
       <FieldGroup.Row>
         <Slider
           data-unset={isUnset ? '' : undefined}
-          disabled={disabled || readOnly}
+          disabled={isDisabled}
           max={max}
           min={min}
           name={name}
@@ -67,7 +70,7 @@ export const NumberFieldSlider = ({
           // without a value, the thumb is displayed at the midpoint, so a click on it does not change the
           // position and would not otherwise select that value
           onPointerDown={() => {
-            if (isUnset) {
+            if (isUnset && !isDisabled) {
               setValue(midpoint);
             }
           }}

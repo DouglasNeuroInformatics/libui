@@ -26,7 +26,9 @@ const TestNumberFieldRadio = ({ options }: { options: { [key: number]: string } 
 };
 
 const TestNumberFieldSlider = (
-  props: Partial<Pick<NumberFieldSliderProps, 'defaultValue' | 'marks' | 'max' | 'min' | 'showRange'>>
+  props: Partial<
+    Pick<NumberFieldSliderProps, 'defaultValue' | 'disabled' | 'marks' | 'max' | 'min' | 'readOnly' | 'showRange'>
+  >
 ) => {
   const [value, setValue] = useState<number | undefined>();
   return (
@@ -106,6 +108,16 @@ describe('NumberField', () => {
       expect(screen.getByTestId('slider-thumb').closest('[data-unset]')).not.toBeInTheDocument();
     });
 
+    it.each(['disabled', 'readOnly'] as const)(
+      'should not select a value when the slider is pressed and is %s',
+      (prop) => {
+        render(<TestNumberFieldSlider {...{ [prop]: true }} />);
+        screen.getByTestId('slider-thumb').setPointerCapture = () => undefined;
+        fireEvent.pointerDown(screen.getByTestId('slider-thumb'));
+        expect(getDisplayedValue()).toBe('NA');
+      }
+    );
+
     it('should select a value with the keyboard when there is no value', () => {
       render(<TestNumberFieldSlider />);
       fireEvent.keyDown(screen.getByRole('slider'), { key: 'ArrowRight' });
@@ -117,6 +129,11 @@ describe('NumberField', () => {
       expect(getDisplayedValue()).toBe('3');
       expect(getThumbPosition()).toBe('3');
       expect(screen.getByTestId('slider-thumb').closest('[data-unset]')).not.toBeInTheDocument();
+    });
+
+    it('should not set the default value when the slider is read-only', () => {
+      render(<TestNumberFieldSlider readOnly defaultValue={3} />);
+      expect(getDisplayedValue()).toBe('NA');
     });
 
     it('should set the default value again when the value is cleared', () => {
