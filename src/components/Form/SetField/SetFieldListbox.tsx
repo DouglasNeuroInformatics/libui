@@ -5,6 +5,7 @@ import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 import type { SetFieldProps } from './SetField.tsx';
 
 export type SetFieldListboxProps<T extends string = string> = SetFieldProps<T> & {
+  isOptionDisabled: (option: T) => boolean;
   onCheckedChange: (option: T, isChecked: boolean) => void;
 };
 
@@ -12,6 +13,7 @@ export const SetFieldListbox = <T extends string = string>({
   description,
   disabled,
   error,
+  isOptionDisabled,
   label,
   name,
   onCheckedChange,
@@ -30,7 +32,7 @@ export const SetFieldListbox = <T extends string = string>({
           <FieldGroup.Row key={option}>
             <Checkbox
               checked={value?.has(option as T) ?? false}
-              disabled={disabled || readOnly}
+              disabled={disabled || readOnly || isOptionDisabled(option as T)}
               id={`${name}-${option}`}
               onCheckedChange={(checked) => {
                 onCheckedChange(option as T, !checked);
