@@ -122,6 +122,23 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
     subscribe.onChange(values, setValues);
   }, [subscribe?.selector(values)]);
 
+  /**
+   * Validate the values without the record arrays that the user did not fill in. If the schema reports
+   * an issue for an omitted record array (i.e., it is required), validate all values instead, so that
+   * the errors refer to the fields of its records and are displayed to the user.
+   */
+  const validate = async () => {
+    const valuesToValidate = getValuesToValidate(values);
+    const result = await validationSchema.safeParseAsync(valuesToValidate);
+    if (result.success) {
+      return result;
+    }
+    const isOmittedFieldRequired = result.error.issues.some(({ path: [fieldName] }) => {
+      return typeof fieldName === 'string' && fieldName in values && !(fieldName in valuesToValidate);
+    });
+    return isOmittedFieldRequired ? validationSchema.safeParseAsync(values) : result;
+  };
+
   const reset = () => {
     setRootErrors([]);
     setErrors({});
@@ -132,7 +149,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = await validationSchema.safeParseAsync(getValuesToValidate(values));
+    const result = await validate();
     if (!result.success) {
       console.error(result.error.issues);
       handleError(result.error);
@@ -171,8 +188,7 @@ const Form = <TSchema extends ZodTypeLike<FormDataType>, TData extends TSchema['
   const revalidate = () => {
     const hasErrors = Object.keys(errors).length > 0 || rootErrors.length;
     if (hasErrors) {
-      validationSchema
-        .safeParseAsync(getValuesToValidate(values))
+      validate()
         .then((result) => {
           if (!result.success) {
             handleError(result.error);

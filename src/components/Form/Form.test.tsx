@@ -448,6 +448,54 @@ describe('Form', () => {
       expect(onSubmit.mock.lastCall?.[0]).toStrictEqual({});
     });
 
+    it('should show the errors on the fields of the first record when the record array is required', async () => {
+      render(
+        <Form
+          content={{
+            items: {
+              fieldset: { name: { kind: 'string', label: 'Name', variant: 'input' } },
+              kind: 'record-array',
+              label: 'Item'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({ items: z.array(z.object({ name: z.string('Required') })) })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      expect(onError.mock.lastCall?.[0].issues[0].path).toStrictEqual(['items', 0, 'name']);
+      expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Required']);
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it('should not show errors on an empty optional record array when a different field is invalid', async () => {
+      render(
+        <Form
+          content={{
+            items: {
+              fieldset: { name: { kind: 'string', label: 'Name', variant: 'input' } },
+              kind: 'record-array',
+              label: 'Item'
+            },
+            title: { kind: 'string', label: 'Title', variant: 'input' }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({
+            items: z.array(z.object({ name: z.string('Name required') })).optional(),
+            title: z.string('Title required')
+          })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onError).toHaveBeenCalledOnce());
+      expect(screen.getAllByTestId('error-message-text').map((e) => e.innerHTML)).toMatchObject(['Title required']);
+    });
+
     it('should submit the records when a value is set', async () => {
       const name = renderForm(z.object({ name: z.string().min(1) }));
       await userEvent.type(name, 'Jane');
