@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.20.0](https://github.com/DouglasNeuroInformatics/libui/compare/v6.19.2...v6.20.0) (2026-11-10)
+
+### Features
+
+* add exclusive options to set fields ([cc58309](https://github.com/DouglasNeuroInformatics/libui/commit/cc58309f498a316a1f7a8bbc9068d490e953a1a4)), closes [#127](https://github.com/DouglasNeuroInformatics/libui/issues/127)
+
 ## [6.19.2](https://github.com/DouglasNeuroInformatics/libui/compare/v6.19.1...v6.19.2) (2026-10-30)
 
 ### Bug Fixes
