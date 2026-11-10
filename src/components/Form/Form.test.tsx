@@ -362,4 +362,41 @@ describe('Form', () => {
       expect(screen.queryByTestId('datetime-time-input')).not.toBeInTheDocument();
     });
   });
+
+  describe('set field exclusive options', () => {
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it('should pass exclusiveOptions from the content to the rendered field', async () => {
+      render(
+        <Form
+          content={{
+            symptoms: {
+              exclusiveOptions: ['none'],
+              kind: 'set',
+              label: 'Symptoms',
+              options: { headache: 'Headache', nausea: 'Nausea', none: 'None of the above' },
+              variant: 'listbox'
+            }
+          }}
+          data-testid={testid}
+          validationSchema={z.object({ symptoms: z.set(z.enum(['headache', 'nausea', 'none'])) })}
+          onError={onError}
+          onSubmit={onSubmit}
+        />
+      );
+      const headache = screen.getByRole('checkbox', { name: 'Headache' });
+      const none = screen.getByRole('checkbox', { name: 'None of the above' });
+      await userEvent.click(headache);
+      await userEvent.click(none);
+      expect(headache).toHaveAttribute('data-state', 'unchecked');
+      expect(headache).toBeDisabled();
+      expect(screen.getByRole('checkbox', { name: 'Nausea' })).toBeDisabled();
+      expect(none).toBeEnabled();
+      fireEvent.submit(screen.getByTestId(testid));
+      await waitFor(() => expect(onSubmit).toHaveBeenCalledOnce());
+      expect(onSubmit).toHaveBeenCalledWith({ symptoms: new Set(['none']) });
+    });
+  });
 });

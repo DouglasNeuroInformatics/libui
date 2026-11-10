@@ -5,6 +5,7 @@ import { FieldGroup } from '../FieldGroup/FieldGroup.tsx';
 import type { SetFieldProps } from './SetField.tsx';
 
 export type SetFieldSelectProps<T extends string = string> = SetFieldProps<T> & {
+  isOptionDisabled: (option: T) => boolean;
   onCheckedChange: (option: T, isChecked: boolean) => void;
 };
 
@@ -12,6 +13,7 @@ export const SetFieldSelect = <T extends string = string>({
   description,
   disabled,
   error,
+  isOptionDisabled,
   label,
   name,
   onCheckedChange,
@@ -42,13 +44,18 @@ export const SetFieldSelect = <T extends string = string>({
         <DropdownMenu.Content widthFull align="start">
           {Object.keys(options).map((option) => {
             const checked = value.has(option as T);
+            const isDisabled = isOptionDisabled(option as T);
             return (
               <DropdownMenu.CheckboxItem
                 checked={checked}
+                disabled={isDisabled}
                 key={option}
                 onSelect={(event) => {
                   event.preventDefault();
-                  onCheckedChange(option as T, value.has(option as T));
+                  if (isDisabled) {
+                    return;
+                  }
+                  onCheckedChange(option as T, checked);
                 }}
               >
                 {options[option as T]}
