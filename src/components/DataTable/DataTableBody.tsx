@@ -5,7 +5,7 @@ import { cn } from '#utils';
 
 import { DataTableEmptyState } from './DataTableEmptyState.tsx';
 import { useDataTableHandle } from './hooks.ts';
-import { flexRender } from './utils.tsx';
+import { flexRender, getSizeVariableName } from './utils.tsx';
 
 import type { DataTableContentProps } from './types.ts';
 
@@ -45,7 +45,7 @@ export const DataTableBody: FC<
           >
             {row.getVisibleCells().map((cell) => {
               const style: CSSProperties = {
-                width: `calc(var(--col-${cell.column.id}-size) * 1px)`
+                width: `calc(var(${getSizeVariableName('col', cell.column.id)}) * 1px)`
               };
               if (cell.column.getIsPinned() === 'left') {
                 style.left = `${cell.column.getStart('left')}px`;

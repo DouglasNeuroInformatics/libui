@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 
 import { ACTIONS_COLUMN_ID } from './constants.ts';
 import { useDataTableHandle } from './hooks.ts';
-import { flexRender } from './utils.tsx';
+import { flexRender, getSizeVariableName } from './utils.tsx';
 
 export const DataTableHead = () => {
   const headerGroups = useDataTableHandle('headerGroups');
@@ -16,7 +16,7 @@ export const DataTableHead = () => {
             const style: CSSProperties = {
               // TODO - add more robust solution - should be able to block centering also - also set correct typing
               justifyContent: header.column.columnDef.meta?.centered ? 'center' : 'start',
-              width: `calc(var(--header-${header?.id}-size) * 1px)`
+              width: `calc(var(${getSizeVariableName('header', header.id)}) * 1px)`
             };
             if (header.column.getIsPinned() === 'left') {
               style.left = `${header.column.getStart('left')}px`;

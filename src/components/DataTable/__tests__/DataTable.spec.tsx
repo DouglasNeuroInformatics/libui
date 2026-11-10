@@ -61,6 +61,23 @@ describe('DataTable', () => {
     expect(root).toHaveStyle({ backgroundColor: 'blue' });
     expect(root.style.getPropertyValue('--data-table-accent')).toBe('red');
   });
+  it('should set valid CSS variables for a column whose ID contains spaces', () => {
+    render(
+      <DataTable
+        columns={[{ accessorFn: (row) => row.email, header: 'Email', id: 'Email Address (work)' }, ...columns.slice(2)]}
+        data={data}
+      />
+    );
+    const style = screen.getByTestId('data-table-head').parentElement!.getAttribute('style')!;
+    const variableNames = style
+      .split(';')
+      .map((declaration) => declaration.split(':')[0]!.trim())
+      .filter((name) => name.endsWith('-size'));
+    expect(variableNames).toHaveLength(4);
+    for (const name of variableNames) {
+      expect(name).toMatch(/^--[a-zA-Z0-9_-]+$/);
+    }
+  });
   it('should search', async () => {
     render(<DataTable columns={columns} data={data} />);
     const searchBar = screen.getByTestId('data-table-search-bar').querySelector('input')!;

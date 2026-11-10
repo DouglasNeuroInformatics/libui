@@ -17,6 +17,7 @@ import {
   defineMemoizedHandle,
   getColumnPinningWithActions,
   getColumnsWithActions,
+  getSizeVariableName,
   getTanstackTableState
 } from './utils.tsx';
 
@@ -63,8 +64,8 @@ export function createDataTableStore<T>(params: DataTableStoreParams<T>) {
           style.visibility = 'visible';
         }
         for (const header of headers) {
-          style[`--header-${header.id}-size`] = header.getSize();
-          style[`--col-${header.column.id}-size`] = header.column.getSize();
+          style[getSizeVariableName('header', header.id)] = header.getSize();
+          style[getSizeVariableName('col', header.column.id)] = header.column.getSize();
         }
         return { style };
       });
